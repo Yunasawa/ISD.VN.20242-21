@@ -1,0 +1,28 @@
+1. Repository Management Rule
+- Branches should only contains the updates related to them.
+- Never commit updates that not related to project.
+- Discuss with PM immediately if you have any questions about commiting or creating a branch.
+
+2: Commit Message Tag
+[WIP] Work in Progress: Used with commits of a function that are not yet complete.
+[FEA] Feature: Used with commits of a feature that are completed and ready for review.
+[RLS] Release: Used with commits of a version that can be released.
+[FIX] Bug Fix: Used with commits that fix bugs.
+[DOC] Documentation: Used with commits that create or update documentation.
+[REF] Refactor: Used with commits that refactor code without changing functionality.
+[TES] Test: Used with commits that add or update tests.
+
+3: Commit Message Format
+[WIP]/[FEA]/[RLS]/[FIX]/[DOC]/[REF]/[TES] <Short Description>
+<Long Description> (if needed)
+Note: 
+- [WIP] may not have message body if it has been added to the previous message.
+
+4: Branch Naming Rule
+<main branch name>/<details or functions>
+Example: feature/login-function, feature/payment-method, feature/map-api-adding, test/data-generation
+Note:
+- All words in the branch name should be lowercase.
+- Use hyphen (-) to separate words.
+- Use slash (/) to separate main branch name and details or functions.
+- Details or functions should be two or more words. (feature/data is wrong, should be feature/data-generation)
