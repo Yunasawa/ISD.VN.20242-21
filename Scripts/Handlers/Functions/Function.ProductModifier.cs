@@ -4,17 +4,17 @@
     {
         public class ProductModifier
         {
-            public void Add(MediaUnit media)
+            public void AddProduct(MediaUnit media)
             {
 
             }
 
-            public void Remove(UID id)
+            public void RemoveProduct(UID id)
             {
 
             }
 
-            public void Update(UID id)
+            public void UpdateProduct(UID id)
             {
 
             }
