@@ -8,6 +8,7 @@ be set to different values. This will allow for more flexibility and easier main
 - Complete Add(), Remove() & Update() functions in Function.ProductModifier.cs
 - Refactor classes & structs in Media.cs to separated files.
 - Complete Function.OrderPlacer 
-- Complete Function.MediaReviewer 
+- Complete Function.MediaReviewer
+- Complete Function.CartProcessor
 
 # Programing Notes
