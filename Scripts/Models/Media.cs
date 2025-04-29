@@ -1,4 +1,6 @@
-﻿namespace MediaStore
+﻿using System.Collections.Concurrent;
+
+namespace MediaStore
 {
     public class MediaUnit
     {
@@ -11,12 +13,24 @@
     public class MediaInformation
     {
         public string Title { get; set; } = string.Empty;
-        public Dictionary<MediaProperty, string> Properties { get; set; } = new();
+        public ConcurrentDictionary<MediaProperty, string> Properties { get; set; } = new();
     }
 
     public class MediaPrice
     {
+        public float BasePrice { get; set; } = 0;
+        public float Discount { get; set; } = 0;
+        public float Tax { get; set; } = 0;
 
+        public float FinalPrice
+        {
+            get
+            {
+                var discountedPrice = BasePrice * (1 - Discount / 100);
+                var taxAmount = discountedPrice * (Tax / 100);
+                return discountedPrice + taxAmount;
+            }
+        }
     }
 
     public class MediaReview
@@ -41,7 +55,7 @@
             }
         }
 
-        public List<ReviewFeedback> Feedbacks { get; set; } = new ();
+        public List<ReviewFeedback> Feedbacks { get; set; } = new();
     }
 
     public class ReviewFeedback
@@ -68,6 +82,6 @@
 
     public enum MediaProperty
     {
-
+        
     }
 }
