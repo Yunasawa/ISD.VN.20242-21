@@ -4,7 +4,7 @@ namespace MediaStore
 {
     public struct UID
     {
-        public static ConcurrentDictionary<IDType, UID> UIDs = new();
+        public static ConcurrentDictionary<UIDType, UID> UIDs = new();
 
         private uint _id;
 
@@ -31,5 +31,10 @@ namespace MediaStore
         {
             return _id.GetHashCode();
         }
+    }
+
+    public enum UIDType
+    {
+        Account,
     }
 }
