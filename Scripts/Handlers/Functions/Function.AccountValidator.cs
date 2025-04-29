@@ -4,18 +4,18 @@
     {
         public class AccountValidater
         {
-            private Account? GetAccount(AccountVerificationType type, string input)
+            private static Account? GetAccount(AccountVerificationType type, string input)
             {
                 return type == AccountVerificationType.Email
                     ? DataContainer.Accounts?.Find(i => i.Email == input)
                     : DataContainer.Accounts?.Find(i => i.PhoneNumber == input);
             }
-            private Account? GetAccount(UID id)
+            private static Account? GetAccount(UID id)
             {
                 return DataContainer.Accounts?.Find(i => i.ID == id);
             }
 
-            public void SignAccount(AccountSignType signType, AccountVerificationType verificationType, string input, string password, string? confirmedPassword = null)
+            public static void SignAccount(AccountSignType signType, AccountVerificationType verificationType, string input, string password, string? confirmedPassword = null)
             {
                 Account? account = GetAccount(verificationType, input);
 
@@ -80,7 +80,7 @@
                 }
             }
 
-            public void DeleteAccount(UID id)
+            public static void DeleteAccount(UID id)
             {
                 Account? account = GetAccount(id);
 
