@@ -7,4 +7,22 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Designs\Architectural Designs\**" />
+    <Compile Remove="Designs\Detailed Designs\**" />
+    <Compile Remove="Designs\SRS\**" />
+    <EmbeddedResource Remove="Designs\Architectural Designs\**" />
+    <EmbeddedResource Remove="Designs\Detailed Designs\**" />
+    <EmbeddedResource Remove="Designs\SRS\**" />
+    <None Remove="Designs\Architectural Designs\**" />
+    <None Remove="Designs\Detailed Designs\**" />
+    <None Remove="Designs\SRS\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove=".gitignore" />
+    <None Remove="MediaStore.csproj.Backup.tmp" />
+    <None Remove="README.md" />
+  </ItemGroup>
+
 </Project>
