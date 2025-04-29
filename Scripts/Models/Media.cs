@@ -2,6 +2,11 @@
 
 namespace MediaStore
 {
+    public class MediaContainer
+    {
+        public List<MediaUnit> MediaUnits { get; set; } = new();
+    }
+
     public class MediaUnit
     {
         public MediaType Type { get; set; }

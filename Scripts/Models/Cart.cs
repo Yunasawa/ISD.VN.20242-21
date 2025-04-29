@@ -1,6 +1,6 @@
 ﻿namespace MediaStore
 {
-    public class CartList
+    public class CartContainer
     {
         public List<CartItem> Items { get; set; } = new();
     }
