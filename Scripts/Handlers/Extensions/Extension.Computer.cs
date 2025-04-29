@@ -6,7 +6,7 @@ namespace MediaStore
     {
         public static class Computer
         {
-            public static UID GetNextID(IDType type)
+            public static UID GetNextID(UIDType type)
             {
                 if (!UID.UIDs.ContainsKey(type))
                 {
