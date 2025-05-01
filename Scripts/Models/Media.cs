@@ -4,7 +4,7 @@ namespace MediaStore
 {
     public class MediaContainer
     {
-        public List<MediaUnit> MediaUnits { get; set; } = new();
+        public ConcurrentDictionary<UID, MediaUnit> MediaUnits { get; set; } = new();
     }
 
     public class MediaUnit
@@ -87,6 +87,7 @@ namespace MediaStore
 
     public enum MediaProperty
     {
-        
+        Author,
+        Genre
     }
 }
