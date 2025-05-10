@@ -220,7 +220,7 @@ project.lock.json
 
 # UWP Projects
 AppPackages/
-
+ProblemStatement.txt
 #####
 # End of core ignore list, below put you custom 'per project' settings (patterns or path)
 #####
