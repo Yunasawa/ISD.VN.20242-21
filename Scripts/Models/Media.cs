@@ -82,12 +82,27 @@ namespace MediaStore
     {
         CD,
         DVD,
-        Book
+        Book,
+        LP
     }
 
     public enum MediaProperty
     {
         Author,
-        Genre
+        Genre,
+        CoverType,
+        Publisher,
+        PublicationDate,
+        NumberOfPages,
+        Language,
+        Artist,
+        RecordLabel,
+        Tracklist,
+        ReleaseDate,
+        DiscType,
+        Director,
+        Runtime,
+        Studio,
+        Subtitles
     }
 }
