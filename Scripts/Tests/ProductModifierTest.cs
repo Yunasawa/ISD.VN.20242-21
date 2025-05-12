@@ -28,6 +28,13 @@ namespace MediaStore.Tests
             Test_AddProduct_NullUID_ThrowsException(); // Example of further test for robustness
             Test_RemoveProduct_NullUID_ThrowsException(); // Example of further test for robustness
 
+            // UpdateProduct Tests
+            Test_UpdateProduct_ExistingProperty_Success();
+            Test_UpdateProduct_AddNewProperty_Success();
+            Test_UpdateProduct_MultipleProperties_Success();
+            Test_UpdateProduct_NonExistentProduct_ThrowsMediaNotFoundException();
+            Test_UpdateProduct_EmptyModifiers_NoChange();
+            Test_UpdateProduct_NullModifiers_ThrowsNullReferenceException();
 
             Console.WriteLine("ProductModifier Tests Completed.");
             // Simple report
@@ -152,9 +159,6 @@ namespace MediaStore.Tests
             {
                 // If adding UID(0) legitimately throws (e.g. duplicate after another test added it without Setup),
                 // this isn't the test for it. This test is for *invalid* UIDs.
-                Console.WriteLine($"- Test Skipped/Ambiguous: {testName} - UID(0) behavior depends on other constraints or prior state if Setup() is not perfectly isolating. Current UID struct doesn't have an 'invalid' state other than duplicates.");
-                // To make this a real test for invalid UIDs, UID struct itself would need a concept of invalidity
-                // or the method would need to define certain UIDs as not permissible.
             }
         }
 
@@ -167,6 +171,104 @@ namespace MediaStore.Tests
             // AssertThrows<ArgumentException>(() => productModifier.RemoveProduct(new UID(0)), testName);
             // As it stands, removing UID(0) should throw MediaNotFoundException if it's not there.
             AssertThrows<MediaNotFoundException>(() => productModifier.RemoveProduct(new UID(0)), testName + " - Removing UID(0) (non-existent)");
+        }
+
+        // --- UpdateProduct Tests ---
+        public void Test_UpdateProduct_ExistingProperty_Success()
+        {
+            Setup();
+            string testName = nameof(Test_UpdateProduct_ExistingProperty_Success);
+            UID productId = new UID(1);
+            productModifier.AddProduct(productId);
+
+            // Pre-populate a property
+            var initialModifiers = new[] { (MediaProperty.Author, "Old Author") };
+            productModifier.UpdateProduct(productId, initialModifiers);
+            AssertTrue(DataContainer.MediaContainer.MediaUnits[productId].Information.Properties[MediaProperty.Author] == "Old Author", testName + " - Precondition failed: Initial author not set");
+
+            var updateModifiers = new[] { (MediaProperty.Author, "New Author") };
+            productModifier.UpdateProduct(productId, updateModifiers);
+
+            AssertTrue(DataContainer.MediaContainer.MediaUnits[productId].Information.Properties.ContainsKey(MediaProperty.Author), testName + " - Author property should exist");
+            AssertTrue(DataContainer.MediaContainer.MediaUnits[productId].Information.Properties[MediaProperty.Author] == "New Author", testName + " - Author should be updated");
+        }
+
+        public void Test_UpdateProduct_AddNewProperty_Success()
+        {
+            Setup();
+            string testName = nameof(Test_UpdateProduct_AddNewProperty_Success);
+            UID productId = new UID(1);
+            productModifier.AddProduct(productId);
+
+            var modifiers = new[] { (MediaProperty.Genre, "Sci-Fi") };
+            productModifier.UpdateProduct(productId, modifiers);
+
+            AssertTrue(DataContainer.MediaContainer.MediaUnits[productId].Information.Properties.ContainsKey(MediaProperty.Genre), testName + " - Genre property should exist");
+            AssertTrue(DataContainer.MediaContainer.MediaUnits[productId].Information.Properties[MediaProperty.Genre] == "Sci-Fi", testName + " - Genre should be set");
+        }
+
+        public void Test_UpdateProduct_MultipleProperties_Success()
+        {
+            Setup();
+            string testName = nameof(Test_UpdateProduct_MultipleProperties_Success);
+            UID productId = new UID(1);
+            productModifier.AddProduct(productId);
+
+            var modifiers = new[]
+            {
+                (MediaProperty.Author, "Author Name"),
+                (MediaProperty.Genre, "Fantasy"),
+                (MediaProperty.Publisher, "Awesome Books")
+            };
+            productModifier.UpdateProduct(productId, modifiers);
+
+            var properties = DataContainer.MediaContainer.MediaUnits[productId].Information.Properties;
+            AssertTrue(properties.ContainsKey(MediaProperty.Author) && properties[MediaProperty.Author] == "Author Name", testName + " - Author not updated correctly");
+            AssertTrue(properties.ContainsKey(MediaProperty.Genre) && properties[MediaProperty.Genre] == "Fantasy", testName + " - Genre not updated correctly");
+            AssertTrue(properties.ContainsKey(MediaProperty.Publisher) && properties[MediaProperty.Publisher] == "Awesome Books", testName + " - Publisher not updated correctly");
+        }
+
+        public void Test_UpdateProduct_NonExistentProduct_ThrowsMediaNotFoundException()
+        {
+            Setup();
+            string testName = nameof(Test_UpdateProduct_NonExistentProduct_ThrowsMediaNotFoundException);
+            UID productId = new UID(1); // Product not added
+
+            var modifiers = new[] { (MediaProperty.Author, "Some Author") };
+            AssertThrows<MediaNotFoundException>(() => productModifier.UpdateProduct(productId, modifiers), testName);
+        }
+
+        public void Test_UpdateProduct_EmptyModifiers_NoChange()
+        {
+            Setup();
+            string testName = nameof(Test_UpdateProduct_EmptyModifiers_NoChange);
+            UID productId = new UID(1);
+            productModifier.AddProduct(productId);
+
+            // Add an initial property (e.g., Author) to see if it gets wiped out or changed
+            // Title is a direct property of MediaInformation, not in the Properties dictionary modified by UpdateProduct.
+            var initialProperties = new[] { (MediaProperty.Author, "Original Author") };
+            productModifier.UpdateProduct(productId, initialProperties);
+            AssertTrue(DataContainer.MediaContainer.MediaUnits[productId].Information.Properties.ContainsKey(MediaProperty.Author), testName + " - Precondition: Author should be set");
+            int initialPropertyCount = DataContainer.MediaContainer.MediaUnits[productId].Information.Properties.Count;
+
+            var emptyModifiers = Array.Empty<(MediaProperty, string)>();
+            productModifier.UpdateProduct(productId, emptyModifiers);
+
+            AssertTrue(DataContainer.MediaContainer.MediaUnits[productId].Information.Properties.Count == initialPropertyCount, testName + " - Property count should not change");
+            AssertTrue(DataContainer.MediaContainer.MediaUnits[productId].Information.Properties[MediaProperty.Author] == "Original Author", testName + " - Original Author should remain unchanged");
+        }
+
+        public void Test_UpdateProduct_NullModifiers_ThrowsNullReferenceException()
+        {
+            Setup();
+            string testName = nameof(Test_UpdateProduct_NullModifiers_ThrowsNullReferenceException);
+            UID productId = new UID(1);
+            productModifier.AddProduct(productId);
+
+            // Note: Current implementation of UpdateProduct will throw NullReferenceException if modifiers is null.
+            // A more robust implementation might throw ArgumentNullException or handle it gracefully.
+            AssertThrows<NullReferenceException>(() => productModifier.UpdateProduct(productId, null), testName);
         }
     }
 }
