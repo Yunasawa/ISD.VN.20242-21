@@ -22,6 +22,8 @@ namespace YNL.Checkotel
         private VisualElement _signInWithFacebookButton;
         private VisualElement _signInWithGoogleButton;
 
+        private Label _switchText;
+
         private void Awake()
         {
             Marker.OnSystemStart += Collect;
@@ -64,6 +66,8 @@ namespace YNL.Checkotel
 
             _signingButton = signingInputField.Q("SigningButton") as Button;
             _signingButton.clicked += SigningAccount;
+
+            _switchText = _root.Q("SwitchLabel").Q("SwitchText") as Label;
         }
 
         private void OnValueChanged_AccountInputField(ChangeEvent<string> evt)
