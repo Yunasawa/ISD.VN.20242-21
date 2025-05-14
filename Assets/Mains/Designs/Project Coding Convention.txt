@@ -1,0 +1,30 @@
+1. Naming Conventions
+- Namespace: use Pascal case (Project.Core.Handler).
+
+- Class: use Pascal Case (MyClass), extension class should have "M" prefix (MMath, MCollection).
+- Struct: use Pascal Case (MyStruct).
+- Interface: use Pascal Case with "I" prefix, use verb in -able form (IObservable, ICollectable).
+- Enum: use Pascal Case (MyEnum).
+- Delegate/Event: use Pascal Case (MyAction).
+
+- Private & Protected Variables: use Snake Camel Case (_myVariable).
+- Public Variables: use Pascal Case (MyPublicVariable).
+- Constants: use Snake Upper Case (MY_CONSTANT).
+
+- Private, Protected & Public Methods: use Pascal Case (MyMethod).
+
+2. File Conventions:
+- File name should be in Plural Form (Scripts/Handlers/AppManager.cs)
+- Partial parts of a class should be in individual files with different names. (Event.Account.cs and Event.Payment.cs)
+
+3. Access Modifiers
+- Use 'private' & 'protected' anywhere possible.
+- Priority: 
+    + public > protected > private
+    + Constants > Properties > Fields > Constructors > Methods
+
+4. Code Formatting
+- Never break method parameters into multiple lines.
+- Use 4 spaces for indentation (TAB).
+- A line should not exceed 120 characters, excepts for method parameters.
+- Operator should be surrounded by spaces and may be separated in multiple lines.

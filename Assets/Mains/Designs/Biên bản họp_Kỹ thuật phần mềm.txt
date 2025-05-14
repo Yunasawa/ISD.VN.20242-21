@@ -1,0 +1,45 @@
+Kỹ thuật phần mềm:
+
+*Nội dung họp 18/3/2025
+
+1.Quy mô của project mình làm (chức năng cho từng actor, phần UIUX)
+
+	- Actor:
+		+ Khách hàng:
+			* Đăng ký, đăng nhập: email, sdt, tk google,...
+			* Tìm kiếm khách sạn: tên, vị trí,...
+			* Xem thông tin chi tiết phòng: ảnh, đánh giá, giá,...
+			* Lọc thông tin khách sạn
+			* Đặt phòng / Hủy (nếu chủ khách sạn chưa xác nhận)
+			* Thanh toán: ...
+			* Đánh giá
+		+ Chủ khách sạn:
+			* Đăng ký và xác thực khách sạn
+			* Quản lý phòng khách sạn: thêm, sửa, xóa...
+			* Xem danh sách đặt phòng
+			* Quản lý đơn
+			* Quản lý doanh thu, thống kê
+		+ Quản lý hệ thống:
+			* Duyệt khách sạn mới đăng ký
+			* Quản lý người dùng, khách sạn	
+			* Kiểm soát đánh giá, phản hồi khách hàng
+	- UI/UX:
+
+2.Thời gian họp free hằng tuần (Dành ra khoảng 30p mỗi tuần nên mọi người cố gắng khớp ít nhất khoảng 4/5 người)
+
+	- Từ 9:30 PM đến 11:00 PM thứ 3 hoặc thứ 4
+
+3.Công nghệ sử dụng 
+	
+	- MySQL
+	- Backend: .Net C#
+	- Frontend: MAUI
+
+4.Link github
+	
+	- https://github.com/ducbaok/Group03_Hotel_Management
+
+5.Phân chia nhiệm vụ (mô hình Agile)
+
+	- Học công nghệ: hạn đến 30/3
+----------------------------------------------------------------------------------------------------------------------
