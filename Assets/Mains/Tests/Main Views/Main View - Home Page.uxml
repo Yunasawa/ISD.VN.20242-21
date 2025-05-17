@@ -8,7 +8,7 @@
                 <engine:VisualElement name="Slide2" style="flex-grow: 1; height: 100%; background-image: resource(&apos;Images/Samples/Book Covers/The Curse of Mene&apos;); -unity-background-scale-mode: scale-and-crop;" />
                 <engine:VisualElement name="Slide3" style="flex-grow: 1; height: 100%; background-image: resource(&apos;Images/Samples/Book Covers/Junior Year Bites&apos;); -unity-background-scale-mode: scale-and-crop;" />
             </engine:VisualElement>
-            <engine:VisualElement name="FadedPart" style="position: absolute; bottom: -5px; width: 100%; background-image: resource(&apos;Images/CLEAR_Faded&apos;); top: 0;" />
+            <engine:VisualElement name="FadedPart" style="position: absolute; bottom: -5px; width: 100%; background-image: resource(&apos;Images/CLEAR_Faded&apos;); top: 0; -unity-background-image-tint-color: rgb(32, 32, 32);" />
         </engine:VisualElement>
         <engine:VisualElement name="MostPopularListView" style="margin-top: 30px; margin-bottom: 75px;">
             <engine:VisualElement name="LabelField" style="width: 100%; padding-left: 50px; padding-right: 50px; flex-direction: row; height: 75px; margin-bottom: 20px;">
