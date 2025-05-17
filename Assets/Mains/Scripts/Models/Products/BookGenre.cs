@@ -1,0 +1,43 @@
+namespace YNL.JAMOS
+{
+    public enum BookGenre : byte
+    {
+        Fiction,
+        NonFiction,
+        Mystery,
+        Thriller,
+        Fantasy,
+        ScienceFiction,
+        Romance,
+        Horror,
+        Historical,
+        Biography,
+        Memoir,
+        Poetry,
+        Drama,
+        Adventure,
+        Crime,
+        Comedy,
+        GraphicNovel,
+        Children,
+        YoungAdult,
+        SelfHelp,
+        Psychology,
+        Philosophy,
+        Business,
+        Economics,
+        Science,
+        Technology,
+        Education,
+        Religion,
+        Spirituality,
+        Travel,
+        Cookbooks,
+        Art,
+        Music,
+        Health,
+        Sports,
+        Political,
+        TrueCrime
+    }
+}
