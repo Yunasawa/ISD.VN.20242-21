@@ -1,0 +1,136 @@
+AIMS Project is a desktop e-commerce software that operates 24/7, allowing new users to easily
+familiarize themselves. This software can serve up to 1,000 customers simultaneously without
+significantly reducing performance and can operate continuously for 300 hours without failure.
+Additionally, the software can resume normal operation within a maximum of 1 hour after an
+incident. The maximum response time of the software is 2 seconds under normal conditions or 5
+seconds during peak hours. 
+In AIMS, product managers can add, view, edit, or delete any product. However, product
+managers can only add or edit one product at a time, but they can delete up to 10 products at
+once. Furthermore, product managers cannot delete or update more than 30 products for
+security reasons, but they can add an unlimited number of products in a day. 
+When wanting to add a product for sale, the product manager needs to provide the required
+information as requested by the software. For each media product, the product manager needs
+to provide the title, category, value, and current price. The value and price of the product that
+he/she enters do not include a 10% value-added tax (VAT). Depending on the type of product,
+the product manager needs to provide information such as: 
+• Books require information about authors, cover type (paperback or hardcover), publisher,
+and publication date; additional information such as number of pages, language, and
+genre may be included.
+• CDs, including music collections or albums, require information about artists, record label,
+tracklist, and genre; additional information such as release date may be included.
+• LP records have similar information requirements to CDs.
+• DVDs require information about disc type (Blu-ray, HD-DVD), director, runtime, studio,
+language, and subtitles; additional information such as release date and genre may be
+included. 
+Currently, the software only allows the buying and selling of physical media products. For these
+types of products, a barcode, product description (e.g., new, used, primary color, condition for
+return), quantity, warehouse entry date, product dimensions, and weight are required. Physical
+products can be books, CDs, LP records, or DVDs.
+The price of the product may change depending on market demand. Product managers can
+update the price of a product up to twice a day. However, the price of the product must always
+be between 30% and 150% of the product value to avoid price inflation or undercutting. 
+The software will store a history of product addition, editing, and deletion operations and will
+notify the product manager if any operation is invalid. For example, when the input does not
+comply with the rules or the date format is incorrect. 
+Administrators can create new users, view user information, update user information, delete
+users, and reset passwords of users. They can block or unblock users as needed. The software
+will automatically send email notifications to users for administrative actions. Administrators can
+set or change the roles of users. Each user can have multiple roles, such as administrator or
+product manager. Administrators and product managers need to log in to access the features
+corresponding to their roles. They also can change password.
+For customers, when starting the software, a list of 20 random products will be displayed on each
+page. To search for products, customers use product attributes to search. The software will
+display 20 related products on each search page. Additionally, customers can sort products by
+price. Customers can view the detail information of each product when choosing the
+corresponding product in the list of product screen. Customer can add products with
+corresponding quantities to the current cart in the list of product or product detail screen.
+When customers asks to view the cart, the software will display cart information, including the
+total price of products excluding VAT, a list of products with product information (product name,
+quantity, and price). At the same time, the software will also notify customers if the inventory
+quantity of any product is insufficient and will display the quantity of each product that is lacking.
+When changing their mind, customers can also remove products from the cart or change the
+quantity of products in the cart. Additionally, there is only one cart per software session, and the
+cart will be emptied after successfully paying for an order. 
+To place a successful order, customers need to proceed with ordering and payment. Within the
+scope of the course, customers do not need to log in to place an order. When placing an order,
+customers need to provide delivery information (including recipient name, email, phone number,
+province/city for delivery, and delivery address), as well as payment information. 
+Before placing an order, customers need to review the cart and select the products they want to
+purchase. From here, customers can request to place an order. Each time a customer requests
+to place an order, the software will always check whether the inventory quantity is sufficient to
+provide to the customer. The software will ask customers to update the cart if the inventory
+quantity is insufficient and will display the inventory quantity for each unmet product. After
+updating the cart, customers can request to place the order again. 
+Next, the software will ask customers to set up delivery information. During the process of
+entering delivery information, customers will still see the products and information as in the cart.
+At this time, the software will check the input information and ask customers to update if there
+are any required fields left blank or invalid information. Each time customers enter or update the
+delivery address, the software will calculate (or recalculate) and display the delivery fee.
+Customers then can proceed to pay the order. At this point, the software will display and 
+temporarily save invoice information, including the list of products in the cart, quantity, product
+prices, total product price excluding VAT, total product price including VAT, delivery fee, and total
+amount to be paid. The total amount that customers need to pay includes the total product price
+including VAT and the delivery fee. Then, the software will allow customers to choose the
+payment method. In the scope of this course, there is only one option to pay by credit cards.
+However, in the future, we may extend to other payment methods. The AIMS software connects
+to VNPay for further payment process by credit cards. Customers need to provide all the
+necessary information and steps as requested by VNPay to successfully complete the transaction.
+Customers have the option to select rush order delivery. Rush order delivery allows customers
+to receive their items within a prearranged timeframe of 2 hours. Currently, rush order delivery
+is only available for addresses within the inner city of Hanoi (only districts). If a customer wishes
+to opt for rush order delivery, the software checks whether the delivery address supports this
+service and if any products are eligible. If no products are eligible or the delivery address doesn't
+support rush order delivery, the software prompts the customer to update the delivery
+information or delivery method. In cases where both the products and delivery address support
+rush order delivery, the software requests additional rush order delivery information from the
+customer (delivery time for rush order delivery, delivery instructions) and simultaneously
+provides the following information: 
+• If only certain products are eligible for rush order delivery, these items will be delivered
+together to the designated rush order delivery location at the prearranged time. Products
+that are not eligible for rush order delivery will be delivered as usual. Delivery fees will be
+calculated and displayed separately for regular delivery items (if any) and rush order
+delivery items.
+• If all products in the order are eligible for rush order delivery, they will be delivered
+together to the designated rush order delivery location at the prearranged time. Delivery
+fees will be calculated and displayed for this group of products. 
+
+Customers can adjust the delivery method or the items they wish to purchase if necessary. The
+software recalculates the delivery fees and updates the corresponding invoice. Delivery fees
+depend on the weight of the products and the delivery location.
+• Shipping fees are not subject to tax.
+• Orders with a total value of the items exceeding 100,000 VND will qualify for free
+shipping, up to a maximum of 25,000 VND per order. This provision does not apply to rush
+order delivery items. Consequently, customers always incur separate shipping fees for
+rush order delivery items. The total order value to qualify for free shipping does not
+include rush order delivery items.
+• Shipping fees are calculated based on the weight of the heaviest item.
+• For customers located in the inner city of Hanoi or Ho Chi Minh City, the initial price for
+the first 3kg is 22,000 VND.
+• For customers elsewhere in Vietnam, the initial price for the first 0.5kg is 30,000 VND.
+• An additional fee of 2,500 VND is charged for every subsequent 0.5kg. 
+• In the case of opting for rush order delivery, customers will be charged an additional
+10,000 VND per rush order delivery item. 
+After a successful payment, the software will display general information of the order (customer
+name, phone number, shipping address, province, total amount) and transaction information
+(transaction ID, transaction content and transaction datetime). The order will be in a pending
+processing state, and the software will send invoice and payment transaction information to the
+customer's email. Note that customers can go back to any step or exit the software during the
+ordering process. Finally, the software records the payment transaction information and the
+successfully paid order. 
+Customers can view order information or cancel orders using the linkssent in the email regarding
+the order and transaction. Customers can view all information about the order, including the
+invoice, shipping information, and payment transaction information. Customers can choose to
+cancel the order when viewing the order information before the order is approved. After the
+customer confirms the cancellation, the full amount will be refunded to the payment method
+used for this order through VNPay. 
+Orders in the pending processing state will be reviewed or rejected by the product manager. The
+product manager can see 30 pending orders on each page. From there, they can select a specific
+order to view the details and approve or reject the order even if there are enough products in
+stock. There are various reasons such as undelivered items, out of stock while the customer is
+paying for the order, or simply cannot find the item in stock. However, the software will reject
+accepting the order if there are not enough products in stock. 
+Within the scope of the course, students connect to VNPay Sandbox for any payment or refund
+transaction. Some information and specifications about the payment gateway can be found at:
+• Demo at https://sandbox.vnpayment.vn/apis/vnpay-demo/
+• Payment API specification: https://sandbox.vnpayment.vn/apis/docs/thanh-toanpay/pay.html
+• Query and refund API specification: https://sandbox.vnpayment.vn/apis/docs/truy-vanhoan-tien/querydr&refund.html
