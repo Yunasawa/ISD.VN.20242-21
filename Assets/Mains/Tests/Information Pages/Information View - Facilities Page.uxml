@@ -26,4 +26,5 @@
             <engine:Label text="Has spa" name="Label" class="filter-attribute-toggle__label label-field" style="-unity-text-align: middle-left; font-size: 40px;" />
         </engine:VisualElement>
     </engine:ScrollView>
+    <engine:ListView name="ItemList" fixed-item-height="100" style="padding-right: 50px; padding-left: 50px; flex-grow: 1;" />
 </engine:UXML>
