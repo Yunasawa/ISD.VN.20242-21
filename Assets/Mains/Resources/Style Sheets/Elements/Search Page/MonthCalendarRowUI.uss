@@ -37,5 +37,7 @@
 {
 	-unity-font-style: bold;
 	color: var(--color-light-legacy);
-	background-color: #4D463F;
+	background-color: var(--color-button-selected);
+	border-color: var(--color-light-legacy);
+	border-width: 2px;
 }

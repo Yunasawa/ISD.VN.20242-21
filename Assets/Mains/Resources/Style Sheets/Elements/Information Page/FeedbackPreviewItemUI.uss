@@ -1,15 +1,22 @@
 .review-result-item 
 {
-	margin: 0px 0px 25px 0px;
+	width: 700px;
+	height: 225;
+	margin: 0px 25px 0px 0px;
 	padding: 25px 25px 15px 25px;
+}	
+	
+.review-result-item__background
+{
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
 	background-color: var(--color-ground-dark);
 	border-color: var(--color-border-legacy);
 	border-width: var(--value-border-width);
 	border-radius: 15px;
-}
-.review-result-item.first-item
-{
-	margin: 25px 0px 25px 0px;
 }
 
 .review-result-item__info-field 
@@ -24,7 +31,7 @@
 	align-self: center;
 	width: 75px;
 	height: 75px;
-	background-color: var(--color-ground-legacy);
+	background-color: var(--color-ground-light);
 	background-image: var(--icon-account);
 	background-size: 60% 60%;
 	border-color: var(--color-border-legacy);
@@ -62,14 +69,17 @@
 
 .review-result-item__comment-text 
 {
+	overflow: hidden;
 	flex-grow: 1;
-	margin: 25px 0px 0px 0px;
+	height: 100px;
+	margin: 15px 0px 0px 0px;
 	padding: 0px;
 	-unity-font-definition: var(--font-nunito-regular);
 	font-size: 35px;
 	color: var(--color-contrast-solid);
 	-unity-text-align: middle-left;
 	white-space: normal;
+	text-overflow: ellipsis;
 }
 
 .review-result-item__tool-field 

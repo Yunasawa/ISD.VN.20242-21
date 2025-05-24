@@ -4,15 +4,19 @@
 	align-items: center;
 	width: 350px;
 	height: 100px;
-	margin: 0px 30px 0px 50px;
+	margin: 0px 30px 0px 0px;
 	padding: 0px 20px 0px 20px;
-	background-color: var(--color-ground-legacy);
+	background-color: var(--color-ground-light);
 	border-radius: 30px;
 }
 .suggest-filter-button.type-filter
 {
 	width: 500px;
 	height: 150px;
+}
+.suggest-filter-button.first
+{
+	margin: 0px 30px 0px 50px;
 }
 
 .suggest-filter-button__icon

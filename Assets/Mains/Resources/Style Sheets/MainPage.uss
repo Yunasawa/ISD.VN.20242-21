@@ -5,6 +5,7 @@
     border-bottom-width: 0;
     border-left-width: 0;
     color: rgb(255, 255, 255);
+    --unity-cursor-color: var(--color-contrast-solid);
 }
 
 .frame-border {
@@ -103,27 +104,13 @@
     font-size: 50px;
 }
 
-.music-play-slider > * > * > .unity-base-slider__tracker {
-    background-color: rgb(222, 249, 93);
-    height: 10px;
-    margin-top: 0;
-    margin-right: 0;
-    margin-bottom: 0;
-    margin-left: 0;
-    padding-top: 0;
-    padding-right: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 42.5px;
+.background-transition {
+    transition-property: background-color;
+    transition-duration: 0.4s;
 }
 
-.music-play-slider > * > * > .unity-base-slider__dragger {
-    height: 30px;
-    width: 10px;
-    position: absolute;
-    top: 45px;
-    background-color: rgb(222, 249, 93);
+.popup-page-transition {
+    transition-property: translate;
+    transition-duration: 0.4s;
+    transition-timing-function: ease-out-cubic;
 }

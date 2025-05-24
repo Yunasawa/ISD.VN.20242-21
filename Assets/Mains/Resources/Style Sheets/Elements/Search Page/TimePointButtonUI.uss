@@ -4,15 +4,17 @@
 	width: 175px;
 	height: 100px;
 	margin: 0px 30px 0px 0px;
-	background-color: var(--color-ground-legacy);
+	background-color: var(--color-ground-light);
 	border-radius: 15px;
 
-	transition-property: background-color;
+	transition-property: background-color, border-color;
 	transition-duration: var(--time-transition-duration);
 }
 .time-point-button.selected
 {
-	background-color: #4D463F;
+	background-color: var(--color-button-selected);
+	border-color: var(--color-light-legacy);
+	border-width: 2px;
 }
 
 .time-point-button__label

@@ -2,17 +2,24 @@
 {
 	overflow: hidden;
 	height: 650px;
-	margin: 0px 0px 50px 0px;
-	background-color: var(--color-ground-legacy);
+	padding: 0px 0px 50px 0px;
 	border-radius: 25px;
+}
+.searching-result-item:hover
+{
+	background-color: transparent;
+}
+.searching-result-item:select
+{
+	background-color: transparent;
 }
 
 .searching-result-item__preview-area
 {
 	height: 350px;
-	background-image: resource("Images/Starting Background 1");
+	background-color: var(--color-ground-dark);
 	-unity-background-scale-mode: scale-and-crop;
-	border-color: var(--color-ground-legacy);
+	border-color: var(--color-ground-light);
 	border-width: 2px 2px 0px 2px;
 }
 
@@ -50,6 +57,8 @@
 {
 	flex-grow: 1;
 	padding: 20px 30px 20px 30px;
+	background-color: var(--color-ground-light);
+	border-radius: 0px 0px 25px 25px;
 }
 
 .searching-result-item__name-field
@@ -60,13 +69,16 @@
 
 .searching-result-item__name-text
 {
+	overflow: hidden;
 	flex-grow: 1;
-	margin: 0px;
+	max-width: 700px;
+	margin: 0px 25px 0px 0px;
 	padding: 0px;
 	-unity-font-definition: var(--font-nunito-regular);
 	-unity-font-style: bold;
 	font-size: 50px;
 	color: var(--color-contrast-solid);
+	text-overflow: ellipsis;
 }
 
 .searching-result-item__rating-field
@@ -160,7 +172,7 @@
 	width: 30px;
 	padding: 0px 5px 0px 5px;
 	background-image: var(--icon-discount);
-	-unity-background-image-tint-color: var(--color-ground-legacy);
+	-unity-background-image-tint-color: var(--color-ground-light);
 	-unity-background-scale-mode: scale-to-fit;
 }
 
@@ -171,7 +183,7 @@
 	-unity-font-definition: var(--font-nunito-regular);
 	-unity-font-style: bold;
 	font-size: 30px;
-	color: var(--color-ground-legacy);
+	color: var(--color-ground-light);
 	-unity-text-align: middle-left;
 }
 

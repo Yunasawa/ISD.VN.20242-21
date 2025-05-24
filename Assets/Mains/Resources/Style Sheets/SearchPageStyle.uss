@@ -67,8 +67,19 @@
     margin-left: 0;
 }
 
+.background-transition {
+    transition-property: background-color;
+    transition-duration: 0.4s;
+}
+
 .filter-selection-button__label.selected {
     color: rgb(254, 209, 167);
+}
+
+.popup-page-transition {
+    transition-property: translate;
+    transition-duration: 0.4s;
+    transition-timing-function: ease-out-cubic;
 }
 
 .filter-selection-button {
