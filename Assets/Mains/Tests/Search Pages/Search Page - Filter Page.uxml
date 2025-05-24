@@ -1,12 +1,12 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/Mains/Resources/Style%20Sheets/MainPage.uss?fileID=7433441132597879392&amp;guid=1edcbd6233be03248a6afc0041aeffad&amp;type=3#MainPage" />
     <Style src="project://database/Assets/Mains/Resources/Style%20Sheets/SearchPageStyle.uss?fileID=7433441132597879392&amp;guid=0cd8c0ceb346c0c40b7657d5278fbb58&amp;type=3#SearchPageStyle" />
-    <engine:VisualElement name="ScreenBackground" picking-mode="Ignore" class="background-transition" style="height: 100%; width: 100%; background-color: rgba(22, 22, 22, 0.71); position: absolute;" />
-    <engine:VisualElement name="FilteringPage" class="popup-page-transition" style="bottom: 0; position: absolute; width: 100%; background-color: rgb(41, 41, 41); border-top-left-radius: 50px; border-top-right-radius: 50px; padding-right: 50px; padding-left: 50px; padding-bottom: 50px; top: 200px; display: flex;">
+    <engine:VisualElement name="ScreenBackground" style="height: 100%; width: 100%; background-color: rgba(22, 22, 22, 0.71); position: absolute;" />
+    <engine:VisualElement name="FilteringPage" style="bottom: 0; position: absolute; width: 100%; background-color: rgb(41, 41, 41); border-top-left-radius: 50px; border-top-right-radius: 50px; padding-right: 50px; padding-left: 50px; padding-bottom: 50px; top: 200px; display: flex;">
         <engine:VisualElement name="LabelField" style="height: 100px; margin-bottom: 20px; margin-top: 20px; flex-direction: row;">
             <engine:VisualElement name="CloseButton" style="position: absolute; height: 100px; width: 50px; background-image: url(&quot;project://database/Assets/Mains/Resources/Icons/Close.png?fileID=2800000&amp;guid=19aa0a702ba94a246bc3559fc14aa050&amp;type=3#Close&quot;); background-size: 50% 50%; -unity-background-scale-mode: scale-to-fit;" />
             <engine:Label text="Filter" name="LabelTitle" style="height: 100px; width: 100%; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; -unity-font-definition: url(&quot;project://database/Assets/Mains/Resources/Fonts/SDFs/Nunito/Nunito%20SDF.asset?fileID=11400000&amp;guid=995852a4f5cc55e4e89fa1e7e897eac5&amp;type=2#Nunito SDF&quot;); -unity-font-style: bold; color: rgb(255, 255, 255); -unity-text-align: middle-center; font-size: 60px;" />
-            <engine:Button text="Reset" name="ResetButton" class="label-field" style="position: absolute; height: 75px; color: rgb(251, 136, 60); font-size: 30px; -unity-font-style: bold; align-self: center; right: 0; background-color: rgb(49, 49, 49); border-left-color: rgb(251, 136, 60); border-right-color: rgb(251, 136, 60); border-top-color: rgb(251, 136, 60); border-bottom-color: rgb(251, 136, 60); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-top-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px; border-bottom-left-radius: 20px; width: 150px; display: none;" />
+            <engine:Button text="Reset" name="ResetButton" class="label-field" style="position: absolute; height: 75px; color: rgb(251, 136, 60); font-size: 30px; -unity-font-style: bold; align-self: center; right: 0; background-color: rgb(49, 49, 49); border-left-color: rgb(251, 136, 60); border-right-color: rgb(251, 136, 60); border-top-color: rgb(251, 136, 60); border-bottom-color: rgb(251, 136, 60); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-top-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px; border-bottom-left-radius: 20px; width: 150px;" />
         </engine:VisualElement>
         <engine:ScrollView vertical-scroller-visibility="Hidden" horizontal-scroller-visibility="Hidden" name="FilterScroll" style="flex-grow: 1; margin-bottom: 120px;">
             <engine:VisualElement name="PriceRangeView" class="filter-property-element">
@@ -29,15 +29,15 @@
                 <engine:Label text="Review Score" name="Label" class="label-field" style="font-size: 40px; margin-bottom: 20px; -unity-font-style: bold;" />
                 <engine:VisualElement name="SelectionField" style="flex-grow: 1; height: 100px; flex-direction: row; justify-content: space-between;">
                     <engine:VisualElement name="ReviewSelectionItem" class="filter-selection-button selected">
-                        <engine:Label text="&gt; 4.5" name="Text" class="filter-selection-button__label selected" />
+                        <engine:Label text="≥ 4.5" name="Text" class="filter-selection-button__label selected" />
                         <engine:VisualElement name="Icon" class="filter-selection-button__icon" style="background-image: resource(&apos;Icons/Star (Filled)&apos;);" />
                     </engine:VisualElement>
                     <engine:VisualElement name="ReviewSelectionItem" class="filter-selection-button">
-                        <engine:Label text="&gt; 4.0" name="Text" class="filter-selection-button__label" />
+                        <engine:Label text="≥ 4.0" name="Text" class="filter-selection-button__label" />
                         <engine:VisualElement name="Icon" class="filter-selection-button__icon" />
                     </engine:VisualElement>
                     <engine:VisualElement name="ReviewSelectionItem" class="filter-selection-button">
-                        <engine:Label text="&gt; 3.5" name="Text" class="filter-selection-button__label" />
+                        <engine:Label text="≥ 3.5" name="Text" class="filter-selection-button__label" />
                         <engine:VisualElement name="Icon" class="filter-selection-button__icon" />
                     </engine:VisualElement>
                 </engine:VisualElement>
@@ -51,11 +51,11 @@
                         <engine:VisualElement name="Icon" class="filter-selection-button__icon" />
                     </engine:VisualElement>
                     <engine:VisualElement name="ReviewSelectionItem" class="filter-selection-button selected" style="flex-grow: 1; margin-right: 15px; margin-left: 15px;">
-                        <engine:Label text="&gt; 4.5" name="Text" class="filter-selection-button__label selected" style="-unity-font-style: bold;" />
+                        <engine:Label text="≥ 4.9" name="Text" class="filter-selection-button__label selected" />
                         <engine:VisualElement name="Icon" class="filter-selection-button__icon" />
                     </engine:VisualElement>
                     <engine:VisualElement name="ReviewSelectionItem" class="filter-selection-button" style="flex-grow: 1; margin-left: 15px;">
-                        <engine:Label text="&gt; 4.0" name="Text" class="filter-selection-button__label" />
+                        <engine:Label text="≥ 4.8" name="Text" class="filter-selection-button__label" />
                         <engine:VisualElement name="Icon" class="filter-selection-button__icon" />
                     </engine:VisualElement>
                 </engine:VisualElement>
