@@ -1,7 +1,6 @@
 using System;
-using UnityEngine;
-using UnityEngine.Android;
 using UnityEngine.UIElements;
+using YNL.Utilities.Addons;
 using YNL.Utilities.UIToolkits;
 
 namespace YNL.Checkotel
@@ -40,11 +39,11 @@ namespace YNL.Checkotel
             private VisualElement _ratingIcon;
             private Label _ratingText;
 
-            public NameFieldUI(string name, (float score, int amount) rating)
+            public NameFieldUI()
             {
                 this.AddClass(_elementClass);
 
-                _nameText = new Label(name).AddClass(_nameTextClass);
+                _nameText = new Label().AddClass(_nameTextClass);
                 this.Add(_nameText);
 
                 _ratingField = new VisualElement().AddClass(_ratingFieldClass);
@@ -53,8 +52,17 @@ namespace YNL.Checkotel
                 _ratingIcon = new VisualElement().AddClass(_ratingIconClass);
                 _ratingField.Add(_ratingIcon);
 
-                _ratingText = new Label($"<b>{rating.score}</b> ({rating.amount})").AddClass(_ratingTextClass);
+                _ratingText = new Label().AddClass(_ratingTextClass);
                 _ratingField.Add(_ratingText);
+            }
+
+            public void Apply(string name, (float score, int amount) rating)
+            {
+                _nameText.SetText(name);
+
+                string ratingScoreText = rating.score == -1 ? "-" : rating.score.ToString("0.0");
+
+                _ratingText.SetText($"<b>{ratingScoreText}</b> ({rating.amount})");
             }
         }
     
@@ -65,15 +73,20 @@ namespace YNL.Checkotel
             private const string _textClass = _rootClass + "__address-text";
 
             private VisualElement _icon;
-            private VisualElement _text;
+            private Label _text;
 
-            public AddressFieldUI(string address)
+            public AddressFieldUI()
             {
                 this.AddClass(_elementClass);
 
                 _icon = new VisualElement().AddClass(_iconClass);
-                _text = new Label(address).AddClass(_textClass);
+                _text = new Label().AddClass(_textClass);
                 this.AddElements(_icon, _text);
+            }
+
+            public void Apply(string address)
+            {
+                _text.SetText(address);
             }
         }
 
@@ -94,14 +107,14 @@ namespace YNL.Checkotel
             private Label _discountText;
             private Label _lastPrice;
 
-            public PriceFieldUI(float price, int discount, byte duration, byte roomAmount)
+            public PriceFieldUI()
             {
                 this.AddClass(_elementClass);
 
                 _originalField = new VisualElement().AddClass(_originalFieldClass);
                 this.AddElements(_originalField);
 
-                _originalPrice = new Label($"Only <s>{Extension.Value.ToClosestPrice(price)}$</s>").AddClass(_originalPriceClass);
+                _originalPrice = new Label().AddClass(_originalPriceClass);
                 _originalField.AddElements(_originalPrice);
 
                 _discountField = new VisualElement().AddClass(_discountFieldClass);
@@ -110,19 +123,30 @@ namespace YNL.Checkotel
                 _discountIcon = new VisualElement().AddClass(_discountIconClass);
                 _discountField.AddElements(_discountIcon);
 
-                _discountText = new Label($"Discount {discount}%").AddClass(_discountTextClass);
+                _discountText = new Label().AddClass(_discountTextClass);
                 _discountField.AddElements(_discountText);
 
-                float lastPrice = Extension.Value.ToClosestPrice(price * (1 - discount / 100f));
-                string priceText = $"<b><color=#FED1A7>{lastPrice}$</color></b> <size=45>/ {duration} hours • <color=#75caff>Only {roomAmount} room left</color></size>";
-
-                _lastPrice = new Label(priceText).AddClass(_lastPriceClass);
+                _lastPrice = new Label().AddClass(_lastPriceClass);
                 this.AddElements(_lastPrice);
+            }
+
+            public void Apply(float price, Room.StayType type, int discount, byte duration, byte roomAmount)
+            {
+                _originalPrice.SetDisplay(discount > 0 ? DisplayStyle.Flex : DisplayStyle.None);
+                _discountField.SetDisplay(discount > 0 ? DisplayStyle.Flex : DisplayStyle.None);
+
+                _originalPrice.SetText($"Only <s>{price.ToString("0.00")}$</s>");
+                _discountText.SetText($"Discount {discount}%");
+
+                var lastPrice = price * (1 - discount / 100f);
+                string priceText = $"<b><color=#FED1A7>{lastPrice.ToString("0.00")}$</color></b> <size=35>/ {duration} {type.GetStayTypeUnit(duration)} • <color=#75caff>Only {roomAmount} room left</color></size>";
+
+                _lastPrice.SetText(priceText);
             }
         }
     }
 
-    public partial class SearchingResultItemUI : VisualElement, IInitializable, IRefreshable
+    public partial class SearchingResultItemUI : VisualElement, IRefreshable
     {
         public static Action<UID> OnSelected { get; set; }
 
@@ -139,36 +163,33 @@ namespace YNL.Checkotel
         private VisualElement _spaceField;
         private PriceFieldUI _priceField;
 
+        private UID _hotelID;
+
         public SearchingResultItemUI()
         {
             this.AddStyle(Main.Resources.Styles["StyleVariableUI"]);
             this.AddStyle(Main.Resources.Styles["SearchingResultItemUI"]);
-            this.AddClass(_rootClass);
-            this.RegisterCallback<PointerDownEvent>(OnSelected_ResultItem);
+            this.AddClass(_rootClass).SetMarginBottom(50);
+            this.RegisterCallback<PointerUpEvent>(OnSelected_ResultItem);
 
             _previewArea = new VisualElement().AddClass(_previewAreaClass);
             _infoArea = new VisualElement().AddClass(_infoAreaClass);
             this.AddElements(_previewArea, _infoArea);
 
             _hotTag = new();
-            _previewArea.AddElements(_hotTag);
+            //_previewArea.AddElements(_hotTag);
 
-            _nameField = new("Ami House", (4.5f, 120));
+            _nameField = new();
             _infoArea.AddElements(_nameField);
 
-            _addressField = new("120 Locust Ln, Schoharie, New York, USA");
+            _addressField = new();
             _infoArea.AddElements(_addressField);
 
             _spaceField = new VisualElement().AddClass(_spaceFieldClass);
             _infoArea.AddElements(_spaceField);
 
-            _priceField = new(20, 35, 1, 5);
+            _priceField = new();
             _infoArea.AddElements(_priceField);
-        }
-
-        public void Initialize()
-        {
-
         }
 
         public void Refresh()
@@ -176,9 +197,28 @@ namespace YNL.Checkotel
 
         }
 
-        private void OnSelected_ResultItem(PointerDownEvent evt)
+        public void Apply(UID id, Room.StayType type)
         {
+            if (!Main.IsSystemStarted) return;
 
+            _hotelID = id;
+
+            if (!Main.Database.Hotels.TryGetValue(id, out var unit)) return;
+
+            Extension.Function.ApplyCloudImageAsync(_previewArea, unit.Description.ImageURL);
+
+            _nameField.Apply(unit.Description.Name, (unit.Review.AverageRating, unit.Review.Feedbacks.Count));
+            _addressField.Apply(unit.Description.Address);
+
+            var lowestPrice = id.GetLowestPrice(type);
+
+            _priceField.Apply(lowestPrice, type, 0, 1, 5);
+        }
+
+        private void OnSelected_ResultItem(PointerUpEvent evt)
+        {
+            Marker.OnViewPageSwitched?.Invoke(ViewType.InformationViewMainPage, true, false);
+            Marker.OnHotelInformationDisplayed?.Invoke(_hotelID, true);
         }
     }
 }

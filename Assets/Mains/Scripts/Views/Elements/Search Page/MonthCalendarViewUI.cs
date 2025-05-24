@@ -6,7 +6,7 @@ using YNL.Utilities.UIToolkits;
 
 namespace YNL.Checkotel
 {
-    using HomePage = SearchViewTimeRangePage.HourlyPage;
+    using HomePage = SearchViewTimeRangePageUI.HourlyPage;
 
     public class MonthCalendarViewUI : VisualElement, IInitializable
     {
@@ -63,11 +63,11 @@ namespace YNL.Checkotel
 
             _previousMonthButton = new VisualElement().AddClass(_previousMonthButtonClass);
             _previousMonthButton.EnableClass(_isCurrentMonth, _isCurrentMonthClass);
-            _previousMonthButton.RegisterCallback<PointerDownEvent>(OnClicked_PreviousMonthButton);
+            _previousMonthButton.RegisterCallback<PointerUpEvent>(OnClicked_PreviousMonthButton);
             _monthField.AddElements(_previousMonthButton);
 
             _nextMonthButton = new VisualElement().AddClass(_nextMonthButtonClass);
-            _nextMonthButton.RegisterCallback<PointerDownEvent>(OnClicked_NextMonthButton);
+            _nextMonthButton.RegisterCallback<PointerUpEvent>(OnClicked_NextMonthButton);
             _monthField.AddElements(_nextMonthButton);
 
             this.AddElements(_monthField);
@@ -98,14 +98,14 @@ namespace YNL.Checkotel
             UpdateCalendar(_year, _month);
         }
 
-        private void OnClicked_PreviousMonthButton(PointerDownEvent evt)
+        private void OnClicked_PreviousMonthButton(PointerUpEvent evt)
         {
             if (_isCurrentMonth) return;
 
             MoveCalendarMonth(false);
         }
 
-        private void OnClicked_NextMonthButton(PointerDownEvent evt)
+        private void OnClicked_NextMonthButton(PointerUpEvent evt)
         {
             MoveCalendarMonth(true);
         }

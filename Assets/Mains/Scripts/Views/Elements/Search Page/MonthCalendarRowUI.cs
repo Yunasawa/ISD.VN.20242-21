@@ -108,7 +108,7 @@ namespace YNL.Checkotel
             _text = new Label("").AddClass(_textClass);
             this.AddElements(_text);
 
-            this.RegisterCallback<PointerDownEvent>(OnClicked_DayItem);
+            this.RegisterCallback<PointerUpEvent>(OnClicked_DayItem);
         }
 
         public void UpdateDay((string day, bool isInMonth) day, int year, int month, bool isReseted, DateTime now, DateTime selectedDate)
@@ -154,7 +154,7 @@ namespace YNL.Checkotel
             _text.EnableClass(false, _selectedClass);
         }
 
-        private void OnClicked_DayItem(PointerDownEvent evt)
+        private void OnClicked_DayItem(PointerUpEvent evt)
         {
             if (!_isValidDay) return;
 

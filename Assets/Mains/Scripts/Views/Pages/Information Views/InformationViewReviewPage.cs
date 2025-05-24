@@ -1,47 +1,77 @@
-using UnityEngine;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine.UIElements;
+using YNL.Utilities.UIToolkits;
 
 namespace YNL.Checkotel
 {
-    public partial class InformationViewReviewPage : MonoBehaviour, ICollectible, IInitializable
+    public partial class InformationViewReviewPage : ViewPageUI
     {
-        private VisualElement _root;
-
         private VisualElement _backButton;
         private RatingView _ratingView;
-        private VisualElement _reviewScroll;
+        private ScrollView _reviewScroll;
+        private ListView _reviewList;
 
-        private void Awake()
+        private UID _hotelID;
+        private List<UID> _feedbackIDs = new();
+
+        protected override void VirtualAwake()
         {
-            Marker.OnSystemStart += Collect;
+            Marker.OnHotelInformationDisplayed += OnHotelInformationDisplayed;
         }
 
         private void OnDestroy()
         {
-            Marker.OnSystemStart -= Collect;
+            Marker.OnHotelInformationDisplayed -= OnHotelInformationDisplayed;
         }
 
-        public void Collect()
+        protected override void Collect()
         {
-            _root = GetComponent<UIDocument>().rootVisualElement;
+            _backButton = Root.Q("TopBar").Q("LabelField");
+            _backButton.RegisterCallback<PointerUpEvent>(OnClicked_BackButton);
 
-            _ratingView = new(_root.Q("TopBar").Q("RatingView"));
+            _ratingView = new(Root.Q("TopBar").Q("RatingView"));
 
-            _reviewScroll = _root.Q("ContentScroll").Q("unity-content-container");
+            _reviewScroll = Root.Q("ContentScroll") as ScrollView;
+            _reviewScroll.SetDisplay(DisplayStyle.None);
 
-            Initialize();
-        }
-
-        public void Initialize()
-        {
-            _reviewScroll.Clear();
-            for (byte i = 0; i < 10; i++)
+            _reviewList = Root.Q("ContentList") as ListView;
+            _reviewList.Q("unity-content-container").SetFlexGrow(1);
+            _reviewList.Q<ScrollView>().verticalScrollerVisibility = ScrollerVisibility.Hidden;
+            _reviewList.virtualizationMethod = CollectionVirtualizationMethod.DynamicHeight;
+            _reviewList.itemsSource = _feedbackIDs;
+            _reviewList.makeItem = () => new FeedbackResultItemUI();
+            _reviewList.bindItem = (element, index) =>
             {
-                var reviewItem = new ReviewResultItemUI();
-                _reviewScroll.Add(reviewItem);
+                var item = element as FeedbackResultItemUI;
+                item.Apply(_hotelID, _feedbackIDs[index]);
+            };
+        }
 
-                if (i == 0) reviewItem.SetAsFirstItem();
-            }
+        private void OnClicked_BackButton(PointerUpEvent evt)
+        {
+            Marker.OnViewPageSwitched?.Invoke(ViewType.InformationViewMainPage, true, false);
+        }
+
+        private void RebuildHistoryList()
+        {
+            _reviewList.itemsSource = null;
+            _reviewList.itemsSource = _feedbackIDs;
+            _reviewList.Rebuild();
+        }
+
+        private void OnHotelInformationDisplayed(UID id, bool isSearchResult)
+        {
+            _hotelID = id;
+            var unit = Main.Database.Hotels[id];
+
+            _ratingView.Apply(unit.Review);
+
+            _feedbackIDs = unit.Review.Feedbacks.Keys.ToList();
+
+            bool emptyFeedback = unit.Review.FeebackAmount == 0;
+
+            if (!emptyFeedback) RebuildHistoryList();
         }
     }
 }

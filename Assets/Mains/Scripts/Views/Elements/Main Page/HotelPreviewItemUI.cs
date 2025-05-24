@@ -1,10 +1,15 @@
+using Cysharp.Threading.Tasks;
+using System.Collections;
+using System.Security.Cryptography;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.UIElements;
+using YNL.Utilities.Extensions;
 using YNL.Utilities.UIToolkits;
 
 namespace YNL.Checkotel
 {
-    public partial class HotelPreviewItemUI : VisualElement
+    public partial class HotelPreviewItemUI : VisualElement, IRefreshable
     {
         private const string _rootClass = "hotel-preview-item";
         private const string _imageClass = _rootClass + "__image";
@@ -22,6 +27,8 @@ namespace YNL.Checkotel
         private const string _infoDiscountFrameClass = _rootClass + "__info-discount-frame";
         private const string _infoDiscountAmountClass = _rootClass + "__info-discount-amount";
         private const string _infoDiscountTextClass = _rootClass + "__info-discount-text";
+        private const string _spaceClass = _rootClass + "__space";
+        private const string _miniClass = "mini";
 
         private VisualElement _previewImage;
         private VisualElement _previewInfo;
@@ -38,108 +45,120 @@ namespace YNL.Checkotel
         private VisualElement _discountFrame;
         private Label _discountAmount;
         private Label _discountText;
+        private VisualElement _space;
 
-        public HotelPreviewItemUI()
+        private UID _id;
+
+        public HotelPreviewItemUI(UID hotelID, bool isMini = false)
         {
-            Initialize();
-            AddValue();
+            _id = hotelID;
+
+            Initialize(isMini);
+            Apply(hotelID);
         }
 
-        private void Initialize()
+        private void Initialize(bool isMini)
         {
             this.AddStyle(Main.Resources.Styles["StyleVariableUI"]);
             this.AddStyle(Main.Resources.Styles["HotelPreviewItemUI"]);
-            this.AddClass(_rootClass);
+            this.AddClass(_rootClass).EnableClass(isMini, _miniClass);
+            this.RegisterCallback<PointerUpEvent>(OnClicked_PreviewItem);
 
-            _previewImage = new VisualElement();
-            _previewImage.AddClass(_imageClass);
-
-            _previewInfo = new VisualElement();
-            _previewInfo.AddClass(_infoClass);
-
-            _nameLabel = new Label();
-            _nameLabel.AddClass(_infoNameClass);
-
-            _locationField = new VisualElement();
-            _locationField.AddClass(_infoLocationClass);
-
-            _locationIcon = new VisualElement();
-            _locationIcon.AddClass(_infoLocationIconClass);
-
-            _locationText = new Label();
-            _locationText.AddClass(_infoLocationTextClass);
-
-            _priceField = new VisualElement();
-            _priceField.AddClass(_infoPriceClass);
-
-            _priceText = new Label();
-            _priceText.AddClass(_infoPriceTextClass);
-
-            _ratingField = new VisualElement();
-            _ratingField.AddClass(_infoRatingClass);
-
-            _ratingIcon = new VisualElement();
-            _ratingIcon.AddClass(_infoRatingIconClass);
-
-            _ratingText = new Label();
-            _ratingText.AddClass(_infoRatingTextClass);
-
-            _discountField = new VisualElement();
-            _discountField.AddClass(_infoDiscountClass);
-
-            _discountFrame = new VisualElement();
-            _discountFrame.AddClass(_infoDiscountFrameClass);
-
-            _discountAmount = new Label();
-            _discountAmount.AddClass(_infoDiscountAmountClass);
-
-            _discountText = new Label();
-            _discountText.AddClass(_infoDiscountTextClass);
-
+            _previewImage = new VisualElement().AddClass(_imageClass);
             this.AddElements(_previewImage);
+
+            _previewInfo = new VisualElement().AddClass(_infoClass);
             this.AddElements(_previewInfo);
 
+            _nameLabel = new Label().AddClass(_infoNameClass);
             _previewInfo.AddElements(_nameLabel);
-            _previewInfo.AddElements(_locationField);
-            _previewInfo.AddElements(_priceField);
-            _previewInfo.AddElements(_discountField);
 
+            _locationField = new VisualElement().AddClass(_infoLocationClass);
+            if (!isMini) _previewInfo.AddElements(_locationField);
+
+            _locationIcon = new VisualElement().AddClass(_infoLocationIconClass);
             _locationField.AddElements(_locationIcon);
+
+            _locationText = new Label().AddClass(_infoLocationTextClass);
             _locationField.AddElements(_locationText);
 
-            _priceField.AddElements(_priceText);
-            _priceField.AddElements(_ratingField);
+            _space = new VisualElement().AddClass(_spaceClass);
+            _previewInfo.AddElements(_space);
 
+            _priceField = new VisualElement().AddClass(_infoPriceClass);
+            _previewInfo.AddElements(_priceField);
+
+            _priceText = new Label().AddClass(_infoPriceTextClass);
+            _priceField.AddElements(_priceText);
+
+            _ratingField = new VisualElement().AddClass(_infoRatingClass);
+            if (isMini) _previewInfo.Insert(1, _ratingField);
+            else _priceField.AddElements(_ratingField);
+
+            _ratingIcon = new VisualElement().AddClass(_infoRatingIconClass);
             _ratingField.AddElements(_ratingIcon);
+
+            _ratingText = new Label().AddClass(_infoRatingTextClass);
             _ratingField.AddElements(_ratingText);
 
+            _discountField = new VisualElement().AddClass(_infoDiscountClass);
+            _previewInfo.AddElements(_discountField);
+
+            _discountFrame = new VisualElement().AddClass(_infoDiscountFrameClass);
             _discountField.AddElements(_discountFrame);
+
+            _discountAmount = new Label().AddClass(_infoDiscountAmountClass);
             _discountFrame.AddElements(_discountAmount);
+
+            _discountText = new Label().AddClass(_infoDiscountTextClass);
             _discountField.AddElements(_discountText);
         }
 
-        public void AddValue()
+        private void Apply(UID id)
         {
+            var unit = Main.Database.Hotels[id];
+
             int discountPercentage = Random.Range(0, 50);
 
-            _previewImage.style.backgroundImage = Resources.Load<Texture2D>("Images/Starting Background 1");
+            Extension.Function.ApplyCloudImageAsync(_previewImage, unit.Description.ImageURL);
 
-            _nameLabel.text = "Grand Azure Hotel";
-            _locationText.text = "Paris, France";
-            var price = Random.Range(80, 1000);
+            _nameLabel.text = unit.Description.Name;
+            _locationText.text = unit.Description.Address;
+            var price = unit.Rooms.IsEmpty() ? 0 : Main.Database.Rooms[unit.Rooms[0]].Price.BasePrice;
             _priceText.text = $"<b><color=#FED1A7>${price * (1 - (discountPercentage / 100f))}</color></b> <s>${price}</s> <b><size=30>/ 2 days</size></b>";
-            _ratingText.text = Random.Range(3.0f, 5.0f).ToString("F1");
+            _ratingText.text = $"<b>{Random.Range(3.0f, 5.0f).ToString("F1")}</b> ({Random.Range(100, 100)})";
 
             if (discountPercentage > 0)
             {
                 _discountAmount.text = $"-{discountPercentage}%";
-                _discountText.text = "OFF";
+                _discountText.text = $"Only {Random.Range(1, 10)} rooms left";
                 _discountField.style.display = DisplayStyle.Flex;
             }
             else
             {
                 _discountField.style.display = DisplayStyle.None;
             }
+        }
+
+        public void Refresh()
+        {
+            Apply(_id);
+        }
+
+        public HotelPreviewItemUI SetAsLastItem(bool set = true)
+        {
+            if (!set) return this;
+
+            this.SetMarginRight(50);
+
+            return this;
+        }
+
+        private void OnClicked_PreviewItem(PointerUpEvent evt)
+        {
+            Marker.OnViewPageSwitched?.Invoke(ViewType.InformationViewMainPage, true, false);
+            Marker.OnHotelInformationDisplayed?.Invoke(_id, false);
+            Marker.OnHotelFacilitiesDisplayed?.Invoke(_id);
         }
     }
 }

@@ -1,9 +1,19 @@
+using Cysharp.Threading.Tasks;
+using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
 using UnityEngine.UIElements;
 using YNL.Utilities.UIToolkits;
 
 namespace YNL.Checkotel
 {
-    public class HotelPreviewListUI : VisualElement
+    public enum PreviewListFilterType : byte
+    {
+        NewHotels, MostPopular, HighRated, LuxuryStays, ExceptionalChoices
+    }
+
+    public class HotelPreviewListUI : VisualElement, IRefreshable
     {
         private const string _rootClass = "hotel-preview-list";
         private const string _labelFieldClass = _rootClass + "__label-field";
@@ -16,36 +26,73 @@ namespace YNL.Checkotel
         private Label _seeMoreButton;
         private ScrollView _previewList;
 
-        public HotelPreviewListUI(string label)
-        {
-            var items = new string[] { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+        private List<HotelPreviewItemUI> _previewItems = new();
 
+        public HotelPreviewListUI(PreviewListFilterType type, bool isMini = false)
+        {
             this.AddStyle(Main.Resources.Styles["StyleVariableUI"]);
             this.AddStyle(Main.Resources.Styles["HotelPreviewListUI"]);
             this.AddClass(_rootClass);
 
-            _labelField = new();
-            _labelField.AddToClassList(_labelFieldClass);
+            _labelField = new VisualElement().AddClass(_labelFieldClass);
             this.AddElements(_labelField);
 
-            _label = new(label);
-            _label.AddClass(_labelClass);
+            _label = new Label(type.ToSentenceCase()).AddClass(_labelClass);
             _labelField.AddElements(_label);
 
-            _seeMoreButton = new("See more");
-            _seeMoreButton.AddClass(_seeMoreButtonClass);
+            _seeMoreButton = new Label("See more").AddClass(_seeMoreButtonClass);
             _labelField.AddElements(_seeMoreButton);
 
-            _previewList = new();
-            _previewList.AddClass(_previewListClass);
-            this.AddElements(_previewList);
+            _previewList = new ScrollView().AddClass(_previewListClass);
             _previewList.mode = ScrollViewMode.Horizontal;
             _previewList.horizontalScrollerVisibility = ScrollerVisibility.Hidden;
             _previewList.verticalScrollerVisibility = ScrollerVisibility.Hidden;
+            this.AddElements(_previewList);
 
-            for (int i = 0; i < 10; i++)
+            Initialize(type, isMini);
+        }
+
+        private void Initialize(PreviewListFilterType type, bool isMini)
+        {
+            CreatePreviewItems(type, isMini).Forget();
+        }
+
+        public void Refresh()
+        {
+            foreach (var item in _previewItems) item.Refresh();
+        }
+
+        public HotelPreviewListUI SetAsLastItem()
+        {
+            this.SetMarginBottom(275);
+
+            return this;
+        }
+
+        private UID[] GetPreviewItems(PreviewListFilterType type)
+        {
+            switch (type)
             {
-                _previewList.AddElements(new HotelPreviewItemUI());
+                case PreviewListFilterType.NewHotels: return Extension.Query.GetNewHotelsList();
+                case PreviewListFilterType.MostPopular: return Extension.Query.GetMostPopularList();
+                case PreviewListFilterType.HighRated: return Extension.Query.GetHighRatedList();
+                case PreviewListFilterType.LuxuryStays: return Extension.Query.GetLuxuryStaysList();
+                case PreviewListFilterType.ExceptionalChoices: return Extension.Query.GetExceptionalChoicesList();
+                default: return null;
+            }
+        }
+
+        private async UniTaskVoid CreatePreviewItems(PreviewListFilterType type, bool isMini)
+        {
+            var previewItems = GetPreviewItems(type);
+
+            for (int i = 0; i < previewItems.Length; i++)
+            {
+                await UniTask.Yield();
+
+                var previewItem = new HotelPreviewItemUI(previewItems[i], isMini).SetAsLastItem(i == previewItems.Length - 1);
+                _previewItems.Add(previewItem);
+                _previewList.AddElements(previewItem);
             }
         }
     }

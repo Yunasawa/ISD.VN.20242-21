@@ -1,154 +1,59 @@
+using System;
 using UnityEngine;
 using UnityEngine.UIElements;
-using YNL.Utilities.Extensions;
 using YNL.Utilities.UIToolkits;
 
 namespace YNL.Checkotel
 {
-    public partial class InformationViewMainPage
+    public partial class InformationViewMainPage : ViewPageUI
     {
-        public class NameView
-        {
-            private VisualElement _nameView;
-            private VisualElement _badgeField;
-            private Label _nameText;
-            private Label _addressText;
-
-            public NameView(VisualElement contentContainer)
-            {
-                _nameView = contentContainer.Q("NameView");
-                _badgeField = contentContainer.Q("BadgeField");
-                _nameText = contentContainer.Q("NameText") as Label;
-                _addressText = contentContainer.Q("AddressText") as Label;
-            }
-
-            public void Update(string name, string address)
-            {
-                _nameText.SetText(name);
-                _addressText.SetText(address);
-            }
-        }
-    
-        public class ReviewView
-        {
-            private Label _ratingText;
-            private Label _reviewAmount;
-            private Label _seeMoreButton;
-            private ScrollView _reviewScroll;
-
-            public ReviewView(VisualElement contentContainer)
-            {
-                var reviewView = contentContainer.Q("ReviewView");
-                var scoreField = reviewView.Q("ScoreField");
-
-                _ratingText = scoreField.Q("Rating") as Label;
-                _reviewAmount = scoreField.Q("Amount") as Label;
-                _seeMoreButton = scoreField.Q("SeeMore") as Label;
-
-                _reviewScroll = reviewView.Q("ReviewScroll") as ScrollView;
-            }
-
-            public void Update(float rating, int amount)
-            {
-                _ratingText.SetText(rating.ToString());
-                _reviewAmount.SetText(amount.ToString());
-            }
-        }
-    
-        public class FacilityView
-        {
-            private Label _seeMoreButton;
-            private VisualElement _facilityField;
-
-            public FacilityView(VisualElement contentContainer)
-            {
-                var facilityView = contentContainer.Q("FacilityView");
-
-                _seeMoreButton = facilityView.Q("LabelField").Q("SeeMore") as Label;
-                _facilityField = facilityView.Q("FacilityField");
-            }
-        }
-    
-        public class DescriptionField
-        {
-            private Label _descriptionText;
-
-            private bool _isExpanded = false;
-
-            public DescriptionField(VisualElement contentContainer)
-            {
-                _descriptionText = contentContainer.Q("DescriptionField").Q("DescriptionText") as Label;
-                _descriptionText.RegisterCallback<PointerDownEvent>(OnClicked_DescriptionText);
-            }
-
-            public void Update(string description)
-            {
-                _descriptionText.SetText(description);
-            }
-
-            private void OnClicked_DescriptionText(PointerDownEvent evt)
-            {
-                _isExpanded = !_isExpanded;
-
-                if (_isExpanded)
-                {
-                    _descriptionText.SetMaxHeight(StyleKeyword.Auto);
-                }
-                else
-                {
-                    _descriptionText.SetMaxHeight(175);
-                }
-            }
-        }
-    
-        public class TimeField
-        {
-
-        }
-    }
-
-    public partial class InformationViewMainPage : MonoBehaviour, ICollectible, IInitializable
-    {
-        private VisualElement _root;
+        [SerializeField] private InformationViewTimeRangePageUI _timeRangePageUI;
 
         private VisualElement _backButton;
         private VisualElement _favoriteButton;
         private VisualElement _shareButton;
+
         private PriceField _priceField;
-        private VisualElement _imageView;
+
+        private ImageView _imageView;
         private NameView _nameView;
         private ReviewView _reviewView;
         private FacilityView _facilityView;
         private DescriptionField _descriptionField;
-        private VisualElement _timeField;
-        private VisualElement _hotelPolicy;
-        private VisualElement _cancellationPolicy;
+        private TimeField _timeField;
+        private PolicyField _policyField;
+        private CancellationField _cancellationPolicy;
 
-        private void Awake()
+        private UID _hotelID;
+
+        protected override void VirtualAwake()
         {
-            Marker.OnSystemStart += Collect;
+            Marker.OnHotelInformationDisplayed += OnHotelInformationDisplayed;
         }
 
         private void OnDestroy()
         {
-            Marker.OnSystemStart -= Collect;
+            Marker.OnHotelInformationDisplayed -= OnHotelInformationDisplayed;
         }
 
-        public void Collect()
-        {
-            _root = GetComponent<UIDocument>().rootVisualElement;
+        protected override void Collect()
+        { 
+            _backButton = Root.Q("TopBar").Q("BackButton");
+            _backButton.RegisterCallback<PointerUpEvent>(OnClicked_BackButton);
 
-            _backButton = _root.Q("TopBar").Q("BackButton");
-            _favoriteButton = _root.Q("TopBar").Q("FavoriteButton");
-            _shareButton = _root.Q("TopBar").Q("ShareButton");
+            _favoriteButton = Root.Q("TopBar").Q("FavoriteButton");
+            _favoriteButton.RegisterCallback<PointerUpEvent>(OnClicked_FavoriteButton);
 
-            _priceField = new(_root);
+            _shareButton = Root.Q("TopBar").Q("ShareButton");
 
-            var contentContainer = _root.Q("ContentScroll").Q("unity-content-container");
+            _priceField = new(Root);
+            _priceField.OnOpenTimeRangePage = OnOpenTimeRangePage;
 
-            _imageView = contentContainer.Q("ImageView");
+            var contentContainer = Root.Q("ContentScroll").Q("unity-content-container");
 
-            _nameView = new(contentContainer);
+            _imageView = new(contentContainer.Q("ImageView"));
+
+            _nameView = new(contentContainer.Q("NameView"));
 
             _reviewView = new(contentContainer);
 
@@ -156,17 +61,75 @@ namespace YNL.Checkotel
 
             _descriptionField = new(contentContainer);
 
-            _timeField = contentContainer.Q("TimeField");
+            _timeField = new(contentContainer.Q("TimeField"));
 
-            _hotelPolicy = contentContainer.Q("HotelPolicy");
+            _policyField = new(contentContainer.Q("PolicyField"));
 
-            _cancellationPolicy = contentContainer.Q("CancellationPolicy");
+            _cancellationPolicy = new(contentContainer.Q("CancellationPolicy"));
 
+            _timeRangePageUI.OnTimeRangeSubmitted = OnTimeRangeSubmitted;
         }
 
-        public void Initialize()
+        private void OnClicked_BackButton(PointerUpEvent evt)
         {
-            
+            Marker.OnViewPageSwitched?.Invoke(ViewType.MainViewHomePage, true, false);
+        }
+
+        private void OnClicked_FavoriteButton(PointerUpEvent evt)
+        {
+            bool isFavorited = Main.Runtime.Data.FavoriteHotels.Contains(_hotelID);
+
+            if (isFavorited)
+            {
+                Main.Runtime.Data.FavoriteHotels.Remove(_hotelID);
+                _favoriteButton.SetBackgroundImage(Main.Resources.Icons["Heart"]);
+            }
+            else
+            {
+                Main.Runtime.Data.FavoriteHotels.Add(_hotelID);
+                _favoriteButton.SetBackgroundImage(Main.Resources.Icons["Heart (Filled)"]);
+
+                Marker.OnRuntimeSavingRequested?.Invoke();
+			}
+        }
+
+        private void OnOpenTimeRangePage()
+        {
+            _timeRangePageUI.OnPageOpened(true, false);
+        }
+
+        private void OnTimeRangeSubmitted()
+        {      
+            _priceField.Apply(_hotelID);
+        }
+
+        private void OnHotelInformationDisplayed(UID id, bool isSearchResult)
+        {
+            _hotelID = id;
+
+            var unit = Main.Database.Hotels[id];
+
+            if (!isSearchResult)
+            {
+                var nearestTime = Main.Runtime.Data.CheckInTime.GetNextNearestTime();
+                Main.Runtime.Data.CheckInTime = nearestTime;
+                Main.Runtime.Data.Duration = 1;
+            }
+
+            _priceField.Apply(id);
+
+            _nameView.Apply(unit.Description.Name, unit.Description.Address);
+            _reviewView.Apply(id);
+            _facilityView.Apply(unit);
+            _descriptionField.Apply(unit.Description.Description);
+            _imageView.Apply(unit).Forget();
+            _timeField.Apply(unit);
+            _policyField.Apply(unit);
+            _cancellationPolicy.Apply(unit);
+
+            bool isFavorited = Main.Runtime.Data.FavoriteHotels.Contains(id);
+
+            _favoriteButton.SetBackgroundImage(Main.Resources.Icons[isFavorited ? "Heart (Filled)" : "Heart"]);
         }
     }
 }

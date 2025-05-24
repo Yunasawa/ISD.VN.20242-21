@@ -11,7 +11,7 @@ namespace YNL.Checkotel
 
     public enum FilterPropertyType : byte
     {
-        GE45, GE40, GE35, E50, GE49, GE48, FlashSale, Hot, New, Stamp, Discount, Coupon
+        ScoreG45, ScoreG40, ScoreG35, CleanE45, CleanG40, CleanG35, FlashSale, Hot, New, Stamp, Discount, Coupon
     }
 
     public class FilterPropertyButtonUI : VisualElement
@@ -30,15 +30,18 @@ namespace YNL.Checkotel
         private FilterPropertyType _propertyType;
         private bool _isSelected = false;
 
-        public FilterPropertyButtonUI(string label, FilterSelectionType selection, FilterPropertyType property)
+        private Action<FilterSelectionType, FilterPropertyType> _onSelected;
+
+        public FilterPropertyButtonUI(string label, FilterSelectionType selection, FilterPropertyType property, Action<FilterSelectionType, FilterPropertyType> onSelected)
         {
             _selectionType = selection;
             _propertyType = property;
+            _onSelected = onSelected;
 
             this.AddStyle(Main.Resources.Styles["StyleVariableUI"]);
             this.AddStyle(Main.Resources.Styles["FilterPropertyButtonUI"]);
             this.AddClass(_rootClass);
-            this.RegisterCallback<PointerDownEvent>(OnClicked__Button);
+            this.RegisterCallback<PointerUpEvent>(OnClicked__Button);
 
             _label = new(label);
             _label.AddClass(_labelClass);
@@ -58,11 +61,12 @@ namespace YNL.Checkotel
             OnSelected -= UpdateUI;
         }
 
-        public void OnClicked__Button(PointerDownEvent evt = null)
+        public void OnClicked__Button(PointerUpEvent evt = null)
         {
             if (_isSelected) return;
 
             OnSelected?.Invoke(_selectionType, _propertyType);
+            _onSelected?.Invoke(_selectionType, _propertyType);
 
             _isSelected = true;
 

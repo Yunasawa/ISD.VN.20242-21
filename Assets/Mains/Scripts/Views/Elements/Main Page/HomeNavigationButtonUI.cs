@@ -1,16 +1,14 @@
+using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 using YNL.Utilities.UIToolkits;
 
 namespace YNL.Checkotel
 {
-    public enum HomeNavigationType : byte
-    {
-        Home, Favorite, Suggestion, Account
-    }
-
     public class HomeNavigationButton : VisualElement
     {
+        private static Action<ViewType> _onNavigated { get; set; }
+
         private const string _rootClass = "home-navigation-button";
         private const string _iconClass = _rootClass + "__icon";
         private const string _labelClass = _rootClass + "__label";
@@ -20,9 +18,9 @@ namespace YNL.Checkotel
         private Label _label;
 
         private bool _isSelected;
-        private HomeNavigationType _type;
+        private ViewType _type;
 
-        public HomeNavigationButton(Texture2D icon, string label, bool isSelected, HomeNavigationType type)
+        public HomeNavigationButton(Texture2D icon, string label, bool isSelected, ViewType type)
         {
             _isSelected = isSelected;
             _type = type;
@@ -43,13 +41,15 @@ namespace YNL.Checkotel
 
             UpdateUI();
 
-            this.RegisterCallback<PointerDownEvent>(OnClicked_Button);
+            this.RegisterCallback<PointerUpEvent>(OnClicked_Button);
 
-            Marker.OnHomeNavigated += RecheckUI;
+            _onNavigated += RecheckUI;
+            Marker.OnViewPageSwitched += OnViewPageSwitched;
         }
         ~HomeNavigationButton()
         {
-            Marker.OnHomeNavigated -= RecheckUI;
+            _onNavigated -= RecheckUI;
+            Marker.OnViewPageSwitched -= OnViewPageSwitched;
         }
 
         private void UpdateUI()
@@ -59,15 +59,22 @@ namespace YNL.Checkotel
             _label.EnableClass(_isSelected, _selected);
         }
 
-        private void OnClicked_Button(PointerDownEvent evt)
+        private void OnClicked_Button(PointerUpEvent evt)
         {
-            Marker.OnHomeNavigated?.Invoke(_type);
-
             _isSelected = true;
+            UpdateUI();
+
+            _onNavigated?.Invoke(_type);
+            Marker.OnViewPageSwitched?.Invoke(_type, true, true);
+        }
+
+        private void OnViewPageSwitched(ViewType type, bool a, bool b)
+        {
+            _isSelected = type == _type;
             UpdateUI();
         }
 
-        private void RecheckUI(HomeNavigationType type)
+        private void RecheckUI(ViewType type)
         {
             if (_type == type) return;
 

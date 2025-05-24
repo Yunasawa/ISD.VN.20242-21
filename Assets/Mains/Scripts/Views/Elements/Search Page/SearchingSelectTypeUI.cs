@@ -5,15 +5,13 @@ using YNL.Utilities.UIToolkits;
 
 namespace YNL.Checkotel
 {
-    public enum SearchingStayType : byte { Hourly, Overnight, Daily }
-    public enum SearchingRoomType : byte { Standard, Family, Business }
-
     /// <summary>
     /// Used in <b>Searching Page - Main Page</b> to show the type of searching.
     /// </summary>
     public class SearchingSelectTypeUI : VisualElement
     {
-        public static Action<bool, SearchingStayType, SearchingRoomType> OnSelected { get; set; }
+        public delegate void OnSelectedEvent(bool a, Room.StayType b, Room.RoomType c);
+        public static Action<bool, Room.StayType, Room.RoomType> OnSelected { get; set; }
 
         private const string _rootClass = "searching-select-type";
         private const string _iconClass = _rootClass + "__icon";
@@ -25,16 +23,19 @@ namespace YNL.Checkotel
 
         private bool _isSelected;
         private bool _isStayType;
-        private SearchingStayType _stayType;
-        private SearchingRoomType _roomType;
+        private Room.StayType _stayType;
+        private Room.RoomType _roomType;
         private Texture2D _lightIcon;
         private Texture2D _filledIcon;
 
-        public SearchingSelectTypeUI(string lightIcon, string filledIcon, string label, bool isSelected)
+        private OnSelectedEvent _selectedEvent;
+
+        public SearchingSelectTypeUI(string label, OnSelectedEvent evt, bool isSelected)
         {
+            _selectedEvent = evt;
             _isSelected = isSelected;
-            _lightIcon = Main.Resources.Icons[lightIcon];
-            _filledIcon = Main.Resources.Icons[filledIcon];
+            _lightIcon = Main.Resources.Icons[label];
+            _filledIcon = Main.Resources.Icons[label];
 
             this.AddStyle(Main.Resources.Styles["StyleVariableUI"]);
             this.AddStyle(Main.Resources.Styles["SearchingSelectTypeUI"]);
@@ -51,7 +52,7 @@ namespace YNL.Checkotel
 
             UpdateUI();
 
-            this.RegisterCallback<PointerDownEvent>(OnClicked_Button);
+            this.RegisterCallback<PointerUpEvent>(OnClicked_Button);
 
             OnSelected += RecheckUI;
         }
@@ -60,32 +61,33 @@ namespace YNL.Checkotel
             OnSelected -= RecheckUI;
         }
 
-        public SearchingSelectTypeUI SetStayType(SearchingStayType stayType)
+        public SearchingSelectTypeUI SetStayType(Room.StayType stayType)
         {
             _isStayType = true;
             _stayType = stayType;
             return this;
         }
 
-        public SearchingSelectTypeUI SetRoomType(SearchingRoomType roomType)
+        public SearchingSelectTypeUI SetRoomType(Room.RoomType roomType)
         {
             _isStayType = false;
             _roomType = roomType;
             return this;
         }
 
-        private void OnClicked_Button(PointerDownEvent evt)
+        private void OnClicked_Button(PointerUpEvent evt)
         {
             if (_isSelected) return;
 
             OnSelected?.Invoke(_isStayType, _stayType, _roomType);
+            _selectedEvent(_isStayType, _stayType, _roomType);
 
             _isSelected = true;
 
             UpdateUI();
         }
 
-        private void RecheckUI(bool isStayType, SearchingStayType stayType, SearchingRoomType roomType)
+        private void RecheckUI(bool isStayType, Room.StayType stayType, Room.RoomType roomType)
         {
             if (_isStayType != isStayType) return;
 

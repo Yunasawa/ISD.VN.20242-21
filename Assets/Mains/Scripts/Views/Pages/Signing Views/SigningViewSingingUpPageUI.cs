@@ -1,16 +1,14 @@
-using PlasticGui;
-using System.Text.RegularExpressions;
 using System;
+using System.Linq;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UIElements;
 using YNL.Utilities.UIToolkits;
 
 namespace YNL.Checkotel
 {
-    public class SigningViewSingingUpPageUI : MonoBehaviour, ICollectible
+    public class SigningViewSingingUpPageUI : ViewPageUI
     {
-        private VisualElement _root;
-
         private TextField _accountInputField;
         private Label _accountMessage;
         private TextField _passwordInputField;
@@ -26,8 +24,6 @@ namespace YNL.Checkotel
         private VisualElement _signInWithFacebookButton;
         private VisualElement _signInWithGoogleButton;
 
-        private Label _switchText;
-
         private bool _validEmailInput;
         private string _accountInput;
         private string _passwordInput;
@@ -35,21 +31,9 @@ namespace YNL.Checkotel
         private bool _validPasswordInput;
         private bool _validConfirmInput;
 
-        private void Awake()
+        protected override void Collect()
         {
-            Marker.OnSystemStart += Collect;
-        }
-
-        private void OnDestroy()
-        {
-            Marker.OnSystemStart -= Collect;
-        }
-
-        public void Collect()
-        {
-            _root = GetComponent<UIDocument>().rootVisualElement;
-
-            var signingInputField = _root.Q("SigningInputField");
+            var signingInputField = Root.Q("SigningInputField");
 
             _accountInputField = signingInputField.Q("AccountField").Q("TextField") as TextField;
             _accountInputField.RegisterValueChangedCallback(OnValueChanged_AccountInputField);
@@ -69,16 +53,21 @@ namespace YNL.Checkotel
 
             _confirmMessage = signingInputField.Q("ConfirmField").Q("Message") as Label;
 
-            _signInWithFacebookButton = _root.Q("SigningMethod").Q("FacebookSigning");
-            _signInWithFacebookButton.RegisterCallback<PointerDownEvent>(SigningWithFacebook);
+            _signInWithFacebookButton = Root.Q("SigningMethod").Q("FacebookSigning");
+            _signInWithFacebookButton.RegisterCallback<PointerUpEvent>(SigningWithFacebook);
 
-            _signInWithGoogleButton = _root.Q("SigningMethod").Q("GoogleSigning");
-            _signInWithGoogleButton.RegisterCallback<PointerDownEvent>(SignInWithGoogle);
+            _signInWithGoogleButton = Root.Q("SigningMethod").Q("GoogleSigning");
+            _signInWithGoogleButton.RegisterCallback<PointerUpEvent>(SignInWithGoogle);
 
-            _signingButton = signingInputField.Q("SigningButton") as Button;
+            _signingButton = signingInputField.Q("SigningButton").Q("Button") as Button;
             _signingButton.clicked += SigningAccount;
+        }
 
-            _switchText = _root.Q("SwitchLabel").Q("SwitchText") as Label;
+        protected override void Initialize()
+        {
+            _accountMessage.SetText(string.Empty);
+            _passwordMessage.SetText(string.Empty);
+            _confirmMessage.SetText(string.Empty);
         }
 
         private void OnValueChanged_AccountInputField(ChangeEvent<string> evt)
@@ -98,10 +87,16 @@ namespace YNL.Checkotel
                 return;
             }
 
+            var account = Main.Database.Accounts.Values.First(i => i.Email == _accountInput || i.PhoneNumber == _accountInput);
+
+            if (account != null)
+            {
+                _accountMessage.SetText("This email or phone number is registered by another account!");
+                return;
+            }
+
             _accountMessage.SetText(string.Empty);
             _validAccountInput = true;
-
-            // Validate if account is existed.
         }
 
         private void OnValueChanged_PasswordInputField(ChangeEvent<string> evt)
@@ -161,12 +156,12 @@ namespace YNL.Checkotel
             _validConfirmInput = true;
         }
 
-        private void SigningWithFacebook(PointerDownEvent evt)
+        private void SigningWithFacebook(PointerUpEvent evt)
         {
-
+            
         }
 
-        private void SignInWithGoogle(PointerDownEvent evt)
+        private void SignInWithGoogle(PointerUpEvent evt)
         {
 
         }
@@ -177,13 +172,12 @@ namespace YNL.Checkotel
             if (_validEmailInput) account.Email = _accountInput;
             else account.PhoneNumber = _accountInput;
             account.Password = _passwordInput;
+            Main.Database.Accounts.Add(account.ID, account);
 
-            //Main.Database.Accounts.Add(account);
-
-            //Marker.OnViewPageSwitched?.Invoke(ViewType.MainView, ViewKey.MainViewHomePage, true);
+            Marker.OnViewPageSwitched?.Invoke(ViewType.MainViewHomePage, true, true);
         }
 
-        private void RecoveryAccount(PointerDownEvent evt)
+        private void RecoveryAccount(PointerUpEvent evt)
         {
 
         }

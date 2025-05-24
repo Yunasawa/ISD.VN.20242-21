@@ -5,7 +5,7 @@ namespace YNL.Checkotel
 {
     public partial class InformationViewReviewPage
     {
-        public class RatingView : IRefreshable
+        public class RatingView
         {
             private Label _ratingText;
             private Label _rankText;
@@ -28,24 +28,25 @@ namespace YNL.Checkotel
                 _cleanlinessScore = (cleanlinessScore.Q("ScoreLine").Q("LineFill"), cleanlinessScore.Q("ScoreText") as Label);
                 _facilitiesScore = (facilitiesScore.Q("ScoreLine").Q("LineFill"), facilitiesScore.Q("ScoreText") as Label);
                 _serviceScore = (serviceScore.Q("ScoreLine").Q("LineFill"), serviceScore.Q("ScoreText") as Label);
-
-                Refresh();
             }
 
-            public void Refresh()
+            public void Apply(HotelReview review)
             {
-                _ratingText.SetText(((4.2f + 4.5f + 4.3f) / 3).ToString("0.0"));
-                _rankText.SetText("Exceptional");
-                _amountText.SetText("123 reviews");
+                _ratingText.SetText(review.AverageRating.ToString("0.0"));
+                _rankText.SetText(review.AverageRating.ToRank());
+                _amountText.SetText($"{review.FeebackAmount} reviews");
 
-                _cleanlinessScore.Text.SetText("4.2");
-                _cleanlinessScore.Bar.SetWidth(4.2f / 5 * 100, true);
+                var averageCleanliness = review.AverageCleanliness;
+                _cleanlinessScore.Text.SetText(averageCleanliness.ToString("0.0"));
+                _cleanlinessScore.Bar.SetWidth(averageCleanliness / 5 * 100, true);
 
-                _facilitiesScore.Text.SetText("4.5");
-                _facilitiesScore.Bar.SetWidth(4.5f / 5 * 100, true);
+                var averageFacilities = review.AverageFacilities;
+                _facilitiesScore.Text.SetText(averageFacilities.ToString("0.0"));
+                _facilitiesScore.Bar.SetWidth(averageFacilities / 5 * 100, true);
 
-                _serviceScore.Text.SetText("4.3");
-                _serviceScore.Bar.SetWidth(4.3f / 5 * 100, true);
+                var averageService = review.AverageService;
+                _serviceScore.Text.SetText(averageService.ToString("0.0"));
+                _serviceScore.Bar.SetWidth(averageService / 5 * 100, true);
             }
         }
     }

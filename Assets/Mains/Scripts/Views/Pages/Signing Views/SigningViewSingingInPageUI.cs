@@ -3,10 +3,8 @@ using UnityEngine.UIElements;
 
 namespace YNL.Checkotel
 {
-    public class SigningViewSingingInPageUI : MonoBehaviour, ICollectible
+    public class SigningViewSingingInPageUI : ViewPageUI
     {
-        private VisualElement _root;
-
         private TextField _accountInputField;
         private Label _accountMessage;
         private TextField _passwordInputField;
@@ -18,23 +16,9 @@ namespace YNL.Checkotel
         private VisualElement _signInWithFacebookButton;
         private VisualElement _signInWithGoogleButton;
 
-        private Label _switchText;
-
-        private void Awake()
+        protected override void Collect()
         {
-            Marker.OnSystemStart += Collect;
-        }
-
-        private void OnDestroy()
-        {
-            Marker.OnSystemStart -= Collect;
-        }
-
-        public void Collect()
-        {
-            _root = GetComponent<UIDocument>().rootVisualElement;
-
-            var signingInputField = _root.Q("SigningInputField");
+            var signingInputField = Root.Q("SigningInputField");
 
             _accountInputField = signingInputField.Q("AccountField").Q("TextField") as TextField;
             _accountInputField.RegisterValueChangedCallback(OnValueChanged_AccountInputField);
@@ -46,19 +30,17 @@ namespace YNL.Checkotel
 
             _passwordMessage = signingInputField.Q("PasswordField").Q("Message") as Label;
 
-            _signInWithFacebookButton = _root.Q("SigningMethod").Q("FacebookSigning");
-            _signInWithFacebookButton.RegisterCallback<PointerDownEvent>(SigningWithFacebook);
+            _signInWithFacebookButton = Root.Q("SigningMethod").Q("FacebookSigning");
+            _signInWithFacebookButton.RegisterCallback<PointerUpEvent>(SigningWithFacebook);
 
-            _signInWithGoogleButton = _root.Q("SigningMethod").Q("GoogleSigning");
-            _signInWithGoogleButton.RegisterCallback<PointerDownEvent>(SignInWithGoogle);
+            _signInWithGoogleButton = Root.Q("SigningMethod").Q("GoogleSigning");
+            _signInWithGoogleButton.RegisterCallback<PointerUpEvent>(SignInWithGoogle);
 
-            _signingButton = signingInputField.Q("SigningButton") as Button;
+            _signingButton = signingInputField.Q("SigningButton").Q("Button") as Button;
             _signingButton.clicked += SigningAccount;
 
             _recoveryButton = signingInputField.Q("RecoveryButton");
-            _recoveryButton.RegisterCallback<PointerDownEvent>(RecoveryAccount);
-
-            _switchText = _root.Q("SwitchLabel").Q("SwitchText") as Label;
+            _recoveryButton.RegisterCallback<PointerUpEvent>(RecoveryAccount);
         }
 
         private void OnValueChanged_AccountInputField(ChangeEvent<string> evt)
@@ -71,12 +53,12 @@ namespace YNL.Checkotel
 
         }
 
-        private void SigningWithFacebook(PointerDownEvent evt)
+        private void SigningWithFacebook(PointerUpEvent evt)
         {
 
         }
 
-        private void SignInWithGoogle(PointerDownEvent evt)
+        private void SignInWithGoogle(PointerUpEvent evt)
         {
 
         }
@@ -86,7 +68,7 @@ namespace YNL.Checkotel
 
         }
 
-        private void RecoveryAccount(PointerDownEvent evt)
+        private void RecoveryAccount(PointerUpEvent evt)
         {
 
         }
