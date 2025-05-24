@@ -1,15 +1,15 @@
 fileFormatVersion: 2
-guid: 9f92038ff6c990049b2bbd9d7fcb9f12
+guid: 02d98c3dea1e2fd4caa16db9748986b3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2196930548578283699
-    second: Beyond The Moon_0
+      213: -6533853842749101881
+    second: Ocean Breeze Resort_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -55,9 +55,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Beyond The Moon_0
+      name: Ocean Breeze Resort_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 683
-        height: 1024
+        width: 1280
+        height: 850
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3b07630b1b01d7e10800000000000000
-      internalID: 2196930548578283699
+      spriteID: 7c86e904c861355a0800000000000000
+      internalID: -6533853842749101881
       vertices: []
       indices: 
       edges: []
@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Ocean Breeze Resort_0: -6533853842749101881
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

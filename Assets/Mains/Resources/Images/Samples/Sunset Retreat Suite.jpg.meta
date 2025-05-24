@@ -1,15 +1,15 @@
 fileFormatVersion: 2
-guid: 8c3a7b29eb31aa547b1256f4208f1572
+guid: 57dde482411347146866d78bb80af15f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 114095670942608196
-    second: Beyond the Ocean Door_0
+      213: 4677758096971800600
+    second: Sunset Retreat Suite_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -55,9 +55,9 @@ TextureImporter:
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
-  alphaIsTransparency: 0
+  alphaIsTransparency: 1
   spriteTessellationDetail: -1
-  textureType: 0
+  textureType: 8
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Beyond the Ocean Door_0
+      name: Sunset Retreat Suite_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 640
-        height: 1024
+        width: 1280
+        height: 850
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 44ba1f08869559100800000000000000
-      internalID: 114095670942608196
+      spriteID: 8102633943cbae040800000000000000
+      internalID: 4677758096971800600
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Beyond the Ocean Door_0: 114095670942608196
+      Sunset Retreat Suite_0: 4677758096971800600
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
