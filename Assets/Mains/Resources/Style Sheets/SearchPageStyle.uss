@@ -73,7 +73,7 @@
 }
 
 .filter-selection-button__label.selected {
-    color: rgb(254, 209, 167);
+    color: rgb(222, 249, 93);
 }
 
 .popup-page-transition {
@@ -107,11 +107,11 @@
 }
 
 .filter-selection-button.selected {
-    background-color: rgb(59, 47, 36);
-    border-left-color: rgb(254, 209, 167);
-    border-right-color: rgb(254, 209, 167);
-    border-top-color: rgb(254, 209, 167);
-    border-bottom-color: rgb(254, 209, 167);
+    background-color: rgb(59, 62, 46);
+    border-left-color: rgb(222, 249, 93);
+    border-right-color: rgb(222, 249, 93);
+    border-top-color: rgb(222, 249, 93);
+    border-bottom-color: rgb(222, 249, 93);
     border-top-width: 2px;
     border-right-width: 2px;
     border-bottom-width: 2px;
@@ -156,6 +156,8 @@
     width: 75px;
     height: 75px;
     align-self: center;
+    background-image: resource('Icons/Checkbox');
+    background-size: 75% 75%;
 }
 
 .search-page-label {

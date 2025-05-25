@@ -11,9 +11,9 @@
             <engine:VisualElement name="NameField" style="height: 50px; flex-direction: row;">
                 <engine:VisualElement name="Icon" style="height: 50px; width: 30px; margin-right: 15px; background-image: resource(&apos;Icons/Location&apos;); -unity-background-scale-mode: scale-to-fit; -unity-background-image-tint-color: rgb(222, 249, 93);" />
                 <engine:Label text="Sam Winchester" name="Name" class="label-field" style="height: 50px; -unity-text-align: middle-left; -unity-font-style: bold; font-size: 40px; margin-right: 15px; color: rgb(222, 249, 93);" />
-                <engine:Label text="(+1) 3079390277" name="Number" class="label-field" style="-unity-text-align: middle-left; font-size: 35px; color: rgb(160, 160, 160);" />
+                <engine:Label text="(+1) 3079390277" name="Number" class="label-field" style="-unity-text-align: middle-left; font-size: 35px; color: rgb(192, 192, 192);" />
             </engine:VisualElement>
-            <engine:Label text="6718 Lakota Pointe Ln, Middletown, Ohio (OH)" name="AddressText" class="label-field" style="white-space: normal; font-size: 35px; color: rgb(160, 160, 160);" />
+            <engine:Label text="6718 Lakota Pointe Ln, Middletown, Ohio (OH)" name="AddressText" class="label-field" style="white-space: normal; font-size: 35px; color: rgb(192, 192, 192);" />
         </engine:VisualElement>
         <engine:VisualElement name="ProductView" style="flex-grow: 1; padding-right: 50px; padding-left: 50px; background-color: rgb(45, 45, 45); margin-top: 25px; padding-top: 25px; padding-bottom: 25px; max-height: 1200px;">
             <engine:Label text="Selected product" name="Label" class="label-field" style="-unity-font-style: bold; font-size: 45px; margin-bottom: 25px;" />
