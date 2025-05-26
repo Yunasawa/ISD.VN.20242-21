@@ -3,7 +3,7 @@ using UnityEngine.UIElements;
 using YNL.Utilities.Extensions;
 using YNL.Utilities.UIToolkits;
 
-namespace YNL.Checkotel
+namespace YNL.JAMOS
 {
     public abstract class ViewPageUI : MonoBehaviour
     {

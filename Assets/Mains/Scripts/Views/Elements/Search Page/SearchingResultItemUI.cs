@@ -3,7 +3,7 @@ using UnityEngine.UIElements;
 using YNL.Utilities.Addons;
 using YNL.Utilities.UIToolkits;
 
-namespace YNL.Checkotel
+namespace YNL.JAMOS
 {
     public partial class SearchingResultItemUI
     {
@@ -139,9 +139,6 @@ namespace YNL.Checkotel
                 _discountText.SetText($"Discount {discount}%");
 
                 var lastPrice = price * (1 - discount / 100f);
-                string priceText = $"<b><color=#FED1A7>{lastPrice.ToString("0.00")}$</color></b> <size=35>/ {duration} {type.GetStayTypeUnit(duration)} • <color=#75caff>Only {roomAmount} room left</color></size>";
-
-                _lastPrice.SetText(priceText);
             }
         }
     }
@@ -203,16 +200,7 @@ namespace YNL.Checkotel
 
             _hotelID = id;
 
-            if (!Main.Database.Hotels.TryGetValue(id, out var unit)) return;
-
-            Extension.Function.ApplyCloudImageAsync(_previewArea, unit.Description.ImageURL);
-
-            _nameField.Apply(unit.Description.Name, (unit.Review.AverageRating, unit.Review.Feedbacks.Count));
-            _addressField.Apply(unit.Description.Address);
-
-            var lowestPrice = id.GetLowestPrice(type);
-
-            _priceField.Apply(lowestPrice, type, 0, 1, 5);
+            if (!Main.Database.Books.TryGetValue(id, out var unit)) return;
         }
 
         private void OnSelected_ResultItem(PointerUpEvent evt)

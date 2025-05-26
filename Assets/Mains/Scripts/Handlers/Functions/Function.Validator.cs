@@ -4,12 +4,10 @@ using UnityEngine;
 using YNL.Utilities.Addons;
 using YNL.Utilities.Extensions;
 
-namespace YNL.Checkotel
+namespace YNL.JAMOS
 {
     public static partial class Function
     {
-        private static SerializableDictionary<UID, HotelUnit> _hotels => Main.Database.Hotels;
-
         public static bool FuzzyContains(this string source, string target, int maxDistance = 1)
         {
             if (string.IsNullOrEmpty(target)) return true;
@@ -50,71 +48,6 @@ namespace YNL.Checkotel
 
                 return distance[s.Length, t.Length];
             }
-        }
-
-        public static bool IsValidTimeRange(this UID id, Room.StayType type, DateTime checkInTime, byte duration)
-        {
-            if (checkInTime == DateTime.MinValue || Main.Runtime.IsSearchTimeApplied == false) return true;
-
-            var unit = _hotels[id];
-
-            foreach (var roomID in unit.Rooms)
-            {
-                var restriction = Main.Database.Rooms[roomID].Description.Restriction;
-
-                if (restriction.StayType != type) continue;
-
-                var (validTime, validStay) = (restriction.ValidTime, restriction.ValidStay);
-
-                bool isValid = type switch
-                {
-                    Room.StayType.Hourly => checkInTime.Hour >= validTime.TimeIn && checkInTime.Hour < validTime.TimeOut
-                                      && duration >= validStay.TimeIn && duration <= validStay.TimeOut,
-
-                    Room.StayType.Overnight => checkInTime.Hour >= validTime.TimeIn
-                                          && checkInTime.AddHours(duration).Hour <= validTime.TimeOut
-                                          && validStay.TimeIn == 0 && validStay.TimeOut == 0,
-
-                    Room.StayType.Daily => checkInTime.Day >= validTime.TimeIn && checkInTime.Day < validTime.TimeOut
-                                      && duration >= validStay.TimeIn && duration <= validStay.TimeOut,
-
-                    _ => false
-                };
-
-                if (isValid) return true;
-            }
-
-            return false;
-        }
-        
-        public static bool IsValidFilter(this HotelUnit unit, FilterSelectionType selection, FilterPropertyType property)
-        {
-            if (selection == FilterSelectionType.ReviewScore)
-            {
-                return property switch
-                {
-                    FilterPropertyType.ScoreG45 => unit.Review.AverageRating >= 4.5f,
-                    FilterPropertyType.ScoreG40 => unit.Review.AverageRating >= 4.0f,
-                    FilterPropertyType.ScoreG35 => unit.Review.AverageRating >= 3.5f,
-                    _ => false
-                };
-            }
-            else if (selection == FilterSelectionType.Cleanliness)
-            {
-                return property switch
-                {
-                    FilterPropertyType.CleanE45 => unit.Review.AverageCleanliness >= 4.5f,
-                    FilterPropertyType.CleanG40 => unit.Review.AverageCleanliness >= 4.0f,
-                    FilterPropertyType.CleanG35 => unit.Review.AverageCleanliness >= 3.5f,
-                    _ => false
-                };
-            }
-            else if (selection == FilterSelectionType.HotelType)
-            {
-                return true;
-            }
-
-            return false;
         }
     }
 }

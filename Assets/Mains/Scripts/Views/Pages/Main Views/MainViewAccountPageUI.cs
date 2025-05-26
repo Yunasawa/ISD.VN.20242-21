@@ -1,6 +1,6 @@
 using UnityEngine.UIElements;
 
-namespace YNL.Checkotel
+namespace YNL.JAMOS
 {
     public class MainViewAccountPageUI : ViewPageUI
     {

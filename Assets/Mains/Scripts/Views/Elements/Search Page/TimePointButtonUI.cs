@@ -1,7 +1,7 @@
 using UnityEngine.UIElements;
 using System;
 using YNL.Utilities.UIToolkits;
-namespace YNL.Checkotel
+namespace YNL.JAMOS
 {
 
 

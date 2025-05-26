@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace YNL.Checkotel
+namespace YNL.JAMOS
 {
     public enum UIDType : byte
     { 

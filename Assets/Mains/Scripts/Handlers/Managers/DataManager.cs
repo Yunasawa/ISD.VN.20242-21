@@ -1,17 +1,16 @@
 using Cysharp.Threading.Tasks;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 using UnityEditor;
 using UnityEngine;
 using YNL.Utilities.Extensions;
-namespace YNL.Checkotel
+namespace YNL.JAMOS
 {
     public class DataManager : MonoBehaviour
     {
-        public static string HotelImageURL;
-        public static string RoomImageURL;
+        public static Dictionary<ProductType, string> ProductImageURL = new();
 
         public bool EnableInitializeDatabase = true;
 
@@ -53,14 +52,10 @@ namespace YNL.Checkotel
             if (EnableInitializeDatabase)
             {
                 await InitializeConfigDatabase();
-                await InitializeHotelDatabase();
-                await InitializeRoomDatabase();
-                await InitializeFeedbackDatabase();
+                //await InitializeFeedbackDatabase();
             }
 
             await UniTask.Delay(100);
-
-            InitializeBaseData();
 
             Marker.OnDatabaseSerializationDone?.Invoke();
             Main.IsSystemStarted = true;
@@ -85,44 +80,7 @@ namespace YNL.Checkotel
 
             string[] lines = content.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
 
-            HotelImageURL = lines[0];
-            RoomImageURL = lines[1];
-        }
-
-        private async UniTask InitializeHotelDatabase()
-        {
-            var content = await _hotelDatabaseURL.GetRawDatabaseAsync();
-
-            _database.Hotels.Clear();
-
-            string[] lines = content.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
-
-            for (int l = 1; l < lines.Length; l++)
-            {
-                var fields = lines[l].SplitCSV();
-
-                if (string.IsNullOrEmpty(fields[1])) break;
-
-                _database.SerializeHotelDatabase(fields);
-            }
-        }
-
-        private async UniTask InitializeRoomDatabase()
-        {
-            var content = await _roomDatabaseURL.GetRawDatabaseAsync();
-
-            _database.Rooms.Clear();
-
-            string[] lines = content.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
-
-            for (int l = 1; l < lines.Length; l++)
-            {
-                var fields = lines[l].SplitCSV();
-
-                if (string.IsNullOrEmpty(fields[1])) break;
-
-                _database.SerializeRoomDatabase(fields);
-            }
+            ProductImageURL[ProductType.Book] = lines[0];
         }
 
         private async UniTask InitializeFeedbackDatabase()
@@ -140,15 +98,6 @@ namespace YNL.Checkotel
                 if (string.IsNullOrEmpty(fields[1])) break;
 
                 _database.SerializeFeedbackDatabase(fields);
-            }
-        }
-
-        private void InitializeBaseData()
-        {
-            foreach (var id in _database.Hotels.Keys)
-            {
-                id.GetHighestPriceAllType();
-                id.GetLowestPriceAllType();
             }
         }
 

@@ -1,7 +1,7 @@
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-namespace YNL.Checkotel
+namespace YNL.JAMOS
 {
     public class Test : MonoBehaviour
     {

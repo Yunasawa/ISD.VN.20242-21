@@ -1,7 +1,7 @@
 using UnityEngine.UIElements;
 using YNL.Utilities.UIToolkits;
 
-namespace YNL.Checkotel
+namespace YNL.JAMOS
 {
     public partial class InformationViewReviewPage
     {
@@ -30,23 +30,9 @@ namespace YNL.Checkotel
                 _serviceScore = (serviceScore.Q("ScoreLine").Q("LineFill"), serviceScore.Q("ScoreText") as Label);
             }
 
-            public void Apply(HotelReview review)
+            public void Apply()
             {
-                _ratingText.SetText(review.AverageRating.ToString("0.0"));
-                _rankText.SetText(review.AverageRating.ToRank());
-                _amountText.SetText($"{review.FeebackAmount} reviews");
 
-                var averageCleanliness = review.AverageCleanliness;
-                _cleanlinessScore.Text.SetText(averageCleanliness.ToString("0.0"));
-                _cleanlinessScore.Bar.SetWidth(averageCleanliness / 5 * 100, true);
-
-                var averageFacilities = review.AverageFacilities;
-                _facilitiesScore.Text.SetText(averageFacilities.ToString("0.0"));
-                _facilitiesScore.Bar.SetWidth(averageFacilities / 5 * 100, true);
-
-                var averageService = review.AverageService;
-                _serviceScore.Text.SetText(averageService.ToString("0.0"));
-                _serviceScore.Bar.SetWidth(averageService / 5 * 100, true);
             }
         }
     }

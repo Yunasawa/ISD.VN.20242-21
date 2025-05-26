@@ -1,6 +1,7 @@
 :root
 {
-	--color-light-legacy: #FED1A7;
+	--color-background: #202020;
+	--color-light-legacy: #DEF95D;
 	--color-ground-light: #3B3B3B;
 	--color-ground-middle: #353535;
 	--color-ground-dark: #303030;

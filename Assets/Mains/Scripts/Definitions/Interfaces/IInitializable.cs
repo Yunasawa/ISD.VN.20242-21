@@ -1,4 +1,4 @@
-namespace YNL.Checkotel
+namespace YNL.JAMOS
 {
     public interface IInitializable
     {

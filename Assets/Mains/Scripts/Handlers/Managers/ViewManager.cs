@@ -1,7 +1,7 @@
 using UnityEngine;
 using YNL.Utilities.Addons;
 
-namespace YNL.Checkotel
+namespace YNL.JAMOS
 {
 	public class ViewManager : MonoBehaviour
 	{
@@ -41,8 +41,8 @@ namespace YNL.Checkotel
         SigningViewSignInPage,
         
         MainViewHomePage,
-        MainViewFavoritePage,
-        MainViewBookingPage,
+        MainViewMessagePage,
+        MainViewOrderPage,
         MainViewAccountPage,
         
         SearchViewMainPage, 
@@ -50,8 +50,5 @@ namespace YNL.Checkotel
         
         InformationViewMainPage,
         InformationViewReviewPage,
-        InformationViewFacilitiesPage,
-        InformationViewRoomPage,
-        InformationViewPaymentPage
     }
 }

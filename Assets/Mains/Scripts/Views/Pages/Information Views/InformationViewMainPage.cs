@@ -3,12 +3,10 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using YNL.Utilities.UIToolkits;
 
-namespace YNL.Checkotel
+namespace YNL.JAMOS
 {
     public partial class InformationViewMainPage : ViewPageUI
     {
-        [SerializeField] private InformationViewTimeRangePageUI _timeRangePageUI;
-
         private VisualElement _backButton;
         private VisualElement _favoriteButton;
         private VisualElement _shareButton;
@@ -18,11 +16,7 @@ namespace YNL.Checkotel
         private ImageView _imageView;
         private NameView _nameView;
         private ReviewView _reviewView;
-        private FacilityView _facilityView;
         private DescriptionField _descriptionField;
-        private TimeField _timeField;
-        private PolicyField _policyField;
-        private CancellationField _cancellationPolicy;
 
         private UID _hotelID;
 
@@ -47,7 +41,6 @@ namespace YNL.Checkotel
             _shareButton = Root.Q("TopBar").Q("ShareButton");
 
             _priceField = new(Root);
-            _priceField.OnOpenTimeRangePage = OnOpenTimeRangePage;
 
             var contentContainer = Root.Q("ContentScroll").Q("unity-content-container");
 
@@ -57,17 +50,7 @@ namespace YNL.Checkotel
 
             _reviewView = new(contentContainer);
 
-            _facilityView = new(contentContainer);
-
             _descriptionField = new(contentContainer);
-
-            _timeField = new(contentContainer.Q("TimeField"));
-
-            _policyField = new(contentContainer.Q("PolicyField"));
-
-            _cancellationPolicy = new(contentContainer.Q("CancellationPolicy"));
-
-            _timeRangePageUI.OnTimeRangeSubmitted = OnTimeRangeSubmitted;
         }
 
         private void OnClicked_BackButton(PointerUpEvent evt)
@@ -93,11 +76,6 @@ namespace YNL.Checkotel
 			}
         }
 
-        private void OnOpenTimeRangePage()
-        {
-            _timeRangePageUI.OnPageOpened(true, false);
-        }
-
         private void OnTimeRangeSubmitted()
         {      
             _priceField.Apply(_hotelID);
@@ -107,25 +85,15 @@ namespace YNL.Checkotel
         {
             _hotelID = id;
 
-            var unit = Main.Database.Hotels[id];
+            var unit = Main.Database.Books[id];
 
             if (!isSearchResult)
             {
-                var nearestTime = Main.Runtime.Data.CheckInTime.GetNextNearestTime();
-                Main.Runtime.Data.CheckInTime = nearestTime;
                 Main.Runtime.Data.Duration = 1;
             }
 
             _priceField.Apply(id);
 
-            _nameView.Apply(unit.Description.Name, unit.Description.Address);
-            _reviewView.Apply(id);
-            _facilityView.Apply(unit);
-            _descriptionField.Apply(unit.Description.Description);
-            _imageView.Apply(unit).Forget();
-            _timeField.Apply(unit);
-            _policyField.Apply(unit);
-            _cancellationPolicy.Apply(unit);
 
             bool isFavorited = Main.Runtime.Data.FavoriteHotels.Contains(id);
 

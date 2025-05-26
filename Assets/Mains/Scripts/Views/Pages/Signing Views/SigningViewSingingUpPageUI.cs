@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using YNL.Utilities.UIToolkits;
 
-namespace YNL.Checkotel
+namespace YNL.JAMOS
 {
     public class SigningViewSingingUpPageUI : ViewPageUI
     {

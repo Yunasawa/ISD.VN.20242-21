@@ -1,6 +1,6 @@
 using UnityEngine.UIElements;
 
-namespace YNL.Checkotel
+namespace YNL.JAMOS
 {
     public class MainViewNavigationPageUI : ViewPageUI
     {
@@ -15,8 +15,8 @@ namespace YNL.Checkotel
         {
             _navigationBar.Clear();
             _navigationBar.Add(new HomeNavigationButton(Main.Resources.Icons["Home"], "Home", true, ViewType.MainViewHomePage));
-            _navigationBar.Add(new HomeNavigationButton(Main.Resources.Icons["Heart"], "Favorite", false, ViewType.MainViewFavoritePage));
-            _navigationBar.Add(new HomeNavigationButton(Main.Resources.Icons["Building"], "Booking", false, ViewType.MainViewBookingPage));
+            _navigationBar.Add(new HomeNavigationButton(Main.Resources.Icons["Message"], "Message", false, ViewType.MainViewMessagePage));
+            _navigationBar.Add(new HomeNavigationButton(Main.Resources.Icons["Cart"], "Order", false, ViewType.MainViewOrderPage));
             _navigationBar.Add(new HomeNavigationButton(Main.Resources.Icons["Account"], "Account", false, ViewType.MainViewAccountPage));
         }
     }

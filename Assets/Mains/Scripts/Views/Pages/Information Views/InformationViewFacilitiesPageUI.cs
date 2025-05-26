@@ -1,7 +1,7 @@
 using UnityEngine.UIElements;
 using YNL.Utilities.UIToolkits;
 
-namespace YNL.Checkotel
+namespace YNL.JAMOS
 {
     public partial class InformationViewFacilitiesPageUI : ViewPageUI
     {
@@ -55,8 +55,7 @@ namespace YNL.Checkotel
 
         private void OnHotelFacilitiesDisplayed(UID hotelID)
         {
-            var unit = Main.Database.Hotels[hotelID];
-            _facilities = unit.Description.Facilities.ToArray();
+            var unit = Main.Database.Books[hotelID];
 
             RebuildHistoryList();
         }

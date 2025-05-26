@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace YNL.Checkotel
+namespace YNL.JAMOS
 {
     [System.Serializable]
     public class RoomUnit
