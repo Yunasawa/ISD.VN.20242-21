@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6b9c99fde75e3ab49b6097fd16ee53fe
+guid: 23d1f37fa2b67ba4f82f1bb0bb646682
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -116,10 +116,10 @@ TextureImporter:
       name: VISA_0
       rect:
         serializedVersion: 2
-        x: 2
+        x: 0
         y: 8
-        width: 60
-        height: 48
+        width: 48
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      VISA_0: -2142760013158072851
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

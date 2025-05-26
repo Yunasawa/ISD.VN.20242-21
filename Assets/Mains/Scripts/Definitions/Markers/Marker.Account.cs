@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace YNL.Checkotel
+namespace YNL.JAMOS
 {
     public static partial class Marker
     { 

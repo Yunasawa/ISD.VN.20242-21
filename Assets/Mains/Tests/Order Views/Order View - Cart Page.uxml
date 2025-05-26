@@ -1,0 +1,101 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Mains/Resources/Style%20Sheets/SigningPageStyle.uss?fileID=7433441132597879392&amp;guid=3d898daa5f70b3840a09a6a12403af2c&amp;type=3#SigningPageStyle" />
+    <Style src="project://database/Assets/Mains/Resources/Style%20Sheets/MainPage.uss?fileID=7433441132597879392&amp;guid=1edcbd6233be03248a6afc0041aeffad&amp;type=3#MainPage" />
+    <engine:VisualElement name="ScreenBackground" style="flex-grow: 1; background-color: rgb(41, 41, 41); position: absolute; width: 100%; height: 100%;" />
+    <engine:VisualElement name="LabelField" style="margin-top: 100px; background-color: rgb(41, 41, 41); min-height: 125px; padding-right: 50px; padding-left: 50px; border-left-color: rgb(59, 59, 59); border-right-color: rgb(59, 59, 59); border-top-color: rgb(59, 59, 59); border-bottom-color: rgb(59, 59, 59); border-bottom-width: 2px; padding-bottom: 25px;">
+        <engine:VisualElement name="CloseButton" style="position: absolute; height: 100px; width: 50px; background-image: url(&quot;project://database/Assets/Mains/Resources/Icons/Back.png?fileID=2800000&amp;guid=f976b996dba51a04aa5b413340cc432e&amp;type=3#Back&quot;); background-size: 50% 50%; -unity-background-scale-mode: scale-to-fit;" />
+        <engine:Label text="Cart" name="LabelTitle" style="height: 100px; width: 100%; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; -unity-font-definition: url(&quot;project://database/Assets/Mains/Resources/Fonts/SDFs/Nunito/Nunito%20SDF.asset?fileID=11400000&amp;guid=995852a4f5cc55e4e89fa1e7e897eac5&amp;type=2#Nunito SDF&quot;); -unity-font-style: bold; color: rgb(255, 255, 255); -unity-text-align: middle-center; font-size: 60px;" />
+    </engine:VisualElement>
+    <engine:ScrollView name="ContentScroll" vertical-scroller-visibility="Hidden" horizontal-scroller-visibility="Hidden" style="flex-grow: 1; padding-right: 50px; padding-left: 50px;">
+        <engine:VisualElement name="ResultItem" style="height: 400px; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px; overflow: hidden; flex-direction: row; margin-top: 25px;">
+            <engine:VisualElement name="PreviewImage" style="background-image: resource(&apos;Images/Samples/Book Covers/The Case Of The Missing Cheese&apos;); -unity-background-scale-mode: scale-and-crop; width: 250px;">
+                <engine:VisualElement name="HotField" style="position: absolute; height: 50px; background-color: rgb(236, 78, 64); border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; padding-right: 10px; padding-left: 7.5px; bottom: 30px; left: 30px; flex-direction: row; display: none;">
+                    <engine:VisualElement name="Icon" style="height: 100%; width: 40px; background-image: url(&quot;project://database/Assets/Mains/Resources/Icons/Trending.png?fileID=2800000&amp;guid=33c159585fc7d5940b38da57d5dd16e6&amp;type=3#Trending&quot;); -unity-background-scale-mode: scale-to-fit;" />
+                    <engine:Label text="Hot" name="Text" class="label-field" style="font-size: 40px; margin-left: 5px; -unity-text-align: middle-left;" />
+                </engine:VisualElement>
+            </engine:VisualElement>
+            <engine:VisualElement name="InfoArea" style="flex-grow: 1; padding-left: 30px; padding-right: 30px; padding-top: 20px; padding-bottom: 20px; border-left-color: rgb(59, 59, 59); border-right-color: rgb(59, 59, 59); border-top-color: rgb(59, 59, 59); border-bottom-color: rgb(59, 59, 59); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 0; border-top-left-radius: 0; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 0;">
+                <engine:VisualElement name="NameField" style="height: 75px; flex-direction: row; margin-bottom: 10px; min-height: 75px;">
+                    <engine:VisualElement name="Icon" style="height: 75px; width: 50px; background-image: resource(&apos;Icons/Book&apos;); -unity-background-scale-mode: scale-to-fit; margin-right: 15px; -unity-background-image-tint-color: rgb(222, 249, 93);" />
+                    <engine:Label text="The Pain of Onkai" name="NameField" class="label-field" style="-unity-font-style: bold; flex-grow: 1; height: 75px; -unity-text-align: middle-left;" />
+                </engine:VisualElement>
+                <engine:VisualElement name="AuthorField" style="height: 40px; flex-direction: row; margin-bottom: 10px; min-height: 40px;">
+                    <engine:VisualElement name="AuthorName" style="flex-grow: 1; flex-direction: row; padding-right: 50px; height: 100%;">
+                        <engine:VisualElement name="Icon" style="background-image: resource(&apos;Icons/Account&apos;); -unity-background-scale-mode: scale-to-fit; min-width: 30px; min-height: 30px;" />
+                        <engine:Label text="N.K.Edo" name="Address" enable-rich-text="false" class="label-field" style="font-size: 35px; -unity-text-align: middle-left; margin-left: 10px; overflow: hidden; text-overflow: ellipsis; height: 100%;" />
+                    </engine:VisualElement>
+                    <engine:VisualElement name="RatingFIeld" style="flex-direction: row-reverse; min-width: 225px; height: 100%;">
+                        <engine:Label text="&lt;b&gt;4.5&lt;/b&gt; (1002)" name="Rating" class="label-field" style="font-size: 35px; -unity-text-align: middle-left; margin-left: 10px;" />
+                        <engine:VisualElement name="Icon" style="-unity-background-image-tint-color: rgb(255, 225, 42); background-image: url(&quot;project://database/Assets/Mains/Resources/Icons/Star%20(Filled).png?fileID=2800000&amp;guid=ce0be4c42e3056f44a239c5c6f5cfff8&amp;type=3#Star (Filled)&quot;); -unity-background-scale-mode: scale-to-fit; translate: 0 -2px; align-self: center; min-width: 35px; min-height: 35px;" />
+                    </engine:VisualElement>
+                </engine:VisualElement>
+                <engine:VisualElement name="Space" style="flex-grow: 1;" />
+                <engine:VisualElement name="PriceField" style="margin-top: 25px; height: 100px; min-height: 100px;">
+                    <engine:VisualElement name="OriginalField" style="flex-direction: row; height: 50px;">
+                        <engine:Label text="&lt;b&gt;&lt;color=#DEF95D&gt;7.99$&lt;/color&gt;&lt;/b&gt; &lt;s&gt;9.99$&lt;/s&gt;" name="OriginalPrice" class="label-field" style="font-size: 50px; margin-right: 20px; -unity-text-align: middle-center;" />
+                        <engine:VisualElement name="DiscountField" style="flex-direction: row; padding-right: 10px; padding-left: 5px; background-color: rgb(222, 249, 93); border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px;">
+                            <engine:VisualElement name="Icon" style="width: 30px; background-image: url(&quot;project://database/Assets/Mains/Resources/Icons/Discount.png?fileID=2800000&amp;guid=5a10d3b671d96cc4eb6642db420a83ad&amp;type=3#Discount&quot;); -unity-background-scale-mode: scale-to-fit; -unity-background-image-tint-color: rgb(59, 59, 59); margin-right: 5px; margin-left: 5px;" />
+                            <engine:Label text="-20%" name="DiscountText" class="label-field" style="font-size: 30px; margin-left: 10px; color: rgb(59, 59, 59); -unity-text-align: middle-left; -unity-font-style: bold; width: 85px;" />
+                        </engine:VisualElement>
+                    </engine:VisualElement>
+                    <engine:Label text="• Only 123 copies in stock" name="LastPrice" class="label-field" style="height: 40px; -unity-text-align: middle-left; font-size: 30px; color: rgb(117, 202, 255); text-overflow: ellipsis; overflow: hidden; margin-top: 7.5px;" />
+                </engine:VisualElement>
+                <engine:VisualElement name="AmountField" style="height: 50px; flex-direction: row-reverse;">
+                    <engine:VisualElement name="AddButton" style="height: 50px; width: 50px; background-image: resource(&apos;Icons/Add&apos;); border-left-color: rgb(80, 80, 80); border-right-color: rgb(80, 80, 80); border-top-color: rgb(80, 80, 80); border-bottom-color: rgb(80, 80, 80); border-bottom-width: 2px; border-right-width: 2px; border-top-width: 2px; border-bottom-right-radius: 10px; border-top-right-radius: 10px; background-size: 75% 75%; -unity-background-image-tint-color: rgb(160, 160, 160);" />
+                    <engine:Label text="1234" name="AmountText" class="label-field" style="font-size: 30px; width: 100px; -unity-text-align: middle-center; border-left-color: rgb(80, 80, 80); border-right-color: rgb(80, 80, 80); border-top-color: rgb(80, 80, 80); border-bottom-color: rgb(80, 80, 80); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; -unity-font-style: bold; color: rgb(222, 249, 93);" />
+                    <engine:VisualElement name="RemoveButton" style="height: 50px; width: 50px; background-image: resource(&apos;Icons/Remove&apos;); border-left-color: rgb(80, 80, 80); border-right-color: rgb(80, 80, 80); border-top-color: rgb(80, 80, 80); border-bottom-color: rgb(80, 80, 80); border-bottom-width: 2px; border-right-width: 0; border-top-width: 2px; border-bottom-right-radius: 0; border-top-right-radius: 0; background-size: 75% 75%; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-left-width: 2px; -unity-background-image-tint-color: rgb(160, 160, 160);" />
+                </engine:VisualElement>
+            </engine:VisualElement>
+        </engine:VisualElement>
+        <engine:VisualElement name="ResultItem" style="height: 400px; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px; overflow: hidden; flex-direction: row; margin-top: 25px;">
+            <engine:VisualElement name="PreviewImage" style="background-image: resource(&apos;Images/Samples/Book Covers/The Case Of The Missing Cheese&apos;); -unity-background-scale-mode: scale-and-crop; width: 250px;">
+                <engine:VisualElement name="HotField" style="position: absolute; height: 50px; background-color: rgb(236, 78, 64); border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px; padding-right: 10px; padding-left: 7.5px; bottom: 30px; left: 30px; flex-direction: row; display: none;">
+                    <engine:VisualElement name="Icon" style="height: 100%; width: 40px; background-image: url(&quot;project://database/Assets/Mains/Resources/Icons/Trending.png?fileID=2800000&amp;guid=33c159585fc7d5940b38da57d5dd16e6&amp;type=3#Trending&quot;); -unity-background-scale-mode: scale-to-fit;" />
+                    <engine:Label text="Hot" name="Text" class="label-field" style="font-size: 40px; margin-left: 5px; -unity-text-align: middle-left;" />
+                </engine:VisualElement>
+            </engine:VisualElement>
+            <engine:VisualElement name="InfoArea" style="flex-grow: 1; padding-left: 30px; padding-right: 30px; padding-top: 20px; padding-bottom: 20px; border-left-color: rgb(59, 59, 59); border-right-color: rgb(59, 59, 59); border-top-color: rgb(59, 59, 59); border-bottom-color: rgb(59, 59, 59); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 0; border-top-left-radius: 0; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 0;">
+                <engine:VisualElement name="NameField" style="height: 75px; flex-direction: row; margin-bottom: 10px; min-height: 75px;">
+                    <engine:VisualElement name="Icon" style="height: 75px; width: 50px; background-image: resource(&apos;Icons/CD&apos;); -unity-background-scale-mode: scale-to-fit; margin-right: 15px; -unity-background-image-tint-color: rgb(222, 249, 93);" />
+                    <engine:Label text="The Pain of Onkai" name="NameField" class="label-field" style="-unity-font-style: bold; flex-grow: 1; height: 75px; -unity-text-align: middle-left;" />
+                </engine:VisualElement>
+                <engine:VisualElement name="AuthorField" style="height: 40px; flex-direction: row; margin-bottom: 10px; min-height: 40px;">
+                    <engine:VisualElement name="AuthorName" style="flex-grow: 1; flex-direction: row; padding-right: 50px; height: 100%;">
+                        <engine:VisualElement name="Icon" style="background-image: resource(&apos;Icons/Account&apos;); -unity-background-scale-mode: scale-to-fit; min-width: 30px; min-height: 30px;" />
+                        <engine:Label text="N.K.Edo" name="Address" enable-rich-text="false" class="label-field" style="font-size: 35px; -unity-text-align: middle-left; margin-left: 10px; overflow: hidden; text-overflow: ellipsis; height: 100%;" />
+                    </engine:VisualElement>
+                    <engine:VisualElement name="RatingFIeld" style="flex-direction: row-reverse; min-width: 225px; height: 100%;">
+                        <engine:Label text="&lt;b&gt;4.5&lt;/b&gt; (1002)" name="Rating" class="label-field" style="font-size: 35px; -unity-text-align: middle-left; margin-left: 10px;" />
+                        <engine:VisualElement name="Icon" style="-unity-background-image-tint-color: rgb(255, 225, 42); background-image: url(&quot;project://database/Assets/Mains/Resources/Icons/Star%20(Filled).png?fileID=2800000&amp;guid=ce0be4c42e3056f44a239c5c6f5cfff8&amp;type=3#Star (Filled)&quot;); -unity-background-scale-mode: scale-to-fit; translate: 0 -2px; align-self: center; min-width: 35px; min-height: 35px;" />
+                    </engine:VisualElement>
+                </engine:VisualElement>
+                <engine:VisualElement name="Space" style="flex-grow: 1;" />
+                <engine:VisualElement name="PriceField" style="margin-top: 25px; height: 100px; min-height: 100px;">
+                    <engine:VisualElement name="OriginalField" style="flex-direction: row; height: 50px;">
+                        <engine:Label text="&lt;b&gt;&lt;color=#DEF95D&gt;7.99$&lt;/color&gt;&lt;/b&gt; &lt;s&gt;9.99$&lt;/s&gt;" name="OriginalPrice" class="label-field" style="font-size: 50px; margin-right: 20px; -unity-text-align: middle-center;" />
+                        <engine:VisualElement name="DiscountField" style="flex-direction: row; padding-right: 10px; padding-left: 5px; background-color: rgb(222, 249, 93); border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px;">
+                            <engine:VisualElement name="Icon" style="width: 30px; background-image: url(&quot;project://database/Assets/Mains/Resources/Icons/Discount.png?fileID=2800000&amp;guid=5a10d3b671d96cc4eb6642db420a83ad&amp;type=3#Discount&quot;); -unity-background-scale-mode: scale-to-fit; -unity-background-image-tint-color: rgb(59, 59, 59); margin-right: 5px; margin-left: 5px;" />
+                            <engine:Label text="-20%" name="DiscountText" class="label-field" style="font-size: 30px; margin-left: 10px; color: rgb(59, 59, 59); -unity-text-align: middle-left; -unity-font-style: bold; width: 85px;" />
+                        </engine:VisualElement>
+                    </engine:VisualElement>
+                    <engine:Label text="• Only 123 copies in stock" name="LastPrice" class="label-field" style="height: 40px; -unity-text-align: middle-left; font-size: 30px; color: rgb(117, 202, 255); text-overflow: ellipsis; overflow: hidden; margin-top: 7.5px;" />
+                </engine:VisualElement>
+                <engine:VisualElement name="AmountField" style="height: 50px; flex-direction: row-reverse;">
+                    <engine:VisualElement name="AddButton" style="height: 50px; width: 50px; background-image: resource(&apos;Icons/Add&apos;); border-left-color: rgb(80, 80, 80); border-right-color: rgb(80, 80, 80); border-top-color: rgb(80, 80, 80); border-bottom-color: rgb(80, 80, 80); border-bottom-width: 2px; border-right-width: 2px; border-top-width: 2px; border-bottom-right-radius: 10px; border-top-right-radius: 10px; background-size: 75% 75%; -unity-background-image-tint-color: rgb(160, 160, 160);" />
+                    <engine:Label text="1234" name="AmountText" class="label-field" style="font-size: 30px; width: 100px; -unity-text-align: middle-center; border-left-color: rgb(80, 80, 80); border-right-color: rgb(80, 80, 80); border-top-color: rgb(80, 80, 80); border-bottom-color: rgb(80, 80, 80); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; -unity-font-style: bold; color: rgb(222, 249, 93);" />
+                    <engine:VisualElement name="RemoveButton" style="height: 50px; width: 50px; background-image: resource(&apos;Icons/Remove&apos;); border-left-color: rgb(80, 80, 80); border-right-color: rgb(80, 80, 80); border-top-color: rgb(80, 80, 80); border-bottom-color: rgb(80, 80, 80); border-bottom-width: 2px; border-right-width: 0; border-top-width: 2px; border-bottom-right-radius: 0; border-top-right-radius: 0; background-size: 75% 75%; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-left-width: 2px; -unity-background-image-tint-color: rgb(160, 160, 160);" />
+                </engine:VisualElement>
+            </engine:VisualElement>
+        </engine:VisualElement>
+    </engine:ScrollView>
+    <engine:VisualElement name="OrderField" style="margin-top: 25px; background-color: rgb(41, 41, 41); min-height: 175px; padding-bottom: 25px; flex-direction: row; padding-right: 50px; padding-left: 50px; border-left-color: rgb(59, 59, 59); border-right-color: rgb(59, 59, 59); border-top-color: rgb(59, 59, 59); border-bottom-color: rgb(59, 59, 59); border-top-width: 2px;">
+        <engine:VisualElement name="SelectAll" style="height: 50px; align-self: center; flex-direction: row; flex-grow: 1;">
+            <engine:VisualElement name="Checkbox" style="height: 50px; width: 50px; background-image: resource(&apos;Icons/Checkbox&apos;);" />
+            <engine:Label text="Select All" name="Label" class="label-field" style="-unity-text-align: middle-left; margin-left: 15px; font-size: 35px;" />
+        </engine:VisualElement>
+        <engine:VisualElement name="OrderField" style="flex-direction: row;">
+            <engine:Label text="Total &lt;b&gt;&lt;color=#DEF95D&gt;$1,234&lt;/color&gt;&lt;/b&gt;" name="PriceText" class="label-field" style="-unity-text-align: middle-left; margin-right: 25px;" />
+            <engine:Button text="Button" name="OrderButton" class="label-field" style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; background-color: rgb(222, 249, 93); font-size: 40px; color: rgb(56, 56, 56); -unity-font-style: bold; height: 100px; width: 250px; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px; align-self: center;" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

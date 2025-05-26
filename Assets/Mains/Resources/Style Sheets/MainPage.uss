@@ -4,8 +4,8 @@
     border-right-width: 0;
     border-bottom-width: 0;
     border-left-width: 0;
-    color: rgb(255, 255, 255);
     --unity-cursor-color: var(--color-contrast-solid);
+    color: rgb(255, 255, 255);
 }
 
 .frame-border {
@@ -66,18 +66,18 @@
     border-right-width: 3px;
     border-bottom-width: 3px;
     border-left-width: 3px;
-    border-left-color: rgb(253, 179, 116);
-    border-right-color: rgb(253, 179, 116);
-    border-top-color: rgb(253, 179, 116);
-    border-bottom-color: rgb(253, 179, 116);
-    -unity-background-image-tint-color: rgb(253, 179, 116);
+    border-left-color: rgb(222, 249, 93);
+    border-right-color: rgb(222, 249, 93);
+    border-top-color: rgb(222, 249, 93);
+    border-bottom-color: rgb(222, 249, 93);
+    -unity-background-image-tint-color: rgb(222, 249, 93);
     background-size: 50% 50%;
     rotate: 90deg;
     background-image: resource('Icons/Menu');
 }
 
 .price-range-slider > * > .unity-min-max-slider__dragger {
-    background-color: rgb(201, 145, 97);
+    background-color: rgb(222, 249, 93);
     justify-content: center;
     height: 10px;
     border-top-left-radius: 0;
@@ -113,4 +113,8 @@
     transition-property: translate;
     transition-duration: 0.4s;
     transition-timing-function: ease-out-cubic;
+}
+
+.input-field {
+    --unity-cursor-color: var(--color-contrast-solid);
 }

@@ -1,7 +1,7 @@
 using UnityEngine;
 using YNL.Utilities.Patterns;
 
-namespace YNL.Checkotel
+namespace YNL.JAMOS
 {
     public static class Main
     {

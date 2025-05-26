@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using YNL.Utilities.UIToolkits;
 
-namespace YNL.Checkotel
+namespace YNL.JAMOS
 {
     /// <summary>
     /// Used in <b>Searching Page - Main Page</b> to show the type of searching.

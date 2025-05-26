@@ -1,7 +1,7 @@
 using UnityEngine.UIElements;
 using YNL.Utilities.UIToolkits;
 
-namespace YNL.Checkotel
+namespace YNL.JAMOS
 {
     public class FacilityListItemUI : VisualElement
     {
@@ -27,10 +27,6 @@ namespace YNL.Checkotel
 
         public void Apply(HotelFacility facility)
         {
-            var field = facility.GetHotelFacilitiesField();
-
-            _icon.SetBackgroundImage(field.Icon);
-            _label.SetText(field.Name);
         }
     }
 }

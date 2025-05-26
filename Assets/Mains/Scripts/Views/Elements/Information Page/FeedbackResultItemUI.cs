@@ -3,7 +3,7 @@ using UnityEngine.UIElements;
 using YNL.Utilities.Addons;
 using YNL.Utilities.UIToolkits;
 
-namespace YNL.Checkotel
+namespace YNL.JAMOS
 {
     public class FeedbackResultItemUI : VisualElement
     {
@@ -94,7 +94,7 @@ namespace YNL.Checkotel
             _hotelID = hotelID;
             _feedbackID = feedbackID;
             var feedback = Main.Database.Feedbacks[feedbackID];
-            var status = Main.Database.Hotels[hotelID].Review.Feedbacks[_feedbackID];
+            var status = Main.Database.Books[hotelID].Review.Feedbacks[_feedbackID];
 
             var account = Main.Database.Accounts[feedback.CustomerID];
 
@@ -116,7 +116,7 @@ namespace YNL.Checkotel
         private void OnClicked_LikeField(PointerUpEvent evt)
         {
             bool isLiked = false;
-            var status = Main.Database.Hotels[_hotelID].Review.Feedbacks[_feedbackID];
+            var status = Main.Database.Books[_hotelID].Review.Feedbacks[_feedbackID];
 
             if (_likedFeedbacks.TryGetValue(_hotelID, out var uids))
             {

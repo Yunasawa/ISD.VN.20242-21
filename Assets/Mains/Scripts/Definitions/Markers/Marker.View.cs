@@ -1,7 +1,7 @@
 using System;
 using YNL.Utilities.Addons;
 
-namespace YNL.Checkotel
+namespace YNL.JAMOS
 {
     public delegate void OnSearchingResultRequested(string address, Room.RoomType room);
     public delegate void OnFilterResultRequested(Room.StayType stayType);

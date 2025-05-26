@@ -2,7 +2,7 @@ using Sirenix.OdinInspector;
 using System.Linq;
 using UnityEngine;
 
-namespace YNL.Checkotel
+namespace YNL.JAMOS
 {
     public class AccountGenerator : MonoBehaviour
     {

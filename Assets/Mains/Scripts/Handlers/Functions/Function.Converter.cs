@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.Networking;
 
-namespace YNL.Checkotel
+namespace YNL.JAMOS
 {
     public static partial class Function
     {

@@ -1,4 +1,4 @@
-﻿namespace YNL.Checkotel
+﻿namespace YNL.JAMOS
 {
     public enum AccountType : byte
     { 

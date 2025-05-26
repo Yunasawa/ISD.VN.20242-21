@@ -2,17 +2,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace YNL.Checkotel
+namespace YNL.JAMOS
 {
     public class MainViewHomePageUI : ViewPageUI
     {
         private VisualElement _searchField;
         private VisualElement _notificationButton;
-        private ScrollView _avalableFilterScroll;
-        private ScrollView _typeFilterScroll;
+        private VisualElement _cartButton;
         private ScrollView _pageScroll;
 
-        private List<HotelPreviewListUI> _previewLists = new();
+        private List<ProductPreviewListUI> _previewLists = new();
 
         protected override void Collect()
         {
@@ -22,37 +21,28 @@ namespace YNL.Checkotel
             _notificationButton = Root.Q("TopBar").Q("NotificationButton");
             _notificationButton.RegisterCallback<PointerUpEvent>(OnClicked__NotificationButton);
 
+            _cartButton = Root.Q("TopBar").Q("CartButton");
+            _cartButton.RegisterCallback<PointerUpEvent>(OnClicked__CartButton);
+
             _pageScroll = Root.Q("ScrollView") as ScrollView;
 
-            _avalableFilterScroll = _pageScroll.Q("BackgroundContainer").Q("AvalableScroll") as ScrollView;
-
-            _typeFilterScroll = _pageScroll.Q("BackgroundContainer").Q("FilterScroll") as ScrollView;
+            var sampleList = _pageScroll.Q("SampleList");
+            _pageScroll.Remove(sampleList);
         }
 
         protected override void Initialize()
         {
-            _avalableFilterScroll.Clear();
-            _avalableFilterScroll.Add(new SuggestFilterButtonUI(true, "Heart", "Romantic", SuggestFilterType.Romantic, true));
-            _avalableFilterScroll.Add(new SuggestFilterButtonUI(true, "Pool", "With Pool", SuggestFilterType.WithPool));
-            _avalableFilterScroll.Add(new SuggestFilterButtonUI(true, "Family", "Homestay", SuggestFilterType.Homestay));
-
-            _typeFilterScroll.Clear();
-            _typeFilterScroll.Add(new SuggestFilterButtonUI(false, "Location 1", "<b>Near You</b>\n<size=30>One step to the sky</size>", SuggestFilterType.NearYou, true));
-            _typeFilterScroll.Add(new SuggestFilterButtonUI(false, "Hourly", "<b>Hourly</b>\n<size=30>Enjoy every seconds</size>", SuggestFilterType.Hourly));
-            _typeFilterScroll.Add(new SuggestFilterButtonUI(false, "Overnight", "<b>Overnight</b>\n<size=30>Comfort like home</size>", SuggestFilterType.Overnight));
-            _typeFilterScroll.Add(new SuggestFilterButtonUI(false, "Daily", "<b>Daily</b>\n<size=30>Every day is joyful</size>", SuggestFilterType.Daily));
-
-            _previewLists.Add(new HotelPreviewListUI(PreviewListFilterType.MostPopular));
-            _previewLists.Add(new HotelPreviewListUI(PreviewListFilterType.LuxuryStays, true));
-            _previewLists.Add(new HotelPreviewListUI(PreviewListFilterType.ExceptionalChoices , true));
-            _previewLists.Add(new HotelPreviewListUI(PreviewListFilterType.HighRated));
-            _previewLists.Add(new HotelPreviewListUI(PreviewListFilterType.NewHotels, true).SetAsLastItem());
-            foreach (var list in _previewLists) _pageScroll.Add(list);
+            _previewLists.Add(new ProductPreviewListUI(PreviewListFilterType.NewProducts));
+            //_previewLists.Add(new HotelPreviewListUI(PreviewListFilterType.LuxuryStays, true));
+            //_previewLists.Add(new HotelPreviewListUI(PreviewListFilterType.ExceptionalChoices , true));
+            //_previewLists.Add(new HotelPreviewListUI(PreviewListFilterType.HighRated));
+            //_previewLists.Add(new HotelPreviewListUI(PreviewListFilterType.NewHotels, true).SetAsLastItem());
+            foreach (var list in _previewLists) _pageScroll.Insert(1, list);
         }
 
         protected override void Refresh()
         {
-            foreach (var list in _previewLists) list.Refresh();
+            //foreach (var list in _previewLists) list.Refresh();
         }
 
         private void OnClicked__SearchField(PointerUpEvent evt)
@@ -63,6 +53,11 @@ namespace YNL.Checkotel
         private void OnClicked__NotificationButton(PointerUpEvent evt)
         {
             Marker.OnNotificationViewOpened?.Invoke();
+        }
+
+        private void OnClicked__CartButton(PointerUpEvent evt)
+        {
+
         }
     }
 }

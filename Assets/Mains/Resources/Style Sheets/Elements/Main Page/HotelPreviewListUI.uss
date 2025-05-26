@@ -32,13 +32,13 @@
 	padding: 0px;
 	-unity-font-definition: var(--font-nunity-regular);
 	-unity-font-style: bold;
-	font-size: 40px;
-	color: #FED1A7;
+	font-size: 45px;
+	color: var(--color-light-legacy);
 	-unity-text-align: middle-left;
 }
 
 .hotel-preview-list__preview-list
 {
 	flex-direction: row;
-	height: 700px;
+	height: 850px;
 }

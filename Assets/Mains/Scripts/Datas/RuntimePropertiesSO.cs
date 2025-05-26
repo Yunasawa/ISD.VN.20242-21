@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using YNL.Utilities.Addons;
 
-namespace YNL.Checkotel
+namespace YNL.JAMOS
 {
     [System.Serializable]
     public class LikedFeedback
@@ -33,7 +33,6 @@ namespace YNL.Checkotel
 
         public RuntimeData()
         {
-            CheckInTime = CheckInTime.GetNextNearestTime();
         }
     }
 

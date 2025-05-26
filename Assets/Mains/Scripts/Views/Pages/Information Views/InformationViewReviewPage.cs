@@ -3,7 +3,7 @@ using System.Linq;
 using UnityEngine.UIElements;
 using YNL.Utilities.UIToolkits;
 
-namespace YNL.Checkotel
+namespace YNL.JAMOS
 {
     public partial class InformationViewReviewPage : ViewPageUI
     {
@@ -63,9 +63,9 @@ namespace YNL.Checkotel
         private void OnHotelInformationDisplayed(UID id, bool isSearchResult)
         {
             _hotelID = id;
-            var unit = Main.Database.Hotels[id];
+            var unit = Main.Database.Books[id];
 
-            _ratingView.Apply(unit.Review);
+            _ratingView.Apply();
 
             _feedbackIDs = unit.Review.Feedbacks.Keys.ToList();
 

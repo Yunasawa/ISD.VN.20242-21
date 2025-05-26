@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace YNL.Checkotel.Exceptions
+namespace YNL.JAMOS.Exceptions
 {
     public class UninitializedSystemException : Exception
     {

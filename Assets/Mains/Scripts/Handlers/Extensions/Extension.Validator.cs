@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace YNL.Checkotel
+namespace YNL.JAMOS
 {
     public static partial class Extension
     {

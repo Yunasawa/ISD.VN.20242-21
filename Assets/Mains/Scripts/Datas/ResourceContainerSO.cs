@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using YNL.Utilities.Addons;
 
-namespace YNL.Checkotel
+namespace YNL.JAMOS
 {
     [CreateAssetMenu(fileName = "ResourceContainerSO", menuName = "YNL - Checkotel/ResourceContainerSO")]
     public class ResourceContainerSO : ScriptableObject

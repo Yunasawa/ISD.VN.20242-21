@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace YNL.Checkotel
+namespace YNL.JAMOS
 {
     [Serializable]
     public class SerializableDateTime
