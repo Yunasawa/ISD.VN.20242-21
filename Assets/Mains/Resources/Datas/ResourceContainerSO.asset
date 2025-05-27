@@ -54,6 +54,8 @@ MonoBehaviour:
     - CD
     - DVD
     - LP
+    - Creator
+    - None
     _values:
     - {fileID: 2800000, guid: 4ac81693b7e200b44b33db6de9322ac6, type: 3}
     - {fileID: 2800000, guid: c14929e7b69c84d4f98fe3e725ad813c, type: 3}
@@ -95,6 +97,8 @@ MonoBehaviour:
     - {fileID: 2800000, guid: efa8c24e32d511c49a40a0a73bed85a3, type: 3}
     - {fileID: 2800000, guid: 423856f3579943b4987133494a3b57fb, type: 3}
     - {fileID: 2800000, guid: feffe917aa92b5041824d8f0fc128e25, type: 3}
+    - {fileID: 2800000, guid: 8fab1c44bab0ba24da4e9a3dbacbf050, type: 3}
+    - {fileID: 2800000, guid: 7c0e22a6f8d9aa546aadc7c865341532, type: 3}
   Styles:
     _keys:
     - StyleVariableUI

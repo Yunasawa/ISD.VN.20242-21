@@ -79,7 +79,7 @@ namespace YNL.JAMOS
             _hotelID = hotelID;
             _feedbackID = feedbackID;
             var feedback = Main.Database.Feedbacks[feedbackID];
-            var status = Main.Database.Books[hotelID].Review.Feedbacks[_feedbackID];
+            var status = Main.Database.Products[hotelID].Review.Feedbacks[_feedbackID];
 
             var account = Main.Database.Accounts[feedback.CustomerID];
 

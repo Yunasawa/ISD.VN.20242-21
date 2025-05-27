@@ -29,7 +29,7 @@ namespace YNL.JAMOS
         }
 
         [System.Serializable]
-        public class Data : ProductData
+        public class Data
         {
             public string Studio;
             public string Duration;

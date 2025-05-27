@@ -1,11 +1,10 @@
 using Cysharp.Threading.Tasks;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine.Networking;
 using UnityEngine;
 using System;
 using UnityEngine.UIElements;
 using YNL.Utilities.UIToolkits;
+using System.Collections;
 
 namespace YNL.JAMOS
 {
@@ -61,6 +60,13 @@ namespace YNL.JAMOS
 
                 Debug.LogError($"Failed to load texture after {maxRetries} attempts.");
             }
+        }
+    
+        public static void RebuildListView(this ListView list, IList source)
+        {
+            list.itemsSource = null;
+            list.itemsSource = source;
+            list.Rebuild();
         }
     }
 }

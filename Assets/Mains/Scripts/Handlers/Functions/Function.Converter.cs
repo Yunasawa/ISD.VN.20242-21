@@ -162,5 +162,17 @@ namespace YNL.JAMOS
 
             return new(byte.Parse(parts[0].Trim()), byte.Parse(parts[1].Trim()));
         }
+    
+        public static SearchingSuggestionType ToProductType(this Product.Type type)
+        {
+            return type switch
+            {
+                Product.Type.Book => SearchingSuggestionType.Book,
+                Product.Type.CD => SearchingSuggestionType.CD,
+                Product.Type.DVD => SearchingSuggestionType.DVD,
+                Product.Type.LP => SearchingSuggestionType.LP,
+                _ => throw new Exception("Can not cast Product.Type to SearchingSuggestionType")
+            };
+        }
     }
 }

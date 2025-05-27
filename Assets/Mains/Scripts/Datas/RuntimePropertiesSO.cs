@@ -21,26 +21,18 @@ namespace YNL.JAMOS
     public class RuntimeData
     {
         public UID AccountID;
-        public List<string> SearchingAddressHistory = new();
+        public List<(SearchingSuggestionType Type, string Value)> SearchingHistory = new();
         public SerializableDictionary<UID, LikedFeedback> LikedFeedbacks = new();
-        public List<UID> FavoriteHotels = new();
-
-        public Room.StayType StayType = Room.StayType.Hourly;
-        public DateTime CheckInTime;
-        public byte Duration = 1;
-
-        public SerializableDictionary<uint, BookedRoom> BookedRooms = new();
-
-        public RuntimeData()
-        {
-        }
     }
 
     [CreateAssetMenu(fileName = "RuntimePropertiesSO", menuName = "YNL - Checkotel/RuntimePropertiesSO")]
     public class RuntimePropertiesSO : ScriptableObject
     {
         public RuntimeData Data = new();
+
         public bool IsSearchTimeApplied = false;
+        public Product.Type SearchingProductType = Product.Type.None;
+        public string SearchingInput = string.Empty;
 
         public void Reset()
         {

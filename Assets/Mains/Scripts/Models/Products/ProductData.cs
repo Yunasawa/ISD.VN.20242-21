@@ -1,24 +1,31 @@
-using System;
 using YNL.Utilities.Addons;
+
 namespace YNL.JAMOS
 {
-    public enum ProductType : byte
+    public partial class Product
     {
-        Book, CD, DVD, LP
-    }
+        public enum Type : byte { None, Book, CD, DVD, LP }
 
-    [System.Serializable]
-    public class ProductData
-    {
-        public UID ID;
-        public ProductType Type;
-        public string Title;
-        public string[] Creators;
-        public SerializableDateTime PublicationDate;
-        public float Price;
-        public string Quantity;
-        public string Description;
-        public string ImageURL => DataManager.ProductImageURL[Type].Replace("@", ID.ToString());
-        public ProductReview Review;
+        public enum Property : byte
+        {
+            Language,
+            NumberOfPage,
+            BookFormat,
+            BookGenre
+        }
+
+        [System.Serializable]
+        public class Data
+        {
+            public Type Type;
+            public string Title;
+            public string[] Creators;
+            public SerializableDateTime PublicationDate;
+            public float Price;
+            public ushort Quantity;
+            public string Description;
+            public ProductReview Review;
+            public SerializableDictionary<Property, string> Properties = new();
+        }
     }
 }
