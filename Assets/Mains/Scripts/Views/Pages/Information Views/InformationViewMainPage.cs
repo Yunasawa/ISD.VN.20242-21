@@ -60,20 +60,7 @@ namespace YNL.JAMOS
 
         private void OnClicked_FavoriteButton(PointerUpEvent evt)
         {
-            bool isFavorited = Main.Runtime.Data.FavoriteHotels.Contains(_hotelID);
 
-            if (isFavorited)
-            {
-                Main.Runtime.Data.FavoriteHotels.Remove(_hotelID);
-                _favoriteButton.SetBackgroundImage(Main.Resources.Icons["Heart"]);
-            }
-            else
-            {
-                Main.Runtime.Data.FavoriteHotels.Add(_hotelID);
-                _favoriteButton.SetBackgroundImage(Main.Resources.Icons["Heart (Filled)"]);
-
-                Marker.OnRuntimeSavingRequested?.Invoke();
-			}
         }
 
         private void OnTimeRangeSubmitted()
@@ -83,21 +70,7 @@ namespace YNL.JAMOS
 
         private void OnHotelInformationDisplayed(UID id, bool isSearchResult)
         {
-            _hotelID = id;
 
-            var unit = Main.Database.Books[id];
-
-            if (!isSearchResult)
-            {
-                Main.Runtime.Data.Duration = 1;
-            }
-
-            _priceField.Apply(id);
-
-
-            bool isFavorited = Main.Runtime.Data.FavoriteHotels.Contains(id);
-
-            _favoriteButton.SetBackgroundImage(Main.Resources.Icons[isFavorited ? "Heart (Filled)" : "Heart"]);
         }
     }
 }

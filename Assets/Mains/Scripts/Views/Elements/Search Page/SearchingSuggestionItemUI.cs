@@ -1,10 +1,11 @@
 using System;
 using UnityEngine.UIElements;
+using YNL.Utilities.Extensions;
 using YNL.Utilities.UIToolkits;
 
 namespace YNL.JAMOS
 {
-    public class SearchingHistoryItemUI : VisualElement
+    public class SearchingSuggestionItemUI : VisualElement
     {
         public Action<string> OnSelected;
 
@@ -12,7 +13,6 @@ namespace YNL.JAMOS
         private const string _iconClass = _rootClass + "__icon";
         private const string _textClass = _rootClass + "__text";
         private const string _removeButtonClass = _rootClass + "__remove-button";
-        private const string _buildingClass = "building";
 
         private VisualElement _icon;
         private Label _text;
@@ -20,7 +20,7 @@ namespace YNL.JAMOS
 
         private string _value;
 
-        public SearchingHistoryItemUI()
+        public SearchingSuggestionItemUI()
         {
             this.AddStyle(Main.Resources.Styles["StyleVariableUI"]);
             this.AddStyle(Main.Resources.Styles["SearchingHistoryItemUI"]);
@@ -38,16 +38,17 @@ namespace YNL.JAMOS
             this.RegisterCallback<PointerUpEvent>(OnSelected_HistoryItem);
         }
 
-        public void Apply(string value, bool isBuilding = false)
+        public void Apply(SearchingSuggestionType type, string value)
         {
             _value = value;
 
             _text.SetText(value);
-            _icon.EnableClass(isBuilding, _buildingClass);
+            _icon.SetBackgroundImage(Main.Resources.Icons[type.ToString()]);
         }
 
         private void OnSelected_HistoryItem(PointerUpEvent evt)
         {
+            MDebug.Log("SHIT");
             OnSelected?.Invoke(_value);
         }
     }
