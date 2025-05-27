@@ -200,7 +200,7 @@ namespace YNL.JAMOS
 
             _hotelID = id;
 
-            if (!Main.Database.Books.TryGetValue(id, out var unit)) return;
+            if (!Main.Database.Products.TryGetValue(id, out var unit)) return;
         }
 
         private void OnSelected_ResultItem(PointerUpEvent evt)
