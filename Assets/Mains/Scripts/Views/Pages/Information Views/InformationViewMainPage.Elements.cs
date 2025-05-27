@@ -140,7 +140,7 @@ namespace YNL.JAMOS
 
             public void Apply(UID id)
             {
-                var unit = Main.Database.Books[id];
+                var unit = Main.Database.Products[id];
                 var review = unit.Review;
                 var feedbacks = unit.Review.Feedbacks.Keys.ToArray();
 

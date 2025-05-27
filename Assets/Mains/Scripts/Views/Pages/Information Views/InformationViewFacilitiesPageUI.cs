@@ -55,7 +55,7 @@ namespace YNL.JAMOS
 
         private void OnHotelFacilitiesDisplayed(UID hotelID)
         {
-            var unit = Main.Database.Books[hotelID];
+            var unit = Main.Database.Products[hotelID];
 
             RebuildHistoryList();
         }

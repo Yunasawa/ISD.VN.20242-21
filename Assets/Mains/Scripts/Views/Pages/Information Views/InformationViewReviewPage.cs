@@ -63,7 +63,7 @@ namespace YNL.JAMOS
         private void OnHotelInformationDisplayed(UID id, bool isSearchResult)
         {
             _hotelID = id;
-            var unit = Main.Database.Books[id];
+            var unit = Main.Database.Products[id];
 
             _ratingView.Apply();
 
