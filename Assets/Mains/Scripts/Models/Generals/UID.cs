@@ -42,7 +42,7 @@ namespace YNL.JAMOS
         }
         public static UID Create(UIDType type) => new((uint)type * 10000000 + SUID++);
 
-        public override string ToString() => $"{_id.ToString("D5")}";
+        public override string ToString() => $"{_id.ToString()}";
         public override bool Equals(object obj)
         {
             if (obj is UID other)

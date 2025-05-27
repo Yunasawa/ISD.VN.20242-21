@@ -94,7 +94,7 @@ namespace YNL.JAMOS
             _hotelID = hotelID;
             _feedbackID = feedbackID;
             var feedback = Main.Database.Feedbacks[feedbackID];
-            var status = Main.Database.Books[hotelID].Review.Feedbacks[_feedbackID];
+            var status = Main.Database.Products[hotelID].Review.Feedbacks[_feedbackID];
 
             var account = Main.Database.Accounts[feedback.CustomerID];
 
@@ -116,7 +116,7 @@ namespace YNL.JAMOS
         private void OnClicked_LikeField(PointerUpEvent evt)
         {
             bool isLiked = false;
-            var status = Main.Database.Books[_hotelID].Review.Feedbacks[_feedbackID];
+            var status = Main.Database.Products[_hotelID].Review.Feedbacks[_feedbackID];
 
             if (_likedFeedbacks.TryGetValue(_hotelID, out var uids))
             {

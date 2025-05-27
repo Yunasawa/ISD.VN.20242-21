@@ -890,13 +890,11 @@ MonoBehaviour:
         _keys: 
         _values: []
       Comment: Fair hotel, but could use some upgrades.
-  Books:
+  Products:
     _keys:
-    - _id: 0
+    - _id: 10000000
     _values:
-    - ID:
-        _id: 10000000
-      Type: 0
+    - Type: 1
       Title: Be Like The Moon
       Creators:
       - Levi Welton
@@ -942,16 +940,10 @@ MonoBehaviour:
         Feedbacks:
           _keys: []
           _values: []
-      Language: English
-      NumberOfPage: 296
-      Format: 1
-      Genre: 33282
-  CDs:
-    _keys: []
-    _values: []
-  DVDs:
-    _keys: []
-    _values: []
-  LPs:
-    _keys: []
-    _values: []
+      Properties:
+        _keys: 00010203
+        _values:
+        - English
+        - 296
+        - Paperback
+        - NonFiction, Biography, YoungAdult

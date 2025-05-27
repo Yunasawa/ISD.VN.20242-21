@@ -20,10 +20,6 @@
 	background-image: var(--icon-location);
 	-unity-background-scale-mode: scale-to-fit;
 }
-.searching-history-item__icon.building
-{
-	background-image: var(--icon-building);
-}
 
 .searching-history-item__text
 {

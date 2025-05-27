@@ -106,13 +106,13 @@ namespace YNL.JAMOS
 
         private void Apply(UID id)
         {
-            var product = Main.Database.Books[id];
+            var product = Main.Database.Products[id];
             int discountPercentage = 45;
 
-            Function.ApplyCloudImageAsync(_previewImage, product.ImageURL);
+            Function.ApplyCloudImageAsync(_previewImage, id.GetImageURL());
 
             _productIcon.SetBackgroundImage(Main.Resources.Icons[product.Type.ToString()]);
-            _productDuration.SetText(product.NumberOfPage.ToString());
+            _productDuration.SetText(product.Properties[Product.Property.NumberOfPage].ToString());
 
             _nameLabel.text = product.Title;
             _creatorText.text = string.Join(", ", product.Creators);
