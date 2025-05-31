@@ -35,3 +35,9 @@
     border-bottom-color: rgba(0, 0, 0, 0);
     color: rgb(255, 255, 255);
 }
+
+.music-stream-slider > * > * > .unity-base-slider__dragger {
+}
+
+.list-view > * > * > * > .unity-list-view__empty-label {
+}

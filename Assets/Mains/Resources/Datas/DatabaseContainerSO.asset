@@ -893,6 +893,8 @@ MonoBehaviour:
   Products:
     _keys:
     - _id: 10000000
+    - _id: 20000000
+    - _id: 20000006
     _values:
     - Type: 1
       Title: Be Like The Moon
@@ -936,14 +938,66 @@ MonoBehaviour:
         man\u2019s honest and sincere reflection on the path of fully being both
         a Jew and a committed member of the human family.\u201D#Rabbi Zalman Kastel,
         Founder of the non-profit Together For Humanity"
+      Genres:
+      - 'NonFiction '
+      - Biography
+      - YoungAdult
+      Format: Paperback
+      HasStreamer: 0
       Review:
         Feedbacks:
           _keys: []
           _values: []
       Properties:
-        _keys: 00010203
+        _keys: 0001
         _values:
         - English
         - 296
-        - Paperback
-        - NonFiction, Biography, YoungAdult
+    - Type: 2
+      Title: Beggin'
+      Creators:
+      - "M\xE5neskin"
+      PublicationDate:
+        _dateTimeString: 10/15/2021
+      Price: 14.99
+      Quantity: 50
+      Description: "Energetic rock cover that brought M\xE5neskin global fame with
+        powerful vocals and gritty guitars."
+      Genres:
+      - Rock
+      Format: DeluxeEdition
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys: []
+          _values: []
+      Properties:
+        _keys: 0203
+        _values:
+        - Chosen
+        - 3:31
+    - Type: 2
+      Title: Sunflower
+      Creators:
+      - Post Malone
+      - Swae Lee
+      PublicationDate:
+        _dateTimeString: 10/18/2018
+      Price: 13.99
+      Quantity: 100
+      Description: 'Catchy hip-hop/pop hit from Spider-Man: Into the Spider-Verse
+        soundtrack.'
+      Genres:
+      - HipHop
+      - Pop
+      Format: DeluxeEdition
+      HasStreamer: 1
+      Review:
+        Feedbacks:
+          _keys: []
+          _values: []
+      Properties:
+        _keys: 0203
+        _values:
+        - Hollywood's Bleeding
+        - 2:38
