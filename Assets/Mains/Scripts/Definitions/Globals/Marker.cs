@@ -7,7 +7,6 @@ namespace YNL.JAMOS
     public delegate void OnFilterResultRequested(Room.StayType stayType);
     public delegate void OnSearchResultFiltered(HotelFacility facilities, MRange priceRange, SerializableDictionary<FilterSelectionType, FilterPropertyType> filters);
     public delegate void OnSearchResultSorted(SortingSelectionType typw);
-    public delegate void OnHotelInformationDisplayed(UID hotelID, bool isSearchingResult);
     public delegate void OnHotelFacilitiesDisplayed(UID hotelID);
     public delegate void OnHotelRoomsDisplayed(UID hotelID);
     public delegate void OnPaymentRequested(UID hotelID, UID roomID);
@@ -28,9 +27,10 @@ namespace YNL.JAMOS
         public static OnSearchResultFiltered OnSearchResultFiltered { get; set; }
         public static OnFilterResultRequested OnFilterResultRequested { get; set; }
         public static OnSearchingResultRequested OnSearchingResultRequested { get; set; }
-        public static OnHotelInformationDisplayed OnHotelInformationDisplayed{ get; set; }
         public static OnHotelFacilitiesDisplayed OnHotelFacilitiesDisplayed { get; set; }
         public static OnHotelRoomsDisplayed OnHotelRoomsDisplayed { get; set; }
         public static OnPaymentRequested OnPaymentRequested { get; set; }
+
+        public static Action<string> OnGenreSearchRequested { get; set; }
     }
 }
