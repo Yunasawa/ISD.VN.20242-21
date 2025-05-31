@@ -156,13 +156,18 @@ namespace YNL.JAMOS
             return result;
         }
 
-        public static TimeRange ToTimeRange(this string input)
+        public static string ToRankText(this ProductReview review)
         {
-            var parts = input.Split(';');
+            var score = review.AverageTotalRating;
 
-            return new(byte.Parse(parts[0].Trim()), byte.Parse(parts[1].Trim()));
+            if (score > 4) return "Masterpiece";
+            else if (score > 3) return "Outstanding";
+            else if (score > 2) return "Solid";
+            else if (score > 1) return "Passable";
+            else if (score > 0) return "Uninspired";
+            else return "Not ranked yet";
         }
-    
+
         public static SearchingSuggestionType ToProductType(this Product.Type type)
         {
             return type switch

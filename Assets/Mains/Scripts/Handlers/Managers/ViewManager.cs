@@ -39,6 +39,7 @@ namespace YNL.JAMOS
     {
         SigningViewSignUpPage, 
         SigningViewSignInPage,
+        SigningViewPreferencePage,
         
         MainViewHomePage,
         MainViewMessagePage,
