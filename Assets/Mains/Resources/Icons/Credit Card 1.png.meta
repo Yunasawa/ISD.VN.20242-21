@@ -1,15 +1,15 @@
 fileFormatVersion: 2
-guid: 749a4b68e2855ff44aaa4d9838057ce6
+guid: 6e26ff13a3f06064c9f9ece0e62a86c6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7226846049606579820
-    second: Cart_0
+      213: -4961736597295507754
+    second: Credit Card 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Cart_0
+      name: Credit Card 1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 3
-        width: 43
-        height: 43
+        y: 8
+        width: 64
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 499c3ceaec515bb90800000000000000
-      internalID: -7226846049606579820
+      spriteID: 6d655296ade542bb0800000000000000
+      internalID: -4961736597295507754
       vertices: []
       indices: 
       edges: []
@@ -147,8 +147,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Cart_0: -7226846049606579820
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
