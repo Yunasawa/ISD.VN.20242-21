@@ -11,7 +11,7 @@
             <engine:VisualElement name="RatingField" style="height: 250px; width: 300px; justify-content: center;">
                 <engine:Label text="4.9" name="RatingText" class="label-field" style="-unity-font-style: bold; -unity-text-align: middle-center; font-size: 75px; height: 100px;" />
                 <engine:Label text="Exceptional" name="RankText" class="label-field" style="-unity-text-align: middle-center; font-size: 35px; height: 50px;" />
-                <engine:Label text="1206 reviews" name="AmountText" class="label-field" style="-unity-text-align: middle-center; font-size: 25px; height: 40px; color: rgb(138, 138, 138);" />
+                <engine:Label text="1206 feedbacks" name="AmountText" class="label-field" style="-unity-text-align: middle-center; font-size: 25px; height: 40px; color: rgb(138, 138, 138);" />
             </engine:VisualElement>
             <engine:VisualElement name="DividerLine" style="background-color: rgb(76, 76, 76); width: 2px; margin-top: 25px; margin-bottom: 25px;" />
             <engine:VisualElement name="ScoreView" style="height: 250px; width: 300px; justify-content: space-around; flex-grow: 1; padding-top: 25px; padding-bottom: 25px;">
@@ -129,4 +129,5 @@
             </engine:VisualElement>
         </engine:VisualElement>
     </engine:ScrollView>
+    <engine:ListView name="ContentList" class="list-view" />
 </engine:UXML>
