@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 using UnityEngine.UIElements;
 using YNL.Utilities.UIToolkits;
 
@@ -13,91 +14,81 @@ namespace YNL.JAMOS
         {
             public Action OnOpenTimeRangePage;
 
-            private VisualElement _timeField;
-            private VisualElement _timeIcon;
-            private Label _timeText;
             private Label _originalPrice;
             private Label _lastPrice;
-            private Button _chooseButton;
+            private Button _addToCartButton;
 
-            private UID _hotelID;
+            private UID _uid;
 
-            public PriceField(VisualElement root)
+            public PriceField(VisualElement field)
             {
-                var bottomBar = root.Q("BottomBar");
+                _originalPrice = field.Q("PriceArea").Q("OriginalPrice") as Label;
 
-                _timeField = bottomBar.Q("TimeField");
-                _timeField.RegisterCallback<PointerUpEvent>(OnClicked_TimeField);
+                _lastPrice = field.Q("PriceArea").Q("LastPrice") as Label;
 
-                _timeIcon = _timeField.Q("Icon");
-
-                _timeText = _timeField.Q("Text") as Label;
-
-                var priceArea = bottomBar.Q("PriceArea");
-
-                _originalPrice = priceArea.Q("PriceField").Q("OriginalPrice") as Label;
-
-                _lastPrice = priceArea.Q("PriceField").Q("LastPrice") as Label;
-
-                _chooseButton = priceArea.Q("ChooseButton") as Button;
-                _chooseButton.RegisterCallback<PointerUpEvent>(OnClicked_ChooseButton);
+                _addToCartButton = field.Q("AddToCartButton") as Button;
+                _addToCartButton.RegisterCallback<PointerUpEvent>(OnClicked_ChooseButton);
             }
 
-            public void Apply(UID hotelID)
+            public void Apply(UID id)
             {
-                _hotelID = hotelID;
+                _uid = id;
+                var product = Main.Database.Products[id];
 
-            }
+                var discounrt = 20;
 
-            private void OnClicked_TimeField(PointerUpEvent evt)
-            {
-                OnOpenTimeRangePage?.Invoke();
+                _originalPrice.SetDisplay(discounrt > 0 ? DisplayStyle.Flex : DisplayStyle.None);
+                _originalPrice.SetText($"From <color=#7f7f7f><s>${product.Price}</s></color>");
+                _lastPrice.SetText($"${product.Price * (1 - discounrt / 100f)}");
             }
 
             private void OnClicked_ChooseButton(PointerUpEvent evt)
             {
                 //Marker.OnViewPageSwitched?.Invoke(ViewType.InformationViewRoomPage, true, false);
-                Marker.OnHotelRoomsDisplayed?.Invoke(_hotelID);
+                Marker.OnHotelRoomsDisplayed?.Invoke(_uid);
             }
         }
 
-        public class ImageView
-        {
-            private List<VisualElement> _roomImages = new();
-            private VisualElement _fadeItem;
-            private Label _amountText;
-
-            public ImageView(VisualElement imageView)
-            {
-                for (byte i = 0; i < 4; i++) _roomImages.Add(imageView.Q($"Image{i}"));
-
-                _fadeItem = imageView.Q("Image3").Q("Fade");
-                _amountText = imageView.Q("Image3").Q("Text") as Label;
-            }
-
-            public async UniTaskVoid Apply()
-            {
-
-            }
-        }
 
         public class NameView
         {
             private VisualElement _badgeField;
             private Label _nameText;
-            private Label _addressText;
+            private Label _creatorText;
 
             public NameView(VisualElement contentContainer)
             {
                 _badgeField = contentContainer.Q("BadgeField");
                 _nameText = contentContainer.Q("NameText") as Label;
-                _addressText = contentContainer.Q("AddressText") as Label;
+                _creatorText = contentContainer.Q("CreatorText") as Label;
             }
 
-            public void Apply(string name, string address)
+            public void Apply(Product.Data product)
             {
-                _nameText.SetText(name);
-                _addressText.SetText(address);
+                _nameText.SetText(product.Title);
+                _creatorText.SetText($"by {string.Join(", ", product.Creators)}");
+            }
+        }
+
+        public class GenreField
+        {
+            private VisualElement _genreContainer;
+
+            public GenreField(VisualElement container)
+            {
+                _genreContainer = container.Q("GenreContainer");
+            }
+
+            public void Apply(Product.Data product)
+            {
+                _genreContainer.Clear();
+
+                foreach (var genre in product.Genres)
+                {
+                    var genreButton = new GenreButtonItemUI();
+                    genreButton.Apply(genre);
+                    _genreContainer.AddElements(genreButton);
+                }
             }
         }
 
@@ -140,9 +131,9 @@ namespace YNL.JAMOS
 
             public void Apply(UID id)
             {
-                var unit = Main.Database.Products[id];
-                var review = unit.Review;
-                var feedbacks = unit.Review.Feedbacks.Keys.ToArray();
+                var product = Main.Database.Products[id];
+                var review = product.Review;
+                var feedbacks = product.Review.Feedbacks.Keys.ToArray();
 
                 _reviewAmount.SetText($"({review.FeebackAmount} reviews)");
 
@@ -150,6 +141,8 @@ namespace YNL.JAMOS
 
                 _emptyLabel.SetDisplay(emptyFeedback ? DisplayStyle.Flex : DisplayStyle.None);
                 _reviewScroll.SetDisplay(emptyFeedback ? DisplayStyle.None : DisplayStyle.Flex);
+
+                _ratingText.SetText(review.AverageTotalRating.ToString());
 
                 if (!emptyFeedback)
                 {
@@ -170,7 +163,7 @@ namespace YNL.JAMOS
 
             private void OnClicked_SeeMoreButton(PointerUpEvent evt)
             {
-                Marker.OnViewPageSwitched?.Invoke(ViewType.InformationViewReviewPage, true, false);
+                Marker.OnViewPageSwitched?.Invoke(ViewType.InformationViewReviewPage, true, true);
             }
         }
 
@@ -186,8 +179,10 @@ namespace YNL.JAMOS
                 _descriptionText.RegisterCallback<PointerUpEvent>(OnClicked_DescriptionText);
             }
 
-            public void Apply(string description)
+            public void Apply(UID id)
             {
+                var description = id.GetDescriptionText();
+
                 _descriptionText.SetText(description == string.Empty ? "<color=#808080>No description!</color>" : description);
             }
 
@@ -202,6 +197,94 @@ namespace YNL.JAMOS
                 else
                 {
                     _descriptionText.SetMaxHeight(175);
+                }
+            }
+        }
+
+        public class StreamField
+        {
+            public VisualElement Field;
+            private VisualElement _playButton;
+            private Slider _progressSlider;
+            private Label _timeLabel;
+
+            private AudioSource _audioSource;
+            private bool _isPlaying = false;
+
+            public StreamField(VisualElement field, AudioSource source)
+            {
+                Field = field;
+                _audioSource = source;
+
+                _playButton = field.Q("PlayButton");
+                _playButton.RegisterCallback<PointerUpEvent>(OnClicked_PlayButton);
+
+                _progressSlider = field.Q("ProgressSlider") as Slider;
+                _progressSlider.RegisterValueChangedCallback(OnValueChanged_ProgressSlider);
+
+                _timeLabel = field.Q("TimeLabel") as Label;
+            }
+
+            public void Apply(UID id)
+            {
+                id.LoadCloudAudioAsync(ApplyAudioClip);
+
+                _progressSlider.value = 0;
+                _timeLabel.SetText(id.GetDurationText());
+            }
+
+            private void OnValueChanged_ProgressSlider(ChangeEvent<float> evt)
+            {
+                if (_audioSource.clip != null)
+                {
+                    _audioSource.time = evt.newValue;
+                }
+            }
+
+            private void OnClicked_PlayButton(PointerUpEvent evt)
+            {
+                _isPlaying = !_isPlaying;
+
+                if (_isPlaying)
+                {
+                    _playButton.SetBackgroundImage(Main.Resources.Icons["Pause"]);
+                    _audioSource.Play();
+                    UpdateSliderAsync().Forget();
+                }
+                else
+                {
+                    _playButton.SetBackgroundImage(Main.Resources.Icons["Play"]);
+                    _audioSource.Pause();
+                }
+            }
+
+            private void ApplyAudioClip(AudioClip clip)
+            {
+                _audioSource.clip = clip;
+
+                _timeLabel.SetTimeText(clip.length);
+                _progressSlider.lowValue = 0;
+                _progressSlider.highValue = _audioSource.clip.length;
+            }
+
+            private async UniTaskVoid UpdateSliderAsync()
+            {
+                while (true)
+                {
+                    _progressSlider.value = _audioSource.time;
+
+                    float remainTime = _audioSource.clip.length - _audioSource.time;
+                    _timeLabel.SetTimeText(remainTime);
+
+                    if (!_audioSource.isPlaying)
+                    {
+                        _progressSlider.value = 0;
+                        _timeLabel.SetTimeText(_audioSource.clip.length);
+                        _playButton.SetBackgroundImage(Main.Resources.Icons["Play"]);
+                        return;
+                    }
+
+                    await UniTask.Delay(100);
                 }
             }
         }
