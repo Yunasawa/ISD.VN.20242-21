@@ -10,9 +10,9 @@ namespace YNL.JAMOS
             private Label _ratingText;
             private Label _rankText;
             private Label _amountText;
-            private (VisualElement Bar, Label Text) _cleanlinessScore;
-            private (VisualElement Bar, Label Text) _facilitiesScore;
-            private (VisualElement Bar, Label Text) _serviceScore;
+            private (VisualElement bar, Label text) _statusScore;
+            private (VisualElement bar, Label text) _qualityScore;
+            private (VisualElement bar, Label text) _usabilityScore;
 
             public RatingView(VisualElement view)
             {
@@ -25,14 +25,28 @@ namespace YNL.JAMOS
                 var facilitiesScore = view.Q("ScoreView").Q("FacilitiesScore");
                 var serviceScore = view.Q("ScoreView").Q("ServiceScore");
 
-                _cleanlinessScore = (cleanlinessScore.Q("ScoreLine").Q("LineFill"), cleanlinessScore.Q("ScoreText") as Label);
-                _facilitiesScore = (facilitiesScore.Q("ScoreLine").Q("LineFill"), facilitiesScore.Q("ScoreText") as Label);
-                _serviceScore = (serviceScore.Q("ScoreLine").Q("LineFill"), serviceScore.Q("ScoreText") as Label);
+                _statusScore = (cleanlinessScore.Q("ScoreLine").Q("LineFill"), cleanlinessScore.Q("ScoreText") as Label);
+                _qualityScore = (facilitiesScore.Q("ScoreLine").Q("LineFill"), facilitiesScore.Q("ScoreText") as Label);
+                _usabilityScore = (serviceScore.Q("ScoreLine").Q("LineFill"), serviceScore.Q("ScoreText") as Label);
             }
 
-            public void Apply()
+            public void Apply(Product.Data product)
             {
+                var review = product.Review;
 
+                _ratingText.SetText(review.AverageTotalRating.ToString());
+                _rankText.SetText(review.ToRankText());
+                _amountText.SetText($"{review.FeebackAmount} feedbacks");
+
+                SetBarScore(_statusScore, review.AverageRating(RatingType.Status));
+                SetBarScore(_qualityScore, review.AverageRating(RatingType.Quality));
+                SetBarScore(_usabilityScore, review.AverageRating(RatingType.Usability));
+            }
+
+            private void SetBarScore((VisualElement bar, Label text) score, ReviewRating rating)
+            {
+                score.text.SetText(rating.ToString());
+                score.bar.SetWidth(rating == -1 ? 0 : rating / 5 * 100, true);
             }
         }
     }

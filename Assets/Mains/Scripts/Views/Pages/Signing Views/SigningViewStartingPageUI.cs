@@ -4,7 +4,7 @@ using YNL.Utilities.UIToolkits;
 
 namespace YNL.JAMOS
 {
-    public class MainViewStartingPageUI : MonoBehaviour
+    public class SigningViewStartingPageUI : MonoBehaviour
     {
         private VisualElement _root;
         private VisualElement _ground;

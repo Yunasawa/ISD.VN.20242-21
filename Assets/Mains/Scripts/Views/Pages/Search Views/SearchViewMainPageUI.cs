@@ -12,10 +12,15 @@ namespace YNL.JAMOS
 
     public partial class SearchViewMainPageUI : ViewPageUI
     {
+        private Product.Type _searchingProductType
+        {
+            get => Main.Runtime.SearchingProductType;
+            set => Main.Runtime.SearchingProductType = value;
+        }
         private SerializableDictionary<UID, Product.Data> _products => Main.Database.Products;
 
-        private VisualElement _closeButton;
         private TextField _searchInput;
+        private VisualElement _searchEnter;
         private VisualElement _productTypeField;
         private VisualElement _searchButton;
         private VisualElement _suggestionView;
@@ -36,12 +41,15 @@ namespace YNL.JAMOS
 
         protected override void Collect()
         {
-            _closeButton = Root.Q("LabelField");
-            _closeButton.RegisterCallback<PointerUpEvent>(OnClicked_CloseButton);
+            var closeButton = Root.Q("LabelField");
+            closeButton.RegisterCallback<PointerUpEvent>(OnClicked_CloseButton);
 
-            _searchInput = Root.Q("SearchField").Q("SearchInput") as TextField;
+            _searchInput = Root.Q("SearchField").Q("SearchBar").Q("SearchInput") as TextField;
             _searchInput.RegisterValueChangedCallback(OnValueChanged_SearchInput);
             _searchInput.RegisterCallback<FocusInEvent>(OnFocusIn_SearchInput);
+
+            _searchEnter = Root.Q("SearchField").Q("CloseButton");
+            _searchEnter.RegisterCallback<PointerUpEvent>(OnClicked_SearchEnter);
 
             _searchButton = Root.Q("SearchButton");
             _searchButton.RegisterCallback<PointerUpEvent>(OnClicked_SearchButton);
@@ -83,6 +91,7 @@ namespace YNL.JAMOS
 
         protected override void Initialize()
         {
+            _searchEnter.SetDisplay(DisplayStyle.None);
             _suggestionList.SetDisplay(DisplayStyle.None);
             _suggestionView.SetDisplay(DisplayStyle.None);
 
@@ -91,7 +100,7 @@ namespace YNL.JAMOS
 
         private void OnClicked_CloseButton(PointerUpEvent evt)
         {
-            Marker.OnViewPageSwitched?.Invoke(ViewType.MainViewHomePage, true, true);
+            Marker.OnViewPageSwitched?.Invoke(ViewType.MainViewHomePage, true, false);
         }
 
         private void OnClicked_SearchButton(PointerUpEvent evt)
@@ -99,9 +108,22 @@ namespace YNL.JAMOS
             Marker.OnViewPageSwitched?.Invoke(ViewType.SearchViewResultPage, true, true);
         }
 
+        private void OnClicked_SearchEnter(PointerUpEvent evt)
+        {
+            _productTypeField.SetDisplay(DisplayStyle.Flex);
+            _searchButton.SetDisplay(DisplayStyle.Flex);
+
+            _searchEnter.SetDisplay(DisplayStyle.None);
+            _suggestionView.SetDisplay(DisplayStyle.None);
+
+            evt?.StopPropagation();
+        }
+
         private void OnValueChanged_SearchInput(ChangeEvent<string> evt)
         {
             var value = evt.newValue;
+            Main.Runtime.SearchingInput = value;
+
             _suggestionValues.Clear();
 
             if (value == string.Empty)
@@ -115,20 +137,21 @@ namespace YNL.JAMOS
                 _suggestionLabel.SetText("Suggestions");
                 _emptyText.SetText("No suggestion matching your search!");
 
-                foreach (var pair in _products)
+                foreach (var product in _products.Values)
                 {
-                    var product = pair.Value;
+                    if (_searchingProductType != Product.Type.None && _searchingProductType != product.Type)
+                    {
+                        continue;
+                    }
 
                     if (product.Title.FuzzyContains(value))
                     {
                         _suggestionValues.Add((product.Type.ToProductType(), product.Title));
                     }
-                    foreach (var creator in product.Creators)
+
+                    foreach (var creator in product.Creators.Where(c => c.FuzzyContains(value)))
                     {
-                        if (creator.FuzzyContains(value))
-                        {
-                            _suggestionValues.Add((SearchingSuggestionType.Creator, creator));
-                        }
+                        _suggestionValues.Add((SearchingSuggestionType.Creator, creator));
                     }
                 }
             }
@@ -140,6 +163,7 @@ namespace YNL.JAMOS
 
             if (!emptyResult)
             {
+                _suggestionValues.Sort();
                 _suggestionList.RebuildListView(_suggestionValues);
             }
         }
@@ -149,22 +173,24 @@ namespace YNL.JAMOS
             _productTypeField.SetDisplay(DisplayStyle.None);
             _searchButton.SetDisplay(DisplayStyle.None);
 
+            _searchEnter.SetDisplay(DisplayStyle.Flex);
             _suggestionView.SetDisplay(DisplayStyle.Flex);
+
+            evt?.StopPropagation();
         }
 
         private void ApplySearchingInput(string input)
         {
             _searchInput.SetValueWithoutNotify(input);
 
-            _productTypeField.SetDisplay(DisplayStyle.Flex);
-            _searchButton.SetDisplay(DisplayStyle.Flex);
+            OnClicked_SearchEnter(null);
 
             Main.Runtime.SearchingInput = input;
         }
 
         private void OnProductTypeSelected(Product.Type type)
         {
-            Main.Runtime.SearchingProductType = type;
+            _searchingProductType = type;
         }
     }
 }

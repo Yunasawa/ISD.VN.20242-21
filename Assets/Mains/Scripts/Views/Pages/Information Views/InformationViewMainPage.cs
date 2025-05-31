@@ -2,33 +2,28 @@ using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 using YNL.Utilities.UIToolkits;
+using static YNL.JAMOS.InformationViewMainPage;
 
 namespace YNL.JAMOS
 {
     public partial class InformationViewMainPage : ViewPageUI
     {
+        [SerializeField] private AudioSource _audioSource;
+
         private VisualElement _backButton;
         private VisualElement _favoriteButton;
         private VisualElement _shareButton;
 
         private PriceField _priceField;
+        private StreamField _streamField;
 
-        private ImageView _imageView;
+        private VisualElement _imageView;
         private NameView _nameView;
+        private GenreField _genreField;
         private ReviewView _reviewView;
         private DescriptionField _descriptionField;
 
-        private UID _hotelID;
-
-        protected override void VirtualAwake()
-        {
-            Marker.OnHotelInformationDisplayed += OnHotelInformationDisplayed;
-        }
-
-        private void OnDestroy()
-        {
-            Marker.OnHotelInformationDisplayed -= OnHotelInformationDisplayed;
-        }
+        private UID _uid => Main.Runtime.SelectedProduct;
 
         protected override void Collect()
         { 
@@ -40,17 +35,37 @@ namespace YNL.JAMOS
 
             _shareButton = Root.Q("TopBar").Q("ShareButton");
 
-            _priceField = new(Root);
+            _priceField = new(Root.Q("BottomBar").Q("PriceField"));
+
+            _streamField = new(Root.Q("BottomBar").Q("StreamField"), _audioSource);
 
             var contentContainer = Root.Q("ContentScroll").Q("unity-content-container");
 
-            _imageView = new(contentContainer.Q("ImageView"));
+            _imageView = contentContainer.Q("ImageView");
 
             _nameView = new(contentContainer.Q("NameView"));
+
+            _genreField = new(contentContainer.Q("GenreField"));
 
             _reviewView = new(contentContainer);
 
             _descriptionField = new(contentContainer);
+        }
+
+        protected override void Refresh()
+        {
+            if (!Main.Database.Products.TryGetValue(_uid, out var product)) return;
+
+            _imageView.ApplyCloudImageAsync(_uid.GetImageURL());
+            _nameView.Apply(product);
+            _genreField.Apply(product);
+            _descriptionField.Apply(_uid);
+            _reviewView.Apply(_uid);
+
+            _priceField.Apply(_uid);
+
+            _streamField.Field.SetDisplay(product.HasStreamer ? DisplayStyle.Flex : DisplayStyle.None);
+            if (product.HasStreamer) _streamField.Apply(_uid);
         }
 
         private void OnClicked_BackButton(PointerUpEvent evt)
@@ -59,16 +74,6 @@ namespace YNL.JAMOS
         }
 
         private void OnClicked_FavoriteButton(PointerUpEvent evt)
-        {
-
-        }
-
-        private void OnTimeRangeSubmitted()
-        {      
-            _priceField.Apply(_hotelID);
-        }
-
-        private void OnHotelInformationDisplayed(UID id, bool isSearchResult)
         {
 
         }

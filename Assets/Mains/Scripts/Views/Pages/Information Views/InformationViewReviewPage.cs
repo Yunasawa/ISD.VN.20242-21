@@ -12,18 +12,8 @@ namespace YNL.JAMOS
         private ScrollView _reviewScroll;
         private ListView _reviewList;
 
-        private UID _hotelID;
+        private UID _uid;
         private List<UID> _feedbackIDs = new();
-
-        protected override void VirtualAwake()
-        {
-            Marker.OnHotelInformationDisplayed += OnHotelInformationDisplayed;
-        }
-
-        private void OnDestroy()
-        {
-            Marker.OnHotelInformationDisplayed -= OnHotelInformationDisplayed;
-        }
 
         protected override void Collect()
         {
@@ -33,7 +23,7 @@ namespace YNL.JAMOS
             _ratingView = new(Root.Q("TopBar").Q("RatingView"));
 
             _reviewScroll = Root.Q("ContentScroll") as ScrollView;
-            _reviewScroll.SetDisplay(DisplayStyle.None);
+            Root.Remove(_reviewScroll);
 
             _reviewList = Root.Q("ContentList") as ListView;
             _reviewList.Q("unity-content-container").SetFlexGrow(1);
@@ -44,8 +34,22 @@ namespace YNL.JAMOS
             _reviewList.bindItem = (element, index) =>
             {
                 var item = element as FeedbackResultItemUI;
-                item.Apply(_hotelID, _feedbackIDs[index]);
+                item.Apply(_uid, _feedbackIDs[index]);
             };
+        }
+
+        protected override void Refresh()
+        {
+            _uid = Main.Runtime.SelectedProduct;
+            if (!Main.Database.Products.TryGetValue(_uid, out var product)) return;
+
+            _ratingView.Apply(product);
+
+            _feedbackIDs = product.Review.Feedbacks.Keys.ToList();
+
+            bool emptyFeedback = product.Review.FeebackAmount == 0;
+
+            if (!emptyFeedback) RebuildHistoryList();
         }
 
         private void OnClicked_BackButton(PointerUpEvent evt)
@@ -58,20 +62,6 @@ namespace YNL.JAMOS
             _reviewList.itemsSource = null;
             _reviewList.itemsSource = _feedbackIDs;
             _reviewList.Rebuild();
-        }
-
-        private void OnHotelInformationDisplayed(UID id, bool isSearchResult)
-        {
-            _hotelID = id;
-            var unit = Main.Database.Products[id];
-
-            _ratingView.Apply();
-
-            _feedbackIDs = unit.Review.Feedbacks.Keys.ToList();
-
-            bool emptyFeedback = unit.Review.FeebackAmount == 0;
-
-            if (!emptyFeedback) RebuildHistoryList();
         }
     }
 }
