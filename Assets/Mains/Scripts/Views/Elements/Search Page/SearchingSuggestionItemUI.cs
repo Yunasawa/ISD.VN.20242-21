@@ -23,7 +23,7 @@ namespace YNL.JAMOS
         public SearchingSuggestionItemUI()
         {
             this.AddStyle(Main.Resources.Styles["StyleVariableUI"]);
-            this.AddStyle(Main.Resources.Styles["SearchingHistoryItemUI"]);
+            this.AddStyle(Main.Resources.Styles["SearchingSuggestionItemUI"]);
             this.AddClass(_rootClass);
 
             _icon = new VisualElement().AddClass(_iconClass);
@@ -48,8 +48,9 @@ namespace YNL.JAMOS
 
         private void OnSelected_HistoryItem(PointerUpEvent evt)
         {
-            MDebug.Log("SHIT");
             OnSelected?.Invoke(_value);
+
+            evt?.StopPropagation();
         }
     }
 }

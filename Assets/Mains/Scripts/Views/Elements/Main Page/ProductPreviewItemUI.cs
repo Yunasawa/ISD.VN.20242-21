@@ -40,11 +40,11 @@ namespace YNL.JAMOS
         private VisualElement _ratingIcon;
         private Label _ratingText;
 
-        private UID _id;
+        private UID _uid;
 
         public ProductPreviewItemUI(UID productID, bool isMini = false)
         {
-            _id = productID;
+            _uid = productID;
 
             Initialize(isMini);
             Apply(productID);
@@ -109,10 +109,10 @@ namespace YNL.JAMOS
             var product = Main.Database.Products[id];
             int discountPercentage = 45;
 
-            Function.ApplyCloudImageAsync(_previewImage, id.GetImageURL());
+            _previewImage.ApplyCloudImageAsync(id.GetImageURL());
 
             _productIcon.SetBackgroundImage(Main.Resources.Icons[product.Type.ToString()]);
-            _productDuration.SetText(product.Properties[Product.Property.NumberOfPage].ToString());
+            _productDuration.SetText(id.GetDurationText());
 
             _nameLabel.text = product.Title;
             _creatorText.text = string.Join(", ", product.Creators);
@@ -123,7 +123,7 @@ namespace YNL.JAMOS
 
         public void Refresh()
         {
-            Apply(_id);
+            Apply(_uid);
         }
 
         public ProductPreviewItemUI SetAsLastItem(bool set = true)
@@ -137,9 +137,9 @@ namespace YNL.JAMOS
 
         private void OnClicked_PreviewItem(PointerUpEvent evt)
         {
-            Marker.OnViewPageSwitched?.Invoke(ViewType.InformationViewMainPage, true, false);
-            Marker.OnHotelInformationDisplayed?.Invoke(_id, false);
-            Marker.OnHotelFacilitiesDisplayed?.Invoke(_id);
+            Main.Runtime.SelectedProduct = _uid;
+            Marker.OnViewPageSwitched?.Invoke(ViewType.InformationViewMainPage, true, true);
+            Marker.OnHotelFacilitiesDisplayed?.Invoke(_uid);
         }
     }
 }
