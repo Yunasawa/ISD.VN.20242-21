@@ -10,8 +10,9 @@ namespace YNL.JAMOS
         {
             Language,
             NumberOfPage,
-            BookFormat,
-            BookGenre
+
+            Album,
+            Duration
         }
 
         [System.Serializable]
@@ -24,6 +25,9 @@ namespace YNL.JAMOS
             public float Price;
             public ushort Quantity;
             public string Description;
+            public string[] Genres;
+            public string Format;
+            public bool HasStreamer = false;
             public ProductReview Review;
             public SerializableDictionary<Property, string> Properties = new();
         }
