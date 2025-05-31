@@ -1,7 +1,8 @@
 .searching-result-item
 {
+	flex-direction: row;
 	overflow: hidden;
-	height: 650px;
+	height: 700px;
 	padding: 0px 0px 50px 0px;
 	border-radius: 25px;
 }
@@ -13,14 +14,17 @@
 {
 	background-color: transparent;
 }
+.searching-result-item.shorten
+{
+	height: 500px;
+}
 
 .searching-result-item__preview-area
 {
-	height: 350px;
+	width: 400px;
 	background-color: var(--color-ground-dark);
 	-unity-background-scale-mode: scale-and-crop;
-	border-color: var(--color-ground-light);
-	border-width: 2px 2px 0px 2px;
+	border-radius: 25px 0px 0px 25px;
 }
 
 .searching-result-item__hot-tag
@@ -57,43 +61,46 @@
 {
 	flex-grow: 1;
 	padding: 20px 30px 20px 30px;
-	background-color: var(--color-ground-light);
-	border-radius: 0px 0px 25px 25px;
+	border-color: var(--color-border-legacy);
+	border-width: 2px 2px 2px 0px;
+	border-radius: 0px 25px 25px 0px;
 }
 
 .searching-result-item__name-field
 {
 	flex-direction: row;
 	height: 75px;
+	min-height: 75px;
+	margin: 0px 0px 10px 0px;
 }
 
 .searching-result-item__name-text
 {
 	overflow: hidden;
 	flex-grow: 1;
-	max-width: 700px;
-	margin: 0px 25px 0px 0px;
+	height: 100%;
+	margin: 0px;
 	padding: 0px;
 	-unity-font-definition: var(--font-nunito-regular);
 	-unity-font-style: bold;
 	font-size: 50px;
 	color: var(--color-contrast-solid);
+	-unity-text-align: middle-left;
 	text-overflow: ellipsis;
 }
 
 .searching-result-item__rating-field
 {
-	flex-direction: row;
+	flex-direction: row-reverse;
 }
 
 .searching-result-item__rating-icon
 {
-	width: 30px;
-	height: 100%;
+	min-width: 35px;
 	background-image: var(--icon-star-filled);
 	-unity-background-image-tint-color: var(--color-star-yellow);
 	-unity-background-scale-mode: scale-to-fit;
-	translate: 0px -5px;
+	translate: 0px -2px;
 }
 
 .searching-result-item__rating-text
@@ -106,30 +113,39 @@
 	-unity-text-align: middle-left;
 }
 
-.searching-result-item__address-field
+.searching-result-item__creator-field
 {
 	flex-direction: row;
-	height: 30px;
+	height: 40px;
+	min-height: 40px;
 	margin: 0px 0px 10px 0px;
 }
 
-.searching-result-item__address-icon
+.searching-result-item__creator-area
 {
-	width: 25px;
-	height: 100%;
-	background-image: var(--icon-location-filled);
+	flex-grow: 1;
+	flex-direction: row;
+	padding: 0px 50px 0px 0px;
+}
+
+.searching-result-item__creator-icon
+{
+	min-width: 30px;
+	min-height: 30px;
+	background-image: var(--icon-account);
 	-unity-background-scale-mode: scale-to-fit;
 }
 
-.searching-result-item__address-text
+.searching-result-item__creator-text
 {
-	flex-grow: 1;
-	margin: 0px 0px 0px 5px;
+	overflow: hidden;
+	margin: 0px 0px 0px 10px;
 	padding: 0px;
 	-unity-font-definition: var(--font-nunito-regular);
 	font-size: 35px;
 	color: var(--color-contrast-solid);
 	-unity-text-align: middle-left;
+	text-overflow: ellipsis;
 }
 
 .searching-result-item__space-field
@@ -139,8 +155,9 @@
 
 .searching-result-item__price-field
 {
-	height: 110px;
-	margin: 10px 0px 0px 0px;
+	height: 100px;
+	min-height: 100px;
+	margin: 25px 0px 0px 0px;
 }
 
 .searching-result-item__original-field
@@ -154,9 +171,9 @@
 	margin: 0px 20px 0px 0px;
 	padding: 0px;
 	-unity-font-definition: var(--font-nunito-regular);
-	font-size: 35px;
+	font-size: 50px;
 	color: var(--color-contrast-solid);
-	-unity-text-align: middle-center;
+	-unity-text-align: middle-left;
 }
 
 .searching-result-item__discount-field
@@ -189,13 +206,54 @@
 
 .searching-result-item__last-price
 {
-	height: 60px;
-	margin: 0px;
+	height: 40px;
+	margin: 7.5px 0px 0px 0px;
 	padding: 0px;
 	-unity-font-definition: var(--font-nunito-regular);
-	font-size: 50px;
-	color: var(--color-contrast-solid);
+	font-size: 30px;
+	color: #75CAFF;
 	-unity-text-align: middle-left;
-
 }
 
+.searching-result-item__genre-field
+{
+	overflow: hidden;
+	flex-grow: 1;
+	flex-direction: row;
+	flex-wrap: wrap;
+	padding: 25px 0px 25px 0px;
+}
+
+.searching-result-item__product-type
+{
+	position: absolute;
+	left: 20px;
+	top: 20px;
+	justify-content: center;
+	width: 75px;
+	height: 75px;
+	background-color: var(--color-background);
+	border-radius: 15px;
+}
+
+.searching-result-item__product-icon
+{
+	align-self: center;
+	width: 45px;
+	height: 45px;
+	-unity-background-image-tint-color: var(--color-light-legacy);
+	-unity-background-scale-mode: scale-to-fit;
+}
+
+.searching-result-item__genre-item
+{
+	height: 50px;
+	margin: 0px 10px 10px 0px;
+	padding: 0px 10px 0px 10px;
+	-unity-font-definition: var(--font-nunito-regular);
+	font-size: 35px;
+	color: var(--color-contrast-solid);
+	border-color: var(--color-ground-light);
+	border-width: var(--value-border-width);
+	border-radius: 10px;
+}
