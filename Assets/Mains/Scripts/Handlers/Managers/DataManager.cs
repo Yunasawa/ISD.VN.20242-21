@@ -11,6 +11,7 @@ namespace YNL.JAMOS
     public class DataManager : MonoBehaviour
     {
         public static string ProductImageURL = string.Empty;
+        public static string ProductStreamURL = string.Empty;
 
         public bool EnableInitializeDatabase = true;
 
@@ -81,6 +82,7 @@ namespace YNL.JAMOS
             string[] lines = content.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
 
             ProductImageURL = lines[0];
+            ProductStreamURL = lines[1];
         }
 
         private async UniTask InitializeFeedbackDatabase()
