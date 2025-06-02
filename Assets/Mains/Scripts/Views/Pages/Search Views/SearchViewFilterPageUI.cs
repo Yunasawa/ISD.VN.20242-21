@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -8,36 +9,34 @@ using YNL.Utilities.UIToolkits;
 
 namespace YNL.JAMOS
 {
+    public enum RatingScoreType : byte { GE45, GE40, GE35 }
+
     public partial class SearchViewFilterPageUI : ViewPageUI
     {
         public static (int Min, int Max) PriceRange = (5, 1000);
 
         private VisualElement _background;
-        private VisualElement _page;
         private VisualElement _filteringPage;
-        private VisualElement _closeButton;
+        private VisualElement _labelField;
         private Button _resetButton;
         private VisualElement _applyButton;
         private Label _minLabel;
         private Label _maxLabel;
         private MinMaxSlider _slider;
-        private VisualElement _reviewScoreField;
-        private VisualElement _cleanlinessField;
-        private VisualElement _hotelTypeField;
-        private VisualElement _hotelFacilitiesList;
 
+        private Dictionary<Product.Type, ProductTypeItem> _productTypeItems = new();
+        private Dictionary<RatingScoreType, RatingScoreItem> _ratingScoreItems = new();
         private MRange _currentPriceRange;
 
         protected override void Collect()
         {
             _background = Root.Q("ScreenBackground");
             _background.RegisterCallback<PointerUpEvent>(OnClicked_CloseButton);
-            _page = Root.Q("FilteringPage");
 
             _filteringPage = Root.Q("FilteringPage");
 
-            _closeButton = _filteringPage.Q("LabelField");
-            _closeButton.RegisterCallback<PointerUpEvent>(OnClicked_CloseButton);
+            _labelField = _filteringPage.Q("LabelField");
+            _labelField.RegisterCallback<PointerUpEvent>(OnClicked_CloseButton);
 
             _resetButton = _filteringPage.Q("LabelField").Q("ResetButton") as Button;
             _resetButton.clicked += OnClicked_ResetButton;
@@ -54,16 +53,27 @@ namespace YNL.JAMOS
             _slider = priceRangeView.Q("PriceSlider") as MinMaxSlider;
             _slider.RegisterValueChangedCallback(OnValueChanged_Slider);
 
-            _reviewScoreField = _filteringPage.Q("FilterScroll").Q("ReviewScoreField").Q("SelectionField");
-            _cleanlinessField = _filteringPage.Q("FilterScroll").Q("CleanlinessField").Q("SelectionField");
-            _hotelTypeField = _filteringPage.Q("FilterScroll").Q("HotelTypeField").Q("SelectionField");
+            var productTypeField = _filteringPage.Q("FilterScroll").Q("ProductTypeField").Q("MediaType");
+            foreach (Product.Type type in Enum.GetValues(typeof(Product.Type)))
+            {
+                var field = productTypeField.Q(type.ToString());
+                var item = new ProductTypeItem(field, type);
+                _productTypeItems[type] = item;
+            }
 
-            _hotelFacilitiesList = _filteringPage.Q("FilterScroll").Q("HotelFacilitiesField").Q("SelectionList");
+            var ratingScoreField = _filteringPage.Q("FilterScroll").Q("ReviewScoreField").Q("SelectionField");
+            foreach (RatingScoreType type in Enum.GetValues(typeof(RatingScoreType)))
+            {
+                var field = ratingScoreField.Q(type.ToString());
+                var item = new RatingScoreItem(field, type);
+                _ratingScoreItems[type] = item;
+            }
         }
 
         protected override void Initialize()
         {
-            _hotelFacilitiesList.Clear();
+            _productTypeItems[Product.Type.None].OnClicked_TypeItem();
+            _ratingScoreItems[RatingScoreType.GE45].OnClicked_TypeItem();
         }
 
         protected override void Refresh()
@@ -76,13 +86,13 @@ namespace YNL.JAMOS
             {
                 _background.SetPickingMode(PickingMode.Position);
                 _background.SetBackgroundColor(new Color(0.0865f, 0.0865f, 0.0865f, 0.725f));
-                _page.SetTranslate(0, 0, true);
+                _filteringPage.SetTranslate(0, 0, true);
             }
             else
             {
                 _background.SetBackgroundColor(Color.clear);
                 _background.SetPickingMode(PickingMode.Ignore);
-                _page.SetTranslate(0, 100, true);
+                _filteringPage.SetTranslate(0, 100, true);
             }
 
             if (isOpen && needRefresh) Refresh();

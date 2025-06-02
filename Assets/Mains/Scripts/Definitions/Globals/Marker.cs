@@ -1,6 +1,4 @@
-using NUnit.Framework.Constraints;
 using System;
-using YNL.Utilities.Addons;
 
 namespace YNL.JAMOS
 {
@@ -19,8 +17,6 @@ namespace YNL.JAMOS
         public static Action<bool, bool> OnPageBacked { get; set; }
 
         public static Action OnNotificationViewOpened { get; set; }
-        public static Action<SuggestFilterType> OnSuggestFilterSelected { get; set; }
-
         public static Action<string> OnAddressSearchSubmitted { get; set; }
 
         public static OnSearchResultSorted OnSearchResultSorted { get; set; }

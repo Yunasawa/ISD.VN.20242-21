@@ -25,10 +25,10 @@
                 <engine:MinMaxSlider name="PriceSlider" low-limit="0" high-limit="1" value="0.2,0.8" class="price-range-slider" style="height: 100px; margin-top: 1px; margin-right: 1px; margin-bottom: 1px; margin-left: 1px;" />
             </engine:VisualElement>
             <engine:VisualElement name="DividerLine" class="filter-property-element" style="background-color: rgb(115, 115, 115); height: 2px; margin-right: -50px; margin-left: -50px; margin-top: 50px; margin-bottom: 50px;" />
-            <engine:VisualElement name="ReviewScoreField" class="filter-property-element">
+            <engine:VisualElement name="ProductTypeField" class="filter-property-element">
                 <engine:Label text="Product Type" name="Label" class="label-field" style="font-size: 40px; margin-bottom: 20px; -unity-font-style: bold;" />
                 <engine:VisualElement name="MediaType" class="frame-border" style="flex-grow: 1; height: 200px; flex-direction: row;">
-                    <engine:VisualElement name="Any" style="flex-grow: 1; align-self: center; flex-basis: 33%;">
+                    <engine:VisualElement name="None" style="flex-grow: 1; align-self: center; flex-basis: 33%;">
                         <engine:VisualElement name="Icon" style="height: 75px; width: 100%; background-image: resource(&apos;Icons/Any&apos;); -unity-background-scale-mode: scale-to-fit; margin-bottom: 10px;" />
                         <engine:Label text="Any" name="Label" style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 10px; margin-right: 0; margin-bottom: 0; margin-left: 0; -unity-font-definition: url(&quot;project://database/Assets/Mains/Resources/Fonts/SDFs/Nunito/Nunito-Regular%20SDF.asset?fileID=11400000&amp;guid=999150e03acf5b941a2f08bde59b51ae&amp;type=2#Nunito-Regular SDF&quot;); color: rgb(255, 255, 255); font-size: 40px; -unity-text-align: middle-center; height: 40px;" />
                     </engine:VisualElement>
@@ -54,15 +54,15 @@
             <engine:VisualElement name="ReviewScoreField" class="filter-property-element">
                 <engine:Label text="Average Rating Score" name="Label" class="label-field" style="font-size: 40px; margin-bottom: 20px; -unity-font-style: bold;" />
                 <engine:VisualElement name="SelectionField" style="flex-grow: 1; height: 100px; flex-direction: row; justify-content: space-between;">
-                    <engine:VisualElement name="ReviewSelectionItem" class="filter-selection-button selected">
+                    <engine:VisualElement name="GE45" class="filter-selection-button selected">
                         <engine:Label text="≥ 4.5" name="Text" class="filter-selection-button__label selected" />
                         <engine:VisualElement name="Icon" class="filter-selection-button__icon" style="background-image: resource(&apos;Icons/Star (Filled)&apos;);" />
                     </engine:VisualElement>
-                    <engine:VisualElement name="ReviewSelectionItem" class="filter-selection-button">
+                    <engine:VisualElement name="GE40" class="filter-selection-button" style="border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px;">
                         <engine:Label text="≥ 4.0" name="Text" class="filter-selection-button__label" />
                         <engine:VisualElement name="Icon" class="filter-selection-button__icon" />
                     </engine:VisualElement>
-                    <engine:VisualElement name="ReviewSelectionItem" class="filter-selection-button">
+                    <engine:VisualElement name="GE35" class="filter-selection-button" style="border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px;">
                         <engine:Label text="≥ 3.5" name="Text" class="filter-selection-button__label" />
                         <engine:VisualElement name="Icon" class="filter-selection-button__icon" />
                     </engine:VisualElement>
