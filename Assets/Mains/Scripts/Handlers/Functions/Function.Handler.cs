@@ -5,13 +5,16 @@ using System;
 using UnityEngine.UIElements;
 using YNL.Utilities.UIToolkits;
 using System.Collections;
-using YNL.Utilities.Extensions;
 using System.Text.RegularExpressions;
+using YNL.Utilities.Addons;
+using System.Collections.Generic;
 
 namespace YNL.JAMOS
 {
     public static partial class Function
     {
+        private static SerializableDictionary<UID, uint> _orderedAmounts => Main.Runtime.OrderedAmounts;
+
         public static async UniTask<string> GetRawDatabaseAsync(this string url)
         {
             using UnityWebRequest request = UnityWebRequest.Get(url);
@@ -87,6 +90,8 @@ namespace YNL.JAMOS
 
         public static void ApplyCloudImageAsync(this VisualElement element, string url)
         {
+            Texture2D nullTexture = null;
+            element.SetBackgroundImage(nullTexture);
             ApplyCloudImage(element, url).Forget();
 
             async UniTaskVoid ApplyCloudImage(VisualElement element, string url)
@@ -125,7 +130,7 @@ namespace YNL.JAMOS
         {
             list.itemsSource = null;
             list.itemsSource = source;
-            list.Rebuild();
+            list.RefreshItems();
         }
 
         public static void LoadCloudAudioAsync(this UID id, Action<AudioClip> onCompleted = null)
@@ -149,6 +154,64 @@ namespace YNL.JAMOS
                         onComplete?.Invoke(null); // Invoke with null to indicate failure
                     }
                 }
+            }
+        }
+
+        public static void AdjustOrderedAmount(this UID id, bool isAdded)
+        {
+            var product = Main.Database.Products[id];
+
+            if (isAdded)
+            {
+                var valueOrDefault = _orderedAmounts.GetValueOrDefault(id);
+
+                if (valueOrDefault < product.Quantity)
+                {
+                    _orderedAmounts[id] = valueOrDefault + 1;
+                }
+            }
+            else if (_orderedAmounts.TryGetValue(id, out var currentAmount) && currentAmount >= 1)
+            {
+                _orderedAmounts[id]--;
+            }
+        }
+
+        public static void SetCartButtonStatus(this UID id, Button addToCartButton)
+        {
+            var product = Main.Database.Products[id];
+
+            var isCarted = Main.Runtime.Data.CartedProducts.Contains(id);
+            var isCollected = Main.Runtime.Data.ProductCollection.Contains(id);
+
+            if (isCollected)
+            {
+                SetAsNegativeButton(addToCartButton, "Available in collection");
+            }
+            else if (product.IsFree)
+            {
+                SetAsPositiveButton(addToCartButton, "Add to collection");
+            }
+            else if (isCarted)
+            {
+                SetAsNegativeButton(addToCartButton, "Remove from cart");
+            }
+            else
+            {
+                SetAsPositiveButton(addToCartButton, "Add to cart");
+            }
+
+            void SetAsPositiveButton(Button button, string label)
+            {
+                button.SetText(label);
+                button.SetBackgroundColor("#DEF95D");
+                button.SetColor("#202020");
+            }
+
+            void SetAsNegativeButton(Button button, string label)
+            {
+                button.SetText(label);
+                button.SetBackgroundColor(Color.clear);
+                button.SetColor("#DEF95D");
             }
         }
     }

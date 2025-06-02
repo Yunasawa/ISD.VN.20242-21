@@ -185,9 +185,11 @@ namespace YNL.JAMOS
                 _priceText.SetDisplay(discount > 0 ? DisplayStyle.Flex : DisplayStyle.None);
                 _discountField.SetDisplay(discount > 0 ? DisplayStyle.Flex : DisplayStyle.None);
 
-                var lastPrice = product.Price * (1 - discount / 100f);
+                var priceText = $"<b><color=#DEF95D>{product.Price * (1 - discount / 100f):0.00}$</color></b>";
+                if (discount > 0) priceText += $" <s>{product.Price:0.00}$</s>";
+                if (product.IsFree) priceText = "<b><color=#DEF95D>FREE</color></b>";
+                _priceText.SetText(priceText);
 
-                _priceText.SetText($"<b><color=#DEF95D>{lastPrice:0.00}$</color></b> <s>{product.Price:0.00}$</s>");
                 _discountText.SetText($"-{discount}%");
                 _stockText.SetText($"• Only {UnityEngine.Random.Range(10, 50)} copies in stock");
             }
@@ -277,7 +279,7 @@ namespace YNL.JAMOS
         {
             Main.Runtime.SelectedProduct = _productID;
 
-            Marker.OnViewPageSwitched?.Invoke(ViewType.InformationViewMainPage, true, true);
+            Marker.OnPageNavigated?.Invoke(ViewType.InformationViewMainPage, true, true);
         }
     }
 }

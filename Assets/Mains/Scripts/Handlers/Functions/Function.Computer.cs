@@ -1,6 +1,9 @@
 using System;
+using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text.RegularExpressions;
+using UnityEngine.UI;
 using YNL.Utilities.Addons;
 using YNL.Utilities.Extensions;
 
@@ -62,6 +65,26 @@ namespace YNL.JAMOS
                 Product.Type.DVD => "mp4",
                 Product.Type.LP => "mp3",
                 _ => ""
+            };
+        }
+
+        public static List<UID> GetSortedItemList(this List<UID> items, SortType sortType)
+        {
+            return sortType switch
+            {
+                SortType.ByTitleAToZ => items.OrderBy(id => _products[id].Title).ToList(),
+                SortType.ByTitleZToA => items.OrderByDescending(id => _products[id].Title).ToList(),
+                SortType.NewestReleaseDate => items.OrderByDescending(id => _products[id].PublicationDate).ToList(),
+                SortType.OldestReleaseDate => items.OrderBy(id => _products[id].PublicationDate).ToList(),
+                SortType.MostPopular => items.OrderByDescending(id => _products[id].SoldAmount).ToList(),
+                SortType.LeastPopular => items.OrderBy(id => _products[id].SoldAmount).ToList(),
+                SortType.HighestRating => items.OrderByDescending(id => _products[id].Review.AverageTotalRating).ToList(),
+                SortType.LowestRating => items.OrderBy(id => _products[id].Review.AverageTotalRating).ToList(),
+                SortType.HighestPrice => items.OrderByDescending(id => _products[id].Price).ToList(),
+                SortType.LowestPrice => items.OrderBy(id => _products[id].Price).ToList(),
+                SortType.LongestDuration => items,
+                SortType.ShortestDuration => items,
+                _ => null
             };
         }
     }

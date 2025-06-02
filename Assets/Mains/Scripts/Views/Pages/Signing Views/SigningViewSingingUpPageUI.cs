@@ -174,7 +174,7 @@ namespace YNL.JAMOS
             account.Password = _passwordInput;
             Main.Database.Accounts.Add(account.ID, account);
 
-            Marker.OnViewPageSwitched?.Invoke(ViewType.SigningViewPreferencePage, true, false);
+            Marker.OnPageNavigated?.Invoke(ViewType.SigningViewPreferencePage, true, false);
         }
 
         private void RecoveryAccount(PointerUpEvent evt)

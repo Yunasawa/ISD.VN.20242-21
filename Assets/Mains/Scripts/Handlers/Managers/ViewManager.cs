@@ -5,6 +5,7 @@ namespace YNL.JAMOS
 {
 	public class ViewManager : MonoBehaviour
 	{
+		public ViewType PreviousViewType;
 		public ViewType CurrentViewType;
         public bool IsAbleToMovePage = true;
 
@@ -12,15 +13,17 @@ namespace YNL.JAMOS
 
         public void Awake()
         {
-            Marker.OnViewPageSwitched += OnViewPageSwitched;
+            Marker.OnPageNavigated += OnPageNavigated;
+            Marker.OnPageBacked += OnPageBacked;
         }
 
         private void OnDestroy()
         {
-            Marker.OnViewPageSwitched -= OnViewPageSwitched;
+            Marker.OnPageNavigated -= OnPageNavigated;
+            Marker.OnPageBacked -= OnPageBacked;
         }
 
-        private void OnViewPageSwitched(ViewType type, bool hidePreviousPage, bool needRefresh)
+        private void OnPageNavigated(ViewType type, bool hidePreviousPage, bool needRefresh)
         {
             if (!IsAbleToMovePage) return;
 
@@ -29,27 +32,47 @@ namespace YNL.JAMOS
                 Pages[CurrentViewType].DisplayView(false, needRefresh);
             }
 
+            if (InvalidBackPage(CurrentViewType)) PreviousViewType = CurrentViewType;
             CurrentViewType = type;
 
             Pages[CurrentViewType].DisplayView(true, needRefresh);
+        }
+
+        private void OnPageBacked(bool hidePreviousPage, bool needRefresh)
+        {
+            OnPageNavigated(PreviousViewType, hidePreviousPage, needRefresh);
+        }
+
+        private bool InvalidBackPage(ViewType page)
+        {
+            return page switch
+            {
+                ViewType.InformationViewReviewPage => false,
+                ViewType.InformationViewMainPage => false,
+                _ => true
+            };
         }
     }
 
     public enum ViewType : byte
     {
-        SigningViewSignUpPage, 
-        SigningViewSignInPage,
-        SigningViewPreferencePage,
+        SigningViewSignUpPage = 0, 
+        SigningViewSignInPage = 1,
+        SigningViewPreferencePage = 2,
         
-        MainViewHomePage,
-        MainViewMessagePage,
-        MainViewOrderPage,
-        MainViewAccountPage,
+        MainViewHomePage = 3,
+        MainViewMessagePage = 4,
+        MainViewOrderPage = 5,
+        MainViewAccountPage = 6,
         
-        SearchViewMainPage, 
-        SearchViewResultPage,
+        SearchViewMainPage = 7,
+        SearchViewResultPage = 8,
         
-        InformationViewMainPage,
-        InformationViewReviewPage,
+        InformationViewMainPage = 9,
+        InformationViewReviewPage = 10,
+
+        OrderViewCartPage = 11,
+        OrderViewPaymentPage = 12,
+        OrderViewDeliveryPage = 13
     }
 }

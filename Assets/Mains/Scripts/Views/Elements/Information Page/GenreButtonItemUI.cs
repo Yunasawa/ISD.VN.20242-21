@@ -28,7 +28,7 @@ namespace YNL.JAMOS
         {
             Main.Runtime.SearchingGenre = _genre;
             Marker.OnGenreSearchRequested?.Invoke(_genre);
-            Marker.OnViewPageSwitched?.Invoke(ViewType.SearchViewResultPage, true, false);
+            Marker.OnPageNavigated?.Invoke(ViewType.SearchViewResultPage, true, false);
         }
     }
 }

@@ -14,6 +14,7 @@
 	--color-badge-red: #EC4E40;
 	--color-border-legacy: #606060;
 	--color-text-faded: #808080;
+	--color-icon-light: #A0A0A0;
 
 	--value-transition-duration: 0.2s;
 	--value-divider-width: 2px;
@@ -34,7 +35,8 @@
 	--icon-account: resource("Icons/Account");
 	--icon-heart: resource("Icons/Heart");
 	--icon-close: resource("Icons/Close");
+	--icon-add: resource("Icons/Add");
+	--icon-remove: resource("Icons/Remove");
 
-	--image-discount-frame: resource("Images/Frames/Discount Frame");
 	--image-discount-frame: resource("Images/Frames/Discount Frame");
 }

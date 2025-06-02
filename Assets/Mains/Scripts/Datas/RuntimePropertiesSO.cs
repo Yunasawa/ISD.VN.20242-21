@@ -24,6 +24,8 @@ namespace YNL.JAMOS
         public List<(SearchingSuggestionType Type, string Value)> SearchingHistory = new();
         public SerializableDictionary<UID, LikedFeedback> LikedFeedbacks = new();
         public List<string> FavoriteGenres = new();
+        public List<UID> CartedProducts = new();
+        public List<UID> ProductCollection = new();
     }
 
     [CreateAssetMenu(fileName = "RuntimePropertiesSO", menuName = "YNL - Checkotel/RuntimePropertiesSO")]
@@ -36,6 +38,10 @@ namespace YNL.JAMOS
         public string SearchingInput = string.Empty;
         public UID SelectedProduct = 0;
         public string SearchingGenre = string.Empty;
+        public SerializableDictionary<UID, uint> OrderedAmounts = new();
+        public ushort Discount = 0;
+        public DeliveryType SelectedDeliveryType = DeliveryType.Normal;
+        public SortType SelectedSortType = SortType.ByTitleAToZ;
 
         public void Reset()
         {

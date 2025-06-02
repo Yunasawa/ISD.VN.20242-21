@@ -49,8 +49,7 @@ namespace YNL.JAMOS
         private void OnClicked_Button(PointerUpEvent evt)
         {
             Marker.OnSuggestFilterSelected?.Invoke(_type);
-            Marker.OnViewPageSwitched?.Invoke(ViewType.SearchViewResultPage, true, false);
-            Marker.OnFilterResultRequested?.Invoke(Room.StayType.Hourly);
+            Marker.OnPageNavigated?.Invoke(ViewType.SearchViewResultPage, true, false);
         }
     }
 }

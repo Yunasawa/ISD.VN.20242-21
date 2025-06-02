@@ -12,6 +12,9 @@ namespace YNL.JAMOS
     {
         public class PriceField
         {
+            private List<UID> _cartedProducts => Main.Runtime.Data.CartedProducts;
+            private List<UID> _productCollection => Main.Runtime.Data.ProductCollection;
+
             public Action OnOpenTimeRangePage;
 
             private Label _originalPrice;
@@ -37,15 +40,31 @@ namespace YNL.JAMOS
 
                 var discounrt = 20;
 
-                _originalPrice.SetDisplay(discounrt > 0 ? DisplayStyle.Flex : DisplayStyle.None);
-                _originalPrice.SetText($"From <color=#7f7f7f><s>${product.Price}</s></color>");
-                _lastPrice.SetText($"${product.Price * (1 - discounrt / 100f)}");
+                _originalPrice.SetDisplay(discounrt > 0 && product.IsFree == false ? DisplayStyle.Flex : DisplayStyle.None);
+                _originalPrice.SetText($"From <color=#7f7f7f><s>${product.Price:0.00}</s></color>");
+                _lastPrice.SetText(product.IsFree ? "FREE" : $"${product.Price * (1 - discounrt / 100f):0.00}");
+
+                var isCarted = _cartedProducts.Contains(_uid);
+
+                _uid.SetCartButtonStatus(_addToCartButton);
             }
 
             private void OnClicked_ChooseButton(PointerUpEvent evt)
             {
-                //Marker.OnViewPageSwitched?.Invoke(ViewType.InformationViewRoomPage, true, false);
-                Marker.OnHotelRoomsDisplayed?.Invoke(_uid);
+                var product = Main.Database.Products[_uid];
+
+                var isCollected = Main.Runtime.Data.ProductCollection.Contains(_uid);
+
+                if (product.IsFree && isCollected == false)
+                {
+                    _productCollection.Add(_uid);
+                }
+                else if (_cartedProducts.Remove(_uid) == false)
+                {
+                    _cartedProducts.Add(_uid);
+                }
+
+                _uid.SetCartButtonStatus(_addToCartButton);
             }
         }
 
@@ -53,18 +72,21 @@ namespace YNL.JAMOS
         public class NameView
         {
             private VisualElement _badgeField;
+            private VisualElement _productType;
             private Label _nameText;
             private Label _creatorText;
 
             public NameView(VisualElement contentContainer)
             {
                 _badgeField = contentContainer.Q("BadgeField");
-                _nameText = contentContainer.Q("NameText") as Label;
+                _productType = contentContainer.Q("NameField").Q("ProductType");
+                _nameText = contentContainer.Q("NameField").Q("NameText") as Label;
                 _creatorText = contentContainer.Q("CreatorText") as Label;
             }
 
             public void Apply(Product.Data product)
             {
+                _productType.SetBackgroundImage(Main.Resources.Icons[product.Type.ToString()]);
                 _nameText.SetText(product.Title);
                 _creatorText.SetText($"by {string.Join(", ", product.Creators)}");
             }
@@ -163,7 +185,7 @@ namespace YNL.JAMOS
 
             private void OnClicked_SeeMoreButton(PointerUpEvent evt)
             {
-                Marker.OnViewPageSwitched?.Invoke(ViewType.InformationViewReviewPage, true, true);
+                Marker.OnPageNavigated?.Invoke(ViewType.InformationViewReviewPage, true, true);
             }
         }
 
@@ -210,6 +232,7 @@ namespace YNL.JAMOS
 
             private AudioSource _audioSource;
             private bool _isPlaying = false;
+            private float _lastRecord = 0;
 
             public StreamField(VisualElement field, AudioSource source)
             {
@@ -238,6 +261,9 @@ namespace YNL.JAMOS
                 if (_audioSource.clip != null)
                 {
                     _audioSource.time = evt.newValue;
+
+                    float remainTime = _audioSource.clip.length - _audioSource.time;
+                    _timeLabel.SetTimeText(remainTime);
                 }
             }
 
@@ -254,6 +280,7 @@ namespace YNL.JAMOS
                 else
                 {
                     _playButton.SetBackgroundImage(Main.Resources.Icons["Play"]);
+                    _lastRecord = _audioSource.time;
                     _audioSource.Pause();
                 }
             }
@@ -278,8 +305,8 @@ namespace YNL.JAMOS
 
                     if (!_audioSource.isPlaying)
                     {
-                        _progressSlider.value = 0;
-                        _timeLabel.SetTimeText(_audioSource.clip.length);
+                        _progressSlider.value = _lastRecord;
+                        _timeLabel.SetTimeText(remainTime);
                         _playButton.SetBackgroundImage(Main.Resources.Icons["Play"]);
                         return;
                     }

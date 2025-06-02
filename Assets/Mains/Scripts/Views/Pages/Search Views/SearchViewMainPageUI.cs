@@ -98,14 +98,19 @@ namespace YNL.JAMOS
             _productTypeButtons[Product.Type.None].OnSelected_Button();
         }
 
+        protected override void Refresh()
+        {
+            _searchInput.SetValueWithoutNotify(string.Empty);
+        }
+
         private void OnClicked_CloseButton(PointerUpEvent evt)
         {
-            Marker.OnViewPageSwitched?.Invoke(ViewType.MainViewHomePage, true, false);
+            Marker.OnPageNavigated?.Invoke(ViewType.MainViewHomePage, true, false);
         }
 
         private void OnClicked_SearchButton(PointerUpEvent evt)
         {
-            Marker.OnViewPageSwitched?.Invoke(ViewType.SearchViewResultPage, true, true);
+            Marker.OnPageNavigated?.Invoke(ViewType.SearchViewResultPage, true, true);
         }
 
         private void OnClicked_SearchEnter(PointerUpEvent evt)
