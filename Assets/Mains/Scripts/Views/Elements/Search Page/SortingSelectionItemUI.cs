@@ -4,14 +4,9 @@ using YNL.Utilities.UIToolkits;
 
 namespace YNL.JAMOS
 {
-    public enum SortingSelectionType : byte
-    {
-        BestMatch, DistanceFromCloseToFar, RatingFromHighToLow, PriceIncreasing, PriceDecreasing,
-    }
-
     public class SortingSelectionItemUI : VisualElement
     {
-        public static Action<SortingSelectionType> OnSelected { get; set; }
+        public static Action<SortType> OnSelected { get; set; }
 
         private const string _rootClass = "toggle-property-item";
         private const string _labelClass = _rootClass + "__label";
@@ -21,10 +16,10 @@ namespace YNL.JAMOS
         private Label _label;
         private VisualElement _toggle;
 
-        private SortingSelectionType _type;
+        private SortType _type;
         private bool _isSelected = false;
 
-        public SortingSelectionItemUI(SortingSelectionType type)
+        public SortingSelectionItemUI(SortType type)
         {
             _type = type;
 
@@ -64,7 +59,7 @@ namespace YNL.JAMOS
             _toggle.EnableClass(true, _selected);
         }
 
-        private void UpdateUI(SortingSelectionType type)
+        private void UpdateUI(SortType type)
         {
             if (_type == type) return;
 

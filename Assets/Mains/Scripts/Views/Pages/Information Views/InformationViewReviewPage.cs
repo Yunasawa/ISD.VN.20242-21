@@ -54,7 +54,7 @@ namespace YNL.JAMOS
 
         private void OnClicked_BackButton(PointerUpEvent evt)
         {
-            Marker.OnViewPageSwitched?.Invoke(ViewType.InformationViewMainPage, true, false);
+            Marker.OnPageNavigated?.Invoke(ViewType.InformationViewMainPage, true, false);
         }
 
         private void RebuildHistoryList()

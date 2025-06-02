@@ -6,28 +6,32 @@ using YNL.Utilities.UIToolkits;
 
 namespace YNL.JAMOS
 {
+    public enum SortType : byte
+    {
+        ByTitleAToZ,
+        ByTitleZToA,
+        NewestReleaseDate,
+        OldestReleaseDate,
+        MostPopular,
+        LeastPopular,
+        HighestRating,
+        LowestRating,
+        HighestPrice,
+        LowestPrice,
+        LongestDuration,
+        ShortestDuration
+    }
+
     public partial class SearchViewSortPageUI : ViewPageUI
     {
-        public SortingSelectionType SortingType;
 
         private VisualElement _background;
         private VisualElement _page;
         private VisualElement _sortingPage;
-        private VisualElement _closeButton;
+        private VisualElement _labelField;
         private VisualElement _applyButton;
-        private VisualElement _sortSelectionArea;
 
-        private List<SortingSelectionItemUI> _sortingItemUI = new();
-
-        protected override void VirtualAwake()
-        {
-            SortingSelectionItemUI.OnSelected += OnSortingTypeSelected;
-        }
-
-        private void OnDestroy()
-        {
-            SortingSelectionItemUI.OnSelected -= OnSortingTypeSelected;
-        }
+        private Dictionary<SortType, SortItem> _sortingItems = new();
 
         protected override void Collect()
         {
@@ -37,35 +41,30 @@ namespace YNL.JAMOS
 
             _sortingPage = Root.Q("SortingPage");
 
-            _closeButton = _sortingPage.Q("LabelField");
-            _closeButton.RegisterCallback<PointerUpEvent>(OnClicked_CloseButton);
+            _labelField = _sortingPage.Q("LabelField");
+            _labelField.RegisterCallback<PointerUpEvent>(OnClicked_CloseButton);
 
             _applyButton = _sortingPage.Q("Toolbar").Q("ApplyButton");
             _applyButton.RegisterCallback<PointerUpEvent>(OnClicked_ApplyButton);
 
-            _sortSelectionArea = _sortingPage.Q("SortSelectionArea");
-            _sortSelectionArea.Clear();
+            var container = _sortingPage.Q("SortSelectionArea").Q("unity-content-container");
+
+            foreach (SortType type in Enum.GetValues(typeof(SortType)))
+            {
+                var item = container.Q(type.ToString());
+                var sortItem = new SortItem(item, type);
+                _sortingItems.Add(type, sortItem);
+            }
         }
 
         protected override void Initialize()
         {
-            var sortingTypes = Enum.GetValues(typeof(SortingSelectionType)) as SortingSelectionType[];
-
-            for (byte i = 0; i < sortingTypes.Length; i++)
-            {
-                var item = new SortingSelectionItemUI(sortingTypes[i]);
-                if (i == sortingTypes.Length - 1) item.SetAsLastItem();
-
-                _sortingItemUI.Add(item);
-                _sortSelectionArea.Add(item);
-            }
+            _sortingItems[SortType.ByTitleAToZ].OnSelected_SortItem();
         }
 
         protected override void Refresh()
         {
-            return;
-
-            _sortingItemUI[0].OnClicked__Toggle();
+            _sortingItems[SortType.ByTitleAToZ].OnSelected_SortItem();
         }
 
         public override void OnPageOpened(bool isOpen, bool needRefresh = true)
@@ -78,8 +77,8 @@ namespace YNL.JAMOS
             }
             else
             {
-                _background.SetBackgroundColor(Color.clear);
                 _background.SetPickingMode(PickingMode.Ignore);
+                _background.SetBackgroundColor(Color.clear);
                 _page.SetTranslate(0, 100, true);
             }
 
@@ -93,13 +92,8 @@ namespace YNL.JAMOS
 
         private void OnClicked_ApplyButton(PointerUpEvent evt)
         {
-            Marker.OnSearchResultSorted?.Invoke(SortingType);
+            Marker.OnSearchResultSorted?.Invoke(Main.Runtime.SelectedSortType);
             OnPageOpened(false);
-        }
-
-        private void OnSortingTypeSelected(SortingSelectionType type)
-        {
-            SortingType = type;
         }
     }
 }

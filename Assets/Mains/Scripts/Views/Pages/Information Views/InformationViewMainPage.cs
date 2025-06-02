@@ -11,7 +11,6 @@ namespace YNL.JAMOS
         [SerializeField] private AudioSource _audioSource;
 
         private VisualElement _backButton;
-        private VisualElement _favoriteButton;
         private VisualElement _shareButton;
 
         private PriceField _priceField;
@@ -29,9 +28,6 @@ namespace YNL.JAMOS
         { 
             _backButton = Root.Q("TopBar").Q("BackButton");
             _backButton.RegisterCallback<PointerUpEvent>(OnClicked_BackButton);
-
-            _favoriteButton = Root.Q("TopBar").Q("FavoriteButton");
-            _favoriteButton.RegisterCallback<PointerUpEvent>(OnClicked_FavoriteButton);
 
             _shareButton = Root.Q("TopBar").Q("ShareButton");
 
@@ -70,12 +66,7 @@ namespace YNL.JAMOS
 
         private void OnClicked_BackButton(PointerUpEvent evt)
         {
-            Marker.OnViewPageSwitched?.Invoke(ViewType.MainViewHomePage, true, false);
-        }
-
-        private void OnClicked_FavoriteButton(PointerUpEvent evt)
-        {
-
+            Marker.OnPageBacked?.Invoke(true, false);
         }
     }
 }

@@ -53,7 +53,7 @@ namespace YNL.JAMOS
         private void Initialize(bool isMini)
         {
             this.AddStyle(Main.Resources.Styles["StyleVariableUI"]);
-            this.AddStyle(Main.Resources.Styles["HotelPreviewItemUI"]);
+            this.AddStyle(Main.Resources.Styles["ProductPreviewItemUI"]);
             this.AddClass(_rootClass).EnableClass(isMini, _miniClass);
             this.RegisterCallback<PointerUpEvent>(OnClicked_PreviewItem);
 
@@ -107,7 +107,7 @@ namespace YNL.JAMOS
         private void Apply(UID id)
         {
             var product = Main.Database.Products[id];
-            int discountPercentage = 45;
+            int discount = 45;
 
             _previewImage.ApplyCloudImageAsync(id.GetImageURL());
 
@@ -117,7 +117,12 @@ namespace YNL.JAMOS
             _nameLabel.text = product.Title;
             _creatorText.text = string.Join(", ", product.Creators);
 
-            _priceText.text = $"<b><color=#DEF95D>${product.Price * (1 - (discountPercentage / 100f)):0.00}</color></b> <s>${product.Price:0.00}</s>";
+            var priceText = $"<b><color=#DEF95D>${product.Price * (1 - (discount / 100f)):0.00}</color></b>";
+            if (discount > 0) priceText += $" <s>${product.Price:0.00}</s>";
+            if (product.IsFree) priceText = "<b><color=#DEF95D>FREE</color></b>";
+
+            _priceText.SetText(priceText);
+
             _ratingText.text = $"<b>{product.Review.AverageTotalRating}</b> ({product.Review.FeebackAmount})";
         }
 
@@ -138,7 +143,7 @@ namespace YNL.JAMOS
         private void OnClicked_PreviewItem(PointerUpEvent evt)
         {
             Main.Runtime.SelectedProduct = _uid;
-            Marker.OnViewPageSwitched?.Invoke(ViewType.InformationViewMainPage, true, true);
+            Marker.OnPageNavigated?.Invoke(ViewType.InformationViewMainPage, true, true);
             Marker.OnHotelFacilitiesDisplayed?.Invoke(_uid);
         }
     }

@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UIElements;
 using YNL.Utilities.UIToolkits;
@@ -19,16 +20,18 @@ namespace YNL.JAMOS
 
             _ground = _root.Q("Ground");
 
-            Marker.OnDatabaseSerializationDone += OnDatabaseSerializationDone;
+            Marker.OnDatabaseSerializationDone += OnDatabaseSerializationDone().Forget;
         }
 
         private void OnDestroy()
         {
-            Marker.OnDatabaseSerializationDone -= OnDatabaseSerializationDone;
+            Marker.OnDatabaseSerializationDone -= OnDatabaseSerializationDone().Forget;
         }
 
-        private void OnDatabaseSerializationDone()
+        private async UniTaskVoid OnDatabaseSerializationDone()
         {
+            await UniTask.WaitForSeconds(3);
+
             _background.SetBackgroundColor(Color.clear);
             _ground.SetOpacity(0);
         }

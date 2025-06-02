@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 using UnityEngine.UIElements;
 using YNL.Utilities.Addons;
 using YNL.Utilities.Extensions;
@@ -9,6 +10,9 @@ namespace YNL.JAMOS
 {
     public class SearchViewResultPageUI : ViewPageUI
     {
+        [SerializeField] private SearchViewSortPageUI _sortPage;
+        [SerializeField] private SearchViewFilterPageUI _filterPage;
+
         private SerializableDictionary<UID, Product.Data> _products => Main.Database.Products;
         private Product.Type _searchingProductType
         {
@@ -26,11 +30,13 @@ namespace YNL.JAMOS
         protected override void VirtualAwake()
         {
             Marker.OnGenreSearchRequested += OnGenreSearchRequested;
+            Marker.OnSearchResultSorted += OnSearchResultSorted;
         }
 
         private void OnDestroy()
         {
             Marker.OnGenreSearchRequested -= OnGenreSearchRequested;
+            Marker.OnSearchResultSorted -= OnSearchResultSorted;
         }
 
         protected override void Collect()
@@ -100,17 +106,17 @@ namespace YNL.JAMOS
 
         private void OnClicked_SearchBar(PointerUpEvent evt)
         {
-            Marker.OnViewPageSwitched?.Invoke(ViewType.SearchViewMainPage, true, false);
+            Marker.OnPageNavigated?.Invoke(ViewType.SearchViewMainPage, true, false);
         }
 
         private void OnClicked_SortButton(PointerUpEvent evt)
         {
-
+            _sortPage.OnPageOpened(true, false);
         }
 
         private void OnClicked_FilterButton(PointerUpEvent evt)
         {
-
+            _filterPage.OnPageOpened(true, false);
         }
 
         private void OnGenreSearchRequested(string genre)
@@ -119,6 +125,12 @@ namespace YNL.JAMOS
             _searchText.SetText($"<color=#a0a0a0>Genre:</color> <b>{genre.AddSpaces()}</b>");
 
             _resultItems = _products.Where(i => i.Value.Genres.Contains(genre)).Select(i => i.Key).ToList();
+            _resultList.RebuildListView(_resultItems);
+        }
+    
+        private void OnSearchResultSorted(SortType type)
+        {
+            _resultItems = _resultItems.GetSortedItemList(type);
             _resultList.RebuildListView(_resultItems);
         }
     }

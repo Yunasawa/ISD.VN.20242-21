@@ -58,7 +58,7 @@ namespace YNL.JAMOS
 
         private void OnClicked_NextButton(PointerUpEvent evt)
         {
-            Marker.OnViewPageSwitched?.Invoke(ViewType.MainViewHomePage, true, true);
+            Marker.OnPageNavigated?.Invoke(ViewType.MainViewHomePage, true, true);
         }
     }
 }

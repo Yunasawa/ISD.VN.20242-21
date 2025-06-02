@@ -32,7 +32,7 @@
 	padding: 0px;
 	-unity-font-definition: var(--font-nunity-regular);
 	-unity-font-style: bold;
-	font-size: 45px;
+	font-size: 40px;
 	color: var(--color-light-legacy);
 	-unity-text-align: middle-left;
 }

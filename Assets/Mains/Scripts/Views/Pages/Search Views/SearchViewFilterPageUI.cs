@@ -12,8 +12,6 @@ namespace YNL.JAMOS
     {
         public static (int Min, int Max) PriceRange = (5, 1000);
 
-        public HotelFacility HotelFacility;
-
         private VisualElement _background;
         private VisualElement _page;
         private VisualElement _filteringPage;
@@ -29,7 +27,6 @@ namespace YNL.JAMOS
         private VisualElement _hotelFacilitiesList;
 
         private MRange _currentPriceRange;
-        private SerializableDictionary<FilterSelectionType, FilterPropertyType> _selectedTypes = new();
 
         protected override void Collect()
         {
@@ -66,48 +63,11 @@ namespace YNL.JAMOS
 
         protected override void Initialize()
         {
-            _selectedTypes.Add(FilterSelectionType.ReviewScore, FilterPropertyType.ScoreG45);
-            _selectedTypes.Add(FilterSelectionType.Cleanliness, FilterPropertyType.CleanE45);
-            _selectedTypes.Add(FilterSelectionType.HotelType, FilterPropertyType.FlashSale);
-
-            _reviewScoreField.Clear();
-            _reviewScoreField.Add(new FilterPropertyButtonUI("> 4.5", FilterSelectionType.ReviewScore, FilterPropertyType.ScoreG45, OnFilterTypeSelected));
-            _reviewScoreField.Add(new FilterPropertyButtonUI("> 4.0", FilterSelectionType.ReviewScore, FilterPropertyType.ScoreG40, OnFilterTypeSelected));
-            _reviewScoreField.Add(new FilterPropertyButtonUI("> 3.5", FilterSelectionType.ReviewScore, FilterPropertyType.ScoreG35, OnFilterTypeSelected));
-
-            _cleanlinessField.Clear();
-            _cleanlinessField.Add(new FilterPropertyButtonUI("> 4.5", FilterSelectionType.Cleanliness, FilterPropertyType.CleanE45, OnFilterTypeSelected));
-            _cleanlinessField.Add(new FilterPropertyButtonUI("> 4.0", FilterSelectionType.Cleanliness, FilterPropertyType.CleanG40, OnFilterTypeSelected));
-            _cleanlinessField.Add(new FilterPropertyButtonUI("> 3.5", FilterSelectionType.Cleanliness, FilterPropertyType.CleanG35, OnFilterTypeSelected));
-
-            _hotelTypeField.Clear();
-            _hotelTypeField.Add(new FilterPropertyButtonUI("Flash sale", FilterSelectionType.HotelType, FilterPropertyType.FlashSale, OnFilterTypeSelected));
-            _hotelTypeField.Add(new FilterPropertyButtonUI("Hot", FilterSelectionType.HotelType, FilterPropertyType.Hot, OnFilterTypeSelected));
-            _hotelTypeField.Add(new FilterPropertyButtonUI("New", FilterSelectionType.HotelType, FilterPropertyType.New, OnFilterTypeSelected));
-            _hotelTypeField.Add(new FilterPropertyButtonUI("Stamp", FilterSelectionType.HotelType, FilterPropertyType.Stamp, OnFilterTypeSelected));
-            _hotelTypeField.Add(new FilterPropertyButtonUI("Discount", FilterSelectionType.HotelType, FilterPropertyType.Discount, OnFilterTypeSelected));
-            _hotelTypeField.Add(new FilterPropertyButtonUI("Coupon", FilterSelectionType.HotelType, FilterPropertyType.Coupon, OnFilterTypeSelected));
-
             _hotelFacilitiesList.Clear();
-            foreach (HotelFacility type in Enum.GetValues(typeof(HotelFacility)))
-            {
-                var item = new FilteringSelectionItemUI(this, type);
-
-                if (type == HotelFacility.None) item.OnClicked__Toggle();
-
-                _hotelFacilitiesList.Add(item);
-            }
         }
 
         protected override void Refresh()
         {
-            return;
-
-            _slider.value = new(0, 1);
-
-            (_reviewScoreField.Children().ToArray()[0] as FilterPropertyButtonUI).OnClicked__Button();
-            (_cleanlinessField.Children().ToArray()[0] as FilterPropertyButtonUI).OnClicked__Button();
-            (_hotelTypeField.Children().ToArray()[0] as FilterPropertyButtonUI).OnClicked__Button();
         }
 
         public override void OnPageOpened(bool isOpen, bool needRefresh = true)
@@ -153,13 +113,7 @@ namespace YNL.JAMOS
 
         private void OnClicked_ApplyButton(PointerUpEvent evt)
         {
-            Marker.OnSearchResultFiltered?.Invoke(HotelFacility, _currentPriceRange, _selectedTypes);
             OnPageOpened(false);
-        }
-
-        private void OnFilterTypeSelected(FilterSelectionType selection, FilterPropertyType property)
-        {
-            _selectedTypes[selection] = property;
         }
     }
 }

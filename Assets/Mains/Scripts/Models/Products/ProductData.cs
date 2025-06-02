@@ -28,8 +28,12 @@ namespace YNL.JAMOS
             public string[] Genres;
             public string Format;
             public bool HasStreamer = false;
+            public ushort SoldAmount;
             public ProductReview Review;
             public SerializableDictionary<Property, string> Properties = new();
+
+            public bool IsFree => Price == 0;
+            public float LastPrice => Price * (1 - Main.Runtime.Discount / 100f);
         }
     }
 }

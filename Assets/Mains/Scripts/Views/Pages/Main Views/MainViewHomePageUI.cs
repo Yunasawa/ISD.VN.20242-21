@@ -16,13 +16,13 @@ namespace YNL.JAMOS
         protected override void Collect()
         {
             _searchField = Root.Q("TopBar").Q("SearchField");
-            _searchField.RegisterCallback<PointerUpEvent>(OnClicked__SearchField);
+            _searchField.RegisterCallback<PointerUpEvent>(OnClicked_SearchField);
 
             _notificationButton = Root.Q("TopBar").Q("NotificationButton");
-            _notificationButton.RegisterCallback<PointerUpEvent>(OnClicked__NotificationButton);
+            _notificationButton.RegisterCallback<PointerUpEvent>(OnClicked_NotificationButton);
 
             _cartButton = Root.Q("TopBar").Q("CartButton");
-            _cartButton.RegisterCallback<PointerUpEvent>(OnClicked__CartButton);
+            _cartButton.RegisterCallback<PointerUpEvent>(OnClicked_CartButton);
 
             _pageScroll = Root.Q("ScrollView") as ScrollView;
 
@@ -45,19 +45,19 @@ namespace YNL.JAMOS
             //foreach (var list in _previewLists) list.Refresh();
         }
 
-        private void OnClicked__SearchField(PointerUpEvent evt)
+        private void OnClicked_SearchField(PointerUpEvent evt)
         {
-            Marker.OnViewPageSwitched?.Invoke(ViewType.SearchViewMainPage, true, false);
+            Marker.OnPageNavigated?.Invoke(ViewType.SearchViewMainPage, true, true);
         }
 
-        private void OnClicked__NotificationButton(PointerUpEvent evt)
+        private void OnClicked_NotificationButton(PointerUpEvent evt)
         {
             Marker.OnNotificationViewOpened?.Invoke();
         }
 
-        private void OnClicked__CartButton(PointerUpEvent evt)
+        private void OnClicked_CartButton(PointerUpEvent evt)
         {
-
+            Marker.OnPageNavigated?.Invoke(ViewType.OrderViewCartPage, true, true);
         }
     }
 }

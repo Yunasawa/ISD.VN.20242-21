@@ -34,7 +34,7 @@ public class DeepLinkManager : Singleton<DeepLinkManager>
             if (ValidIDs.Contains(id))
             {
                 Main.Runtime.SelectedProduct = UID.Parse(id);
-                Marker.OnViewPageSwitched?.Invoke(ViewType.InformationViewMainPage, true, true);
+                Marker.OnPageNavigated?.Invoke(ViewType.InformationViewMainPage, true, true);
             }
             ExtractParametersFromURL(url);
         }

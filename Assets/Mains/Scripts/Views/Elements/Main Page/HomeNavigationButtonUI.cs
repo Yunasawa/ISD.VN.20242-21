@@ -44,12 +44,12 @@ namespace YNL.JAMOS
             this.RegisterCallback<PointerUpEvent>(OnClicked_Button);
 
             _onNavigated += RecheckUI;
-            Marker.OnViewPageSwitched += OnViewPageSwitched;
+            Marker.OnPageNavigated += OnViewPageSwitched;
         }
         ~HomeNavigationButton()
         {
             _onNavigated -= RecheckUI;
-            Marker.OnViewPageSwitched -= OnViewPageSwitched;
+            Marker.OnPageNavigated -= OnViewPageSwitched;
         }
 
         private void UpdateUI()
@@ -65,7 +65,7 @@ namespace YNL.JAMOS
             UpdateUI();
 
             _onNavigated?.Invoke(_type);
-            Marker.OnViewPageSwitched?.Invoke(_type, true, true);
+            Marker.OnPageNavigated?.Invoke(_type, true, true);
         }
 
         private void OnViewPageSwitched(ViewType type, bool a, bool b)

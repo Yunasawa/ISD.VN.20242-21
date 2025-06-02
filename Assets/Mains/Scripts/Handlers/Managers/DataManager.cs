@@ -36,9 +36,9 @@ namespace YNL.JAMOS
 
         private void Start()
         {
-            Main.Runtime.Reset();
+            //Main.Runtime.Reset();
 
-            LoadSavedData();
+            //LoadSavedData();
 
             InitializeDatabases().Forget();
         }
