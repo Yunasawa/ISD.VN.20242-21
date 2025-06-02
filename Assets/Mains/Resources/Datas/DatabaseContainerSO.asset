@@ -901,9 +901,9 @@ MonoBehaviour:
       Creators:
       - Levi Welton
       PublicationDate:
-        _dateTimeString: 
+        _dateTimeString: 06/15/2022
       Price: 24.99
-      Quantity: 20
+      Quantity: 179
       Description: "A masterpiece!... I recommend this memoir to anyone looking for
         inspiration to make a difference in the world.\u201D - Liliane Pari Umuhoza,
         Founder of the Women Genocide Survivors Retreat#A proud American blends memoir
@@ -944,6 +944,7 @@ MonoBehaviour:
       - YoungAdult
       Format: Paperback
       HasStreamer: 0
+      SoldAmount: 345
       Review:
         Feedbacks:
           _keys: []
@@ -960,13 +961,14 @@ MonoBehaviour:
       PublicationDate:
         _dateTimeString: 10/15/2021
       Price: 14.99
-      Quantity: 50
+      Quantity: 219
       Description: "Energetic rock cover that brought M\xE5neskin global fame with
         powerful vocals and gritty guitars."
       Genres:
       - Rock
       Format: DeluxeEdition
       HasStreamer: 0
+      SoldAmount: 234
       Review:
         Feedbacks:
           _keys: []
@@ -983,8 +985,8 @@ MonoBehaviour:
       - Swae Lee
       PublicationDate:
         _dateTimeString: 10/18/2018
-      Price: 13.99
-      Quantity: 100
+      Price: 0
+      Quantity: 345
       Description: 'Catchy hip-hop/pop hit from Spider-Man: Into the Spider-Verse
         soundtrack.'
       Genres:
@@ -992,6 +994,7 @@ MonoBehaviour:
       - Pop
       Format: DeluxeEdition
       HasStreamer: 1
+      SoldAmount: 23
       Review:
         Feedbacks:
           _keys: []
