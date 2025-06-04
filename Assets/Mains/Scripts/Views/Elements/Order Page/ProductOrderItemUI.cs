@@ -79,7 +79,7 @@ namespace YNL.JAMOS
             public void Apply(UID id)
             {
                 var product = Main.Database.Products[id];
-                int discount = 0;
+                int discount = Main.Runtime.Discount;
 
                 _discountField.SetDisplay(discount > 0 && product.IsFree == false ? DisplayStyle.Flex : DisplayStyle.None);
                 _discountText.SetText($"-{discount}%");

@@ -1,43 +1,56 @@
 ﻿using System;
-using System.Linq;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
-using YNL.Utilities.Addons;
 using YNL.Utilities.Extensions;
 using YNL.Utilities.UIToolkits;
 
 namespace YNL.JAMOS
 {
+    public enum RatingScoreType : byte { Any, GE35, GE40, GE45 }
+
     public partial class SearchViewFilterPageUI : ViewPageUI
     {
-        public static (int Min, int Max) PriceRange = (5, 1000);
+        private RuntimePropertiesSO _r => Main.Runtime;
+        private List<string> _selectedGenres => _r.FilteredGenres;
+
+        public static (int Min, int Max) PriceRange = (0, 100);
 
         private VisualElement _background;
-        private VisualElement _page;
         private VisualElement _filteringPage;
-        private VisualElement _closeButton;
+        private VisualElement _labelField;
         private Button _resetButton;
         private VisualElement _applyButton;
         private Label _minLabel;
         private Label _maxLabel;
         private MinMaxSlider _slider;
-        private VisualElement _reviewScoreField;
-        private VisualElement _cleanlinessField;
-        private VisualElement _hotelTypeField;
-        private VisualElement _hotelFacilitiesList;
+        private VisualElement _productGenreField;
 
-        private MRange _currentPriceRange;
+        private Product.Type _selectedProductType;
+        private Dictionary<Product.Type, ProductTypeItem> _productTypeItems = new();
+        private Dictionary<RatingScoreType, RatingScoreItem> _ratingScoreItems = new();
+
+        protected override void VirtualAwake()
+        {
+            ProductTypeItem.OnSelected += OnProductTypeItemSelected;
+            RatingScoreItem.OnSelected += OnRatingScoreItemSelected;
+        }
+
+        protected void OnDestroy()
+        {
+            ProductTypeItem.OnSelected -= OnProductTypeItemSelected;
+            RatingScoreItem.OnSelected -= OnRatingScoreItemSelected;
+        }
 
         protected override void Collect()
         {
             _background = Root.Q("ScreenBackground");
             _background.RegisterCallback<PointerUpEvent>(OnClicked_CloseButton);
-            _page = Root.Q("FilteringPage");
 
             _filteringPage = Root.Q("FilteringPage");
 
-            _closeButton = _filteringPage.Q("LabelField");
-            _closeButton.RegisterCallback<PointerUpEvent>(OnClicked_CloseButton);
+            _labelField = _filteringPage.Q("LabelField");
+            _labelField.RegisterCallback<PointerUpEvent>(OnClicked_CloseButton);
 
             _resetButton = _filteringPage.Q("LabelField").Q("ResetButton") as Button;
             _resetButton.clicked += OnClicked_ResetButton;
@@ -45,7 +58,9 @@ namespace YNL.JAMOS
             _applyButton = _filteringPage.Q("Toolbar").Q("ApplyButton");
             _applyButton.RegisterCallback<PointerUpEvent>(OnClicked_ApplyButton);
 
-            var priceRangeView = Root.Q("FilterScroll").Q("PriceRangeView");
+            var container = Root.Q("FilterScroll").Q("unity-content-container");
+
+            var priceRangeView = container.Q("PriceRangeView");
 
             _minLabel = priceRangeView.Q("PriceField").Q("MinPriceBox").Q("Text") as Label;
 
@@ -54,16 +69,32 @@ namespace YNL.JAMOS
             _slider = priceRangeView.Q("PriceSlider") as MinMaxSlider;
             _slider.RegisterValueChangedCallback(OnValueChanged_Slider);
 
-            _reviewScoreField = _filteringPage.Q("FilterScroll").Q("ReviewScoreField").Q("SelectionField");
-            _cleanlinessField = _filteringPage.Q("FilterScroll").Q("CleanlinessField").Q("SelectionField");
-            _hotelTypeField = _filteringPage.Q("FilterScroll").Q("HotelTypeField").Q("SelectionField");
+            var productTypeField = container.Q("ProductTypeField").Q("MediaType");
+            foreach (Product.Type type in Enum.GetValues(typeof(Product.Type)))
+            {
+                var field = productTypeField.Q(type.ToString());
+                var item = new ProductTypeItem(field, type);
+                _productTypeItems[type] = item;
+            }
 
-            _hotelFacilitiesList = _filteringPage.Q("FilterScroll").Q("HotelFacilitiesField").Q("SelectionList");
+            var ratingScoreField = container.Q("ReviewScoreField").Q("SelectionField");
+            foreach (RatingScoreType type in Enum.GetValues(typeof(RatingScoreType)))
+            {
+                var field = ratingScoreField.Q(type.ToString());
+                var item = new RatingScoreItem(field, type);
+                _ratingScoreItems[type] = item;
+            }
+
+            _productGenreField = container.Q("ProductGenreField").Q("SelectionList");
         }
 
         protected override void Initialize()
         {
-            _hotelFacilitiesList.Clear();
+            _slider.value = new(0, 1);
+            _productTypeItems[Product.Type.None].OnClicked_TypeItem();
+            _ratingScoreItems[RatingScoreType.Any].OnClicked_TypeItem();
+
+            RecreateGenreItemUI();
         }
 
         protected override void Refresh()
@@ -76,13 +107,13 @@ namespace YNL.JAMOS
             {
                 _background.SetPickingMode(PickingMode.Position);
                 _background.SetBackgroundColor(new Color(0.0865f, 0.0865f, 0.0865f, 0.725f));
-                _page.SetTranslate(0, 0, true);
+                _filteringPage.SetTranslate(0, 0, true);
             }
             else
             {
                 _background.SetBackgroundColor(Color.clear);
                 _background.SetPickingMode(PickingMode.Ignore);
-                _page.SetTranslate(0, 100, true);
+                _filteringPage.SetTranslate(0, 100, true);
             }
 
             if (isOpen && needRefresh) Refresh();
@@ -95,11 +126,11 @@ namespace YNL.JAMOS
             int minPrice = Mathf.RoundToInt(ratio.min.Remap(new(0, 1), new(PriceRange.Min, PriceRange.Max)));
             int maxPrice = Mathf.RoundToInt(ratio.max.Remap(new(0, 1), new(PriceRange.Min, PriceRange.Max)));
 
-            _minLabel.text = $"<b>{minPrice.ToString("N0")}$</b>";
-            _maxLabel.text = maxPrice == PriceRange.Max ? $"<size=100>∞</size>" : $"<b>{maxPrice.ToString("N0")}$</b>";
+            _minLabel.text = minPrice == 0 ? $"<b>FREE</b>" : $"<b>${minPrice.ToString("N0")}</b>";
+            _maxLabel.text = maxPrice == 0 ? $"<b>FREE</b>" : $"<b>${maxPrice.ToString("N0")}</b>";
 
-            _currentPriceRange.Min = minPrice;
-            _currentPriceRange.Max = maxPrice;
+            _r.FilteredPriceRange.Min = minPrice;
+            _r.FilteredPriceRange.Max = maxPrice;
         }
 
         private void OnClicked_CloseButton(PointerUpEvent evt)
@@ -114,6 +145,30 @@ namespace YNL.JAMOS
         private void OnClicked_ApplyButton(PointerUpEvent evt)
         {
             OnPageOpened(false);
+
+            Marker.OnSearchResultFiltered?.Invoke(_r.FilteredPriceRange, _r.FilteredProductType, _r.FilteredRatingScore, _r.FilteredGenres);
+        }
+
+        private void OnProductTypeItemSelected(Product.Type type)
+        {
+            _r.FilteredProductType = _selectedProductType = type;
+            RecreateGenreItemUI();
+        }
+
+        private void OnRatingScoreItemSelected(RatingScoreType type)
+        {
+            _r.FilteredRatingScore = type;
+        }
+
+        private void RecreateGenreItemUI()
+        {
+            _productGenreField.Clear();
+
+            foreach (var genre in _selectedProductType.GetProductGenreList())
+            {
+                var item = new ProductGenreItemUI(genre, _selectedGenres);
+                _productGenreField.Add(item);
+            }
         }
     }
 }

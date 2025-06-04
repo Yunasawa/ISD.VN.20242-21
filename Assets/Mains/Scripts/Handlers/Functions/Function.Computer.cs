@@ -87,5 +87,18 @@ namespace YNL.JAMOS
                 _ => null
             };
         }
+    
+        public static string[] GetProductGenreList(this Product.Type type)
+        {
+            return type switch
+            {
+                Product.Type.None => Array.Empty<string>(),
+                Product.Type.Book => Enum.GetValues(typeof(BookGenre)).Cast<BookGenre>().Select(i => i.ToString()).ToArray(),
+                Product.Type.CD => Enum.GetValues(typeof(MusicGenre)).Cast<MusicGenre>().Select(i => i.ToString()).ToArray(),
+                Product.Type.DVD => Enum.GetValues(typeof(MovieGenre)).Cast<MovieGenre>().Select(i => i.ToString()).ToArray(),
+                Product.Type.LP => Enum.GetValues(typeof(MusicGenre)).Cast<MusicGenre>().Select(i => i.ToString()).ToArray(),
+                _ => null
+            };
+        }
     }
 }

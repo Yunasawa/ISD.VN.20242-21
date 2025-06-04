@@ -42,6 +42,11 @@ namespace YNL.JAMOS
         public ushort Discount = 0;
         public DeliveryType SelectedDeliveryType = DeliveryType.Normal;
         public SortType SelectedSortType = SortType.ByTitleAToZ;
+        
+        public MRange FilteredPriceRange = new(0, 1000);
+        public RatingScoreType FilteredRatingScore = RatingScoreType.GE45;
+        public Product.Type FilteredProductType = Product.Type.None;
+        public List<string> FilteredGenres = new();
 
         public void Reset()
         {

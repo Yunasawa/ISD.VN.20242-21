@@ -92,7 +92,7 @@ namespace YNL.JAMOS
 
         private void OnClicked_ApplyButton(PointerUpEvent evt)
         {
-            Marker.OnSearchResultSorted?.Invoke(Main.Runtime.SelectedSortType);
+            Marker.OnSearchResultSorted?.Invoke();
             OnPageOpened(false);
         }
     }
