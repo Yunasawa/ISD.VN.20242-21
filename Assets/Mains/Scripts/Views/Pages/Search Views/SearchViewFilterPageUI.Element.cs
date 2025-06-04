@@ -10,7 +10,7 @@ namespace YNL.JAMOS
     { 
         public class ProductTypeItem
         {
-            private static Action<Product.Type> _onSelected { get; set; }
+            public static Action<Product.Type> OnSelected { get; set; }
 
             private Label _label;
             private VisualElement _icon;
@@ -27,11 +27,11 @@ namespace YNL.JAMOS
                 _label = field.Q<Label>("Label");
                 _icon = field.Q("Icon");
 
-                _onSelected += UpdateOnSelected;
+                OnSelected += UpdateOnSelected;
             }
             ~ProductTypeItem()
             {
-                _onSelected -= UpdateOnSelected;
+                OnSelected -= UpdateOnSelected;
             }
 
             public void OnClicked_TypeItem(PointerUpEvent evt = null)
@@ -39,14 +39,16 @@ namespace YNL.JAMOS
                 _isSelected = true;
                 UpdateUI();
 
-                _onSelected?.Invoke(_type);
+                OnSelected?.Invoke(_type);
+
+                //Main.Runtime.SelectedProductType = _type;
             }
 
             private void UpdateOnSelected(Product.Type type)
             {
                 if (_type == type) return;
 
-                _isSelected = true;
+                _isSelected = false;
                 UpdateUI();
             }
 
@@ -59,7 +61,7 @@ namespace YNL.JAMOS
 
         public class RatingScoreItem
         {
-            private static Action<RatingScoreType> _onSelected { get; set; }
+            public static Action<RatingScoreType> OnSelected { get; set; }
 
             private VisualElement _field;
             private Label _label;
@@ -76,11 +78,11 @@ namespace YNL.JAMOS
 
                 _label = field.Q<Label>("Text");
 
-                _onSelected += UpdateOnSelected;
+                OnSelected += UpdateOnSelected;
             }
             ~RatingScoreItem()
             {
-                _onSelected -= UpdateOnSelected;
+                OnSelected -= UpdateOnSelected;
             }
 
             public void OnClicked_TypeItem(PointerUpEvent evt = null)
@@ -88,14 +90,16 @@ namespace YNL.JAMOS
                 _isSelected = true;
                 UpdateUI();
 
-                _onSelected?.Invoke(_type);
+                OnSelected?.Invoke(_type);
+
+                //Main.Runtime.SelectedRatingScoreType = _type;
             }
 
             private void UpdateOnSelected(RatingScoreType type)
             {
                 if (_type == type) return;
 
-                _isSelected = true;
+                _isSelected = false;
                 UpdateUI();
             }
 

@@ -25,18 +25,21 @@ namespace YNL.JAMOS
         private ListView _resultList;
         private Label _emptyText;
 
-        private List<UID> _resultItems = new();
+        private List<UID> _originalResults = new();
+        private List<UID> _filteredResults = new();
 
         protected override void VirtualAwake()
         {
             Marker.OnGenreSearchRequested += OnGenreSearchRequested;
             Marker.OnSearchResultSorted += OnSearchResultSorted;
+            Marker.OnSearchResultFiltered += OnSearchResultFiltered;
         }
 
         private void OnDestroy()
         {
             Marker.OnGenreSearchRequested -= OnGenreSearchRequested;
             Marker.OnSearchResultSorted -= OnSearchResultSorted;
+            Marker.OnSearchResultFiltered -= OnSearchResultFiltered;
         }
 
         protected override void Collect()
@@ -66,14 +69,14 @@ namespace YNL.JAMOS
             _resultList = resultPage.Q("ResultList") as ListView;
             _resultList.Q("unity-content-container").SetFlexGrow(1);
             _resultList.Q<ScrollView>().verticalScrollerVisibility = ScrollerVisibility.Hidden;
-            _resultList.itemsSource = _resultItems;
+            _resultList.itemsSource = _filteredResults;
             _resultList.makeItem = () => new SearchingResultItemUI();
             _resultList.bindItem = (element, index) =>
             {
                 var item = element as SearchingResultItemUI;
                 if (item != null)
                 {
-                    item.Apply(_resultItems[index]);
+                    item.Apply(_filteredResults[index]);
                 }
             };
         }
@@ -85,7 +88,8 @@ namespace YNL.JAMOS
             var searchInput = string.IsNullOrEmpty(Main.Runtime.SearchingInput) ? "Anything" : Main.Runtime.SearchingInput;
             _searchText.SetText(searchInput);
 
-            _resultItems.Clear();
+            _originalResults.Clear();
+            _filteredResults.Clear();
 
             foreach (var product in _products)
             {
@@ -97,11 +101,12 @@ namespace YNL.JAMOS
                 if ((product.Value.Title.FuzzyContains(Main.Runtime.SearchingInput) ||
                     product.Value.Creators.Any(i => i.FuzzyContains(Main.Runtime.SearchingInput))))
                 {
-                    _resultItems.Add(product.Key);
+                    _originalResults.Add(product.Key);
+                    _filteredResults.Add(product.Key);
                 }
             }
 
-            _resultList.RebuildListView(_resultItems);
+            _resultList.RebuildListView(_filteredResults);
         }
 
         private void OnClicked_SearchBar(PointerUpEvent evt)
@@ -124,14 +129,55 @@ namespace YNL.JAMOS
             _typeIcon.SetBackgroundImage(Main.Resources.Icons["None"]);
             _searchText.SetText($"<color=#a0a0a0>Genre:</color> <b>{genre.AddSpaces()}</b>");
 
-            _resultItems = _products.Where(i => i.Value.Genres.Contains(genre)).Select(i => i.Key).ToList();
-            _resultList.RebuildListView(_resultItems);
+            _originalResults = _products.Where(i => i.Value.Genres.Contains(genre)).Select(i => i.Key).ToList();
+            _resultList.RebuildListView(_originalResults);
         }
     
-        private void OnSearchResultSorted(SortType type)
+        private void OnSearchResultSorted()
         {
-            _resultItems = _resultItems.GetSortedItemList(type);
-            _resultList.RebuildListView(_resultItems);
+            var type = Main.Runtime.SelectedSortType;
+
+            _filteredResults = _originalResults.GetSortedItemList(type);
+            _resultList.RebuildListView(_filteredResults);
+        }
+
+        private void OnSearchResultFiltered(MRange priceRange, Product.Type productType, RatingScoreType ratingScore, List<string> genres)
+        {
+            _filteredResults.Clear();
+
+            foreach (var id in _originalResults)
+            {
+                var product = Main.Database.Products[id];
+                var rating = product.Review.AverageTotalRating;
+
+                if (product.LastPrice < priceRange.Min || product.LastPrice > priceRange.Max)
+                {
+                    continue;
+                }
+                if (productType != Product.Type.None && product.Type != productType)
+                {
+                    continue;
+                }
+                if (ratingScore switch
+                {
+                    RatingScoreType.Any => false,
+                    RatingScoreType.GE45 => rating < 4.5f,
+                    RatingScoreType.GE40 => rating < 4.0f,
+                    RatingScoreType.GE35 => rating < 3.5f,
+                    _ => true
+                })
+                {
+                    continue;
+                }
+                if (genres.Count != 0 && genres.Any(i => product.Genres.Contains(i)) == false)
+                {
+                    continue;
+                }
+
+                _filteredResults.Add(id);
+            }
+
+            _resultList.RebuildListView(_filteredResults);
         }
     }
 }   

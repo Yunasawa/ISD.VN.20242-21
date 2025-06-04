@@ -180,9 +180,8 @@ namespace YNL.JAMOS
 
             public void Apply(Product.Data product)
             {
-                var discount = 20;
+                var discount = Main.Runtime.Discount;
 
-                _priceText.SetDisplay(discount > 0 ? DisplayStyle.Flex : DisplayStyle.None);
                 _discountField.SetDisplay(discount > 0 ? DisplayStyle.Flex : DisplayStyle.None);
 
                 var priceText = $"<b><color=#DEF95D>{product.Price * (1 - discount / 100f):0.00}$</color></b>";

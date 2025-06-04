@@ -93,7 +93,7 @@ namespace YNL.JAMOS
             public void Apply(UID id)
             {
                 var product = Main.Database.Products[id];
-                int discount = 0;
+                int discount = Main.Runtime.Discount;
                
                 _discountField.SetDisplay(discount > 0 && product.IsFree == false ? DisplayStyle.Flex : DisplayStyle.None);
                 _discountText.SetText($"-{discount}%");
@@ -134,7 +134,7 @@ namespace YNL.JAMOS
                 _uid = id;
 
                 var product = Main.Database.Products[id];
-                int discount = 0;
+                int discount = Main.Runtime.Discount;
 
                 string price = $"<b><color=#DEF95D>{product.Price * (1 - discount / 100f):0.00}$</color></b>";
                 if (discount > 0) price += $"<s>{product.Price:0.00}$</s>";
