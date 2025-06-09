@@ -17,6 +17,19 @@ namespace YNL.JAMOS
         public List<UID> Rooms = new();
     }
 
+    [System.Serializable]
+    public class MessageItem
+    {
+        public AccountType Type;
+        public string Message;
+    }
+
+    [System.Serializable]
+    public class MessageList
+    {
+        public List<MessageItem> Messages = new();
+    }
+
     [Serializable]
     public class RuntimeData
     {
@@ -26,6 +39,7 @@ namespace YNL.JAMOS
         public List<string> FavoriteGenres = new();
         public List<UID> CartedProducts = new();
         public List<UID> ProductCollection = new();
+        public SerializableDictionary<UID, MessageList> Messages = new();
     }
 
     [CreateAssetMenu(fileName = "RuntimePropertiesSO", menuName = "YNL - Checkotel/RuntimePropertiesSO")]
@@ -33,6 +47,7 @@ namespace YNL.JAMOS
     {
         public RuntimeData Data = new();
 
+        public AccountType AccountType => Main.Database.Accounts[Data.AccountID].Type;
         public bool IsSearchTimeApplied = false;
         public Product.Type SearchingProductType = Product.Type.None;
         public string SearchingInput = string.Empty;

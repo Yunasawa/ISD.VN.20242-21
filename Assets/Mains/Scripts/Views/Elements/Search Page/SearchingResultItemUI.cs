@@ -190,7 +190,7 @@ namespace YNL.JAMOS
                 _priceText.SetText(priceText);
 
                 _discountText.SetText($"-{discount}%");
-                _stockText.SetText($"• Only {UnityEngine.Random.Range(10, 50)} copies in stock");
+                _stockText.SetText($"• Only {product.Quantity} copies in stock");
             }
         }
 

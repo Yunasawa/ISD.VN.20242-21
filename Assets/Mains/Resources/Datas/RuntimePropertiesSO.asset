@@ -23,6 +23,25 @@ MonoBehaviour:
     - _id: 10000000
     - _id: 20000000
     ProductCollection: []
+    Messages:
+      _keys:
+      - _id: 0
+      _values:
+      - Messages:
+        - Type: 0
+          Message: Hello shop
+        - Type: 1
+          Message: Hi there
+        - Type: 0
+          Message: I have some problem with the CDs I ordered 2 days ago
+        - Type: 1
+          Message: What problem?
+        - Type: 0
+          Message: aaasdasd
+        - Type: 0
+          Message: sdasd
+        - Type: 0
+          Message: hi there!!!
   IsSearchTimeApplied: 0
   SearchingProductType: 0
   SearchingInput: 
@@ -36,3 +55,10 @@ MonoBehaviour:
     _values: 0500000005000000
   Discount: 0
   SelectedDeliveryType: 0
+  SelectedSortType: 0
+  FilteredPriceRange:
+    Min: 0
+    Max: 100
+  FilteredRatingScore: 0
+  FilteredProductType: 0
+  FilteredGenres: []

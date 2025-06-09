@@ -114,6 +114,7 @@ MonoBehaviour:
     - _id: 97
     - _id: 98
     - _id: 99
+    - _id: 100
     _values:
     - ID:
         _id: 0
@@ -815,6 +816,13 @@ MonoBehaviour:
       PhoneNumber: +81 340-2570
       Password: QKtTdrcq
       Type: 0
+    - ID:
+        _id: 100
+      Name: Manager
+      Email: manager100@gmail.com
+      PhoneNumber: 
+      Password: manager
+      Type: 1
   Feedbacks:
     _keys:
     - _id: 0

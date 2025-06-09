@@ -18,6 +18,7 @@ namespace YNL.JAMOS
 
         private VisualElement _imageView;
         private NameView _nameView;
+        private AmountField _amountField;
         private GenreField _genreField;
         private ReviewView _reviewView;
         private DescriptionField _descriptionField;
@@ -41,6 +42,8 @@ namespace YNL.JAMOS
 
             _nameView = new(contentContainer.Q("NameView"));
 
+            _amountField = new(contentContainer.Q("QuantityField"));
+
             _genreField = new(contentContainer.Q("GenreField"));
 
             _reviewView = new(contentContainer);
@@ -54,6 +57,7 @@ namespace YNL.JAMOS
 
             _imageView.ApplyCloudImageAsync(_uid.GetImageURL());
             _nameView.Apply(product);
+            _amountField.Apply(product);
             _genreField.Apply(product);
             _descriptionField.Apply(_uid);
             _reviewView.Apply(_uid);

@@ -2,7 +2,7 @@
 {
     public enum AccountType : byte
     { 
-        Customer, Owner, Manager
+        Customer, Manager
     }
 
     [System.Serializable]
