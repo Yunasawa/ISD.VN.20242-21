@@ -23,20 +23,6 @@
     border-bottom-left-radius: 20px;
 }
 
-.label-field {
-    margin-top: 0;
-    margin-right: 0;
-    margin-bottom: 0;
-    margin-left: 0;
-    padding-top: 0;
-    padding-right: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    -unity-font-definition: resource('Fonts/SDFs/Nunito/Nunito-Regular SDF');
-    color: rgb(255, 255, 255);
-    font-size: 50px;
-}
-
 .price-range-slider > * > * {
     height: 10px;
     border-top-left-radius: 5px;
@@ -142,4 +128,38 @@
 
 .list-view > * > * > * > .unity-list-view__empty-label {
     display: none;
+}
+
+.input-field {
+    --unity-cursor-color: var(--color-contrast-solid);
+}
+
+.chat-field > .unity-text-field__input {
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(255, 255, 255);
+    font-size: 40px;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+}
+
+.chat-field > * > .unity-text-element {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 0;
+}
+
+.label-field {
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    -unity-font-definition: resource('Fonts/SDFs/Nunito/Nunito-Regular SDF');
+    color: rgb(255, 255, 255);
+    font-size: 50px;
 }

@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text.RegularExpressions;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 using YNL.Utilities.Addons;
 using YNL.Utilities.Extensions;
 
@@ -99,6 +100,23 @@ namespace YNL.JAMOS
                 Product.Type.LP => Enum.GetValues(typeof(MusicGenre)).Cast<MusicGenre>().Select(i => i.ToString()).ToArray(),
                 _ => null
             };
+        }
+    
+        public static float GetAverageCharge(this DeliveryType type)
+        {
+            return type switch
+            {
+                DeliveryType.Normal => UnityEngine.Random.Range(5f, 10f),
+                DeliveryType.Fast => UnityEngine.Random.Range(10f, 20f),
+                DeliveryType.Rush => UnityEngine.Random.Range(20f, 30f),
+                _ => 0
+            };
+        }
+
+        public static string GetOrderCode()
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            return "JAMOS" + new string(Enumerable.Range(0, 15).Select(_ => chars[UnityEngine.Random.Range(0, chars.Length)]).ToArray());
         }
     }
 }

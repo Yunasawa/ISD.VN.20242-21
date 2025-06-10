@@ -25,9 +25,13 @@
                 <engine:VisualElement name="ProductType" style="height: 75px; width: 60px; -unity-background-image-tint-color: rgb(222, 249, 93); background-image: resource(&apos;Icons/Book&apos;); align-self: center; margin-right: 20px; -unity-background-scale-mode: scale-to-fit;" />
                 <engine:Label text="Call Of The Maze" name="NameText" class="label-field" style="-unity-font-style: bold; white-space: normal; font-size: 65px; -unity-text-align: middle-left;" />
             </engine:VisualElement>
-            <engine:Label text="by Karl Smink" name="CreatorText" class="label-field" style="flex-grow: 1; white-space: normal; font-size: 35px;" />
+            <engine:Label text="by &lt;b&gt;Karl Smink&lt;/b&gt;" name="CreatorText" class="label-field" style="flex-grow: 1; white-space: normal; font-size: 35px;" />
         </engine:VisualElement>
         <engine:VisualElement name="CouponView" style="padding-left: 50px; padding-right: 50px; background-color: rgb(44, 44, 44); padding-top: 25px; padding-bottom: 25px; margin-bottom: 25px; display: none;" />
+        <engine:VisualElement name="QuantityField" style="padding-left: 50px; padding-right: 50px; background-color: rgb(44, 44, 44); padding-top: 25px; padding-bottom: 25px; margin-bottom: 25px; flex-direction: row;">
+            <engine:Label text="&lt;b&gt;Sold amount:&lt;/b&gt; &lt;color=#DEF95D&gt;123&lt;/color&gt;" name="SoldText" class="label-field" style="font-size: 35px; -unity-text-align: middle-left; text-overflow: ellipsis; overflow: hidden; flex-grow: 1; white-space: normal; max-height: 175px;" />
+            <engine:Label text="&lt;b&gt;Available in stock:&lt;/b&gt; &lt;color=#DEF95D&gt;123&lt;/color&gt;" name="QuantityText" class="label-field" style="font-size: 35px; -unity-text-align: middle-left; text-overflow: ellipsis; overflow: hidden; white-space: normal; max-height: 175px;" />
+        </engine:VisualElement>
         <engine:VisualElement name="GenreField" style="padding-left: 50px; padding-right: 50px; background-color: rgb(44, 44, 44); padding-top: 25px; padding-bottom: 25px; margin-bottom: 25px;">
             <engine:VisualElement name="LabelField" style="height: 75px; flex-direction: row; margin-bottom: 10px;">
                 <engine:Label text="Genre" name="Label" class="label-field" style="-unity-font-style: bold; font-size: 45px; flex-grow: 1; -unity-text-align: middle-left;" />

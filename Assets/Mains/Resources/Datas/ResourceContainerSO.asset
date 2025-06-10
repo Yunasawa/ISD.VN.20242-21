@@ -130,6 +130,7 @@ MonoBehaviour:
     - ProductCartItemUI
     - ProductOrderItemUI
     - ProductGenreItemUI
+    - MessageListItemUI
     _values:
     - {fileID: 7433441132597879392, guid: 49e6911f502a4884986b052a537ff52e, type: 3}
     - {fileID: 7433441132597879392, guid: 36fe24511262ddf46aef91b541fe8395, type: 3}
@@ -148,3 +149,4 @@ MonoBehaviour:
     - {fileID: 7433441132597879392, guid: d5d9c1be52e11bb4ba12079626bf03a8, type: 3}
     - {fileID: 7433441132597879392, guid: 17b6a6d9f8c2ced47bcd97a19429f57a, type: 3}
     - {fileID: 7433441132597879392, guid: 910cefb1beb0d5345bb9a8dbe12868ec, type: 3}
+    - {fileID: 7433441132597879392, guid: 4ca3381c80376ba48859fc874c6042dd, type: 3}

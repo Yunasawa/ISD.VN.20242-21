@@ -129,8 +129,8 @@ namespace YNL.JAMOS
             _typeIcon.SetBackgroundImage(Main.Resources.Icons["None"]);
             _searchText.SetText($"<color=#a0a0a0>Genre:</color> <b>{genre.AddSpaces()}</b>");
 
-            _originalResults = _products.Where(i => i.Value.Genres.Contains(genre)).Select(i => i.Key).ToList();
-            _resultList.RebuildListView(_originalResults);
+            _originalResults = _filteredResults = _products.Where(i => i.Value.Genres.Contains(genre)).Select(i => i.Key).ToList();
+            _resultList.RebuildListView(_filteredResults);
         }
     
         private void OnSearchResultSorted()

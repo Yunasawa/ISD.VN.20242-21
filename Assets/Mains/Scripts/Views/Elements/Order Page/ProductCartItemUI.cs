@@ -171,10 +171,12 @@ namespace YNL.JAMOS
                 if (_orderedAmounts.ContainsKey(_uid))
                 {
                     _amountText.SetText(_orderedAmounts[_uid].ToString());
+                    _amountText.SetColor("#DEF95D");
                 }
                 else
                 {
                     _amountText.SetText("0");
+                    _amountText.SetColor("#707070");
                 }
             }
         }
