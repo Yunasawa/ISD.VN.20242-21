@@ -172,7 +172,14 @@ namespace YNL.JAMOS
             }
             else if (_orderedAmounts.TryGetValue(id, out var currentAmount) && currentAmount >= 1)
             {
-                _orderedAmounts[id]--;
+                if (currentAmount == 1)
+                {
+                    _orderedAmounts.Remove(id);
+                }
+                else
+                {
+                    _orderedAmounts[id]--;
+                }
             }
         }
 

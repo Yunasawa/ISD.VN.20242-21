@@ -73,6 +73,7 @@ namespace YNL.JAMOS
 
         OrderViewCartPage = 11,
         OrderViewPaymentPage = 12,
-        OrderViewDeliveryPage = 13
+        OrderViewDeliveryPage = 13,
+        OrderViewResultPage = 14,
     }
 }

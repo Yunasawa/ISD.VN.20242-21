@@ -88,7 +88,25 @@ namespace YNL.JAMOS
             {
                 _productType.SetBackgroundImage(Main.Resources.Icons[product.Type.ToString()]);
                 _nameText.SetText(product.Title);
-                _creatorText.SetText($"by {string.Join(", ", product.Creators)}");
+                _creatorText.SetText($"by <b>{string.Join(", ", product.Creators)}</b>");
+            }
+        }
+
+        public class AmountField
+        {
+            private Label _soldText;
+            private Label _quantityText;
+
+            public AmountField(VisualElement field)
+            {
+                _soldText = field.Q("SoldText") as Label;
+                _quantityText = field.Q("QuantityText") as Label;
+            }
+
+            public void Apply(Product.Data product)
+            {
+                _soldText.SetText($"<b>Sold amount:</b> <color=#DEF95D>{product.SoldAmount}</color>");
+                _quantityText.SetText($"<b>Available in stock:</b> <color=#DEF95D>{product.Quantity}</color>");
             }
         }
 

@@ -107,7 +107,7 @@ namespace YNL.JAMOS
         private void Apply(UID id)
         {
             var product = Main.Database.Products[id];
-            int discount = 45;
+            int discount = Main.Runtime.Discount;
 
             _previewImage.ApplyCloudImageAsync(id.GetImageURL());
 

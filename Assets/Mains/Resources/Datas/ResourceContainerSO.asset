@@ -116,14 +116,9 @@ MonoBehaviour:
     - StyleVariableUI
     - ProductPreviewItemUI
     - HomeNavigationButtonUI
-    - SuggestFilterButtonUI
     - HotelPreviewListUI
-    - SearchingSelectTypeUI
     - TimePointButtonUI
-    - MonthCalendarRowUI
-    - MonthCalendarViewUI
     - TogglePropertyItemUI
-    - FilterPropertyButtonUI
     - SearchingResultItemUI
     - FeedbackResultItemUI
     - SearchingHistoryItemUI
@@ -134,18 +129,15 @@ MonoBehaviour:
     - GenrePreferenceItemUI
     - ProductCartItemUI
     - ProductOrderItemUI
+    - ProductGenreItemUI
+    - MessageListItemUI
     _values:
     - {fileID: 7433441132597879392, guid: 49e6911f502a4884986b052a537ff52e, type: 3}
     - {fileID: 7433441132597879392, guid: 36fe24511262ddf46aef91b541fe8395, type: 3}
     - {fileID: 7433441132597879392, guid: b5df1719cf2483e46aae52f8643c9b3b, type: 3}
-    - {fileID: 7433441132597879392, guid: 7d1cdb147ff11e64e8176cbdf584d536, type: 3}
     - {fileID: 7433441132597879392, guid: a417d61013b01fc4887850a708011d6e, type: 3}
-    - {fileID: 7433441132597879392, guid: 78281ef6e3b19a84bbe9434b21cd11e1, type: 3}
     - {fileID: 7433441132597879392, guid: 6cb1fc72a870f95499d9410e45c0a442, type: 3}
-    - {fileID: 7433441132597879392, guid: 5d86b092fe2f6874f9adffeea058acef, type: 3}
-    - {fileID: 7433441132597879392, guid: 5a1ebc9488cc9b2459be11a87e5dec62, type: 3}
     - {fileID: 7433441132597879392, guid: 910cefb1beb0d5345bb9a8dbe12868ec, type: 3}
-    - {fileID: 7433441132597879392, guid: d1c6c349a69ebae40904674ce85de7cb, type: 3}
     - {fileID: 7433441132597879392, guid: b105b88172ad1194aa7b0b0ef500d3e2, type: 3}
     - {fileID: 7433441132597879392, guid: a6a23a32ab4723e418b25caec7cc7075, type: 3}
     - {fileID: 7433441132597879392, guid: c48036b455d7f5c4c9e2b51edd97623e, type: 3}
@@ -156,3 +148,5 @@ MonoBehaviour:
     - {fileID: 7433441132597879392, guid: 06a86a8568ec026448f2c195234e843e, type: 3}
     - {fileID: 7433441132597879392, guid: d5d9c1be52e11bb4ba12079626bf03a8, type: 3}
     - {fileID: 7433441132597879392, guid: 17b6a6d9f8c2ced47bcd97a19429f57a, type: 3}
+    - {fileID: 7433441132597879392, guid: 910cefb1beb0d5345bb9a8dbe12868ec, type: 3}
+    - {fileID: 7433441132597879392, guid: 4ca3381c80376ba48859fc874c6042dd, type: 3}

@@ -1,6 +1,8 @@
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using UnityEngine.UIElements;
+using YNL.Utilities.Addons;
 using YNL.Utilities.Extensions;
 using YNL.Utilities.UIToolkits;
 
@@ -9,7 +11,10 @@ namespace YNL.JAMOS
     public class OrderViewCartPageUI : ViewPageUI
     {
         private List<UID> _cartedProducts => Main.Runtime.Data.CartedProducts;
-        
+        private SerializableDictionary<UID, uint> _orderedAmounts => Main.Runtime.OrderedAmounts;
+        private SerializableDictionary<UID, Product.Data> _products => Main.Database.Products;
+
+
         private Label _cartLabel;
         private ListView _cartList;
         private Label _priceText;
@@ -73,13 +78,7 @@ namespace YNL.JAMOS
 
         private void OnCartItemAmountAdjusted()
         {
-            float totalPrice = 0;
-
-            foreach (var pair in Main.Runtime.OrderedAmounts)
-            {
-                var product = Main.Database.Products[pair.Key];
-                totalPrice += product.LastPrice * pair.Value;
-            }
+            float totalPrice = _orderedAmounts.Sum(p => _products[p.Key].LastPrice * p.Value);
 
             _priceText.SetText($"Total <b><color=#DEF95D>${totalPrice.ToString("N2", CultureInfo.InvariantCulture)}</color></b>");
         }

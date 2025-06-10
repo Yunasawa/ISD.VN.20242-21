@@ -79,5 +79,10 @@ namespace YNL.JAMOS
                 _ => throw new Exception("Can not cast Product.Type to SearchingSuggestionType")
             };
         }
+    
+        public static string ToPriceFormat(this float price)
+        {
+            return price.ToString("0.00", CultureInfo.InvariantCulture);
+        }
     }
 }
