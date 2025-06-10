@@ -42,6 +42,9 @@ MonoBehaviour:
           Message: sdasd
         - Type: 0
           Message: hi there!!!
+    Orders:
+      _keys: []
+      _values: []
   IsSearchTimeApplied: 0
   SearchingProductType: 0
   SearchingInput: 

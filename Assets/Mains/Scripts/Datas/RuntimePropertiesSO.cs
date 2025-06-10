@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using YNL.Utilities.Addons;
 
@@ -30,6 +31,18 @@ namespace YNL.JAMOS
         public List<MessageItem> Messages = new();
     }
 
+    [System.Serializable]
+    public class OrderItem
+    {
+        public DateTime OrderDate = DateTime.Now;
+        public SerializableDictionary<UID, uint> OrderAmounts = new();
+
+        public OrderItem()
+        {
+            OrderAmounts = Main.Runtime.OrderedAmounts;
+        }
+    }
+
     [Serializable]
     public class RuntimeData
     {
@@ -40,6 +53,7 @@ namespace YNL.JAMOS
         public List<UID> CartedProducts = new();
         public List<UID> ProductCollection = new();
         public SerializableDictionary<UID, MessageList> Messages = new();
+        public SerializableDictionary<string, OrderItem> Orders = new();
     }
 
     [CreateAssetMenu(fileName = "RuntimePropertiesSO", menuName = "YNL - Checkotel/RuntimePropertiesSO")]

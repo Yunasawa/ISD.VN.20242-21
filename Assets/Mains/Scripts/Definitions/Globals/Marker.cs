@@ -29,5 +29,7 @@ namespace YNL.JAMOS
         public static OnPaymentRequested OnPaymentRequested { get; set; }
 
         public static Action<string> OnGenreSearchRequested { get; set; }
+
+        public static Action<string> OnOrderCodeCreated { get; set; }
     }
 }
