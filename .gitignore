@@ -10,6 +10,7 @@
 /[Ll]ogs/
 /[Uu]ser[Ss]ettings/
 /.utmp/*
+/[Bb]in/
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
@@ -26,6 +27,7 @@
 
 # Visual Studio cache directory
 .vs/
+/.idea/
 
 # Gradle cache directory
 .gradle/
@@ -72,3 +74,7 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# OS generated files
+.DS_Store
+Thumbs.db
