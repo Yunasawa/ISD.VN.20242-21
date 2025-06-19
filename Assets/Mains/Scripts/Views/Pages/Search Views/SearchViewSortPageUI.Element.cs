@@ -38,8 +38,6 @@ namespace YNL.JAMOS
                 _isSelected = true;
                 UpdateUI();
 
-                Main.Runtime.SelectedSortType = _type;
-
                 OnSelected?.Invoke(_type);
             }
 

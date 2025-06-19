@@ -23,7 +23,7 @@ namespace YNL.JAMOS
 
         public void Apply(AccountType type, string message)
         {
-            bool isOther = type != Main.Runtime.AccountType;
+            bool isOther = type != Main.Database.Accounts[Main.Runtime.Data.AccountID].Type;
 
             this.EnableClass(isOther, _otherClass);
             _message.EnableClass(isOther, _otherClass);

@@ -31,7 +31,7 @@ namespace YNL.JAMOS
         protected override void VirtualAwake()
         {
             Marker.OnGenreSearchRequested += OnGenreSearchRequested;
-            Marker.OnSearchResultSorted += OnSearchResultSorted;
+            Marker.OnSearchResultSorted +=   OnSearchResultSorted;
             Marker.OnSearchResultFiltered += OnSearchResultFiltered;
         }
 
@@ -133,10 +133,8 @@ namespace YNL.JAMOS
             _resultList.RebuildListView(_filteredResults);
         }
     
-        private void OnSearchResultSorted()
+        private void OnSearchResultSorted(SortType type)
         {
-            var type = Main.Runtime.SelectedSortType;
-
             _filteredResults = _originalResults.GetSortedItemList(type);
             _resultList.RebuildListView(_filteredResults);
         }

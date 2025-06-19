@@ -45,8 +45,6 @@ namespace YNL.JAMOS
                 _isSelected = true;
                 UpdateUI();
 
-                Main.Runtime.SelectedDeliveryType = _type;
-
                 OnSelected?.Invoke(_type);
             }
 

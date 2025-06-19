@@ -8,6 +8,7 @@ namespace YNL.JAMOS
     public delegate void OnHotelRoomsDisplayed(UID hotelID);
     public delegate void OnPaymentRequested(UID hotelID, UID roomID);
 
+    public delegate void OnSearchResultSorted(SortType sortType);
     public delegate void OnSearchResultFiltered(MRange priceRange, Product.Type productType, RatingScoreType ratingScore, List<string> genres);
 
     public static partial class Marker
@@ -22,7 +23,7 @@ namespace YNL.JAMOS
         public static Action OnNotificationViewOpened { get; set; }
         public static Action<string> OnAddressSearchSubmitted { get; set; }
 
-        public static Action OnSearchResultSorted { get; set; }
+        public static OnSearchResultSorted OnSearchResultSorted { get; set; }
         public static OnSearchResultFiltered OnSearchResultFiltered { get; set; }
         public static OnHotelFacilitiesDisplayed OnHotelFacilitiesDisplayed { get; set; }
         public static OnHotelRoomsDisplayed OnHotelRoomsDisplayed { get; set; }

@@ -32,6 +32,17 @@ namespace YNL.JAMOS
         private VisualElement _applyButton;
 
         private Dictionary<SortType, SortItem> _sortingItems = new();
+        private SortType _selectedSortType = SortType.ByTitleAToZ;
+
+        protected override void VirtualAwake()
+        {
+            SortItem.OnSelected += OnSortItemSelected;
+        }
+
+        private void OnDestroy()
+        {
+            SortItem.OnSelected -= OnSortItemSelected;
+        }
 
         protected override void Collect()
         {
@@ -92,8 +103,13 @@ namespace YNL.JAMOS
 
         private void OnClicked_ApplyButton(PointerUpEvent evt)
         {
-            Marker.OnSearchResultSorted?.Invoke();
+            Marker.OnSearchResultSorted?.Invoke(_selectedSortType);
             OnPageOpened(false);
+        }
+
+        private void OnSortItemSelected(SortType type)
+        {
+            _selectedSortType = type;
         }
     }
 }
