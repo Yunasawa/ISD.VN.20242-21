@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Data:
     AccountID:
-      _id: 0
+      _id: 1
     LikedFeedbacks:
       _keys: []
       _values: []
@@ -25,7 +25,7 @@ MonoBehaviour:
     ProductCollection: []
     Messages:
       _keys:
-      - _id: 0
+      - _id: 1
       _values:
       - Messages:
         - Type: 0
@@ -59,9 +59,3 @@ MonoBehaviour:
   Discount: 0
   SelectedDeliveryType: 0
   SelectedSortType: 0
-  FilteredPriceRange:
-    Min: 0
-    Max: 100
-  FilteredRatingScore: 0
-  FilteredProductType: 0
-  FilteredGenres: []

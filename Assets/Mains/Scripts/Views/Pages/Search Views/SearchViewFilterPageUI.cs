@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using YNL.Utilities.Addons;
 using YNL.Utilities.Extensions;
 using YNL.Utilities.UIToolkits;
 
@@ -11,9 +12,6 @@ namespace YNL.JAMOS
 
     public partial class SearchViewFilterPageUI : ViewPageUI
     {
-        private RuntimePropertiesSO _r => Main.Runtime;
-        private List<string> _selectedGenres => _r.FilteredGenres;
-
         public static (int Min, int Max) PriceRange = (0, 100);
 
         private VisualElement _background;
@@ -29,6 +27,11 @@ namespace YNL.JAMOS
         private Product.Type _selectedProductType;
         private Dictionary<Product.Type, ProductTypeItem> _productTypeItems = new();
         private Dictionary<RatingScoreType, RatingScoreItem> _ratingScoreItems = new();
+
+        private List<string> _filteredGenres = new();
+        private MRange _filteredPriceRange = new(0, 1000);
+        private RatingScoreType _filteredRatingScore = RatingScoreType.GE45;
+        private Product.Type _filteredProductType = Product.Type.None;
 
         protected override void VirtualAwake()
         {
@@ -129,8 +132,8 @@ namespace YNL.JAMOS
             _minLabel.text = minPrice == 0 ? $"<b>FREE</b>" : $"<b>${minPrice.ToString("N0")}</b>";
             _maxLabel.text = maxPrice == 0 ? $"<b>FREE</b>" : $"<b>${maxPrice.ToString("N0")}</b>";
 
-            _r.FilteredPriceRange.Min = minPrice;
-            _r.FilteredPriceRange.Max = maxPrice;
+            _filteredPriceRange.Min = minPrice;
+            _filteredPriceRange.Max = maxPrice;
         }
 
         private void OnClicked_CloseButton(PointerUpEvent evt)
@@ -146,18 +149,18 @@ namespace YNL.JAMOS
         {
             OnPageOpened(false);
 
-            Marker.OnSearchResultFiltered?.Invoke(_r.FilteredPriceRange, _r.FilteredProductType, _r.FilteredRatingScore, _r.FilteredGenres);
+            Marker.OnSearchResultFiltered?.Invoke(_filteredPriceRange, _filteredProductType, _filteredRatingScore, _filteredGenres);
         }
 
         private void OnProductTypeItemSelected(Product.Type type)
         {
-            _r.FilteredProductType = _selectedProductType = type;
+            _filteredProductType = _selectedProductType = type;
             RecreateGenreItemUI();
         }
 
         private void OnRatingScoreItemSelected(RatingScoreType type)
         {
-            _r.FilteredRatingScore = type;
+            _filteredRatingScore = type;
         }
 
         private void RecreateGenreItemUI()
@@ -166,7 +169,7 @@ namespace YNL.JAMOS
 
             foreach (var genre in _selectedProductType.GetProductGenreList())
             {
-                var item = new ProductGenreItemUI(genre, _selectedGenres);
+                var item = new ProductGenreItemUI(genre, _filteredGenres);
                 _productGenreField.Add(item);
             }
         }
