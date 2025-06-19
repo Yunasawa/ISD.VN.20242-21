@@ -37,15 +37,18 @@ namespace YNL.JAMOS
 
         private SerializableDictionary<PaymentMethod, PaymentMethodItem> _paymentMethodItems = new();
         private PaymentMethod _selectedMethod;
+        private DeliveryType _selectedDeliveryType = DeliveryType.Normal;
 
         protected override void VirtualAwake()
         {
             PaymentMethodItem.OnSelected += OnPaymentMethodSelected;
+            OrderViewDeliveryPageUI.DeliveryField.OnSelected += OnDeliveryFieldSelected;
         }
 
         private void OnDestroy()
         {
             PaymentMethodItem.OnSelected -= OnPaymentMethodSelected;
+            OrderViewDeliveryPageUI.DeliveryField.OnSelected -= OnDeliveryFieldSelected;
         }
 
         protected override void Collect()
@@ -112,16 +115,16 @@ namespace YNL.JAMOS
         {
             _productList.RebuildListView(_cartedProducts);
 
-            _deliveryTypeLabel.SetText($"{Main.Runtime.SelectedDeliveryType} Delivery");
+            _deliveryTypeLabel.SetText($"{_selectedDeliveryType} Delivery");
             _deliveryPriceLabel.SetText($"<color=#909090><s>$12.39</s></color> <b>$10.39</b>");
-            _deliveryTypeIcon.SetBackgroundImage(Main.Resources.Icons[$"{Main.Runtime.SelectedDeliveryType} Delivery"]);
+            _deliveryTypeIcon.SetBackgroundImage(Main.Resources.Icons[$"{_selectedDeliveryType} Delivery"]);
             _deliveryNoteLabel.SetText("Guaranteed delivery from <b>May 18</b> to <b>May 19</b>.");
 
             float totalPrice = _orderedAmounts.Sum(p => _products[p.Key].LastPrice * p.Value);
 
             _productPriceLabel.SetText($"${totalPrice.ToPriceFormat()}");
 
-            var rawDelivery = Main.Runtime.SelectedDeliveryType.GetAverageCharge();
+            var rawDelivery = _selectedDeliveryType.GetAverageCharge();
 
             _deliveryChargeLabel.SetText($"${rawDelivery.ToPriceFormat()}");
             
@@ -160,6 +163,11 @@ namespace YNL.JAMOS
         private void OnPaymentMethodSelected(PaymentMethod method)
         {
             _selectedMethod = method;
+        }
+
+        private void OnDeliveryFieldSelected(DeliveryType type)
+        {
+            _selectedDeliveryType = type;
         }
     }
 }

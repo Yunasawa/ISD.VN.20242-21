@@ -142,12 +142,13 @@
     border-right-width: 0;
     border-bottom-width: 0;
     border-left-width: 0;
+    -unity-font-definition: resource('Fonts/SDFs/Nunito/Nunito-Regular SDF');
+    -unity-text-align: upper-left;
 }
 
 .chat-field > * > .unity-text-element {
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 0;
 }
 
 .label-field {

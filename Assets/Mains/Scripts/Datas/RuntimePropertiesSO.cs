@@ -61,7 +61,6 @@ namespace YNL.JAMOS
     {
         public RuntimeData Data = new();
 
-        public AccountType AccountType => Main.Database.Accounts[Data.AccountID].Type;
         public bool IsSearchTimeApplied = false;
         public Product.Type SearchingProductType = Product.Type.None;
         public string SearchingInput = string.Empty;
@@ -69,13 +68,6 @@ namespace YNL.JAMOS
         public string SearchingGenre = string.Empty;
         public SerializableDictionary<UID, uint> OrderedAmounts = new();
         public ushort Discount = 0;
-        public DeliveryType SelectedDeliveryType = DeliveryType.Normal;
-        public SortType SelectedSortType = SortType.ByTitleAToZ;
-        
-        public MRange FilteredPriceRange = new(0, 1000);
-        public RatingScoreType FilteredRatingScore = RatingScoreType.GE45;
-        public Product.Type FilteredProductType = Product.Type.None;
-        public List<string> FilteredGenres = new();
 
         public void Reset()
         {
