@@ -52,7 +52,7 @@ namespace YNL.JAMOS
         {
             var item = new MessageItem()
             {
-                Type = Main.Database.Accounts[Main.Runtime.Data.AccountID].Type,
+                Type = Main.Runtime.AccountType,
                 Message = _messageInput.value
             };
             Main.Runtime.Data.Messages[Main.Runtime.Data.AccountID].Messages.Add(item);

@@ -75,10 +75,5 @@ namespace YNL.JAMOS
         OrderViewPaymentPage = 12,
         OrderViewDeliveryPage = 13,
         OrderViewResultPage = 14,
-
-        ManagerViewProductPage = 15,
-        ManagerViewOrderPage = 16,
-        ManagerViewRevenuePage = 17,
-        ManagerViewAccountPage = 18,
     }
 }
