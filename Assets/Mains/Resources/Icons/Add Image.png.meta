@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 989b11b772f09b44c8af67afe874d442
+guid: 8423de716a76e3f4da1af0e98495da37
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1532518142113591121
-    second: Paypal 1_0
+      213: 8109518990621972226
+    second: Add Image_0
+  - first:
+      213: 3748197923082966725
+    second: Add Image_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Paypal 1_0
+      name: Add Image_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 36
-        width: 202
-        height: 130
+        x: 4
+        y: 7
+        width: 56
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +131,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fa05a7f8ed66bbae0800000000000000
-      internalID: -1532518142113591121
+      spriteID: 2079e4f4e8cca8070800000000000000
+      internalID: 8109518990621972226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Add Image_1
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 1
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c69739f626440430800000000000000
+      internalID: 3748197923082966725
       vertices: []
       indices: 
       edges: []
@@ -147,8 +172,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      Paypal 1_0: -1532518142113591121
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
