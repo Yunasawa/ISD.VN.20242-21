@@ -17,8 +17,6 @@ namespace YNL.JAMOS
 
         private DatabaseContainerSO _database => Main.Database;
 
-        [SerializeField] private string _hotelDatabaseURL;
-        [SerializeField] private string _roomDatabaseURL;
         [SerializeField] private string _feedbackDatabaseURL;
         [SerializeField] private string _configDatabaseURL;
 

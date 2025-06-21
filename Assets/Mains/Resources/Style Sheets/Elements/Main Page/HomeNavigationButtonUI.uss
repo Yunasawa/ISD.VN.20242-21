@@ -26,7 +26,7 @@
 	height: 25px;
 	margin: 10px 0px 0px 0px;
 	padding: 0px;
-	-unity-font-definition: var(--font-nunity-regular);
+	-unity-font-definition: var(--font-nunito-regular);
 	-unity-font-style: bold;
 	font-size: 30px;
 	color: #676767;

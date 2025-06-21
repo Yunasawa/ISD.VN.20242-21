@@ -17,7 +17,6 @@
 
         public Account()
         {
-            ID = UID.Create(UIDType.Account);
             Name = $"User{ID}";
         }
     }

@@ -3,11 +3,6 @@ using System;
 
 namespace YNL.JAMOS
 {
-    public enum UIDType : byte
-    { 
-        Account, Hotel
-    }
-
     [System.Serializable]
     public struct UID
     {
@@ -40,7 +35,6 @@ namespace YNL.JAMOS
 
             throw new FormatException($"Invalid UID format: {id}");
         }
-        public static UID Create(UIDType type) => new((uint)type * 10000000 + SUID++);
 
         public override string ToString() => $"{_id.ToString()}";
         public override bool Equals(object obj)

@@ -23,7 +23,7 @@
 	max-width: 650px;
 	margin: 0px;
 	padding: 20px 40px 20px 40px;
-	-unity-font-definition: var(--font-nunity-regular);
+	-unity-font-definition: var(--font-nunito-regular);
 	font-size: 40px;
 	color: var(--color-contrast-solid);
 	-unity-text-align: middle-left;

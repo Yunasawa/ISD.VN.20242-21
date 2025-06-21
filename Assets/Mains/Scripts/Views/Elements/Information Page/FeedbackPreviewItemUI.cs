@@ -27,7 +27,7 @@ namespace YNL.JAMOS
         private Label _timeStamp;
         private List<VisualElement> _starIcons = new();
 
-        private UID _hotelID;
+        private UID _productID;
         private UID _feedbackID;
 
         public FeedbackPreviewItemUI()
@@ -74,12 +74,12 @@ namespace YNL.JAMOS
             }
         }
 
-        public void Apply(UID hotelID, UID feedbackID)
+        public void Apply(UID productID, UID feedbackID)
         {
-            _hotelID = hotelID;
+            _productID = productID;
             _feedbackID = feedbackID;
             var feedback = Main.Database.Feedbacks[feedbackID];
-            var status = Main.Database.Products[hotelID].Review.Feedbacks[_feedbackID];
+            var status = Main.Database.Products[productID].Review.Feedbacks[_feedbackID];
 
             var account = Main.Database.Accounts[feedback.CustomerID];
 
@@ -89,7 +89,7 @@ namespace YNL.JAMOS
             _timeStamp.SetText(string.Empty);// "Created on 12/05");
 
 
-            bool isLiked = _likedFeedbacks.TryGetValue(hotelID, out var uids) && uids.Feedbacks.Contains(feedbackID);
+            bool isLiked = _likedFeedbacks.TryGetValue(productID, out var uids) && uids.Feedbacks.Contains(feedbackID);
 
             UpdateStarField(feedback.AverageRating);
         }

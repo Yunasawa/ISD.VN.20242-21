@@ -119,6 +119,72 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &50577257
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 50577258}
+  - component: {fileID: 50577260}
+  - component: {fileID: 50577259}
+  m_Layer: 0
+  m_Name: Update Page
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &50577258
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50577257}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 155929839}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &50577259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50577257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9d15a2c15b7c87469802cc772b0361f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hideOnAwake: 0
+  _isPopupPage: 0
+--- !u!114 &50577260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50577257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: 5140d5e01a4cc404cb3de4231c230c5b, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 0243ba0b4682ac44181a53ab8d233394, type: 3}
+  m_SortingOrder: 0
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
 --- !u!1 &115758817
 GameObject:
   m_ObjectHideFlags: 0
@@ -387,6 +453,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 115758818}
+  - {fileID: 50577258}
   m_Father: {fileID: 1267176884}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &174082925
@@ -715,7 +782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24b694079abd5784dad73f130e5a583f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hideOnAwake: 0
+  _hideOnAwake: 1
   _isPopupPage: 0
 --- !u!1 &561081505
 GameObject:
@@ -1452,8 +1519,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnableInitializeDatabase: 1
-  _hotelDatabaseURL: https://raw.githubusercontent.com/Yunasawa200/CHECKOTEL-Storage/refs/heads/main/CHECKOTEL/Databases/Hotel.csv
-  _roomDatabaseURL: https://raw.githubusercontent.com/Yunasawa200/CHECKOTEL-Storage/refs/heads/main/CHECKOTEL/Databases/Room.csv
   _feedbackDatabaseURL: https://raw.githubusercontent.com/Yunasawa200/CHECKOTEL-Storage/refs/heads/main/CHECKOTEL/Databases/Feedback.csv
   _configDatabaseURL: https://raw.githubusercontent.com/Yunasawa200/CHECKOTEL-Storage/refs/heads/main/JAMOS/Databases/Config.txt
 --- !u!1 &1309971816
@@ -1786,6 +1851,54 @@ MonoBehaviour:
   m_WorldSpaceSizeMode: 1
   m_WorldSpaceWidth: 1920
   m_WorldSpaceHeight: 1080
+--- !u!1 &1601766982
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1601766984}
+  - component: {fileID: 1601766983}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1601766983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601766982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c327a88e0dce4408e08b18c6baa129, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vnp_TmnCode: RA025UR5
+  vnp_HashSecret: UB00V0N9VSBWG4RYOZSAMIFXJ0D41QQD
+  vnp_Url: https://sandbox.vnpayment.vn/paymentv2/vpcpay.html
+  returnUrl: http://your-return-url.com
+--- !u!4 &1601766984
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601766982}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.09565, y: 0.12775, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1652320338
 GameObject:
   m_ObjectHideFlags: 0
@@ -2201,7 +2314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad486bb48dbe70c4da6caadda1e33671, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hideOnAwake: 0
+  _hideOnAwake: 1
   _isPopupPage: 0
 --- !u!114 &2020904539
 MonoBehaviour:
@@ -2230,3 +2343,4 @@ SceneRoots:
   - {fileID: 1289038837}
   - {fileID: 1267176884}
   - {fileID: 1752374919}
+  - {fileID: 1601766984}
