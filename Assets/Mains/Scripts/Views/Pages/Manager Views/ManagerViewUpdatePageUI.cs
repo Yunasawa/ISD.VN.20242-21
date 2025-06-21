@@ -191,6 +191,8 @@ namespace YNL.JAMOS
             {
                 productData.Properties[property.Key] = property.Value;
             }
+
+            Marker.OnPageBacked?.Invoke(true, true);
         }
 
         private void OnProductUpdatingRequested(UID productID)

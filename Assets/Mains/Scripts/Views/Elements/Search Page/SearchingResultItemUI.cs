@@ -2,6 +2,7 @@ using System;
 using UnityEngine.UIElements;
 using UnityEngine.UIElements.Experimental;
 using YNL.Utilities.Addons;
+using YNL.Utilities.Extensions;
 using YNL.Utilities.UIToolkits;
 
 namespace YNL.JAMOS
@@ -286,6 +287,7 @@ namespace YNL.JAMOS
 
             if (_isProductItem)
             {
+                MDebug.Log("HELLO");
                 Marker.OnPageNavigated?.Invoke(ViewType.ManagerViewInformationPage, true, true);
             }
             else

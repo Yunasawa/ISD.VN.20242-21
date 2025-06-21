@@ -42,9 +42,9 @@ namespace YNL.JAMOS
                 }
             };
 
-            _productAmount.SetText($"Product: <color=#DEF95D>{_products.Count}</color>");
-
             _addButton.RegisterCallback<PointerUpEvent>(OnClicked_AddProduct);
+
+            Refresh();
         }
 
         protected override void Refresh()

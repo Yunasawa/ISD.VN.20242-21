@@ -901,7 +901,7 @@ MonoBehaviour:
       Creators:
       - Levi Welton
       PublicationDate:
-        _dateTimeString: 06/15/2022
+        _dateTimeString: 15/06/2022
       Price: 24.99
       Quantity: 179
       Description: "A masterpiece!... I recommend this memoir to anyone looking for
@@ -941,8 +941,7 @@ MonoBehaviour:
         Founder of the non-profit Together For Humanity"
       Genres:
       - NonFiction
-      - Biography
-      - YoungAdult
+      - Thriller
       Format: Paperback
       HasStreamer: 0
       SoldAmount: 345
@@ -960,7 +959,7 @@ MonoBehaviour:
       Creators:
       - "M\xE5neskin"
       PublicationDate:
-        _dateTimeString: 10/15/2021
+        _dateTimeString: 15/10/2021
       Price: 14.99
       Quantity: 219
       Description: "Energetic rock cover that brought M\xE5neskin global fame with
@@ -985,7 +984,7 @@ MonoBehaviour:
       - Post Malone
       - Swae Lee
       PublicationDate:
-        _dateTimeString: 10/18/2018
+        _dateTimeString: 18/10/2018
       Price: 0
       Quantity: 345
       Description: 'Catchy hip-hop/pop hit from Spider-Man: Into the Spider-Verse
