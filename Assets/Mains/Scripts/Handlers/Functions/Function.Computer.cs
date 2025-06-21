@@ -54,7 +54,7 @@ namespace YNL.JAMOS
         {
             var product = Main.Database.Products[id];
 
-            return product.Description.Replace("#", "\r\n\r\n");
+            return product.Description.Replace("#", "\r\n");
         }
     
         public static string GetStreamFormat(this UID id)

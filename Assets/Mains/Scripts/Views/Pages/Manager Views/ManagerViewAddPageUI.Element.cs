@@ -54,6 +54,24 @@ namespace YNL.JAMOS
                 _typeDropdown.Add(new VisualElement().SetHeight(30));
             }
 
+            public void SetValue(Product.Type type)
+            {
+                foreach (var child in _typeDropdown.Children())
+                {
+                    if (child is not ProductTypeItemUI) continue;
+
+                    var item = child as ProductTypeItemUI;
+                    if (item.Type == type)
+                    {
+                        item.Select();
+                        return;
+                    }
+                }
+
+                _typeIcon.SetBackgroundImage(Main.Resources.Icons["None"]);
+                _typeText.SetText("...");
+            }
+
             private void OnClicked_TypeField(PointerUpEvent evt)
             {
                 OpenDropdown(true);
@@ -95,7 +113,9 @@ namespace YNL.JAMOS
             private VisualElement _typeDropdown;
 
             private Product.Type _productType;
+            private ushort _genreValue;
             private readonly HashSet<string> _genreValues = new();
+            private bool _isGenreSelected = false;
 
             public GenreTypeField(VisualElement genreField)
             {
@@ -114,6 +134,24 @@ namespace YNL.JAMOS
             private void Initialize()
             {
                 RecreateGenreItems(Product.Type.None);
+            }
+
+            public void SetValue(Product.Type type, ushort genre)
+            {
+                _genreValue = genre;
+                _isGenreSelected = false;
+
+                RecreateGenreItems(type);
+
+                if (_isGenreSelected == false)
+                {
+                    _typeText.SetText("<color=#909090>None</color>");
+                }
+            }
+
+            public void ResetValue()
+            {
+                _genreValue = 0;
             }
 
             public void RecreateGenreItems(Product.Type productType)
@@ -143,6 +181,11 @@ namespace YNL.JAMOS
 
                         var item = new GenreTypeItemUI(genre.ToString(), (ushort)genre);
                         item.OnSelected = OnProductTypeSelected;
+                        if ((_genreValue & item.Value) == item.Value)
+                        {
+                            item.Select();
+                            _isGenreSelected = true;
+                        }
                         _typeDropdown.Add(item);
                     }
 
@@ -166,7 +209,7 @@ namespace YNL.JAMOS
             {
                 if (isOpen) _typeDropdown.SetHeight(StyleKeyword.Auto);
                 else _typeDropdown.SetHeight(0);
-                    
+
                 _typeArrow.SetRotate(isOpen ? 90 : 270, AngleUnit.Degree);
             }
 
@@ -195,12 +238,13 @@ namespace YNL.JAMOS
                 OnGenreSelected?.Invoke(isSelected, value);
             }
         }
-    
+
         public class PropertyField
         {
             public Action<Product.Property, string> OnPropertyChanged { get; set; }
 
             private VisualElement _propertyField;
+            private Dictionary<Product.Property, PropertyInputFieldUI> _fields = new();
 
             public PropertyField(VisualElement field)
             {
@@ -209,9 +253,20 @@ namespace YNL.JAMOS
                 RecreatePropertyItems(Product.Type.None);
             }
 
+            public void SetValue(Product.Type type, Dictionary<Product.Property, string> properties)
+            {
+                RecreatePropertyItems(type);
+
+                foreach (var property in properties)
+                {
+                    _fields[property.Key].SetValue(property.Value);
+                }
+            }
+
             public void RecreatePropertyItems(Product.Type type)
             {
                 _propertyField.Clear();
+                _fields.Clear();
 
                 var properties = type.GetProductProperties();
 
@@ -221,6 +276,7 @@ namespace YNL.JAMOS
                     field.OnPropertyChanged = OnPropertyValueChanged;
                     if (property == properties[0]) field.SetAsFirstItem();
                     _propertyField.Add(field);
+                    _fields.Add(property, field);
                 }
             }
 

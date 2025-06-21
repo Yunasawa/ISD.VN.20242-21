@@ -5,10 +5,6 @@
     <engine:VisualElement name="LabelField" style="margin-top: 100px; background-color: rgb(41, 41, 41); min-height: 125px; padding-right: 50px; padding-left: 50px; border-left-color: rgb(59, 59, 59); border-right-color: rgb(59, 59, 59); border-top-color: rgb(59, 59, 59); border-bottom-color: rgb(59, 59, 59); border-bottom-width: 2px; padding-bottom: 25px;">
         <engine:Label text="Product Management" name="LabelTitle" style="height: 100px; width: 100%; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; -unity-font-definition: url(&quot;project://database/Assets/Mains/Resources/Fonts/SDFs/Nunito/Nunito%20SDF.asset?fileID=11400000&amp;guid=995852a4f5cc55e4e89fa1e7e897eac5&amp;type=2#Nunito SDF&quot;); -unity-font-style: bold; color: rgb(255, 255, 255); -unity-text-align: middle-center; font-size: 60px;" />
     </engine:VisualElement>
-    <engine:VisualElement name="ManagerField" style="padding-top: 25px; padding-right: 25px; padding-bottom: 25px; padding-left: 25px; margin-bottom: 235px; margin-right: 100px; margin-left: 100px; background-color: rgb(26, 26, 26); border-top-left-radius: 75px; border-top-right-radius: 75px; border-bottom-right-radius: 75px; border-bottom-left-radius: 75px; position: absolute; left: 0; right: 0; bottom: 0; flex-direction: row;">
-        <engine:Label text="Product: &lt;color=#DEF95D&gt;100&lt;/color&gt;" name="InventoryAmount" class="label-field" style="flex-grow: 1; -unity-text-align: middle-left; color: rgb(255, 255, 255); -unity-font-style: bold; padding-left: 25px; font-size: 45px;" />
-        <engine:Button text="Add Product" name="AddProduct" class="label-field" style="height: 100px; border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-right-radius: 50px; border-bottom-left-radius: 50px; width: 400px; background-color: rgb(222, 249, 93); color: rgb(26, 26, 26); -unity-font-style: bold; font-size: 45px;" />
-    </engine:VisualElement>
     <engine:ScrollView name="ProductScroll" style="flex-grow: 1; padding-right: 50px; padding-left: 50px; padding-top: 50px;">
         <engine:VisualElement name="ResultItem" style="height: 700px; border-top-left-radius: 25px; border-top-right-radius: 25px; border-bottom-right-radius: 25px; border-bottom-left-radius: 25px; overflow: hidden; flex-direction: row; padding-bottom: 50px;">
             <engine:VisualElement name="PreviewArea" style="background-image: resource(&apos;Images/Samples/Book Covers/The Pain of Onkai&apos;); -unity-background-scale-mode: scale-and-crop; width: 400px; border-bottom-left-radius: 25px; border-top-left-radius: 25px;">
@@ -98,4 +94,9 @@
             </engine:VisualElement>
         </engine:VisualElement>
     </engine:ScrollView>
+    <engine:ListView name="ProductList" virtualization-method="DynamicHeight" style="flex-grow: 1; padding-top: 50px; padding-right: 50px; padding-left: 50px;" />
+    <engine:VisualElement name="ManagerField" style="padding-top: 25px; padding-right: 25px; padding-bottom: 25px; padding-left: 25px; margin-bottom: 235px; margin-right: 100px; margin-left: 100px; background-color: rgb(26, 26, 26); border-top-left-radius: 75px; border-top-right-radius: 75px; border-bottom-right-radius: 75px; border-bottom-left-radius: 75px; position: absolute; left: 0; right: 0; bottom: 0; flex-direction: row;">
+        <engine:Label text="Product: &lt;color=#DEF95D&gt;100&lt;/color&gt;" name="InventoryAmount" class="label-field" style="flex-grow: 1; -unity-text-align: middle-left; color: rgb(255, 255, 255); -unity-font-style: bold; padding-left: 25px; font-size: 45px;" />
+        <engine:Button text="Add Product" name="AddProduct" class="label-field" style="height: 100px; border-top-left-radius: 50px; border-top-right-radius: 50px; border-bottom-right-radius: 50px; border-bottom-left-radius: 50px; width: 400px; background-color: rgb(222, 249, 93); color: rgb(26, 26, 26); -unity-font-style: bold; font-size: 45px;" />
+    </engine:VisualElement>
 </engine:UXML>

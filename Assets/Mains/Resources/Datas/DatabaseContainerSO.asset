@@ -901,47 +901,48 @@ MonoBehaviour:
       Creators:
       - Levi Welton
       PublicationDate:
-        _dateTimeString: 15/06/2022
+        _dateTimeString: 06/15/2022
       Price: 24.99
       Quantity: 179
       Description: "A masterpiece!... I recommend this memoir to anyone looking for
         inspiration to make a difference in the world.\u201D - Liliane Pari Umuhoza,
-        Founder of the Women Genocide Survivors Retreat\r\n\r\nA proud American blends
+        Founder of the Women Genocide Survivors Retreat##A proud American blends
         memoir with a joyful cultural peek into his often misunderstood religious
-        community.\r\n\r\nRabbi Levi Welton never forgot the day he was cleaning
-        his guinea-pig hutch, only to turn and face a small contingent of stern Hasidic
-        elders. While certain he\u2019d broken some sacred rule, what happened next
-        is just one of many lessons that taught the rabbi that heroism comes in all
-        shapes and sizes, and wisdom often confronts us when we least expect it.\r\n\r\nIn
-        this heartwarming coming-of-age story, Levi Welton offers a compelling insider's
+        community.##Rabbi Levi Welton never forgot the day he was cleaning his guinea-pig
+        hutch, only to turn and face a small contingent of stern Hasidic elders.
+        While certain he\u2019d broken some sacred rule, what happened next is just
+        one of many lessons that taught the rabbi that heroism comes in all shapes
+        and sizes, and wisdom often confronts us when we least expect it.##In this
+        heartwarming coming-of-age story, Levi Welton offers a compelling insider's
         view, and a sense of humanity to what it was like growing up as a shy Hasidic
         boy in the radical shtetl of Bezerkely and being surrounded by a community
-        of eccentric, colorful, and endearing role models and mentors.\r\n\r\nOn
-        his journey from self-discovery to self-acceptance, Levi collects invaluable
-        lessons about faith, family, success, death, and seeing the good in everyone
-        through an assortment of funny yet inspiring stories\u2014from adopting stray
-        animals while in the Boy Scouts, to learning life secrets from a hippie in
-        the Wyoming wilds. Along the way, you\u2019ll watch as young Levi struggles
-        to unite the often-fraught nature of secular society with his Hasidic culture,
-        one of the most vibrant religious communities in America.\r\n\r\nBe Like
-        the Moon strengthens your faith in humanity by sharing wisdom that will speak
-        to anyone, of any (or no) faith, who\u2019s ever struggled with life\u2019s
-        weighty challenges. No subject is off-limits \u2013 addiction, depression,
-        racism, and even a walk on the (atheistic) wild side! Yet running through
-        all these is a powerful lesson\u2014one about heroism:\r\n\r\nYou don't need
-        superpowers to be a hero. You can change the world through the quiet impact
-        you have on others through how you live your life.\r\n\r\nIt\u2019s a transformative
-        book, with insights on every page and an inspiring message of optimism, hope,
-        and yes, heroism\u2014minus the superpowers!\r\n\r\n------------------------------------------------------\r\n\r\n\u201CAuthenticity
+        of eccentric, colorful, and endearing role models and mentors.##On his journey
+        from self-discovery to self-acceptance, Levi collects invaluable lessons
+        about faith, family, success, death, and seeing the good in everyone through
+        an assortment of funny yet inspiring stories\u2014from adopting stray animals
+        while in the Boy Scouts, to learning life secrets from a hippie in the Wyoming
+        wilds. Along the way, you\u2019ll watch as young Levi struggles to unite
+        the often-fraught nature of secular society with his Hasidic culture, one
+        of the most vibrant religious communities in America.##Be Like the Moon strengthens
+        your faith in humanity by sharing wisdom that will speak to anyone, of any
+        (or no) faith, who\u2019s ever struggled with life\u2019s weighty challenges.
+        No subject is off-limits \u2013 addiction, depression, racism, and even a
+        walk on the (atheistic) wild side! Yet running through all these is a powerful
+        lesson\u2014one about heroism:##You don't need superpowers to be a hero.
+        You can change the world through the quiet impact you have on others through
+        how you live your life.##It\u2019s a transformative book, with insights on
+        every page and an inspiring message of optimism, hope, and yes, heroism\u2014minus
+        the superpowers!##------------------------------------------------------##\u201CAuthenticity
         and love of one\u2019s fellow man emanate from Levi Welton\u2019s life and
         words. He calls for and exemplifies an integration of \u2018distinct cultures
         fused together.\u2019 This is a rabbi's call to personal greatness and one
         man\u2019s honest and sincere reflection on the path of fully being both
-        a Jew and a committed member of the human family.\u201D\r\n\r\nRabbi Zalman
-        Kastel, Founder of the non-profit Together For Humanity"
+        a Jew and a committed member of the human family.\u201D##Rabbi Zalman Kastel,
+        Founder of the non-profit Together For Humanity"
       Genres:
       - NonFiction
-      - Thriller
+      - Biography
+      - YoungAdult
       Format: Paperback
       HasStreamer: 0
       SoldAmount: 345
@@ -959,7 +960,7 @@ MonoBehaviour:
       Creators:
       - "M\xE5neskin"
       PublicationDate:
-        _dateTimeString: 15/10/2021
+        _dateTimeString: 10/15/2021
       Price: 14.99
       Quantity: 219
       Description: "Energetic rock cover that brought M\xE5neskin global fame with
@@ -984,7 +985,7 @@ MonoBehaviour:
       - Post Malone
       - Swae Lee
       PublicationDate:
-        _dateTimeString: 18/10/2018
+        _dateTimeString: 10/18/2018
       Price: 0
       Quantity: 345
       Description: 'Catchy hip-hop/pop hit from Spider-Man: Into the Spider-Verse

@@ -223,6 +223,7 @@ namespace YNL.JAMOS
         private PriceFieldUI _priceField;
 
         private UID _productID;
+        private bool _isProductItem = false;
 
         public SearchingResultItemUI()
         {
@@ -274,11 +275,23 @@ namespace YNL.JAMOS
             this.EnableClass(product.Type == Product.Type.CD || product.Type == Product.Type.LP, _shortenClass);
         }
 
+        public void SetAsProductItem()
+        {
+            _isProductItem = true;
+        }
+
         private void OnSelected_ResultItem(PointerUpEvent evt)
         {
             Main.Runtime.SelectedProduct = _productID;
 
-            Marker.OnPageNavigated?.Invoke(ViewType.InformationViewMainPage, true, true);
+            if (_isProductItem)
+            {
+                Marker.OnPageNavigated?.Invoke(ViewType.ManagerViewInformationPage, true, true);
+            }
+            else
+            {
+                Marker.OnPageNavigated?.Invoke(ViewType.InformationViewMainPage, true, true);
+            }
         }
     }
 }

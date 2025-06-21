@@ -100,7 +100,8 @@ namespace YNL.JAMOS
             _productTypeField.SetValue(_productType = product.Type);
             _genreTypeField.SetValue(_productType, _productGenres = 0b0000000000001010);
             _productPublicationDate.SetText($"{_publicationDate = product.PublicationDate.Value} (dd/mm/yyyy)");
-            _productDescriptionField.SetText(_productDescription = _productID.GetDescriptionText());
+            _productDescription = product.Description;
+            _productDescriptionField.SetText(_productID.GetDescriptionText());
             _productPriceField.value = _productPrice = product.Price;
             _productStockField.value = _productStock = product.Quantity;
 
@@ -182,7 +183,7 @@ namespace YNL.JAMOS
             productData.Genres = _productType.GetProductGenresString(_productGenres);
             productData.Creators = _productCreators.Split(",").Select(s => s.Trim()).ToArray();
             productData.PublicationDate = new(DateTime.ParseExact(_publicationDate, "dd/MM/yyyy", CultureInfo.InvariantCulture));
-            productData.Description = _productDescription;
+            productData.Description = _productDescription.Replace("\r\n", "#");
             productData.Price = _productPrice;
             productData.Quantity = (ushort)_productStock;
 
