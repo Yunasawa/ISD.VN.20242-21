@@ -5,8 +5,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using UnityEngine;
-using UnityEngine.Networking;
-using YNL.Utilities.Extensions;
+using YNL.JAMOS;
 
 public class VNPayTest : MonoBehaviour
 {
@@ -15,12 +14,21 @@ public class VNPayTest : MonoBehaviour
     public string vnp_Url = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
     public string returnUrl = "http://your-return-url.com";
 
-    [Button]
-    public void StartPayment()
+    private void Awake()
+    {
+        Marker.OnPaymentRequested += OnPaymentRequested;
+    }
+
+    private void OnDestroy()
+    {
+        Marker.OnPaymentRequested -= OnPaymentRequested;
+    }
+
+    public void OpenVNPayPage(string code, uint price)
     {
         string vnp_TxnRef = DateTime.Now.Ticks.ToString();
-        string vnp_OrderInfo = "HelloWorld";
-        string vnp_Amount = (123123 * 100).ToString(); // 100000 VND
+        string vnp_OrderInfo = $"Pay_Order_{code}";
+        string vnp_Amount = (price * 100).ToString();
 
         SortedList<string, string> requestData = new SortedList<string, string>();
         requestData.Add("vnp_Version", "2.1.0");
@@ -47,9 +55,7 @@ public class VNPayTest : MonoBehaviour
         string secureHash = HmacSHA512(signData, vnp_HashSecret);
 
         string finalUrl = $"{vnp_Url}?{queryString}&vnp_SecureHash={secureHash}";
-        Application.OpenURL(finalUrl); // Mở trình duyệt Unity tới trang thanh toán
-        MDebug.Log(signData);
-        MDebug.Log(finalUrl);
+        Application.OpenURL(finalUrl);
     }
 
     public static string HmacSHA512(string message, string secretKey)
@@ -61,5 +67,10 @@ public class VNPayTest : MonoBehaviour
             byte[] hashValue = hmac.ComputeHash(messageBytes);
             return BitConverter.ToString(hashValue).Replace("-", "").ToUpper();
         }
+    }
+
+    private void OnPaymentRequested(string code, uint price)
+    {
+        OpenVNPayPage(code, price);
     }
 }

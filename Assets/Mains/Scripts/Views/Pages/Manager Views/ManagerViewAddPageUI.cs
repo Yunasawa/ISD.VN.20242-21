@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using YNL.Utilities.Addons;
 using YNL.Utilities.Extensions;
+using YNL.Utilities.UIToolkits;
 
 namespace YNL.JAMOS
 {
@@ -13,10 +14,17 @@ namespace YNL.JAMOS
     {
         private SerializableDictionary<UID, Product.Data> _products => Main.Database.Products;
 
+        private VisualElement _productImage;
+        private TextField _productNameField;
+        private TextField _productCreatorsField;
+        private ProductTypeField _productTypeField;
         private GenreTypeField _genreTypeField;
-        private PropertyField _propertyField;
+        private TextField _productPublicationDate;
+        private TextField _productDescriptionField;
+        private FloatField _productPriceField;
+        private IntegerField _productStockField;
+        private PropertyField _productPropertyField;
 
-        private Texture2D _productImage;
         private string _productName;
         private string _productCreators;
         private Product.Type _productType;
@@ -32,29 +40,30 @@ namespace YNL.JAMOS
             var scrollContainer = Root.Q("MainScroll").Q("unity-content-container");
 
             var informationField = scrollContainer.Q("InformationField");
-            var nameInput = informationField.Q("InputField").Q("NameField").Q<TextField>("Input");
-            nameInput.RegisterValueChangedCallback(OnValueChanged_NameInput);
-            var creatorsInput = informationField.Q("InputField").Q("CreatorsField").Q<TextField>("Input");
-            creatorsInput.RegisterValueChangedCallback(OnValueChanged_CreatorsInput);
+            _productImage = informationField.Q("ImageField");
+            _productNameField = informationField.Q("InputField").Q("NameField").Q<TextField>("Input");
+            _productNameField.RegisterValueChangedCallback(OnValueChanged_NameInput);
+            _productCreatorsField = informationField.Q("InputField").Q("CreatorsField").Q<TextField>("Input");
+            _productCreatorsField.RegisterValueChangedCallback(OnValueChanged_CreatorsInput);
 
             var detailField = scrollContainer.Q("DetailField");
-            var productTypeField = new ProductTypeField(detailField.Q("TypeField"));
-            productTypeField.OnTypeSelected = OnTypeSelected;
+            _productTypeField = new(detailField.Q("TypeField"));
+            _productTypeField.OnTypeSelected = OnTypeSelected;
             _genreTypeField = new(detailField.Q("GenreField"));
             _genreTypeField.OnGenreSelected = OnGenreSelected;
-            var dateInput = detailField.Q("DateField").Q<TextField>("Input");
-            dateInput.RegisterValueChangedCallback(OnValueChanged_DateInput);
-            var descriptionInput = detailField.Q("DescriptionField").Q<TextField>("Input");
-            descriptionInput.RegisterValueChangedCallback(OnValueChanged_DescriptionInput);
+            _productPublicationDate = detailField.Q("DateField").Q<TextField>("Input");
+            _productPublicationDate.RegisterValueChangedCallback(OnValueChanged_DateInput);
+            _productDescriptionField = detailField.Q("DescriptionField").Q<TextField>("Input");
+            _productDescriptionField.RegisterValueChangedCallback(OnValueChanged_DescriptionInput);
 
             var storeField = scrollContainer.Q("StoreField");
-            var priceInput = storeField.Q("PriceField").Q<FloatField>("Input");
-            priceInput.RegisterValueChangedCallback(OnValueChanged_PriceInput);
-            var stockInput = storeField.Q("StockField").Q<IntegerField>("Input");
-            stockInput.RegisterValueChangedCallback(OnvalueChanged_StockInput);
+            _productPriceField = storeField.Q("PriceField").Q<FloatField>("Input");
+            _productPriceField.RegisterValueChangedCallback(OnValueChanged_PriceInput);
+            _productStockField = storeField.Q("StockField").Q<IntegerField>("Input");
+            _productStockField.RegisterValueChangedCallback(OnvalueChanged_StockInput);
 
-            _propertyField = new(scrollContainer.Q("PropertyField"));
-            _propertyField.OnPropertyChanged = OnPropertyChanged;
+            _productPropertyField = new(scrollContainer.Q("PropertyField"));
+            _productPropertyField.OnPropertyChanged = OnPropertyChanged;
 
             var bottomField = Root.Q("BottomField");
             var cancelButton = bottomField.Q<Button>("CancelButton");
@@ -65,18 +74,33 @@ namespace YNL.JAMOS
             addButton.clicked += OnClicked_AddButton;
         }
 
-        protected override void Refresh()
+        protected override void Initialize()
         {
-            _productImage = null;
+            ResetData();
+
+            _productNameField.SetText(_productName);
+            _productCreatorsField.SetText(_productCreators);
+            _productTypeField.SetValue(_productType);
+            _genreTypeField.SetValue(_productType, _productGenres);
+            _productPublicationDate.SetText(_publicationDate);
+            _productDescriptionField.SetText(_productDescription);
+            _productPriceField.value = _productPrice;
+            _productStockField.value = _productStock;
+
+            _propertyInputs.Clear();
+            _productPropertyField.SetValue(_productType, _propertyInputs);
+        }
+
+        private void ResetData()
+        {
             _productName = string.Empty;
             _productCreators = string.Empty;
             _productType = Product.Type.None;
             _productGenres = 0;
             _publicationDate = string.Empty;
             _productDescription = string.Empty;
-            _productPrice = 0.0f;
+            _productPrice = 0;
             _productStock = 0;
-            _propertyInputs = new();
         }
 
         private void OnValueChanged_NameInput(ChangeEvent<string> evt)
@@ -114,7 +138,7 @@ namespace YNL.JAMOS
             _productType = type;
 
             _genreTypeField.RecreateGenreItems(type);
-            _propertyField.RecreatePropertyItems(type);
+            _productPropertyField.RecreatePropertyItems(type);
         }
 
         private void OnGenreSelected(bool isSelected, ushort genre)
@@ -127,15 +151,11 @@ namespace YNL.JAMOS
             {
                 _productGenres &= (ushort)~genre;
             }
-
-            MDebug.Log(_productGenres);
         }
 
         private void OnPropertyChanged(Product.Property property, string value)
         {
             _propertyInputs[property] = value;
-
-            MDebug.Log($"{property}: {value}");
         }
 
         private void OnClicked_CancelButton()
@@ -167,6 +187,9 @@ namespace YNL.JAMOS
             }
 
             _products.Add((int)_productType * 10000000 + _products.Count, productData);
+
+            Initialize();
+            Marker.OnPageNavigated?.Invoke(ViewType.ManagerViewProductPage, true, true);
         }
     }
 }

@@ -37,9 +37,10 @@ namespace YNL.JAMOS
         public DateTime OrderDate = DateTime.Now;
         public SerializableDictionary<UID, uint> OrderAmounts = new();
 
-        public OrderItem()
+        public OrderItem Initialize()
         {
             OrderAmounts = Main.Runtime.OrderedAmounts;
+            return this;
         }
     }
 

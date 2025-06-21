@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using UnityEngine;
 using UnityEngine.UIElements;
 using YNL.Utilities.Addons;
 using YNL.Utilities.Extensions;
@@ -38,6 +39,7 @@ namespace YNL.JAMOS
         private SerializableDictionary<PaymentMethod, PaymentMethodItem> _paymentMethodItems = new();
         private PaymentMethod _selectedMethod;
         private DeliveryType _selectedDeliveryType = DeliveryType.Normal;
+        private float _totalPrice;
 
         protected override void VirtualAwake()
         {
@@ -128,17 +130,17 @@ namespace YNL.JAMOS
 
             _deliveryChargeLabel.SetText($"${rawDelivery.ToPriceFormat()}");
             
-            float deliveryDiscount = new[] { 0, 10, 20, 50, 100 }[new Random().Next(5)];
+            float deliveryDiscount = new[] { 0, 10, 20, 50, 100 }[new System.Random().Next(5)];
             float totalDelivery = rawDelivery * (1 - deliveryDiscount / 100f);
             float savedDelivery = rawDelivery - totalDelivery;
 
             _deliveryDiscountLabel.SetText($"-${savedDelivery.ToPriceFormat()}");
 
-            var totalPayment = totalPrice + totalDelivery;
+            _totalPrice = totalPrice + totalDelivery;
 
-            _totalPayment.SetText($"${totalPayment.ToPriceFormat()}");
+            _totalPayment.SetText($"${_totalPrice.ToPriceFormat()}");
 
-            _priceText.SetText($"Total <size=50><b><color=#DEF95D>${totalPayment.ToPriceFormat()}</color></b></size>\r\nSave <color=#DEF95D>${savedDelivery.ToPriceFormat()}</color>");
+            _priceText.SetText($"Total <size=50><b><color=#DEF95D>${_totalPrice.ToPriceFormat()}</color></b></size>\r\nSave <color=#DEF95D>${savedDelivery.ToPriceFormat()}</color>");
         }
 
         private void OnClicked_LabelField(PointerUpEvent evt)
@@ -156,8 +158,11 @@ namespace YNL.JAMOS
             Marker.OnPageNavigated?.Invoke(ViewType.OrderViewResultPage, true, true);
 
             var code = Function.GetOrderCode();
-            Main.Runtime.Data.Orders.Add(code, new());
+            Main.Runtime.Data.Orders.Add(code, new OrderItem().Initialize());
             Marker.OnOrderCodeCreated?.Invoke(code);
+
+            var vndPrice = _totalPrice.ToVND();
+            Marker.OnPaymentRequested?.Invoke(code, vndPrice);
         }
 
         private void OnPaymentMethodSelected(PaymentMethod method)

@@ -6,8 +6,18 @@ namespace YNL.JAMOS
 {
     public class MainViewMessagePageUI : ViewPageUI
     {
-        private List<MessageItem> _messages => Main.Runtime.Data.Messages[Main.Runtime.Data.AccountID].Messages;
-
+        private List<MessageItem> _messages
+        {
+            get
+            {
+                if (Main.Runtime.Data.Messages.ContainsKey(Main.Runtime.Data.AccountID) == false)
+                {
+                    return new();
+                }
+                
+                return Main.Runtime.Data.Messages[Main.Runtime.Data.AccountID].Messages;
+            }
+        }
         private ListView _messageList;
         private TextField _messageInput;
         private VisualElement _sendButton;

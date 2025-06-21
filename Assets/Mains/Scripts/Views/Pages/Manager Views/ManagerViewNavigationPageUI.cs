@@ -15,7 +15,8 @@ namespace YNL.JAMOS
         {
             _navigationBar.Clear();
             _navigationBar.Add(new HomeNavigationButton(Main.Resources.Icons["Product"], "Product", true, ViewType.ManagerViewProductPage));
-            _navigationBar.Add(new HomeNavigationButton(Main.Resources.Icons["Order"], "Order", false, ViewType.ManagerViewOrderPage));
+            _navigationBar.Add(new HomeNavigationButton(Main.Resources.Icons["Message"], "Message", false, ViewType.ManagerViewMessagePage));
+            _navigationBar.Add(new HomeNavigationButton(Main.Resources.Icons["Cart"], "Order", false, ViewType.ManagerViewOrderPage));
             _navigationBar.Add(new HomeNavigationButton(Main.Resources.Icons["Revenue"], "Revenue", false, ViewType.ManagerViewRevenuePage));
             _navigationBar.Add(new HomeNavigationButton(Main.Resources.Icons["Account"], "Account", false, ViewType.ManagerViewAccountPage));
         }

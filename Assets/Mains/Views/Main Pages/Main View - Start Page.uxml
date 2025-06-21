@@ -8,5 +8,7 @@
         <engine:Label text="JAMOS" name="Title" style="margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; font-size: 90px; -unity-text-align: middle-center; -unity-font-style: bold; color: rgb(29, 20, 31); -unity-font-definition: resource(&apos;Fonts/SDFs/Nunito/Nunito-Bold SDF&apos;); margin-top: 25px; height: 120px;">
             <engine:Label text="JAMOS" name="Title" style="margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; font-size: 90px; -unity-text-align: middle-center; -unity-font-style: bold; color: rgb(209, 193, 180); -unity-font-definition: resource(&apos;Fonts/SDFs/Nunito/Nunito-Bold SDF&apos;); margin-top: 0; height: 120px; top: 10px;" />
         </engine:Label>
+        <engine:Label text="Just a media online store" name="Title" style="margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; font-size: 50px; -unity-text-align: middle-center; color: rgb(209, 193, 180); -unity-font-definition: resource(&apos;Fonts/SDFs/Nunito/Nunito-Regular SDF&apos;); margin-top: 0; height: 60px; top: 10px; -unity-font-style: normal;" />
+        <engine:VisualElement style="height: 100px;" />
     </engine:VisualElement>
 </engine:UXML>

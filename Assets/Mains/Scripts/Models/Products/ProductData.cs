@@ -20,18 +20,18 @@ namespace YNL.JAMOS
         [System.Serializable]
         public class Data
         {
-            public Type Type;
-            public string Title;
-            public string[] Creators;
+            public Type Type = Type.None;
+            public string Title = string.Empty;
+            public string[] Creators = new string[0];
             public SerializableDateTime PublicationDate;
-            public float Price;
-            public ushort Quantity;
-            public string Description;
-            public string[] Genres;
-            public string Format;
+            public float Price = 0;
+            public ushort Quantity = 0;
+            public string Description = string.Empty;
+            public string[] Genres = new string[0];
+            public string Format = string.Empty;
             public bool HasStreamer = false;
-            public ushort SoldAmount;
-            public ProductReview Review;
+            public ushort SoldAmount = 0;
+            public ProductReview Review = new();
             public SerializableDictionary<Property, string> Properties = new();
 
             public bool IsFree => Price == 0;

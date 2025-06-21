@@ -54,7 +54,7 @@ namespace YNL.JAMOS
         {
             var product = Main.Database.Products[id];
 
-            return product.Description.Replace("#", "\r\n\r\n");
+            return product.Description.Replace("#", "\r\n");
         }
     
         public static string GetStreamFormat(this UID id)
@@ -139,7 +139,7 @@ namespace YNL.JAMOS
         public static string GetOrderCode()
         {
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-            return "JAMOS" + new string(Enumerable.Range(0, 15).Select(_ => chars[UnityEngine.Random.Range(0, chars.Length)]).ToArray());
+            return "JAMOS" + new string(Enumerable.Range(0, 10).Select(_ => chars[UnityEngine.Random.Range(0, chars.Length)]).ToArray());
         }
     
         public static Type GetGenreType(this Product.Type type)
