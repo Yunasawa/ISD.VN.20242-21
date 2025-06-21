@@ -6,13 +6,14 @@ namespace YNL.JAMOS
     [Serializable]
     public class SerializableDateTime : IComparable<SerializableDateTime>
     {
-        [SerializeField] private string _dateTimeString;
-
+        public string Value => _dateTimeString;
         public DateTime DateTime
         {
             get => DateTime.Parse(_dateTimeString);
-            set => _dateTimeString = value.ToString("MM/dd/yyyy");
+            set => _dateTimeString = value.ToString("dd/MM/yyyy");
         }
+
+        [SerializeField] private string _dateTimeString;
 
         public SerializableDateTime(DateTime dateTime)
         {

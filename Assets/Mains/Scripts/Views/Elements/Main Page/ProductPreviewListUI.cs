@@ -12,7 +12,7 @@ namespace YNL.JAMOS
 
     public class ProductPreviewListUI : VisualElement, IRefreshable
     {
-        private const string _rootClass = "hotel-preview-list";
+        private const string _rootClass = "product-preview-list";
         private const string _labelFieldClass = _rootClass + "__label-field";
         private const string _labelClass = _rootClass + "__label";
         private const string _seeMoreButtonClass = _rootClass + "__see-more-button";
@@ -28,7 +28,7 @@ namespace YNL.JAMOS
         public ProductPreviewListUI(PreviewListFilterType type, bool isMini = false)
         {
             this.AddStyle(Main.Resources.Styles["StyleVariableUI"]);
-            this.AddStyle(Main.Resources.Styles["HotelPreviewListUI"]);
+            this.AddStyle(Main.Resources.Styles["ProductPreviewListUI"]);
             this.AddClass(_rootClass);
 
             _labelField = new VisualElement().AddClass(_labelFieldClass);

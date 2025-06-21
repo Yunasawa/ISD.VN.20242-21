@@ -12,7 +12,9 @@ namespace YNL.JAMOS
             NumberOfPage,
 
             Album,
-            Duration
+            Duration,
+
+            Studio
         }
 
         [System.Serializable]

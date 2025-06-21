@@ -1,10 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
-using Unity.Jobs.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.UIElements;
 using YNL.Utilities.Addons;
+using YNL.Utilities.Extensions;
 
 namespace YNL.JAMOS
 {
@@ -12,15 +13,18 @@ namespace YNL.JAMOS
     {
         private SerializableDictionary<UID, Product.Data> _products => Main.Database.Products;
 
+        private GenreTypeField _genreTypeField;
+        private PropertyField _propertyField;
+
         private Texture2D _productImage;
         private string _productName;
         private string _productCreators;
         private Product.Type _productType;
-        private string _productGenres;
+        private ushort _productGenres;
         private string _productDescription;
         private float _productPrice;
         private int _productStock;
-        private DateTime _publicationDate;
+        private string _publicationDate;
         private Dictionary<Product.Property, string> _propertyInputs = new();
 
         protected override void Collect()
@@ -28,13 +32,18 @@ namespace YNL.JAMOS
             var scrollContainer = Root.Q("MainScroll").Q("unity-content-container");
 
             var informationField = scrollContainer.Q("InformationField");
-            var nameInput = informationField.Q("DetailField").Q("NameField").Q<TextField>("Input");
+            var nameInput = informationField.Q("InputField").Q("NameField").Q<TextField>("Input");
             nameInput.RegisterValueChangedCallback(OnValueChanged_NameInput);
-            var creatorsInput = informationField.Q("DetailField").Q("CreatorsField").Q<TextField>("Input");
+            var creatorsInput = informationField.Q("InputField").Q("CreatorsField").Q<TextField>("Input");
             creatorsInput.RegisterValueChangedCallback(OnValueChanged_CreatorsInput);
 
             var detailField = scrollContainer.Q("DetailField");
-
+            var productTypeField = new ProductTypeField(detailField.Q("TypeField"));
+            productTypeField.OnTypeSelected = OnTypeSelected;
+            _genreTypeField = new(detailField.Q("GenreField"));
+            _genreTypeField.OnGenreSelected = OnGenreSelected;
+            var dateInput = detailField.Q("DateField").Q<TextField>("Input");
+            dateInput.RegisterValueChangedCallback(OnValueChanged_DateInput);
             var descriptionInput = detailField.Q("DescriptionField").Q<TextField>("Input");
             descriptionInput.RegisterValueChangedCallback(OnValueChanged_DescriptionInput);
 
@@ -43,6 +52,9 @@ namespace YNL.JAMOS
             priceInput.RegisterValueChangedCallback(OnValueChanged_PriceInput);
             var stockInput = storeField.Q("StockField").Q<IntegerField>("Input");
             stockInput.RegisterValueChangedCallback(OnvalueChanged_StockInput);
+
+            _propertyField = new(scrollContainer.Q("PropertyField"));
+            _propertyField.OnPropertyChanged = OnPropertyChanged;
 
             var bottomField = Root.Q("BottomField");
             var cancelButton = bottomField.Q<Button>("CancelButton");
@@ -53,16 +65,18 @@ namespace YNL.JAMOS
             addButton.clicked += OnClicked_AddButton;
         }
 
-        protected override void Initialize()
+        protected override void Refresh()
         {
             _productImage = null;
-            _productName = "...";
-            _productCreators = "...";
+            _productName = string.Empty;
+            _productCreators = string.Empty;
             _productType = Product.Type.None;
-            _productGenres = "...";
+            _productGenres = 0;
+            _publicationDate = string.Empty;
             _productDescription = string.Empty;
             _productPrice = 0.0f;
             _productStock = 0;
+            _propertyInputs = new();
         }
 
         private void OnValueChanged_NameInput(ChangeEvent<string> evt)
@@ -73,6 +87,11 @@ namespace YNL.JAMOS
         private void OnValueChanged_CreatorsInput(ChangeEvent<string> evt)
         {
             _productCreators = evt.newValue;
+        }
+
+        private void OnValueChanged_DateInput(ChangeEvent<string> evt)
+        {
+            _publicationDate = evt.newValue.Trim();
         }
 
         private void OnValueChanged_DescriptionInput(ChangeEvent<string> evt)
@@ -90,6 +109,35 @@ namespace YNL.JAMOS
             _productStock = evt.newValue;
         }
 
+        private void OnTypeSelected(Product.Type type)
+        {
+            _productType = type;
+
+            _genreTypeField.RecreateGenreItems(type);
+            _propertyField.RecreatePropertyItems(type);
+        }
+
+        private void OnGenreSelected(bool isSelected, ushort genre)
+        {
+            if (isSelected)
+            {
+                _productGenres |= genre;
+            }
+            else
+            {
+                _productGenres &= (ushort)~genre;
+            }
+
+            MDebug.Log(_productGenres);
+        }
+
+        private void OnPropertyChanged(Product.Property property, string value)
+        {
+            _propertyInputs[property] = value;
+
+            MDebug.Log($"{property}: {value}");
+        }
+
         private void OnClicked_CancelButton()
         {
             Initialize();
@@ -103,20 +151,22 @@ namespace YNL.JAMOS
 
         private void OnClicked_AddButton()
         {
-            var productDate = new Product.Data();
-            productDate.Type = _productType;
-            productDate.Title = _productName;
-            productDate.Creators = _productCreators.Split(",").Select(s => s.Trim()).ToArray();
-            productDate.Description = _productDescription;
-            productDate.Price = _productPrice;
-            productDate.Quantity = (ushort)_productStock;
+            var productData = new Product.Data();
+            productData.Type = _productType;
+            productData.Title = _productName;
+            productData.Genres = _productType.GetProductGenresString(_productGenres);
+            productData.Creators = _productCreators.Split(",").Select(s => s.Trim()).ToArray();
+            productData.PublicationDate = new(DateTime.ParseExact(_publicationDate, "dd/MM/yyyy", CultureInfo.InvariantCulture));
+            productData.Description = _productDescription;
+            productData.Price = _productPrice;
+            productData.Quantity = (ushort)_productStock;
 
-            _products.Add(_products.Count, productDate);
-        }
+            foreach (var property in _propertyInputs)
+            {
+                productData.Properties.Add(property.Key, property.Value);
+            }
 
-        private void OnPropertyChanged(Product.Property property, string value)
-        {
-            _propertyInputs[property] = value;
+            _products.Add((int)_productType * 10000000 + _products.Count, productData);
         }
     }
 }

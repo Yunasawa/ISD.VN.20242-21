@@ -1,22 +1,22 @@
-.hotel-preview-item
+.product-preview-item
 {
 	overflow: hidden;
 	width: 450px;
 	margin: 0px 0px 0px 50px;
 	border-radius: 20px;
 }
-.hotel-preview-item.mini
+.product-preview-item.mini
 {
 	width: 400px;
 }
 
-.hotel-preview-item__preview-image
+.product-preview-item__preview-image
 {
 	height: 625px;
 	-unity-background-scale-mode: scale-and-crop;
 }
 
-.hotel-preview-item__product-type
+.product-preview-item__product-type
 {
 	position: absolute;
 	top: 20px;
@@ -28,7 +28,7 @@
 	border-radius: 15px;
 }
 
-.hotel-preview-item__product-icon
+.product-preview-item__product-icon
 {
 	align-self: center;
 	width: 45px;
@@ -37,7 +37,7 @@
 	-unity-background-scale-mode: scale-to-fit;
 }
 
-.hotel-preview-item__product-duration
+.product-preview-item__product-duration
 {
 	position: absolute;
 	right: 20px;
@@ -54,7 +54,7 @@
 	border-radius: 15px;
 }
 
-.hotel-preview-item__preview-info
+.product-preview-item__preview-info
 {
 	flex-grow: 1;
 	padding: 0px 20px 20px 20px;
@@ -66,7 +66,7 @@
 	border-bottom-left-radius: 20px;
 }
 
-.hotel-preview-item__name-label
+.product-preview-item__name-label
 {
 	overflow: hidden;
 	height: 50px;
@@ -80,14 +80,14 @@
 	text-overflow: ellipsis;
 }
 
-.hotel-preview-item__creator-field
+.product-preview-item__creator-field
 {
 	flex-direction: row;
 	height: 40px;
 	margin: 10px 0px 10px 0px;
 }
 
-.hotel-preview-item__creator-icon
+.product-preview-item__creator-icon
 {
 	width: 35px;
 	height: 100%;
@@ -95,7 +95,7 @@
 	-unity-background-scale-mode: scale-to-fit;
 }
 
-.hotel-preview-item__creator-text
+.product-preview-item__creator-text
 {
 	flex-grow: 1;
 	margin: 0px 0px 0px 5px;
@@ -106,18 +106,18 @@
 	-unity-text-align: middle-left;
 }
 
-.hotel-preview-item__space
+.product-preview-item__space
 {
 	flex-grow: 1;
 }
 
-.hotel-preview-item__price-field
+.product-preview-item__price-field
 {
 	flex-direction: row;
 	height: 40px;
 }
 
-.hotel-preview-item__price-text
+.product-preview-item__price-text
 {
 	flex-grow: 1;
 	margin: 0px;
@@ -128,13 +128,13 @@
 	-unity-text-align: middle-left;
 }
 
-.hotel-preview-item__rating-field
+.product-preview-item__rating-field
 {
 	flex-direction: row;
 	height: 40px;
 }
 
-.hotel-preview-item__rating-icon
+.product-preview-item__rating-icon
 {
 	width: 30px;
 	margin: 0px 0px 5px 0px;
@@ -143,7 +143,7 @@
 	-unity-background-scale-mode: scale-to-fit;
 }
 
-.hotel-preview-item__rating-text
+.product-preview-item__rating-text
 {
 	margin: 0px 0px 0px 5px;
 	padding: 0px;
@@ -153,7 +153,7 @@
 	-unity-text-align: middle-left;
 }
 
-.hotel-preview-item__discount-field
+.product-preview-item__discount-field
 {
 	overflow: hidden;
 	flex-direction: row;
@@ -164,14 +164,14 @@
 	border-radius: 10px;
 }
 
-.hotel-preview-item__discount-frame
+.product-preview-item__discount-frame
 {
 	width: 100px;
 	background-image: var(--image-discount-frame);
 	-unity-background-image-tint-color: #FED1A7;
 }
 
-.hotel-preview-item__discount-amount
+.product-preview-item__discount-amount
 {
 	height: 100%;
 	margin: 0px 20px 0px 0px;
@@ -183,7 +183,7 @@
 	-unity-text-align: middle-center;
 }
 
-.hotel-preview-item__discount-text
+.product-preview-item__discount-text
 {
 	flex-grow: 1;
 	margin: 0px;

@@ -1,4 +1,5 @@
 using System;
+using YNL.JAMOS;
 
 namespace YNL.JAMOS
 {

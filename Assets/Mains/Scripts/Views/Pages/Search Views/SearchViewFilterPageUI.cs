@@ -167,7 +167,7 @@ namespace YNL.JAMOS
         {
             _productGenreField.Clear();
 
-            foreach (var genre in _selectedProductType.GetProductGenreList())
+            foreach (var genre in _selectedProductType.GetAllProductGenreString())
             {
                 var item = new ProductGenreItemUI(genre, _filteredGenres);
                 _productGenreField.Add(item);

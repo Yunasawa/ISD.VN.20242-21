@@ -10,6 +10,8 @@ using YNL.Utilities.Extensions;
 
 namespace YNL.JAMOS
 {
+    using PP = Product.Property;
+
     public static partial class Function
     {
         private static SerializableDictionary<UID, Product.Data> _products => Main.Database.Products;
@@ -89,7 +91,7 @@ namespace YNL.JAMOS
             };
         }
     
-        public static string[] GetProductGenreList(this Product.Type type)
+        public static string[] GetAllProductGenreString(this Product.Type type)
         {
             return type switch
             {
@@ -101,7 +103,28 @@ namespace YNL.JAMOS
                 _ => null
             };
         }
-    
+
+        public static string[] GetProductGenresString(this Product.Type type, ushort genreValue)
+        {
+            var genreType = type.GetGenreType();
+            if (genreType == null)
+            {
+                return Array.Empty<string>();
+            }
+
+            var genres = Enum.GetValues(genreType)
+                .Cast<Enum>()
+                .Where(flag =>
+                {
+                    var flagValue = Convert.ToUInt16(flag);
+                    return flagValue != 0 && (genreValue & flagValue) == flagValue;
+                })
+                .Select(flag => flag.ToString())
+                .ToArray();
+
+            return genres;
+        }
+
         public static float GetAverageCharge(this DeliveryType type)
         {
             return type switch
@@ -117,6 +140,29 @@ namespace YNL.JAMOS
         {
             const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
             return "JAMOS" + new string(Enumerable.Range(0, 15).Select(_ => chars[UnityEngine.Random.Range(0, chars.Length)]).ToArray());
+        }
+    
+        public static Type GetGenreType(this Product.Type type)
+        {
+            return type switch
+            {
+                Product.Type.Book => typeof(BookGenre),
+                Product.Type.CD => typeof(MusicGenre),
+                Product.Type.DVD => typeof(MovieGenre),
+                Product.Type.LP => typeof(MusicGenre),
+                _ => null
+            };
+        }
+    
+        public static PP[] GetProductProperties(this Product.Type type)
+        {
+            return type switch
+            {
+                Product.Type.Book => new PP[] { PP.Language, PP.NumberOfPage },
+                Product.Type.CD => new PP[] { PP.Album, PP.Duration },
+                Product.Type.DVD => new PP[] { PP.Studio },
+                _ => new PP[0]
+            };
         }
     }
 }

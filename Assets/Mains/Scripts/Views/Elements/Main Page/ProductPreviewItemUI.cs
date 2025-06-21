@@ -6,7 +6,7 @@ namespace YNL.JAMOS
 {
     public partial class ProductPreviewItemUI : VisualElement, IRefreshable
     {
-        private const string _rootClass = "hotel-preview-item";
+        private const string _rootClass = "product-preview-item";
         private const string _previewImageClass = _rootClass + "__preview-image";
         private const string _productTypeClass = _rootClass + "__product-type";
         private const string _productIconClass = _rootClass + "__product-icon";
@@ -144,7 +144,6 @@ namespace YNL.JAMOS
         {
             Main.Runtime.SelectedProduct = _uid;
             Marker.OnPageNavigated?.Invoke(ViewType.InformationViewMainPage, true, true);
-            Marker.OnHotelFacilitiesDisplayed?.Invoke(_uid);
         }
     }
 }

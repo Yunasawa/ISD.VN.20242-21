@@ -116,7 +116,7 @@ MonoBehaviour:
     - StyleVariableUI
     - ProductPreviewItemUI
     - HomeNavigationButtonUI
-    - HotelPreviewListUI
+    - ProductPreviewListUI
     - TimePointButtonUI
     - TogglePropertyItemUI
     - SearchingResultItemUI
@@ -131,6 +131,9 @@ MonoBehaviour:
     - ProductOrderItemUI
     - ProductGenreItemUI
     - MessageListItemUI
+    - GenreTypeItemUI
+    - ProductTypeItemUI
+    - PropertyInputFieldUI
     _values:
     - {fileID: 7433441132597879392, guid: 49e6911f502a4884986b052a537ff52e, type: 3}
     - {fileID: 7433441132597879392, guid: 36fe24511262ddf46aef91b541fe8395, type: 3}
@@ -150,3 +153,11 @@ MonoBehaviour:
     - {fileID: 7433441132597879392, guid: 17b6a6d9f8c2ced47bcd97a19429f57a, type: 3}
     - {fileID: 7433441132597879392, guid: 910cefb1beb0d5345bb9a8dbe12868ec, type: 3}
     - {fileID: 7433441132597879392, guid: 4ca3381c80376ba48859fc874c6042dd, type: 3}
+    - {fileID: 7433441132597879392, guid: 918fcda9c4477af4c8682e777f2ca154, type: 3}
+    - {fileID: 7433441132597879392, guid: b442cbc133ea25a4eb8b68d279b53e50, type: 3}
+    - {fileID: 7433441132597879392, guid: 453dfe4c6927a8d4492a8c587d6847f6, type: 3}
+  Fonts:
+    _keys:
+    - Nunito
+    _values:
+    - {fileID: 11400000, guid: 999150e03acf5b941a2f08bde59b51ae, type: 2}

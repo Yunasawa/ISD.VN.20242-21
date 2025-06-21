@@ -84,5 +84,19 @@ namespace YNL.JAMOS
         {
             return price.ToString("0.00", CultureInfo.InvariantCulture);
         }
+
+        public static string ToGenreText(this Product.Type type, ushort genre)
+        {
+            Type enumType = type switch
+            {
+                Product.Type.Book => typeof(BookGenre),
+                Product.Type.CD => typeof(MusicGenre),
+                Product.Type.DVD => typeof(MovieGenre),
+                _ => throw new ArgumentOutOfRangeException(nameof(type), $"Unsupported product type: {type}")
+            };
+
+            object enumValue = Enum.ToObject(enumType, genre);
+            return enumValue.ToString();
+        }
     }
 }

@@ -42,5 +42,5 @@
 .list-view > * > * > * > .unity-list-view__empty-label {
 }
 
-.chat-field > * > .unity-text-element {
+.white-caret {
 }

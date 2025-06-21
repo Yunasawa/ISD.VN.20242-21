@@ -11,6 +11,9 @@ namespace YNL.JAMOS
         private const string _rootClass = "property-input-field";
         private const string _labelClass = _rootClass + "__label";
         private const string _inputClass = _rootClass + "__input";
+        private const string _firstClass = "first";
+
+        private TextField _inputField;
 
         private Product.Property _property;
 
@@ -24,8 +27,21 @@ namespace YNL.JAMOS
 
             var label = new Label(property.ToString().AddSpace()).AddClass(_labelClass);
 
-            var input = new TextField(string.Empty).AddClass(_inputClass);
-            input.RegisterValueChangedCallback(OnValueChanged_Input);
+            _inputField = new TextField(string.Empty).AddClass(_inputClass);
+            _inputField.textEdition.placeholder = "...";
+            _inputField.RegisterValueChangedCallback(OnValueChanged_Input);
+
+            this.AddElements(label, _inputField);
+        }
+
+        public void SetValue(string value)
+        {
+            _inputField.SetValueWithoutNotify(value);
+        }
+
+        public void SetAsFirstItem()
+        {
+            this.EnableClass(_firstClass);
         }
 
         private void OnValueChanged_Input(ChangeEvent<string> evt)
