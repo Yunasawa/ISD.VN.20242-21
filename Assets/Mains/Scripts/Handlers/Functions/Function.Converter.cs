@@ -98,5 +98,11 @@ namespace YNL.JAMOS
             object enumValue = Enum.ToObject(enumType, genre);
             return enumValue.ToString();
         }
+
+        public static uint ToVND(this float usd)
+        {
+            var rate = 26128.50f;
+            return (uint)(rate * usd);
+        }
     }
 }
