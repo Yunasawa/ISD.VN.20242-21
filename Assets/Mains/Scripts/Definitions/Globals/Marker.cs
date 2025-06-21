@@ -27,5 +27,7 @@ namespace YNL.JAMOS
         public static Action<string> OnOrderCodeCreated { get; set; }
 
         public static Action<UID> OnProductUpdatingRequested { get; set; }
+        public static Action<UID> OnChatBoxOpened { get; set; }
+        public static Action<string, uint> OnPaymentRequested { get; set; }
     }
 }

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Data:
     AccountID:
-      _id: 1
+      _id: 0
     LikedFeedbacks:
       _keys: []
       _values: []
@@ -36,12 +36,6 @@ MonoBehaviour:
           Message: I have some problem with the CDs I ordered 2 days ago
         - Type: 1
           Message: What problem?
-        - Type: 0
-          Message: aaasdasd
-        - Type: 0
-          Message: sdasd
-        - Type: 0
-          Message: hi there!!!
     Orders:
       _keys: []
       _values: []
@@ -49,7 +43,7 @@ MonoBehaviour:
   SearchingProductType: 0
   SearchingInput: 
   SelectedProduct:
-    _id: 20000000
+    _id: 10000000
   SearchingGenre: 
   OrderedAmounts:
     _keys:
@@ -57,5 +51,3 @@ MonoBehaviour:
     - _id: 10000000
     _values: 0500000005000000
   Discount: 0
-  SelectedDeliveryType: 0
-  SelectedSortType: 0
