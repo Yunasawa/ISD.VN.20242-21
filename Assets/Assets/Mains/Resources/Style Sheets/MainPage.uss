@@ -1,0 +1,176 @@
+.search-input > .unity-base-text-field__input {
+    background-color: rgba(0, 0, 0, 0);
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    --unity-cursor-color: var(--color-contrast-solid);
+    color: rgb(255, 255, 255);
+}
+
+.frame-border {
+    border-left-color: rgb(115, 115, 115);
+    border-right-color: rgb(115, 115, 115);
+    border-top-color: rgb(115, 115, 115);
+    border-bottom-color: rgb(115, 115, 115);
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-bottom-width: 2px;
+    border-left-width: 2px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.price-range-slider > * > * {
+    height: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    background-color: rgb(55, 55, 55);
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+}
+
+.price-range-slider > * > * > * {
+    height: 75px;
+    width: 75px;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    background-color: rgb(41, 41, 41);
+    border-top-width: 3px;
+    border-right-width: 3px;
+    border-bottom-width: 3px;
+    border-left-width: 3px;
+    border-left-color: rgb(222, 249, 93);
+    border-right-color: rgb(222, 249, 93);
+    border-top-color: rgb(222, 249, 93);
+    border-bottom-color: rgb(222, 249, 93);
+    -unity-background-image-tint-color: rgb(222, 249, 93);
+    background-size: 50% 50%;
+    rotate: 90deg;
+    background-image: resource('Icons/Menu');
+}
+
+.price-range-slider > * > .unity-min-max-slider__dragger {
+    background-color: rgb(222, 249, 93);
+    justify-content: center;
+    height: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.search-page-label {
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 20px;
+    padding-bottom: 0;
+    padding-left: 0;
+    -unity-font-definition: resource('Fonts/SDFs/Nunito/Nunito-Regular SDF');
+    color: rgb(255, 255, 255);
+    -unity-font-style: normal;
+    font-size: 50px;
+}
+
+.background-transition {
+    transition-property: background-color;
+    transition-duration: 0.4s;
+}
+
+.popup-page-transition {
+    transition-property: translate;
+    transition-duration: 0.4s;
+    transition-timing-function: ease-out-cubic;
+}
+
+.input-field {
+    --unity-cursor-color: var(--color-contrast-solid);
+}
+
+.music-stream-slider > * > * > .unity-base-slider__tracker {
+    background-color: rgba(222, 249, 93, 0.25);
+    height: 10px;
+    margin-top: -5px;
+}
+
+.music-stream-slider > * > * > .unity-base-slider__dragger {
+    background-color: rgb(222, 249, 93);
+    height: 35px;
+    width: 35px;
+    border-top-left-radius: 17.5px;
+    border-top-right-radius: 17.5px;
+    border-bottom-right-radius: 17.5px;
+    border-bottom-left-radius: 17.5px;
+    margin-top: -17.5px;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+}
+
+.list-view > * > * > * > .unity-list-view__empty-label {
+    display: none;
+}
+
+.label-field {
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    -unity-font-definition: resource('Fonts/SDFs/Nunito/Nunito-Regular SDF');
+    color: rgb(255, 255, 255);
+    font-size: 50px;
+}
+
+.chat-field > * > .unity-text-element {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.chat-field > .unity-text-field__input {
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(255, 255, 255);
+    font-size: 40px;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    -unity-font-definition: resource('Fonts/SDFs/Nunito/Nunito-Regular SDF');
+    -unity-text-align: upper-left;
+}
+
+.float-field > * > .unity-text-element {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.float-field > .unity-base-field__input {
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(255, 255, 255);
+    font-size: 40px;
+    border-top-width: 0;
+    border-right-width: 0;
+    border-bottom-width: 0;
+    border-left-width: 0;
+    -unity-font-definition: resource('Fonts/SDFs/Nunito/Nunito-Regular SDF');
+    -unity-text-align: upper-left;
+}
