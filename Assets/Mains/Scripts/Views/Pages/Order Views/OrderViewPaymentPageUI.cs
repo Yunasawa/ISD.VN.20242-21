@@ -40,17 +40,20 @@ namespace YNL.JAMOS
         private PaymentMethod _selectedMethod;
         private DeliveryType _selectedDeliveryType = DeliveryType.Normal;
         private float _totalPrice;
+        private Dictionary<DeliveryType, float> _deliveryCharges = new();
 
         protected override void VirtualAwake()
         {
             PaymentMethodItem.OnSelected += OnPaymentMethodSelected;
-            OrderViewDeliveryPageUI.DeliveryField.OnSelected += OnDeliveryFieldSelected;
+            Marker.OnDeliveryTypeSelected += OnDeliveryFieldSelected;
+            Marker.OnNewOrderRequested += OnNewOrderRequested;
         }
 
         private void OnDestroy()
         {
             PaymentMethodItem.OnSelected -= OnPaymentMethodSelected;
-            OrderViewDeliveryPageUI.DeliveryField.OnSelected -= OnDeliveryFieldSelected;
+            Marker.OnDeliveryTypeSelected -= OnDeliveryFieldSelected;
+            Marker.OnNewOrderRequested -= OnNewOrderRequested;
         }
 
         protected override void Collect()
@@ -110,15 +113,25 @@ namespace YNL.JAMOS
 
         protected override void Initialize()
         {
+            foreach (DeliveryType type in Enum.GetValues(typeof(DeliveryType)))
+            {
+                _deliveryCharges[type] = 0;
+            }
+
             _paymentMethodItems[PaymentMethod.CashOnDelivery].OnClicked_MethodField();
         }
 
         protected override void Refresh()
         {
+            var account = Main.Database.Accounts[Main.Runtime.Data.AccountID];
+            _nameText.SetText(account.Name);
+            _phoneNumberText.SetText(account.PhoneNumber);
+            _addressText.SetText($"{account.Address.Address}, {account.Address.City}");
+
             _productList.RebuildListView(_cartedProducts);
 
             _deliveryTypeLabel.SetText($"{_selectedDeliveryType} Delivery");
-            _deliveryPriceLabel.SetText($"<color=#909090><s>$12.39</s></color> <b>$10.39</b>");
+            _deliveryPriceLabel.SetText($"<b>${_deliveryCharges[_selectedDeliveryType]:0.00}</b>");
             _deliveryTypeIcon.SetBackgroundImage(Main.Resources.Icons[$"{_selectedDeliveryType} Delivery"]);
             _deliveryNoteLabel.SetText("Guaranteed delivery from <b>May 18</b> to <b>May 19</b>.");
 
@@ -162,7 +175,10 @@ namespace YNL.JAMOS
             Marker.OnOrderCodeCreated?.Invoke(code);
 
             var vndPrice = _totalPrice.ToVND();
-            Marker.OnPaymentRequested?.Invoke(code, vndPrice);
+            if (_selectedMethod == PaymentMethod.VNPay)
+            {
+                Marker.OnVNPayPaymentRequested?.Invoke(code, vndPrice);
+            }
         }
 
         private void OnPaymentMethodSelected(PaymentMethod method)
@@ -173,6 +189,17 @@ namespace YNL.JAMOS
         private void OnDeliveryFieldSelected(DeliveryType type)
         {
             _selectedDeliveryType = type;
+        }
+
+        private void OnNewOrderRequested()
+        {
+            foreach (DeliveryType type in Enum.GetValues(typeof(DeliveryType)))
+            {
+                _deliveryCharges[type] = type.GetAverageCharge();
+            }
+            Marker.OnDeliveryChargeCalculated?.Invoke(_deliveryCharges);
+
+            _deliveryPriceLabel.SetText($"<b>${_deliveryCharges[_selectedDeliveryType]:0.00}</b>");
         }
     }
 }

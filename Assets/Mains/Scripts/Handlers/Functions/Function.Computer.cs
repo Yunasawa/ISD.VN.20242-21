@@ -129,9 +129,9 @@ namespace YNL.JAMOS
         {
             return type switch
             {
-                DeliveryType.Normal => UnityEngine.Random.Range(5f, 10f),
-                DeliveryType.Fast => UnityEngine.Random.Range(10f, 20f),
-                DeliveryType.Rush => UnityEngine.Random.Range(20f, 30f),
+                DeliveryType.Normal => UnityEngine.Random.Range(2f, 7f),
+                DeliveryType.Fast => UnityEngine.Random.Range(7f, 15f),
+                DeliveryType.Rush => UnityEngine.Random.Range(15f, 30f),
                 _ => 0
             };
         }
@@ -162,6 +162,17 @@ namespace YNL.JAMOS
                 Product.Type.CD => new PP[] { PP.Album, PP.Duration },
                 Product.Type.DVD => new PP[] { PP.Studio },
                 _ => new PP[0]
+            };
+        }
+    
+        public static short GetDeliveryTime(this DeliveryType type)
+        {
+            return type switch
+            {
+                DeliveryType.Normal => (short)UnityEngine.Random.Range(3, 7),
+                DeliveryType.Fast => (short)UnityEngine.Random.Range(1, 3),
+                DeliveryType.Rush => (short)UnityEngine.Random.Range(0, 1),
+                _ => 0
             };
         }
     }

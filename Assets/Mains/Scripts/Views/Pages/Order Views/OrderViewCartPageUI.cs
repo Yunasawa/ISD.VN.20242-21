@@ -73,6 +73,7 @@ namespace YNL.JAMOS
 
         private void OnClicked_PurchaseButton()
         {
+            Marker.OnNewOrderRequested?.Invoke();
             Marker.OnPageNavigated?.Invoke(ViewType.OrderViewPaymentPage, true, true);
         }
 

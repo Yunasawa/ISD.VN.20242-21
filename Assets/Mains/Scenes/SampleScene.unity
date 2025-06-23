@@ -545,7 +545,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &307309652
 Transform:
   m_ObjectHideFlags: 0
@@ -592,7 +592,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8889c9efde13c1349abd4cf088e230f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hideOnAwake: 1
+  _hideOnAwake: 0
   _isPopupPage: 0
 --- !u!1 &342035975
 GameObject:
@@ -856,7 +856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24b694079abd5784dad73f130e5a583f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hideOnAwake: 0
+  _hideOnAwake: 1
   _isPopupPage: 0
 --- !u!1 &561081505
 GameObject:
@@ -2083,7 +2083,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1401361673
 Transform:
   m_ObjectHideFlags: 0
@@ -2215,7 +2215,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1447683399
 Transform:
   m_ObjectHideFlags: 0
@@ -2243,7 +2243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8b656282b6d43a4c8eaddc4d72dc6bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hideOnAwake: 0
+  _hideOnAwake: 1
   _isPopupPage: 0
 --- !u!114 &1447683401
 MonoBehaviour:
@@ -2538,7 +2538,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4727e4e14e32c0b45996e4e2ed75781f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  URL: https://raw.githubusercontent.com/Yunasawa200/CHECKOTEL-Storage/refs/heads/main/CHECKOTEL/Databases/Hotel.csv
+  _address: {fileID: 4900000, guid: d8679035f24c4dd4b801f283fd3ecbd4, type: 3}
+  _database: {fileID: 11400000, guid: 2ec674616a7292541ae5152fe9022406, type: 2}
 --- !u!114 &1752374921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2793,7 +2794,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad486bb48dbe70c4da6caadda1e33671, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hideOnAwake: 0
+  _hideOnAwake: 1
   _isPopupPage: 0
 --- !u!114 &2020904539
 MonoBehaviour:
