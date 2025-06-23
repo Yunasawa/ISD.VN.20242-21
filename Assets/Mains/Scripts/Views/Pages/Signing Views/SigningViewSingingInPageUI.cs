@@ -1,5 +1,7 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
+using YNL.Utilities.UIToolkits;
 
 namespace YNL.JAMOS
 {
@@ -15,6 +17,13 @@ namespace YNL.JAMOS
 
         private VisualElement _signInWithFacebookButton;
         private VisualElement _signInWithGoogleButton;
+
+        private VisualElement _switchLabel;
+
+        private string _accountInput;
+        private string _passwordInput;
+        private bool _validAccountInput;
+        private bool _validPasswordInput;
 
         protected override void Collect()
         {
@@ -41,16 +50,38 @@ namespace YNL.JAMOS
 
             _recoveryButton = signingInputField.Q("RecoveryButton");
             _recoveryButton.RegisterCallback<PointerUpEvent>(RecoveryAccount);
+
+            _switchLabel = Root.Q("SwitchLabel");
+            _switchLabel.RegisterCallback<PointerUpEvent>(OnClicked_SwitchLabel);
+        }
+
+        protected override void Initialize()
+        {
+            _accountMessage.SetText(string.Empty);
+            _passwordMessage.SetText(string.Empty);
         }
 
         private void OnValueChanged_AccountInputField(ChangeEvent<string> evt)
         {
+            _accountInput = evt.newValue;
 
+            _accountMessage.SetText(string.Empty);
+
+            if (_accountInput == string.Empty) return;
         }
 
         private void OnValueChanged_PasswordInputField(ChangeEvent<string> evt)
         {
+            _passwordInput = evt.newValue;
 
+            _passwordMessage.SetText(string.Empty);
+
+            if (_passwordInput == string.Empty) return;
+        }
+
+        private void OnClicked_SwitchLabel(PointerUpEvent evt)
+        {
+            Marker.OnPageNavigated?.Invoke(ViewType.SigningViewSignUpPage, true, false);
         }
 
         private void SigningWithFacebook(PointerUpEvent evt)
@@ -65,7 +96,31 @@ namespace YNL.JAMOS
 
         private void SigningAccount()
         {
+            var existedEmailAccount = Main.Database.Accounts.Values.Any(i => i.Email == _accountInput);
+            var existedPhoneAccount = Main.Database.Accounts.Values.Any(i => i.PhoneNumber == _accountInput);
 
+            if (!existedEmailAccount && !existedPhoneAccount)
+            {
+                _accountMessage.SetText("This email or phone number is not registered yet");
+                return;
+            }
+
+            var account = Main.Database.Accounts.Values.FirstOrDefault(i => i.Email == _accountInput || i.PhoneNumber == _accountInput);
+
+            if (_passwordInput != account.Password)
+            {
+                _passwordMessage.SetText("Incorrect password! Please check again.");
+                return;
+            }
+
+            if (account.Type == AccountType.Customer)
+            {
+                Marker.OnPageNavigated?.Invoke(ViewType.MainViewHomePage, true, true);
+            }
+            else
+            {
+                Marker.OnPageNavigated?.Invoke(ViewType.ManagerViewProductPage, true, true);
+            }
         }
 
         private void RecoveryAccount(PointerUpEvent evt)
