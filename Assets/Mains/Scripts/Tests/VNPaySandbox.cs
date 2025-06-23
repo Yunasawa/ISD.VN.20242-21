@@ -16,12 +16,12 @@ public class VNPayTest : MonoBehaviour
 
     private void Awake()
     {
-        Marker.OnPaymentRequested += OnPaymentRequested;
+        Marker.OnVNPayPaymentRequested += OnPaymentRequested;
     }
 
     private void OnDestroy()
     {
-        Marker.OnPaymentRequested -= OnPaymentRequested;
+        Marker.OnVNPayPaymentRequested -= OnPaymentRequested;
     }
 
     public void OpenVNPayPage(string code, uint price)

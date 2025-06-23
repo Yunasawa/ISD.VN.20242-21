@@ -28,7 +28,7 @@
                 </engine:VisualElement>
                 <engine:VisualElement name="NoteField" style="height: 50px; margin-top: 15px; flex-direction: row;">
                     <engine:VisualElement name="Icon" style="background-image: resource(&apos;Icons/Fast Delivery&apos;); height: 50px; width: 40px; -unity-background-scale-mode: scale-to-fit; -unity-background-image-tint-color: rgb(222, 249, 93);" />
-                    <engine:Label text="Guaranteed delivery from &lt;b&gt;May 18&lt;/b&gt; to &lt;b&gt;May 19&lt;/b&gt;." name="Note" class="label-field" style="font-size: 30px; margin-left: 10px; color: rgb(222, 249, 93); -unity-text-align: middle-left;" />
+                    <engine:Label text="Guaranteed delivery from &lt;b&gt;May 18&lt;/b&gt; to &lt;b&gt;May 19&lt;/b&gt;." name="Note" enabled="true" class="label-field" style="font-size: 30px; margin-left: 10px; color: rgb(222, 249, 93); -unity-text-align: middle-left;" />
                 </engine:VisualElement>
             </engine:VisualElement>
             <engine:VisualElement name="Tick" style="background-image: resource(&apos;Icons/Tick&apos;); -unity-background-scale-mode: scale-to-fit; width: 50px; margin-left: 25px; -unity-background-image-tint-color: rgb(222, 249, 93);" />
@@ -41,7 +41,7 @@
                 </engine:VisualElement>
                 <engine:VisualElement name="NoteField" style="height: 50px; margin-top: 15px; flex-direction: row;">
                     <engine:VisualElement name="Icon" style="background-image: resource(&apos;Icons/Rush Delivery&apos;); height: 50px; width: 40px; -unity-background-scale-mode: scale-to-fit; -unity-background-image-tint-color: rgb(222, 249, 93);" />
-                    <engine:Label text="Guaranteed delivery from &lt;b&gt;May 18&lt;/b&gt; to &lt;b&gt;May 19&lt;/b&gt;." name="Note" class="label-field" style="font-size: 30px; margin-left: 10px; color: rgb(222, 249, 93); -unity-text-align: middle-left;" />
+                    <engine:Label text="&lt;b&gt;Rush Delivery&lt;/b&gt; is only available within &lt;b&gt;Ha Noi&lt;/b&gt;" name="Note" class="label-field" style="font-size: 30px; margin-left: 10px; color: rgb(222, 249, 93); -unity-text-align: middle-left;" />
                 </engine:VisualElement>
             </engine:VisualElement>
             <engine:VisualElement name="Tick" style="background-image: resource(&apos;Icons/Tick&apos;); -unity-background-scale-mode: scale-to-fit; width: 50px; margin-left: 25px; -unity-background-image-tint-color: rgb(222, 249, 93);" />

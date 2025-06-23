@@ -20,7 +20,9 @@ namespace YNL.JAMOS
             private VisualElement _tickIcon;
 
             private DeliveryType _type;
+            private bool _validDelivery = true;
             private bool _isSelected;
+            private float _deliveryCharge;
 
             public DeliveryField(VisualElement field, DeliveryType type)
             {
@@ -33,6 +35,8 @@ namespace YNL.JAMOS
                 _noteLabel = informationField.Q("NoteField").Q<Label>("Note");
                 _tickIcon = field.Q("Tick");
 
+                Initialize();
+
                 OnSelected += UpdateOnSelected;
             }
             ~DeliveryField()
@@ -40,12 +44,50 @@ namespace YNL.JAMOS
                 OnSelected -= UpdateOnSelected;
             }
 
+            private void Initialize()
+            {
+                if (_type != DeliveryType.Rush) return;
+
+                var account = Main.Database.Accounts[Main.Runtime.Data.AccountID];
+                if (account.Address.City != "Ha Noi")
+                {
+                    _validDelivery = false;
+
+                    _field.SetEnabled(false);
+                    _priceLabel.SetText(string.Empty);
+                    _noteLabel.SetText("<b>Rush Delivery</b> is only available within <b>Ha Noi</b>");
+                }
+
+                Refresh();
+            }
+
+            public void Refresh()
+            {
+                if (_validDelivery)
+                {
+                    _priceLabel.SetText($"<b>${_deliveryCharge:0.00}</b>");
+
+                    var fromTime = DateTime.Now.ToString("MMMM dd");
+                    var toTime = DateTime.Now.AddDays(_type.GetDeliveryTime()).ToString("MMMM dd");
+                    _noteLabel.SetText($"Guaranteed delivery from <b>{fromTime}</b> to <b>{toTime}</b>.");
+                }
+            }
+
+            public void ApplyCharge(float charge)
+            {
+                _deliveryCharge = charge;
+            }
+
             public void OnSelected_DeliveryField(PointerUpEvent evt = null)
             {
+                if (_validDelivery == false) return;
+
                 _isSelected = true;
                 UpdateUI();
 
                 OnSelected?.Invoke(_type);
+
+                Marker.OnDeliveryTypeSelected?.Invoke(_type);
             }
 
             private void UpdateOnSelected(DeliveryType type)
