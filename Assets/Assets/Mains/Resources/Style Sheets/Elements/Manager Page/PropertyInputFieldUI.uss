@@ -1,0 +1,44 @@
+.property-input-field
+{
+	margin-top: 75px;
+}
+.property-input-field.first
+{
+	margin-top: 0px;
+}
+
+.property-input-field__label
+{
+	height: 50px;
+	margin: 0px 0px 10px 0px;
+	padding: 0px;
+	-unity-font-definition: var(--font-nunito-regular);
+	-unity-font-style: bold;
+	font-size: 45px;
+	color: var(--color-contrast-solid);
+	-unity-text-align: middle-left;
+}
+
+.property-input-field__input
+{
+	margin: 0px;
+	background-color: var(--color-ground-dark);
+	border-color: var(--color-border-legacy);
+	border-width: 2px;
+	border-radius: 15px;
+    --unity-cursor-color: var(--color-contrast-solid);
+}
+.property-input-field__input > .unity-text-field__input
+{
+	-unity-font-definition: var(--font-nunito-regular);
+	font-size: 40px;
+	color: var(--color-contrast-solid);
+	-unity-text-align: upper-left;
+	background-color: transparent;
+	border-width: 0px;
+}
+.property-input-field__input > * > .unity-text-element
+{
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

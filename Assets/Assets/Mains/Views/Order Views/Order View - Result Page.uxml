@@ -1,0 +1,15 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Mains/Resources/Style%20Sheets/SigningPageStyle.uss?fileID=7433441132597879392&amp;guid=3d898daa5f70b3840a09a6a12403af2c&amp;type=3#SigningPageStyle" />
+    <Style src="project://database/Assets/Mains/Resources/Style%20Sheets/MainPage.uss?fileID=7433441132597879392&amp;guid=1edcbd6233be03248a6afc0041aeffad&amp;type=3#MainPage" />
+    <engine:VisualElement name="ScreenBackground" style="flex-grow: 1; background-color: rgb(41, 41, 41); position: absolute; width: 100%; height: 100%;" />
+    <engine:VisualElement name="InformationField" style="flex-grow: 1; margin-top: 100px; justify-content: center;">
+        <engine:VisualElement name="CrateIcon" style="height: 400px; width: 400px; align-self: center; background-image: resource(&apos;Icons/Crate&apos;); -unity-background-image-tint-color: rgb(222, 249, 93);" />
+        <engine:Label text="Order placed" name="LabelTitle" style="margin-top: 25px; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; -unity-font-definition: url(&quot;project://database/Assets/Mains/Resources/Fonts/SDFs/Nunito/Nunito%20SDF.asset?fileID=11400000&amp;guid=995852a4f5cc55e4e89fa1e7e897eac5&amp;type=2#Nunito SDF&quot;); -unity-font-style: bold; color: rgb(255, 255, 255); -unity-text-align: middle-center; font-size: 100px;" />
+        <engine:Label text="JAMOSX7JQ89M2KZT45WL" name="CodeLabel" class="label-field" style="-unity-text-align: upper-center; color: rgb(222, 249, 93); margin-top: 25px; font-size: 60px;" />
+        <engine:VisualElement name="ButtonField" style="padding-right: 100px; padding-left: 100px; margin-top: 50px; flex-direction: row;">
+            <engine:Button text="Home page" name="HomePageButton" class="label-field" style="background-color: rgb(222, 249, 93); color: rgb(41, 41, 41); -unity-font-style: bold; height: 100px; flex-grow: 1; margin-right: 12.5px; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;" />
+            <engine:Button text="Order page" name="OrderPageButton" class="label-field" style="background-color: rgb(222, 249, 93); color: rgb(41, 41, 41); -unity-font-style: bold; height: 100px; flex-grow: 1; margin-left: 12.5px; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px;" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+    <engine:VisualElement name="Space" style="height: 500px;" />
+</engine:UXML>

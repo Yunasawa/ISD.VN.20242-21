@@ -1,0 +1,49 @@
+145 Le Loi | Hai Phong  
+22 Tran Hung Dao | Nam Dinh  
+87 Nguyen Van Linh | Bac Ninh  
+304 Dien Bien Phu | Thai Nguyen  
+58 Pham Ngu Lao | Ninh Binh  
+90 Quang Trung | Ha Long  
+133 Tran Phu | Bac Giang  
+20 Ngo Quyen | Hai Duong  
+79 Le Thanh Tong | Vinh Phuc  
+11 Bach Dang | Ha Tinh  
+67 Nguyen Trai | Ha Noi  
+211 Xuan Thuy | Ha Noi  
+42 Luong Khanh Thien | Ha Nam  
+96 Nguyen Van Cu | Lang Son  
+25 Tran Quoc Toan | Son La  
+17 Pham Van Dong | Thai Binh  
+101 Hoang Van Thu | Tuyen Quang  
+55 Le Duan | Cao Bang  
+35 Nguyen Huu Tho | Dien Bien  
+73 Chu Van An | Yen Bai  
+64 Hai Ba Trung | Ha Noi  
+88 Kim Ma | Ha Noi  
+29 Tran Phu | Hoa Binh  
+18 Phan Dinh Phung | Bac Kan  
+19 Le Hong Phong | Ha Giang  
+94 Tran Hung Dao | Ha Noi  
+30 Nguyen Luong Bang | Ha Noi  
+49 Lang Street | Ha Noi  
+128 Ton Duc Thang | Hai Phong  
+66 Ly Thuong Kiet | Nam Dinh  
+87 Ho Tung Mau | Bac Ninh  
+111 Tran Nhan Tong | Thai Nguyen  
+47 Nguyen Khuyen | Ninh Binh  
+62 Quang Trung | Ha Long  
+139 Pham Van Dong | Bac Giang  
+10 Le Van Luong | Hai Duong  
+93 Ngo Thi Nham | Vinh Phuc  
+54 Le Dai Hanh | Ha Tinh  
+12 Tran Duy Hung | Ha Noi  
+77 Thai Ha | Ha Noi  
+146 Nguyen Chi Thanh | Ha Noi  
+31 Doi Can | Ha Noi  
+108 Pham Hung | Ha Noi  
+40 Thanh Nien | Ha Noi  
+5 Van Cao | Ha Noi  
+243 Giai Phong | Ha Noi  
+100 Dai Co Viet | Ha Noi  
+85 Trung Kinh | Ha Noi  
+152 Tay Son | Ha Noi
