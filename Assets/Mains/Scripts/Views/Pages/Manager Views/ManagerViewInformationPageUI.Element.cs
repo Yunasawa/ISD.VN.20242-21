@@ -12,9 +12,6 @@ namespace YNL.JAMOS
     {
         public class PriceField
         {
-            private List<UID> _cartedProducts => Main.Runtime.Data.CartedProducts;
-            private List<UID> _productCollection => Main.Runtime.Data.ProductCollection;
-
             public Action OnOpenTimeRangePage;
 
             private Label _originalPrice;

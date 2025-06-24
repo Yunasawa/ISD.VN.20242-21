@@ -114,6 +114,8 @@ namespace YNL.JAMOS
             _messageList.RebuildListView(_messages);
 
             _messageInput.SetValueWithoutNotify(string.Empty);
+
+            Marker.OnRuntimeSavingRequested?.Invoke();
         }
 
         private void OnChatBoxOpened(UID accountID)

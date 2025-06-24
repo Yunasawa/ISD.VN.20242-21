@@ -112,8 +112,7 @@ namespace YNL.JAMOS
         }
 
         private void SigningAccount()
-        {
-            var existedEmailAccount = Main.Database.Accounts.Values.Any(i => i.Email == _accountInput);
+        {            var existedEmailAccount = Main.Database.Accounts.Values.Any(i => i.Email == _accountInput);
             var existedPhoneAccount = Main.Database.Accounts.Values.Any(i => i.PhoneNumber == _accountInput);
 
             if (!existedEmailAccount && !existedPhoneAccount)

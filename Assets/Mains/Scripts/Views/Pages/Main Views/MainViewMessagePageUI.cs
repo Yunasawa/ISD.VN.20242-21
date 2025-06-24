@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.UIElements;
 using YNL.Utilities.UIToolkits;
 
@@ -14,10 +15,11 @@ namespace YNL.JAMOS
                 {
                     return new();
                 }
-                
+
                 return Main.Runtime.Data.Messages[Main.Runtime.Data.AccountID].Messages;
             }
         }
+
         private ListView _messageList;
         private TextField _messageInput;
         private VisualElement _sendButton;
@@ -49,6 +51,7 @@ namespace YNL.JAMOS
             };
 
             _messageInput.SetValueWithoutNotify(string.Empty);
+            _messageInput.RegisterCallback<KeyDownEvent>(OnKey_MessageInput, TrickleDown.TrickleDown);
 
             _sendButton.RegisterCallback<PointerUpEvent>(OnClicked_SendButton);
         }
@@ -58,15 +61,33 @@ namespace YNL.JAMOS
             _messageList.RebuildListView(_messages);
         }
 
+        private void OnKey_MessageInput(KeyDownEvent evt)
+        {
+            if (evt.keyCode == KeyCode.Return || evt.keyCode == KeyCode.KeypadEnter)
+            {
+                if (string.IsNullOrEmpty(_messageInput.value)) return;
+
+                SendMessage();
+                evt.StopPropagation();
+            }
+        }
+
         private void OnClicked_SendButton(PointerUpEvent evt)
+        {
+            SendMessage();
+        }
+
+        private void SendMessage()
         {
             var item = new MessageItem()
             {
                 Type = Main.Database.Accounts[Main.Runtime.Data.AccountID].Type,
                 Message = _messageInput.value
             };
+
             Main.Runtime.Data.Messages[Main.Runtime.Data.AccountID].Messages.Add(item);
             _messageList.RebuildListView(_messages);
+            _messageInput.SetValueWithoutNotify(string.Empty);
         }
     }
 }

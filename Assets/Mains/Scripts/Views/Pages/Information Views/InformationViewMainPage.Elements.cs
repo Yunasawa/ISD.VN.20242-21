@@ -65,6 +65,8 @@ namespace YNL.JAMOS
                 }
 
                 _uid.SetCartButtonStatus(_addToCartButton);
+
+                Marker.OnRuntimeSavingRequested?.Invoke();
             }
         }
 

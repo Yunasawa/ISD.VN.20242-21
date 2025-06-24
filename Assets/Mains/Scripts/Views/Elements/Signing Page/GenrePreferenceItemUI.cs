@@ -48,6 +48,8 @@ namespace YNL.JAMOS
             {
                 Main.Runtime.Data.FavoriteGenres.Remove(_genre);
             }
+
+            Marker.OnRuntimeSavingRequested?.Invoke();
         }
     }
 }

@@ -44,8 +44,10 @@ namespace YNL.JAMOS
 
             return product.Type switch
             {
-                Product.Type.Book => $"{product.Properties[Product.Property.NumberOfPage]} pages",
-                Product.Type.CD => $"{product.Properties[Product.Property.Duration]}",
+                Product.Type.Book => $"{product.Properties[PP.NumberOfPage]} pages",
+                Product.Type.CD => $"{product.Properties[PP.Duration]}",
+                Product.Type.DVD => $"{product.Properties[PP.Duration]}",
+                Product.Type.LP => $"{product.Properties[PP.Duration]}",
                 _ => throw new Exception("Invalid Product Property for duration text")
             };
         }

@@ -170,6 +170,8 @@ namespace YNL.JAMOS
             var code = Function.GetOrderCode();
             Main.Runtime.Data.Orders.Add(code, new OrderItem().Initialize());
             Marker.OnOrderCodeCreated?.Invoke(code);
+            
+            Marker.OnRuntimeSavingRequested?.Invoke();
 
             var vndPrice = _totalPrice.ToVND();
             if (_selectedMethod == PaymentMethod.VNPay)

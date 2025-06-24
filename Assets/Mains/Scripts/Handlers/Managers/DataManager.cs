@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
+using YNL.Utilities.Addons;
 using YNL.Utilities.Extensions;
 namespace YNL.JAMOS
 {
@@ -17,6 +18,7 @@ namespace YNL.JAMOS
 
         private DatabaseContainerSO _database => Main.Database;
 
+        [SerializeField] private SerializableDictionary<Product.Type, string> _productDatabaseURLs = new();
         [SerializeField] private string _feedbackDatabaseURL;
         [SerializeField] private string _configDatabaseURL;
 
@@ -34,9 +36,9 @@ namespace YNL.JAMOS
 
         private void Start()
         {
-            //Main.Runtime.Reset();
+            Main.Runtime.Reset();
 
-            //LoadSavedData();
+            LoadSavedData();
 
             InitializeDatabases().Forget();
         }
@@ -51,7 +53,8 @@ namespace YNL.JAMOS
             if (EnableInitializeDatabase)
             {
                 await InitializeConfigDatabase();
-                //await InitializeFeedbackDatabase();
+                await InitializeProductDatabase();
+                await InitializeFeedbackDatabase();
             }
 
             await UniTask.Delay(100);
@@ -98,6 +101,36 @@ namespace YNL.JAMOS
                 if (string.IsNullOrEmpty(fields[1])) break;
 
                 _database.SerializeFeedbackDatabase(fields);
+            }
+        }
+
+        private async UniTask InitializeProductDatabase()
+        {
+            _database.Products.Clear();
+            var products = new List<(UID ID, Product.Data Product)>();
+
+            foreach (Product.Type type in Enum.GetValues(typeof(Product.Type)))
+            {
+                if (type == Product.Type.None) continue;
+
+                var content = await _productDatabaseURLs[type].GetRawDatabaseAsync();
+                var lines = content.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+
+                for (int l = 1; l < lines.Length; l++)
+                {
+                    var fields = lines[l].SplitCSV();
+
+                    if (string.IsNullOrEmpty(fields[1])) break;
+
+                    products.SerializeProductDatabase(type, fields);
+                }
+            }
+
+            products.Shuffle();
+
+            foreach (var product in products)
+            {
+                _database.Products.Add(product.ID, product.Product);
             }
         }
 
