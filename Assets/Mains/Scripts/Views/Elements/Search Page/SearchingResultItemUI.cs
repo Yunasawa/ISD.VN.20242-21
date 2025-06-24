@@ -287,7 +287,6 @@ namespace YNL.JAMOS
 
             if (_isProductItem)
             {
-                MDebug.Log("HELLO");
                 Marker.OnPageNavigated?.Invoke(ViewType.ManagerViewInformationPage, true, true);
             }
             else

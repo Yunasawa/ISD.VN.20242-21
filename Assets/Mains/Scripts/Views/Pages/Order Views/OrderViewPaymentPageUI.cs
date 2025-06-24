@@ -47,6 +47,7 @@ namespace YNL.JAMOS
             PaymentMethodItem.OnSelected += OnPaymentMethodSelected;
             Marker.OnDeliveryTypeSelected += OnDeliveryFieldSelected;
             Marker.OnNewOrderRequested += OnNewOrderRequested;
+            Marker.OnSignedInOrSignedUp += OnSignedInOrSignedUp;
         }
 
         private void OnDestroy()
@@ -54,6 +55,7 @@ namespace YNL.JAMOS
             PaymentMethodItem.OnSelected -= OnPaymentMethodSelected;
             Marker.OnDeliveryTypeSelected -= OnDeliveryFieldSelected;
             Marker.OnNewOrderRequested -= OnNewOrderRequested;
+            Marker.OnSignedInOrSignedUp -= OnSignedInOrSignedUp;
         }
 
         protected override void Collect()
@@ -123,11 +125,6 @@ namespace YNL.JAMOS
 
         protected override void Refresh()
         {
-            var account = Main.Database.Accounts[Main.Runtime.Data.AccountID];
-            _nameText.SetText(account.Name);
-            _phoneNumberText.SetText(account.PhoneNumber);
-            _addressText.SetText($"{account.Address.Address}, {account.Address.City}");
-
             _productList.RebuildListView(_cartedProducts);
 
             _deliveryTypeLabel.SetText($"{_selectedDeliveryType} Delivery");
@@ -200,6 +197,14 @@ namespace YNL.JAMOS
             Marker.OnDeliveryChargeCalculated?.Invoke(_deliveryCharges);
 
             _deliveryPriceLabel.SetText($"<b>${_deliveryCharges[_selectedDeliveryType]:0.00}</b>");
+        }
+
+        private void OnSignedInOrSignedUp()
+        {
+            var account = Main.Database.Accounts[Main.Runtime.Data.AccountID];
+            _nameText.SetText(account.Name);
+            _phoneNumberText.SetText(account.PhoneNumber);
+            _addressText.SetText($"{account.Address.Address}, {account.Address.City}");
         }
     }
 }

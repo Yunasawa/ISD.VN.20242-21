@@ -125,7 +125,7 @@ namespace YNL.JAMOS
 
         private void OnValueChanged_DateInput(ChangeEvent<string> evt)
         {
-            _publicationDate = evt.newValue.Trim();
+            _publicationDate = evt.newValue.RemoveWord("(dd/mm/yyyy)").Trim();
         }
 
         private void OnValueChanged_DescriptionInput(ChangeEvent<string> evt)
@@ -192,7 +192,7 @@ namespace YNL.JAMOS
                 productData.Properties[property.Key] = property.Value;
             }
 
-            Marker.OnPageBacked?.Invoke(true, true);
+            Marker.OnPageNavigated?.Invoke(ViewType.ManagerViewInformationPage, true, true);
         }
 
         private void OnProductUpdatingRequested(UID productID)

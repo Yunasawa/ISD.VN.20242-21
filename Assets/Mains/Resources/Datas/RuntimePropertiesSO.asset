@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Data:
     AccountID:
-      _id: 1
+      _id: -1
     LikedFeedbacks:
       _keys: []
       _values: []
@@ -51,9 +51,11 @@ MonoBehaviour:
           - _id: 20000000
           - _id: 10000000
           _values: 0500000005000000
+    CreatedProducts:
+      _keys: []
+      _values: []
   IsSearchTimeApplied: 0
   SearchingProductType: 0
-  SearchingInput: 
   SelectedProduct:
     _id: 10000000
   SearchingGenre: 

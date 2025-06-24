@@ -6,12 +6,10 @@ namespace YNL.JAMOS
     [System.Serializable]
     public struct UID
     {
-        public static uint SUID;
-
-        public uint _id;
+        public int _id;
 
         [JsonConstructor]
-        public UID(uint id)
+        public UID(int id)
         {
             _id = id;
         }
@@ -20,14 +18,13 @@ namespace YNL.JAMOS
             _id = Parse(id);
         }
 
-        public static implicit operator uint(UID id) => id._id;
-        public static implicit operator UID(uint id) => new(id);
-        public static implicit operator UID(int id) => (uint)id;
+        public static implicit operator int(UID id) => id._id;
+        public static implicit operator UID(int id) => new(id);
 
-        public static UID Parse(string id) => new(uint.Parse(id));
+        public static UID Parse(string id) => new(int.Parse(id));
         public static bool TryParse(string id, out UID result)
         {
-            if (uint.TryParse(id, out uint value))
+            if (int.TryParse(id, out int value))
             {
                 result = value;
                 return true;

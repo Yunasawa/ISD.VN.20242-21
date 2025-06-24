@@ -1,6 +1,7 @@
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
+using YNL.Utilities.Extensions;
 using YNL.Utilities.UIToolkits;
 
 namespace YNL.JAMOS
@@ -57,6 +58,22 @@ namespace YNL.JAMOS
 
         protected override void Initialize()
         {
+            if (Main.Runtime.Data.AccountID != -1)
+            {
+                var account = Main.Database.Accounts[Main.Runtime.Data.AccountID];
+
+                if (account.Type == AccountType.Customer)
+                {
+                    Marker.OnPageNavigated?.Invoke(ViewType.MainViewHomePage, true, true);
+                }
+                else
+                {
+                    Marker.OnPageNavigated?.Invoke(ViewType.ManagerViewProductPage, true, true);
+                }
+
+                Marker.OnSignedInOrSignedUp?.Invoke();
+            }
+            
             _accountMessage.SetText(string.Empty);
             _passwordMessage.SetText(string.Empty);
         }
@@ -106,12 +123,16 @@ namespace YNL.JAMOS
             }
 
             var account = Main.Database.Accounts.Values.FirstOrDefault(i => i.Email == _accountInput || i.PhoneNumber == _accountInput);
+            var id = Main.Database.Accounts.GetKeyByValue(account);
 
             if (_passwordInput != account.Password)
             {
                 _passwordMessage.SetText("Incorrect password! Please check again.");
                 return;
             }
+
+            Main.Runtime.Data.AccountID = id;
+            Marker.OnRuntimeSavingRequested?.Invoke();
 
             if (account.Type == AccountType.Customer)
             {
@@ -121,6 +142,8 @@ namespace YNL.JAMOS
             {
                 Marker.OnPageNavigated?.Invoke(ViewType.ManagerViewProductPage, true, true);
             }
+
+            Marker.OnSignedInOrSignedUp?.Invoke();
         }
 
         private void RecoveryAccount(PointerUpEvent evt)
