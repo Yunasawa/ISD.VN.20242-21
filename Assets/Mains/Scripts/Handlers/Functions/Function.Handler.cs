@@ -89,42 +89,9 @@ namespace YNL.JAMOS
             return distance[s.Length, t.Length];
         }
 
-        public static void ApplyCloudImageAsync(this VisualElement element, string url)
+        public static void ApplyCloudImageAsync(this VisualElement element, UID id)
         {
-            Texture2D nullTexture = null;
-            element.SetBackgroundImage(nullTexture);
-            ApplyCloudImage(element, url).Forget();
-
-            async UniTaskVoid ApplyCloudImage(VisualElement element, string url)
-            {
-                int maxRetries = 2;
-                int attempt = 0;
-                float retryDelay = 1f; // Delay between retries (seconds)
-
-                while (attempt < maxRetries)
-                {
-                    using (UnityWebRequest uwr = UnityWebRequestTexture.GetTexture(url))
-                    {
-                        var operation = uwr.SendWebRequest();
-                        await UniTask.WaitUntil(() => operation.isDone);
-
-                        if (uwr.result == UnityWebRequest.Result.Success)
-                        {
-                            Texture2D texture = DownloadHandlerTexture.GetContent(uwr);
-                            element.SetBackgroundImage(texture);
-                            return;
-                        }
-                        else
-                        {
-                            Debug.LogWarning($"Attempt {attempt + 1} failed: {uwr.error}");
-                            attempt++;
-                            await UniTask.Delay(TimeSpan.FromSeconds(retryDelay)); // Wait before retrying
-                        }
-                    }
-                }
-
-                Debug.LogError($"Failed to load texture after {maxRetries} attempts.");
-            }
+            element.SetBackgroundImage(Main.Database.Images[id]);
         }
     
         public static void RebuildListView(this ListView list, IList source)

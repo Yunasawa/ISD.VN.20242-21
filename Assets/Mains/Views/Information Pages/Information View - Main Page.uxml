@@ -21,11 +21,11 @@
                     <engine:Label text="Elite" name="Text" class="label-field" style="font-size: 40px; margin-left: 7.5px; -unity-text-align: middle-left;" />
                 </engine:VisualElement>
             </engine:VisualElement>
-            <engine:VisualElement name="NameField" style="flex-grow: 1; height: 100px; flex-direction: row;">
-                <engine:VisualElement name="ProductType" style="height: 75px; width: 60px; -unity-background-image-tint-color: rgb(222, 249, 93); background-image: resource(&apos;Icons/Book&apos;); align-self: center; margin-right: 20px; -unity-background-scale-mode: scale-to-fit;" />
-                <engine:Label text="Call Of The Maze" name="NameText" class="label-field" style="-unity-font-style: bold; white-space: normal; font-size: 65px; -unity-text-align: middle-left;" />
+            <engine:VisualElement name="NameField" style="flex-grow: 1; flex-direction: row;">
+                <engine:VisualElement name="ProductType" style="height: 75px; width: 60px; -unity-background-image-tint-color: rgb(222, 249, 93); background-image: resource(&apos;Icons/Book&apos;); align-self: flex-start; margin-right: 25px; -unity-background-scale-mode: scale-to-fit; min-width: 60px; min-height: 75px;" />
+                <engine:Label text="Call Of The Maze Call Of The Maze" name="NameText" class="label-field" style="-unity-font-style: bold; white-space: normal; font-size: 65px; -unity-text-align: middle-left; margin-right: 50px;" />
             </engine:VisualElement>
-            <engine:Label text="by &lt;b&gt;Karl Smink&lt;/b&gt;" name="CreatorText" class="label-field" style="flex-grow: 1; white-space: normal; font-size: 35px;" />
+            <engine:Label text="by &lt;b&gt;Karl Smink&lt;/b&gt;" name="CreatorText" class="label-field" style="flex-grow: 1; white-space: normal; font-size: 35px; margin-top: 25px;" />
         </engine:VisualElement>
         <engine:VisualElement name="CouponView" style="padding-left: 50px; padding-right: 50px; background-color: rgb(44, 44, 44); padding-top: 25px; padding-bottom: 25px; margin-bottom: 25px; display: none;" />
         <engine:VisualElement name="QuantityField" style="padding-left: 50px; padding-right: 50px; background-color: rgb(44, 44, 44); padding-top: 25px; padding-bottom: 25px; margin-bottom: 25px; flex-direction: row;">

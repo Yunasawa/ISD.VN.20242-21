@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using UnityEngine;
 
 namespace YNL.JAMOS
@@ -9,7 +10,7 @@ namespace YNL.JAMOS
         public string Value => _dateTimeString;
         public DateTime DateTime
         {
-            get => DateTime.Parse(_dateTimeString);
+            get => DateTime.ParseExact(_dateTimeString, "dd/MM/yyyy", CultureInfo.InvariantCulture);
             set => _dateTimeString = value.ToString("dd/MM/yyyy");
         }
 

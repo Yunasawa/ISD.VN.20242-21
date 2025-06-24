@@ -9,6 +9,7 @@ namespace YNL.JAMOS
 
     public static partial class Marker
     {
+        public static Action OnClosingStartingPageRequested { get; set; }
         public static Action OnDatabaseSerializationDone { get; set; }
         public static Action OnRuntimeSavingRequested { get; set; }
         public static Action OnSignedInOrSignedUp { get; set; }

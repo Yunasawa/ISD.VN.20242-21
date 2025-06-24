@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Networking;
 using YNL.Utilities.Addons;
 using YNL.Utilities.Extensions;
 namespace YNL.JAMOS
@@ -54,10 +55,9 @@ namespace YNL.JAMOS
             {
                 await InitializeConfigDatabase();
                 await InitializeProductDatabase();
+                await InitializeImageDatabase();
                 await InitializeFeedbackDatabase();
             }
-
-            await UniTask.Delay(100);
 
             Marker.OnDatabaseSerializationDone?.Invoke();
             Main.IsSystemStarted = true;
@@ -73,6 +73,59 @@ namespace YNL.JAMOS
             {
                 Main.Runtime.Data = new();
                 SaveNewtonJson(Main.Runtime.Data, _savingPath);
+            }
+        }
+
+        private async UniTask InitializeImageDatabase()
+        {
+            var downloadTasks = new List<UniTask>();
+
+            foreach (var kvp in Main.Database.Products)
+            {
+                var uid = kvp.Key;
+                var url = uid.GetImageURL();
+
+                if (string.IsNullOrEmpty(url)) continue;
+
+                downloadTasks.Add(DownloadAndCacheImage(uid, url));
+            }
+
+            await UniTask.WhenAll(downloadTasks);
+
+            async UniTask DownloadAndCacheImage(UID uid, string url)
+            {
+                int maxRetries = 2;
+                int attempt = 0;
+                float retryDelay = 1f;
+
+                while (attempt < maxRetries)
+                {
+                    using (UnityWebRequest uwr = UnityWebRequestTexture.GetTexture(url))
+                    {
+                        var operation = uwr.SendWebRequest();
+                        await UniTask.WaitUntil(() => operation.isDone);
+
+                        if (uwr.result == UnityWebRequest.Result.Success)
+                        {
+                            Texture2D texture = DownloadHandlerTexture.GetContent(uwr);
+
+                            if (!Main.Database.Images.ContainsKey(uid))
+                                Main.Database.Images.Add(uid, texture);
+                            else
+                                Main.Database.Images[uid] = texture;
+
+                            return;
+                        }
+                        else
+                        {
+                            Debug.LogWarning($"Image download failed for UID {uid}, attempt {attempt + 1}: {uwr.error}");
+                            attempt++;
+                            await UniTask.Delay(TimeSpan.FromSeconds(retryDelay));
+                        }
+                    }
+                }
+
+                Debug.LogError($"Failed to download image for UID {uid} after {maxRetries} attempts.");
             }
         }
 

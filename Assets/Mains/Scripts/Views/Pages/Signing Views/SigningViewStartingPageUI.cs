@@ -20,15 +20,15 @@ namespace YNL.JAMOS
 
             _ground = _root.Q("Ground");
 
-            Marker.OnDatabaseSerializationDone += OnDatabaseSerializationDone().Forget;
+            Marker.OnClosingStartingPageRequested += OnClosingStartingPageRequested().Forget;
         }
 
         private void OnDestroy()
         {
-            Marker.OnDatabaseSerializationDone -= OnDatabaseSerializationDone().Forget;
+            Marker.OnClosingStartingPageRequested -= OnClosingStartingPageRequested().Forget;
         }
 
-        private async UniTaskVoid OnDatabaseSerializationDone()
+        private async UniTaskVoid OnClosingStartingPageRequested()
         {
             await UniTask.WaitForSeconds(3);
 

@@ -76,6 +76,8 @@ namespace YNL.JAMOS
             
             _accountMessage.SetText(string.Empty);
             _passwordMessage.SetText(string.Empty);
+
+            Marker.OnClosingStartingPageRequested?.Invoke();
         }
 
         private void OnValueChanged_AccountInputField(ChangeEvent<string> evt)

@@ -18,7 +18,10 @@ namespace YNL.JAMOS
 
         public static UID[] GetNewProductsList()
         {
-            return _products.Select(p => p.Key).ToArray();
+            return _products
+                .Where(p => p.Value.PublicationDate.DateTime >= DateTime.Now.AddMonths(-6))
+                .Select(p => p.Key)
+                .ToArray();
         }
 
         public static string GetImageURL(this UID id)

@@ -109,7 +109,7 @@ namespace YNL.JAMOS
             var product = Main.Database.Products[id];
             int discount = Main.Runtime.Discount;
 
-            _previewImage.ApplyCloudImageAsync(id.GetImageURL());
+            _previewImage.ApplyCloudImageAsync(id);
 
             _productIcon.SetBackgroundImage(Main.Resources.Icons[product.Type.ToString()]);
             _productDuration.SetText(id.GetDurationText());

@@ -94,7 +94,7 @@ namespace YNL.JAMOS
         {
             var product = _products[_productID];
 
-            _productImage.ApplyCloudImageAsync(_productID.GetImageURL());
+            _productImage.ApplyCloudImageAsync(_productID);
             _productNameField.SetText(_productName = product.Title);
             _productCreatorsField.SetText(_productCreators = string.Join(", ", product.Creators));
             _productTypeField.SetValue(_productType = product.Type);
