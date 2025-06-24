@@ -223,7 +223,7 @@ namespace YNL.JAMOS
             _uid = id;
             var proiduct = Main.Database.Products[id];
 
-            _previewImage.ApplyCloudImageAsync(id.GetImageURL());
+            _previewImage.ApplyCloudImageAsync(id);
             _nameField.Apply(proiduct);
             _creatorField.Apply(proiduct);
             _priceField.Apply(id);

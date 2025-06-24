@@ -8,6 +8,7 @@ using System.Collections;
 using System.Text.RegularExpressions;
 using YNL.Utilities.Addons;
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace YNL.JAMOS
 {
@@ -88,42 +89,9 @@ namespace YNL.JAMOS
             return distance[s.Length, t.Length];
         }
 
-        public static void ApplyCloudImageAsync(this VisualElement element, string url)
+        public static void ApplyCloudImageAsync(this VisualElement element, UID id)
         {
-            Texture2D nullTexture = null;
-            element.SetBackgroundImage(nullTexture);
-            ApplyCloudImage(element, url).Forget();
-
-            async UniTaskVoid ApplyCloudImage(VisualElement element, string url)
-            {
-                int maxRetries = 10;
-                int attempt = 0;
-                float retryDelay = 1f; // Delay between retries (seconds)
-
-                while (attempt < maxRetries)
-                {
-                    using (UnityWebRequest uwr = UnityWebRequestTexture.GetTexture(url))
-                    {
-                        var operation = uwr.SendWebRequest();
-                        await UniTask.WaitUntil(() => operation.isDone);
-
-                        if (uwr.result == UnityWebRequest.Result.Success)
-                        {
-                            Texture2D texture = DownloadHandlerTexture.GetContent(uwr);
-                            element.SetBackgroundImage(texture);
-                            return;
-                        }
-                        else
-                        {
-                            Debug.LogWarning($"Attempt {attempt + 1} failed: {uwr.error}");
-                            attempt++;
-                            await UniTask.Delay(TimeSpan.FromSeconds(retryDelay)); // Wait before retrying
-                        }
-                    }
-                }
-
-                Debug.LogError($"Failed to load texture after {maxRetries} attempts.");
-            }
+            element.SetBackgroundImage(Main.Database.Images[id]);
         }
     
         public static void RebuildListView(this ListView list, IList source)
@@ -220,6 +188,36 @@ namespace YNL.JAMOS
                 button.SetBackgroundColor(Color.clear);
                 button.SetColor("#DEF95D");
             }
+        }
+
+        public static void Insert<TKey, TValue>(this SerializableDictionary<TKey, TValue> dict, int index, TKey key, TValue value)
+        {
+            if (dict.ContainsKey(key))
+                throw new ArgumentException($"Key '{key}' already exists.");
+
+            if (index < 0 || index > dict.Count)
+                throw new ArgumentOutOfRangeException(nameof(index), "Index is out of bounds.");
+
+            var temp = new List<KeyValuePair<TKey, TValue>>(dict);
+            dict.Clear();
+
+            for (int i = 0; i < temp.Count; i++)
+            {
+                if (i == index)
+                {
+                    dict.Add(key, value);
+                }
+
+                dict.Add(temp[i].Key, temp[i].Value);
+            }
+
+            // If index == temp.Count, we never hit the insert point inside the loop
+            if (index == temp.Count)
+            {
+                dict.Add(key, value);
+            }
+
+
         }
     }
 }

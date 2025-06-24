@@ -1116,86 +1116,42 @@ MonoBehaviour:
         Address: 22 Tran Hung Dao
         City: Nam Dinh
   Feedbacks:
-    _keys:
-    - _id: 0
-    - _id: 1
-    - _id: 2
-    - _id: 3
-    - _id: 4
-    - _id: 5
-    - _id: 6
-    - _id: 7
-    - _id: 8
-    - _id: 9
-    _values:
-    - CustomerID:
-        _id: 0
-      Ratings:
-        _keys: 
-        _values: []
-      Comment: The room was clean, and the staff was helpful. Facilities could be
-        improved.
-    - CustomerID:
-        _id: 1
-      Ratings:
-        _keys: 
-        _values: []
-      Comment: Exceptional service and very clean rooms. Would definitely stay again!
-    - CustomerID:
-        _id: 2
-      Ratings:
-        _keys: 
-        _values: []
-      Comment: Average experience. The facilities were a bit outdated, but the staff
-        was nice.
-    - CustomerID:
-        _id: 3
-      Ratings:
-        _keys: 
-        _values: []
-      Comment: Good balance of cleanliness, service, and facilities. Enjoyed my stay!
-    - CustomerID:
-        _id: 4
-      Ratings:
-        _keys: 
-        _values: []
-      Comment: The hotel was okay, but could use some improvements in maintenance.
-    - CustomerID:
-        _id: 5
-      Ratings:
-        _keys: 
-        _values: []
-      Comment: Great stay! The service was top-notch, and the facilities were well-maintained.
-    - CustomerID:
-        _id: 6
-      Ratings:
-        _keys: 
-        _values: []
-      Comment: It was decent, but nothing extraordinary. Good for a budget stay.
-    - CustomerID:
-        _id: 7
-      Ratings:
-        _keys: 
-        _values: []
-      Comment: Perfect experience! Everything was flawless.
-    - CustomerID:
-        _id: 8
-      Ratings:
-        _keys: 
-        _values: []
-      Comment: Very good experience overall. Would recommend this hotel!
-    - CustomerID:
-        _id: 9
-      Ratings:
-        _keys: 
-        _values: []
-      Comment: Fair hotel, but could use some upgrades.
+    _keys: []
+    _values: []
   Products:
     _keys:
+    - _id: 10000003
     - _id: 10000000
     - _id: 20000000
     - _id: 20000006
     _values:
+    - Type: 1
+      Title: Test Prudct
+      Creators:
+      - A
+      - B
+      - C
+      PublicationDate:
+        _dateTimeString: 05/11/2004
+      Price: 99.99
+      Quantity: 123
+      Description: This is a test product
+      Genres:
+      - Fiction
+      - Thriller
+      - Romance
+      Format: 
+      HasStreamer: 0
+      SoldAmount: 0
+      Review:
+        Feedbacks:
+          _keys: []
+          _values: []
+      Properties:
+        _keys: 0001
+        _values:
+        - English
+        - 123
     - Type: 1
       Title: Be Like The Moon
       Creators:
@@ -1203,7 +1159,7 @@ MonoBehaviour:
       PublicationDate:
         _dateTimeString: 15/06/2022
       Price: 24.99
-      Quantity: 179
+      Quantity: 200
       Description: "A masterpiece!... I recommend this memoir to anyone looking for
         inspiration to make a difference in the world.\u201D - Liliane Pari Umuhoza,
         Founder of the Women Genocide Survivors Retreat##A proud American blends
@@ -1261,11 +1217,12 @@ MonoBehaviour:
       PublicationDate:
         _dateTimeString: 15/10/2021
       Price: 14.99
-      Quantity: 219
+      Quantity: 300
       Description: "Energetic rock cover that brought M\xE5neskin global fame with
         powerful vocals and gritty guitars."
       Genres:
       - Rock
+      - Rap
       Format: DeluxeEdition
       HasStreamer: 0
       SoldAmount: 234

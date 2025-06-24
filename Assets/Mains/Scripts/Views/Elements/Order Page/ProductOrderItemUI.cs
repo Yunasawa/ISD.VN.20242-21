@@ -136,7 +136,7 @@ namespace YNL.JAMOS
             var product = Main.Database.Products[id];
             var amount = Main.Runtime.OrderedAmounts[id];
 
-            _previewImage.ApplyCloudImageAsync(id.GetImageURL());
+            _previewImage.ApplyCloudImageAsync(id);
             _nameField.Apply(product);
             _creatorField.Apply(product);
             _priceField.Apply(id);

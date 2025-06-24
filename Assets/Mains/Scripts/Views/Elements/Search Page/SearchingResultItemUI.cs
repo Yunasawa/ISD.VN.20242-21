@@ -265,7 +265,7 @@ namespace YNL.JAMOS
 
             var product = Main.Database.Products[id];
 
-            _previewArea.ApplyCloudImageAsync(id.GetImageURL());
+            _previewArea.ApplyCloudImageAsync(id);
 
             _nameField.Apply(product.Title);
             _creatorField.Apply(product);

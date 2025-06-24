@@ -16,7 +16,7 @@
             <engine:VisualElement name="DividerLine" style="background-color: rgb(76, 76, 76); width: 2px; margin-top: 25px; margin-bottom: 25px;" />
             <engine:VisualElement name="ScoreView" style="height: 250px; width: 300px; justify-content: space-around; flex-grow: 1; padding-top: 25px; padding-bottom: 25px;">
                 <engine:VisualElement name="CleanlinessScore" style="height: 50px; flex-direction: row; padding-right: 25px; padding-left: 25px;">
-                    <engine:VisualElement name="Icon" style="width: 40px; height: 100%; background-image: resource(&apos;Icons/Family (Filled)&apos;); -unity-background-scale-mode: scale-to-fit; margin-right: 10px;" />
+                    <engine:VisualElement name="Icon" style="width: 40px; height: 100%; background-image: resource(&apos;Icons/Develop&apos;); -unity-background-scale-mode: scale-to-fit; margin-right: 10px;" />
                     <engine:Label text="Status" name="Label" class="label-field" style="height: 100%; font-size: 40px; padding-left: 10px; width: 200px; -unity-text-align: middle-left;" />
                     <engine:VisualElement name="ScoreLine" style="flex-grow: 1; height: 10px; flex-direction: row; align-self: center; background-color: rgb(64, 64, 64); margin-left: 20px; margin-right: 20px; border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px;">
                         <engine:VisualElement name="LineFill" style="width: 50%; height: 10px; background-color: rgb(222, 249, 93); border-top-left-radius: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border-bottom-left-radius: 5px;" />

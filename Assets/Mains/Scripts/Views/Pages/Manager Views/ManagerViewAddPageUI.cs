@@ -13,6 +13,7 @@ namespace YNL.JAMOS
     public partial class ManagerViewAddPageUI : ViewPageUI
     {
         private SerializableDictionary<UID, Product.Data> _products => Main.Database.Products;
+        private SerializableDictionary<UID, Product.Data> _createdProducts => Main.Runtime.Data.CreatedProducts;
 
         private VisualElement _productImage;
         private TextField _productNameField;
@@ -186,7 +187,12 @@ namespace YNL.JAMOS
                 productData.Properties.Add(property.Key, property.Value);
             }
 
-            _products.Add((int)_productType * 10000000 + _products.Count, productData);
+            var id = (int)_productType * 10000000 + _products.Count;
+
+            _createdProducts.Add(id, productData);
+            _products.Insert(0, id, productData);
+
+            Marker.OnRuntimeSavingRequested?.Invoke();
 
             Initialize();
             Marker.OnPageNavigated?.Invoke(ViewType.ManagerViewProductPage, true, true);

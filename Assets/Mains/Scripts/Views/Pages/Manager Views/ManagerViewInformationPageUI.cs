@@ -49,7 +49,7 @@ namespace YNL.JAMOS
         {
             if (!Main.Database.Products.TryGetValue(_uid, out var product)) return;
 
-            _imageView.ApplyCloudImageAsync(_uid.GetImageURL());
+            _imageView.ApplyCloudImageAsync(_uid);
             _nameView.Apply(product);
             _amountField.Apply(product);
             _genreField.Apply(product);

@@ -1,10 +1,21 @@
 using UnityEngine.UIElements;
+using YNL.Utilities.UIToolkits;
 
 namespace YNL.JAMOS
 {
     public class MainViewNavigationPageUI : ViewPageUI
     {
         private VisualElement _navigationBar;
+
+        protected override void VirtualAwake()
+        {
+            Marker.OnSignedInOrSignedUp += OnSignedInOrSignedUp;
+        }
+
+        private void OnDestroy()
+        {
+            Marker.OnSignedInOrSignedUp -= OnSignedInOrSignedUp;
+        }
 
         protected override void Collect()
         {
@@ -18,6 +29,16 @@ namespace YNL.JAMOS
             _navigationBar.Add(new HomeNavigationButton(Main.Resources.Icons["Message"], "Message", false, ViewType.MainViewMessagePage));
             _navigationBar.Add(new HomeNavigationButton(Main.Resources.Icons["Cart"], "Order", false, ViewType.MainViewOrderPage));
             _navigationBar.Add(new HomeNavigationButton(Main.Resources.Icons["Account"], "Account", false, ViewType.MainViewAccountPage));
+        }
+
+        private void OnSignedInOrSignedUp()
+        {
+            var accountType = Main.Database.Accounts[Main.Runtime.Data.AccountID].Type;
+
+            if (accountType == AccountType.Manager)
+            {
+                Root.SetDisplay(DisplayStyle.None);
+            }
         }
     }
 }

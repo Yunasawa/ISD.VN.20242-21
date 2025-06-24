@@ -1,6 +1,9 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
+using YNL.Utilities.Extensions;
+using YNL.Utilities.UIToolkits;
 
 namespace YNL.JAMOS
 {
@@ -10,6 +13,7 @@ namespace YNL.JAMOS
         private VisualElement _notificationButton;
         private VisualElement _cartButton;
         private ScrollView _pageScroll;
+        private List<VisualElement> _imageSlides = new();
 
         private List<ProductPreviewListUI> _previewLists = new();
 
@@ -26,6 +30,13 @@ namespace YNL.JAMOS
 
             _pageScroll = Root.Q("ScrollView") as ScrollView;
 
+            _imageSlides.Clear();
+            var imageSlide = _pageScroll.Q("NotableContent").Q("ImageSlide");
+            for (int i = 0; i < 3; i++)
+            {
+                _imageSlides.Add(imageSlide.Q($"Slide{i + 1}"));
+            }
+
             var sampleList = _pageScroll.Q("SampleList");
             _pageScroll.Remove(sampleList);
         }
@@ -33,16 +44,19 @@ namespace YNL.JAMOS
         protected override void Initialize()
         {
             _previewLists.Add(new ProductPreviewListUI(PreviewListFilterType.NewProducts));
-            //_previewLists.Add(new HotelPreviewListUI(PreviewListFilterType.LuxuryStays, true));
-            //_previewLists.Add(new HotelPreviewListUI(PreviewListFilterType.ExceptionalChoices , true));
-            //_previewLists.Add(new HotelPreviewListUI(PreviewListFilterType.HighRated));
-            //_previewLists.Add(new HotelPreviewListUI(PreviewListFilterType.NewHotels, true).SetAsLastItem());
+            _previewLists.Add(new ProductPreviewListUI(PreviewListFilterType.BestSellers));
+            _previewLists.Add(new ProductPreviewListUI(PreviewListFilterType.HighRated));
+            _previewLists.Add(new ProductPreviewListUI(PreviewListFilterType.MostPopular));
             foreach (var list in _previewLists) _pageScroll.Insert(1, list);
         }
 
         protected override void Refresh()
         {
-            //foreach (var list in _previewLists) list.Refresh();
+            var images = Main.Database.Images.Values.ToList();
+            foreach (var slide in _imageSlides)
+            {
+                slide.SetBackgroundImage(images.GetRandom());
+            }
         }
 
         private void OnClicked_SearchField(PointerUpEvent evt)

@@ -28,9 +28,8 @@ namespace YNL.JAMOS
             public ushort Quantity = 0;
             public string Description = string.Empty;
             public string[] Genres = new string[0];
-            public string Format = string.Empty;
-            public bool HasStreamer = false;
             public ushort SoldAmount = 0;
+            public bool HasStreamer = false;
             public ProductReview Review = new();
             public SerializableDictionary<Property, string> Properties = new();
 

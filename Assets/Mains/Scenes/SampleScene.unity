@@ -1859,7 +1859,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dontDestroyOnLoad: 1
   Resources: {fileID: 11400000, guid: b20276ab1d1295c4b8951d429160e194, type: 2}
-  Database: {fileID: 11400000, guid: 2ec674616a7292541ae5152fe9022406, type: 2}
+  Database: {fileID: 11400000, guid: ce4d28f456e74354d87a3c139483636d, type: 2}
   Runtime: {fileID: 11400000, guid: f26486526ea4dff418024e4d5e2698cb, type: 2}
   ViewManager: {fileID: 1289038838}
 --- !u!4 &1289038837
@@ -1932,7 +1932,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnableInitializeDatabase: 1
-  _feedbackDatabaseURL: https://raw.githubusercontent.com/Yunasawa200/CHECKOTEL-Storage/refs/heads/main/CHECKOTEL/Databases/Feedback.csv
+  _productDatabaseURLs:
+    _keys: 01020304
+    _values:
+    - https://raw.githubusercontent.com/Yunasawa200/CHECKOTEL-Storage/refs/heads/main/JAMOS/Databases/Book.csv
+    - https://raw.githubusercontent.com/Yunasawa200/CHECKOTEL-Storage/refs/heads/main/JAMOS/Databases/CD.csv
+    - https://raw.githubusercontent.com/Yunasawa200/CHECKOTEL-Storage/refs/heads/main/JAMOS/Databases/DVD.csv
+    - https://raw.githubusercontent.com/Yunasawa200/CHECKOTEL-Storage/refs/heads/main/JAMOS/Databases/LP.csv
+  _feedbackDatabaseURL: https://raw.githubusercontent.com/Yunasawa200/CHECKOTEL-Storage/refs/heads/main/JAMOS/Databases/Feedback.csv
   _configDatabaseURL: https://raw.githubusercontent.com/Yunasawa200/CHECKOTEL-Storage/refs/heads/main/JAMOS/Databases/Config.txt
 --- !u!1 &1309971816
 GameObject:

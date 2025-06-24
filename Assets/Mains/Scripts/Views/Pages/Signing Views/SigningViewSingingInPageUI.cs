@@ -76,6 +76,8 @@ namespace YNL.JAMOS
             
             _accountMessage.SetText(string.Empty);
             _passwordMessage.SetText(string.Empty);
+
+            Marker.OnClosingStartingPageRequested?.Invoke();
         }
 
         private void OnValueChanged_AccountInputField(ChangeEvent<string> evt)
@@ -112,8 +114,7 @@ namespace YNL.JAMOS
         }
 
         private void SigningAccount()
-        {
-            var existedEmailAccount = Main.Database.Accounts.Values.Any(i => i.Email == _accountInput);
+        {            var existedEmailAccount = Main.Database.Accounts.Values.Any(i => i.Email == _accountInput);
             var existedPhoneAccount = Main.Database.Accounts.Values.Any(i => i.PhoneNumber == _accountInput);
 
             if (!existedEmailAccount && !existedPhoneAccount)

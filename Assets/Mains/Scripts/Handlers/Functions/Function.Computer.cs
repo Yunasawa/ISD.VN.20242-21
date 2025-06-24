@@ -18,7 +18,10 @@ namespace YNL.JAMOS
 
         public static UID[] GetNewProductsList()
         {
-            return _products.Select(p => p.Key).ToArray();
+            return _products
+                .Where(p => p.Value.PublicationDate.DateTime >= DateTime.Now.AddMonths(-6))
+                .Select(p => p.Key)
+                .ToArray();
         }
 
         public static string GetImageURL(this UID id)
@@ -44,8 +47,10 @@ namespace YNL.JAMOS
 
             return product.Type switch
             {
-                Product.Type.Book => $"{product.Properties[Product.Property.NumberOfPage]} pages",
-                Product.Type.CD => $"{product.Properties[Product.Property.Duration]}",
+                Product.Type.Book => $"{product.Properties[PP.NumberOfPage]} pages",
+                Product.Type.CD => $"{product.Properties[PP.Duration]}",
+                Product.Type.DVD => $"{product.Properties[PP.Duration]}",
+                Product.Type.LP => $"{product.Properties[PP.Duration]}",
                 _ => throw new Exception("Invalid Product Property for duration text")
             };
         }
