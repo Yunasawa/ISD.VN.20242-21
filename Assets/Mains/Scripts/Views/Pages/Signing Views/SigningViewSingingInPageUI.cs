@@ -73,7 +73,7 @@ namespace YNL.JAMOS
 
                 Marker.OnSignedInOrSignedUp?.Invoke();
             }
-
+            
             _accountMessage.SetText(string.Empty);
             _passwordMessage.SetText(string.Empty);
         }
@@ -136,12 +136,10 @@ namespace YNL.JAMOS
 
             if (account.Type == AccountType.Customer)
             {
-                MDebug.Log("Open Home Page");
                 Marker.OnPageNavigated?.Invoke(ViewType.MainViewHomePage, true, true);
             }
             else
             {
-                MDebug.Log("Open Manager Page");
                 Marker.OnPageNavigated?.Invoke(ViewType.ManagerViewProductPage, true, true);
             }
 
