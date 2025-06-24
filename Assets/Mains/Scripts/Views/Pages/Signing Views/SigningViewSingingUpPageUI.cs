@@ -3,6 +3,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UIElements;
+using YNL.Utilities.Extensions;
 using YNL.Utilities.UIToolkits;
 
 namespace YNL.JAMOS
@@ -18,6 +19,8 @@ namespace YNL.JAMOS
         private Label _passwordMessage;
         private TextField _confirmInputField;
         private Label _confirmMessage;
+
+        private VisualElement _switchLabel;
 
         private Button _signingButton;
 
@@ -61,6 +64,9 @@ namespace YNL.JAMOS
 
             _signingButton = signingInputField.Q("SigningButton").Q("Button") as Button;
             _signingButton.clicked += SigningAccount;
+
+            _switchLabel = Root.Q("SwitchLabel");
+            _switchLabel.RegisterCallback<PointerUpEvent>(OnClicked_SwitchLabel);
         }
 
         protected override void Initialize()
@@ -154,6 +160,11 @@ namespace YNL.JAMOS
 
             _confirmMessage.SetText(string.Empty);
             _validConfirmInput = true;
+        }
+
+        private void OnClicked_SwitchLabel(PointerUpEvent evt)
+        {
+            Marker.OnPageNavigated?.Invoke(ViewType.SigningViewSignInPage, true, false);
         }
 
         private void SigningWithFacebook(PointerUpEvent evt)

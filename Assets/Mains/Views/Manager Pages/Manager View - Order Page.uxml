@@ -5,4 +5,8 @@
     <engine:VisualElement name="LabelField" style="margin-top: 100px; background-color: rgb(41, 41, 41); min-height: 125px; padding-right: 50px; padding-left: 50px; border-left-color: rgb(59, 59, 59); border-right-color: rgb(59, 59, 59); border-top-color: rgb(59, 59, 59); border-bottom-color: rgb(59, 59, 59); border-bottom-width: 2px; padding-bottom: 25px; margin-bottom: 25px;">
         <engine:Label text="Order Management" name="LabelTitle" style="height: 100px; width: 100%; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; -unity-font-definition: url(&quot;project://database/Assets/Mains/Resources/Fonts/SDFs/Nunito/Nunito%20SDF.asset?fileID=11400000&amp;guid=995852a4f5cc55e4e89fa1e7e897eac5&amp;type=2#Nunito SDF&quot;); -unity-font-style: bold; color: rgb(255, 255, 255); -unity-text-align: middle-center; font-size: 60px;" />
     </engine:VisualElement>
+    <engine:VisualElement name="ContentContainer" style="flex-grow: 1; justify-content: center;">
+        <engine:VisualElement name="BreakdownIcon" style="width: 200px; height: 200px; background-image: resource(&apos;Icons/Develop&apos;); align-self: center;" />
+        <engine:Label text="This feature is in development" name="BreakdownLabel" class="label-field" style="-unity-font-style: bold; -unity-text-align: middle-center; margin-top: 50px; font-size: 45px;" />
+    </engine:VisualElement>
 </engine:UXML>
