@@ -38,6 +38,8 @@ namespace YNL.JAMOS
 
         public void Apply(UID id)
         {
+            if (Main.Runtime.Data.AccountID == -1) return;
+
             _messageID = id;
 
             var account = _accounts[id];

@@ -14,23 +14,21 @@ namespace YNL.JAMOS
         [SerializeField] private SearchViewFilterPageUI _filterPage;
 
         private SerializableDictionary<UID, Product.Data> _products => Main.Database.Products;
-        private Product.Type _searchingProductType
-        {
-            get => Main.Runtime.SearchingProductType;
-            set => Main.Runtime.SearchingProductType = value;
-        }
 
         private Label _searchText;
         private VisualElement _typeIcon;
         private ListView _resultList;
         private Label _emptyText;
 
+        private string _searchingInput;
+        private Product.Type _searchingProductType;
         private List<UID> _originalResults = new();
         private List<UID> _filteredResults = new();
 
         protected override void VirtualAwake()
         {
             Marker.OnGenreSearchRequested += OnGenreSearchRequested;
+            Marker.OnSearchingInputEntered += OnSearchingInputEntered;
             Marker.OnSearchResultSorted +=   OnSearchResultSorted;
             Marker.OnSearchResultFiltered += OnSearchResultFiltered;
         }
@@ -38,6 +36,7 @@ namespace YNL.JAMOS
         private void OnDestroy()
         {
             Marker.OnGenreSearchRequested -= OnGenreSearchRequested;
+            Marker.OnSearchingInputEntered -= OnSearchingInputEntered;
             Marker.OnSearchResultSorted -= OnSearchResultSorted;
             Marker.OnSearchResultFiltered -= OnSearchResultFiltered;
         }
@@ -83,9 +82,9 @@ namespace YNL.JAMOS
 
         protected override void Refresh()
         {
-            _typeIcon.SetBackgroundImage(Main.Resources.Icons[Main.Runtime.SearchingProductType.ToString()]);
+            _typeIcon.SetBackgroundImage(Main.Resources.Icons[_searchingProductType.ToString()]);
 
-            var searchInput = string.IsNullOrEmpty(Main.Runtime.SearchingInput) ? "Anything" : Main.Runtime.SearchingInput;
+            var searchInput = string.IsNullOrEmpty(_searchingInput) ? "Anything" : _searchingInput;
             _searchText.SetText(searchInput);
 
             _originalResults.Clear();
@@ -98,8 +97,8 @@ namespace YNL.JAMOS
                     continue;
                 }
 
-                if ((product.Value.Title.FuzzyContains(Main.Runtime.SearchingInput) ||
-                    product.Value.Creators.Any(i => i.FuzzyContains(Main.Runtime.SearchingInput))))
+                if ((product.Value.Title.FuzzyContains(_searchingInput) ||
+                    product.Value.Creators.Any(i => i.FuzzyContains(_searchingInput))))
                 {
                     _originalResults.Add(product.Key);
                     _filteredResults.Add(product.Key);
@@ -133,6 +132,12 @@ namespace YNL.JAMOS
             _resultList.RebuildListView(_filteredResults);
         }
     
+        private void OnSearchingInputEntered(string input, Product.Type type)
+        {
+            _searchingInput = input;
+            _searchingProductType = type;
+        }
+
         private void OnSearchResultSorted(SortType type)
         {
             _filteredResults = _originalResults.GetSortedItemList(type);

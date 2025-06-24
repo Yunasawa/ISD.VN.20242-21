@@ -856,7 +856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24b694079abd5784dad73f130e5a583f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hideOnAwake: 1
+  _hideOnAwake: 0
   _isPopupPage: 0
 --- !u!1 &561081505
 GameObject:
@@ -1890,7 +1890,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PreviousViewType: 0
-  CurrentViewType: 3
+  CurrentViewType: 1
   IsAbleToMovePage: 1
   Pages:
     _keys: 0001020304060708090a0b0c050d0e0f1011121314151617
@@ -2598,7 +2598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f679beca580b66c4095bda4f55157423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hideOnAwake: 1
+  _hideOnAwake: 0
   _isPopupPage: 0
 --- !u!114 &1951267080
 MonoBehaviour:

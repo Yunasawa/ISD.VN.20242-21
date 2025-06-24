@@ -11,6 +11,7 @@ namespace YNL.JAMOS
     {
         public static Action OnDatabaseSerializationDone { get; set; }
         public static Action OnRuntimeSavingRequested { get; set; }
+        public static Action OnSignedInOrSignedUp { get; set; }
 
         public static Action<ViewType, bool, bool> OnPageNavigated { get; set; }
 
@@ -23,6 +24,7 @@ namespace YNL.JAMOS
         public static OnSearchResultFiltered OnSearchResultFiltered { get; set; }
 
         public static Action<string> OnGenreSearchRequested { get; set; }
+        public static Action<string, Product.Type> OnSearchingInputEntered { get; set; }
 
         public static Action<string> OnOrderCodeCreated { get; set; }
 

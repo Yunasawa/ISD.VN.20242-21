@@ -12,11 +12,6 @@ namespace YNL.JAMOS
 
     public partial class SearchViewMainPageUI : ViewPageUI
     {
-        private Product.Type _searchingProductType
-        {
-            get => Main.Runtime.SearchingProductType;
-            set => Main.Runtime.SearchingProductType = value;
-        }
         private SerializableDictionary<UID, Product.Data> _products => Main.Database.Products;
 
         private TextField _searchInput;
@@ -30,6 +25,8 @@ namespace YNL.JAMOS
         private SerializableDictionary<Product.Type, ProductTypeButtonUI> _productTypeButtons = new();
 
         private List<(SearchingSuggestionType type, string value)> _suggestionValues = new();
+        private string _searchingInput;
+        private Product.Type _searchingProductType;
 
         protected override void VirtualAwake()
         {
@@ -110,6 +107,7 @@ namespace YNL.JAMOS
 
         private void OnClicked_SearchButton(PointerUpEvent evt)
         {
+            Marker.OnSearchingInputEntered?.Invoke(_searchingInput, _searchingProductType);
             Marker.OnPageNavigated?.Invoke(ViewType.SearchViewResultPage, true, true);
         }
 
@@ -127,7 +125,7 @@ namespace YNL.JAMOS
         private void OnValueChanged_SearchInput(ChangeEvent<string> evt)
         {
             var value = evt.newValue;
-            Main.Runtime.SearchingInput = value;
+            _searchingInput = value;
 
             _suggestionValues.Clear();
 
@@ -190,7 +188,7 @@ namespace YNL.JAMOS
 
             OnClicked_SearchEnter(null);
 
-            Main.Runtime.SearchingInput = input;
+            _searchingInput = input;
         }
 
         private void OnProductTypeSelected(Product.Type type)

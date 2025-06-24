@@ -61,7 +61,7 @@ namespace YNL.JAMOS
 
         private void OnClicked_BackButton(PointerUpEvent evt)
         {
-            Marker.OnPageBacked?.Invoke(true, false);
+            Marker.OnPageNavigated?.Invoke(ViewType.ManagerViewProductPage, true, true);
         }
     }
 }

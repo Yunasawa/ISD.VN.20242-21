@@ -13,7 +13,7 @@ namespace YNL.JAMOS
         public void Generate()
         {
             Database.Accounts.Clear();
-            UID.SUID = 0;
+            //UID.SUID = 0;
             GenerateRandomAccounts(_amount);
         }
 

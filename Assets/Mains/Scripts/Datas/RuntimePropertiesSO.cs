@@ -55,6 +55,7 @@ namespace YNL.JAMOS
         public List<UID> ProductCollection = new();
         public SerializableDictionary<UID, MessageList> Messages = new();
         public SerializableDictionary<string, OrderItem> Orders = new();
+        public SerializableDictionary<UID, Product.Data> CreatedProducts = new();
     }
 
     [CreateAssetMenu(fileName = "RuntimePropertiesSO", menuName = "YNL - Checkotel/RuntimePropertiesSO")]
@@ -62,10 +63,7 @@ namespace YNL.JAMOS
     {
         public RuntimeData Data = new();
 
-        public bool IsSearchTimeApplied = false;
-        public Product.Type SearchingProductType = Product.Type.None;
-        public string SearchingInput = string.Empty;
-        public UID SelectedProduct = 0;
+        public UID SelectedProduct;
         public string SearchingGenre = string.Empty;
         public SerializableDictionary<UID, uint> OrderedAmounts = new();
         public ushort Discount = 0;

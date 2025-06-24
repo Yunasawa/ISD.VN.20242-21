@@ -9,7 +9,7 @@
                 <engine:VisualElement name="InfoField" style="flex-grow: 1; margin-left: 40px; justify-content: space-evenly;">
                     <engine:VisualElement name="NameField" style="height: 75px; flex-direction: row;">
                         <engine:Label text="User10000101" name="NameField" class="label-field" style="-unity-font-style: bold; height: 75px; -unity-text-align: middle-left; margin-right: 25px;" />
-                        <engine:VisualElement name="ChangeButton" style="height: 75px; width: 75px; background-image: resource(&apos;Icons/Change&apos;); background-size: 60% 60%; -unity-background-image-tint-color: rgb(222, 249, 93);" />
+                        <engine:VisualElement name="ChangeButton" style="height: 75px; width: 75px; background-image: resource(&apos;Icons/Change&apos;); background-size: 60% 60%; -unity-background-image-tint-color: rgb(222, 249, 93); display: none;" />
                     </engine:VisualElement>
                     <engine:Label text="+1 604-555-0165" name="PhoneField" class="label-field" style="font-size: 40px; -unity-text-align: middle-left; height: 50px;" />
                     <engine:Label text="user10000101@com.au" name="PhoneField" class="label-field" style="font-size: 40px; -unity-text-align: middle-left; height: 50px;" />

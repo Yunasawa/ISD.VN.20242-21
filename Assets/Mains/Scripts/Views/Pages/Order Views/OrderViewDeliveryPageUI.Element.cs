@@ -35,30 +35,13 @@ namespace YNL.JAMOS
                 _noteLabel = informationField.Q("NoteField").Q<Label>("Note");
                 _tickIcon = field.Q("Tick");
 
-                Initialize();
-
                 OnSelected += UpdateOnSelected;
+                Marker.OnSignedInOrSignedUp += OnSignedInOrSignedUp;
             }
             ~DeliveryField()
             {
                 OnSelected -= UpdateOnSelected;
-            }
-
-            private void Initialize()
-            {
-                if (_type != DeliveryType.Rush) return;
-
-                var account = Main.Database.Accounts[Main.Runtime.Data.AccountID];
-                if (account.Address.City != "Ha Noi")
-                {
-                    _validDelivery = false;
-
-                    _field.SetEnabled(false);
-                    _priceLabel.SetText(string.Empty);
-                    _noteLabel.SetText("<b>Rush Delivery</b> is only available within <b>Ha Noi</b>");
-                }
-
-                Refresh();
+                Marker.OnSignedInOrSignedUp += OnSignedInOrSignedUp;
             }
 
             public void Refresh()
@@ -88,6 +71,23 @@ namespace YNL.JAMOS
                 OnSelected?.Invoke(_type);
 
                 Marker.OnDeliveryTypeSelected?.Invoke(_type);
+            }
+
+            private void OnSignedInOrSignedUp()
+            {
+                if (_type != DeliveryType.Rush) return;
+
+                var account = Main.Database.Accounts[Main.Runtime.Data.AccountID];
+                if (account.Address.City != "Ha Noi")
+                {
+                    _validDelivery = false;
+
+                    _field.SetEnabled(false);
+                    _priceLabel.SetText(string.Empty);
+                    _noteLabel.SetText("<b>Rush Delivery</b> is only available within <b>Ha Noi</b>");
+                }
+
+                Refresh();
             }
 
             private void UpdateOnSelected(DeliveryType type)

@@ -71,6 +71,22 @@ namespace YNL.JAMOS
 
         protected override void Initialize()
         {
+            if (Main.Runtime.Data.AccountID != -1)
+            {
+                var account = Main.Database.Accounts[Main.Runtime.Data.AccountID];
+
+                if (account.Type == AccountType.Customer)
+                {
+                    Marker.OnPageNavigated?.Invoke(ViewType.MainViewHomePage, true, true);
+                }
+                else
+                {
+                    Marker.OnPageNavigated?.Invoke(ViewType.ManagerViewProductPage, true, true);
+                }
+
+                Marker.OnSignedInOrSignedUp?.Invoke();
+            }
+
             _accountMessage.SetText(string.Empty);
             _passwordMessage.SetText(string.Empty);
             _confirmMessage.SetText(string.Empty);
@@ -186,6 +202,7 @@ namespace YNL.JAMOS
             Main.Database.Accounts.Add(account.ID, account);
 
             Marker.OnPageNavigated?.Invoke(ViewType.SigningViewPreferencePage, true, false);
+            Marker.OnSignedInOrSignedUp?.Invoke();
         }
 
         private void RecoveryAccount(PointerUpEvent evt)
