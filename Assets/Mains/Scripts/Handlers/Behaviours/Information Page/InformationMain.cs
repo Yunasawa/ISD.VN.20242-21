@@ -19,5 +19,10 @@ namespace YNL.JAMOS
 
             _view.AudioSource = _audioSource;
         }
+
+        protected override void Refresh()
+        {
+            _view.Refresh();
+        }
     }
 }
