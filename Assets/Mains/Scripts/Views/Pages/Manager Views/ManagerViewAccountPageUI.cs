@@ -18,7 +18,7 @@ namespace YNL.JAMOS
 
         private void OnClicked_SignOutField(PointerUpEvent evt)
         {
-            Main.Runtime.Data.AccountID = -1;
+            Main.Runtime.Data.AccountID = string.Empty;
 
             Marker.OnPageNavigated?.Invoke(ViewType.SigningViewSignInPage, true, true);
         }

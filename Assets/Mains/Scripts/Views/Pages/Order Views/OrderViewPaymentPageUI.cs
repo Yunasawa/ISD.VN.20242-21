@@ -178,6 +178,10 @@ namespace YNL.JAMOS
             {
                 Marker.OnVNPayPaymentRequested?.Invoke(code, vndPrice);
             }
+
+            Main.Runtime.OrderedAmounts.Clear();
+            _totalPrice = 0;
+            _priceText.SetText($"Total <size=50><b><color=#DEF95D>${_totalPrice.ToPriceFormat()}</color></b></size>\r\nSave <color=#DEF95D>${0f.ToPriceFormat()}</color>");
         }
 
         private void OnPaymentMethodSelected(PaymentMethod method)
@@ -203,6 +207,8 @@ namespace YNL.JAMOS
 
         private void OnSignedInOrSignedUp()
         {
+            _orderedAmounts.Clear();
+
             var account = Main.Database.Accounts[Main.Runtime.Data.AccountID];
             _nameText.SetText(account.Name);
             _phoneNumberText.SetText(account.PhoneNumber);

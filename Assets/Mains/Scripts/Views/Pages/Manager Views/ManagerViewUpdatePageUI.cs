@@ -86,13 +86,14 @@ namespace YNL.JAMOS
 
         protected override void Initialize()
         {
-            _productID = 10000000;
+            _productID = string.Empty;
             Refresh();
         }
 
         protected override void Refresh()
         {
-            var product = _products[_productID];
+            if (string.IsNullOrEmpty(_productID)) return;
+            if (_products.TryGetValue(_productID, out var product) == false) return;
 
             _productImage.ApplyCloudImageAsync(_productID);
             _productNameField.SetText(_productName = product.Title);

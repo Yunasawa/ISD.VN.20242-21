@@ -15,6 +15,7 @@ namespace YNL.JAMOS
     public static partial class Function
     {
         private static SerializableDictionary<UID, uint> _orderedAmounts => Main.Runtime.OrderedAmounts;
+        private static SerializableDictionary<UID, List<UID>> _productCollection => Main.Runtime.Data.ProductCollection;
 
         public static async UniTask<string> GetRawDatabaseAsync(this string url)
         {
@@ -153,10 +154,13 @@ namespace YNL.JAMOS
 
         public static void SetCartButtonStatus(this UID id, Button addToCartButton)
         {
+            var existCartedList = Main.Runtime.Data.CartedProducts.TryGetValue(Main.Runtime.Data.AccountID, out var cartedList);
+            var existCollection = Main.Runtime.Data.ProductCollection.TryGetValue(Main.Runtime.Data.AccountID, out var productCollection);
+
             var product = Main.Database.Products[id];
 
-            var isCarted = Main.Runtime.Data.CartedProducts.Contains(id);
-            var isCollected = Main.Runtime.Data.ProductCollection.Contains(id);
+            var isCarted = existCartedList ? cartedList.Contains(id) : false;
+            var isCollected = existCollection ? productCollection.Contains(id) : false;
 
             if (isCollected)
             {

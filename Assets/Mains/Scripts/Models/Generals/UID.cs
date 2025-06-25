@@ -3,37 +3,30 @@ using System;
 
 namespace YNL.JAMOS
 {
-    [System.Serializable]
+    [Serializable]
     public struct UID
     {
-        public int _id;
+        public string _id;
 
         [JsonConstructor]
-        public UID(int id)
+        public UID(string id)
         {
             _id = id;
         }
-        public UID(string id)
-        {
-            _id = Parse(id);
-        }
 
-        public static implicit operator int(UID id) => id._id;
-        public static implicit operator UID(int id) => new(id);
+        public static implicit operator string(UID id) => id._id;
+        public static implicit operator UID(string id) => new UID(id);
 
-        public static UID Parse(string id) => new(int.Parse(id));
+        public static UID Parse(string id) => new UID(id);
+
         public static bool TryParse(string id, out UID result)
         {
-            if (int.TryParse(id, out int value))
-            {
-                result = value;
-                return true;
-            }
-
-            throw new FormatException($"Invalid UID format: {id}");
+            result = new UID(id);
+            return !string.IsNullOrEmpty(id);
         }
 
-        public override string ToString() => $"{_id.ToString()}";
+        public override string ToString() => _id;
+
         public override bool Equals(object obj)
         {
             if (obj is UID other)
@@ -42,9 +35,7 @@ namespace YNL.JAMOS
             }
             return false;
         }
-        public override int GetHashCode()
-        {
-            return _id.GetHashCode();
-        }
+
+        public override int GetHashCode() => _id.GetHashCode();
     }
 }

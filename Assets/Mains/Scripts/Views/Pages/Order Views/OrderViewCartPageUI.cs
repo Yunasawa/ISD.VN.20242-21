@@ -10,14 +10,16 @@ namespace YNL.JAMOS
 {
     public class OrderViewCartPageUI : ViewPageUI
     {
-        private List<UID> _cartedProducts => Main.Runtime.Data.CartedProducts;
+        private UID _accountID => Main.Runtime.Data.AccountID;
+        private SerializableDictionary<UID, List<UID>> _cartedProducts => Main.Runtime.Data.CartedProducts;
         private SerializableDictionary<UID, uint> _orderedAmounts => Main.Runtime.OrderedAmounts;
         private SerializableDictionary<UID, Product.Data> _products => Main.Database.Products;
-
 
         private Label _cartLabel;
         private ListView _cartList;
         private Label _priceText;
+
+        private List<UID> _cartedProductList;
 
         protected override void Collect()
         {
@@ -30,18 +32,6 @@ namespace YNL.JAMOS
             Root.Remove(cartScroll);
 
             _cartList = Root.Q<ListView>("CartList");
-            _cartList.Q("unity-content-container").SetFlexGrow(1);
-            _cartList.Q<ScrollView>().verticalScrollerVisibility = ScrollerVisibility.Hidden;
-            _cartList.itemsSource = _cartedProducts;
-            _cartList.makeItem = () => new ProductCartItemUI();
-            _cartList.bindItem = (element, index) =>
-            {
-                var item = element as ProductCartItemUI;
-                if (item != null && !_cartedProducts.IsNullOrEmpty() && Main.IsSystemStarted)
-                {
-                    item.Apply(_cartedProducts[index]);
-                }
-            };
 
             var orderField = Root.Q("BottomField").Q("OrderField");
 
@@ -55,6 +45,21 @@ namespace YNL.JAMOS
 
         protected override void Initialize()
         {
+            _cartedProductList = _cartedProducts.TryGetValue(_accountID, out var list) ? list : new();
+
+            _cartList.Q("unity-content-container").SetFlexGrow(1);
+            _cartList.Q<ScrollView>().verticalScrollerVisibility = ScrollerVisibility.Hidden;
+            _cartList.itemsSource = _cartedProductList;
+            _cartList.makeItem = () => new ProductCartItemUI();
+            _cartList.bindItem = (element, index) =>
+            {
+                var item = element as ProductCartItemUI;
+                if (item != null && !_cartedProductList.IsNullOrEmpty() && Main.IsSystemStarted)
+                {
+                    item.Apply(_cartedProductList[index]);
+                }
+            };
+
             ProductCartItemUI.OnAmountAdjusted = OnCartItemAmountAdjusted;
 
             OnCartItemAmountAdjusted();
@@ -62,8 +67,8 @@ namespace YNL.JAMOS
 
         protected override void Refresh()
         {
-            _cartLabel.SetText($"Cart ({_cartedProducts.Count})");
-            _cartList.RebuildListView(_cartedProducts);
+            _cartLabel.SetText($"Cart ({_cartedProductList.Count})");
+            _cartList.RebuildListView(_cartedProductList);
         }
 
         private void OnClicked_LabelField(PointerUpEvent evt)

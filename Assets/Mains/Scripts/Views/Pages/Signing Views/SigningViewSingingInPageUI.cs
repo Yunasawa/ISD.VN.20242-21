@@ -58,7 +58,7 @@ namespace YNL.JAMOS
 
         protected override void Initialize()
         {
-            if (Main.Runtime.Data.AccountID != -1)
+            if (string.IsNullOrEmpty(Main.Runtime.Data.AccountID) == false)
             {
                 var account = Main.Database.Accounts[Main.Runtime.Data.AccountID];
 
