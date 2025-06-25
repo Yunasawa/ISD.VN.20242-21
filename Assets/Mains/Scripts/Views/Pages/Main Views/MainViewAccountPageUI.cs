@@ -102,7 +102,9 @@ namespace YNL.JAMOS
 
         private void OnClicked_SignOutField(PointerUpEvent evt)
         {
+            Main.Runtime.Data.AccountID = -1;
 
+            Marker.OnPageNavigated?.Invoke(ViewType.SigningViewSignInPage, true, true);
         }
     }
 }
