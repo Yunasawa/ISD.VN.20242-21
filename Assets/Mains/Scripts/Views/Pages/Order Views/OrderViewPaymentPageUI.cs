@@ -12,7 +12,7 @@ namespace YNL.JAMOS
 {
     public enum PaymentMethod : byte { CashOnDelivery, CreditCard, VISA, Paypal, VNPay }
 
-    public partial class OrderViewPaymentPageUI : ViewPageUI
+    public partial class OrderViewPaymentPageUI : PageBehaviour
     {
         private SerializableDictionary<UID, uint> _orderedAmounts => Main.Runtime.OrderedAmounts;
         private SerializableDictionary<UID, Product.Data> _products => Main.Database.Products;
@@ -58,7 +58,7 @@ namespace YNL.JAMOS
             Marker.OnSignedInOrSignedUp -= OnSignedInOrSignedUp;
         }
 
-        protected override void Collect()
+        protected override void Construct()
         {
             var labelField = Root.Q("LabelField");
             labelField.RegisterCallback<PointerUpEvent>(OnClicked_LabelField);

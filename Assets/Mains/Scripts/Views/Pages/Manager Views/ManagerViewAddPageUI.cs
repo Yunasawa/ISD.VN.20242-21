@@ -10,7 +10,7 @@ using YNL.Utilities.UIToolkits;
 
 namespace YNL.JAMOS
 {
-    public partial class ManagerViewAddPageUI : ViewPageUI
+    public partial class ManagerViewAddPageUI : PageBehaviour
     {
         private SerializableDictionary<UID, Product.Data> _products => Main.Database.Products;
         private SerializableDictionary<UID, Product.Data> _createdProducts => Main.Runtime.Data.CreatedProducts;
@@ -36,7 +36,7 @@ namespace YNL.JAMOS
         private string _publicationDate;
         private Dictionary<Product.Property, string> _propertyInputs = new();
 
-        protected override void Collect()
+        protected override void Construct()
         {
             var scrollContainer = Root.Q("MainScroll").Q("unity-content-container");
 

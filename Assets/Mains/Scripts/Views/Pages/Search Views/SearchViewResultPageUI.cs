@@ -8,7 +8,7 @@ using YNL.Utilities.UIToolkits;
 
 namespace YNL.JAMOS
 {
-    public class SearchViewResultPageUI : ViewPageUI
+    public class SearchViewResultPageUI : PageBehaviour
     {
         [SerializeField] private SearchViewSortPageUI _sortPage;
         [SerializeField] private SearchViewFilterPageUI _filterPage;
@@ -41,7 +41,7 @@ namespace YNL.JAMOS
             Marker.OnSearchResultFiltered -= OnSearchResultFiltered;
         }
 
-        protected override void Collect()
+        protected override void Construct()
         {
             var resultPage = Root.Q("SearchingResultPage");
 

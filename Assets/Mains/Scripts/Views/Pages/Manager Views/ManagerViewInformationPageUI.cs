@@ -5,7 +5,7 @@ using YNL.Utilities.UIToolkits;
 
 namespace YNL.JAMOS
 {
-    public partial class ManagerViewInformationPageUI : ViewPageUI
+    public partial class ManagerViewInformationPageUI : PageBehaviour
     {
         private VisualElement _backButton;
         private VisualElement _shareButton;
@@ -21,7 +21,7 @@ namespace YNL.JAMOS
 
         private UID _uid => Main.Runtime.SelectedProduct;
 
-        protected override void Collect()
+        protected override void Construct()
         {
             _backButton = Root.Q("TopBar").Q("BackButton");
             _backButton.RegisterCallback<PointerUpEvent>(OnClicked_BackButton);

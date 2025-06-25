@@ -6,7 +6,7 @@ using YNL.Utilities.UIToolkits;
 
 namespace YNL.JAMOS
 {
-    public class ManagerViewMessagePageUI : ViewPageUI
+    public class ManagerViewMessagePageUI : PageBehaviour
     {
         private Dictionary<UID, MessageList>.KeyCollection _messageKeys => Main.Runtime.Data.Messages.Keys;
 
@@ -14,7 +14,7 @@ namespace YNL.JAMOS
 
         private UID[] _messageIDs;
 
-        protected override void Collect()
+        protected override void Construct()
         {
             Root.Remove(Root.Q("MessageScroll"));
 

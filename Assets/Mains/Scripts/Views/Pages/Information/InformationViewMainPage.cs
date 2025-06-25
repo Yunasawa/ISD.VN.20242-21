@@ -6,7 +6,7 @@ using static YNL.JAMOS.InformationViewMainPage;
 
 namespace YNL.JAMOS
 {
-    public partial class InformationViewMainPage : ViewPageUI
+    public partial class InformationViewMainPage : PageBehaviour
     {
         [SerializeField] private AudioSource _audioSource;
 
@@ -25,7 +25,7 @@ namespace YNL.JAMOS
 
         private UID _uid => Main.Runtime.SelectedProduct;
 
-        protected override void Collect()
+        protected override void Construct()
         { 
             _backButton = Root.Q("TopBar").Q("BackButton");
             _backButton.RegisterCallback<PointerUpEvent>(OnClicked_BackButton);

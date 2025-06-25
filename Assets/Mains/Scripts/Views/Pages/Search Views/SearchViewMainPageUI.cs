@@ -10,7 +10,7 @@ namespace YNL.JAMOS
 {
     public enum SearchingSuggestionType : byte { Creator, Book, CD, DVD, LP }
 
-    public partial class SearchViewMainPageUI : ViewPageUI
+    public partial class SearchViewMainPageUI : PageBehaviour
     {
         private SerializableDictionary<UID, Product.Data> _products => Main.Database.Products;
 
@@ -36,7 +36,7 @@ namespace YNL.JAMOS
         {
         }
 
-        protected override void Collect()
+        protected override void Construct()
         {
             var closeButton = Root.Q("LabelField");
             closeButton.RegisterCallback<PointerUpEvent>(OnClicked_CloseButton);

@@ -5,7 +5,7 @@ using YNL.Utilities.Extensions;
 
 namespace YNL.JAMOS
 {
-    public partial class OrderViewDeliveryPageUI : ViewPageUI
+    public partial class OrderViewDeliveryPageUI : PageBehaviour
     {
         private VisualElement _contentContainer;
 
@@ -21,7 +21,7 @@ namespace YNL.JAMOS
             Marker.OnDeliveryChargeCalculated -= OnDeliveryChargeCalculated;
         }
 
-        protected override void Collect()
+        protected override void Construct()
         {
             var labelField = Root.Q("LabelField");
             labelField.RegisterCallback<PointerUpEvent>(OnClicked_LabelField);

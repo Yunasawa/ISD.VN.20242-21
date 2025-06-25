@@ -2,11 +2,11 @@ using UnityEngine.UIElements;
 
 namespace YNL.JAMOS
 {
-    public class ManagerViewAccountPageUI : ViewPageUI
+    public class ManagerViewAccountPageUI : PageBehaviour
     {
         private VisualElement _signOutField;
 
-        protected override void Collect()
+        protected override void Construct()
         {
             var contentContainer = Root.Q("ContentScroll").Q("unity-content-container");
 

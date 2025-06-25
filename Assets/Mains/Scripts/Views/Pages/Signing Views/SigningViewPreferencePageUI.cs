@@ -4,14 +4,14 @@ using YNL.Utilities.UIToolkits;
 
 namespace YNL.JAMOS
 {
-    public class SigningViewPreferencePageUI : ViewPageUI
+    public class SigningViewPreferencePageUI : PageBehaviour
     {
         private VisualElement _bookGenreContainer;
         private VisualElement _musicGenreContainer;
         private VisualElement _movieGenreContainer;
         private VisualElement _nextButton;
 
-        protected override void Collect()
+        protected override void Construct()
         {
             var preferenceContainer = Root.Q("PreferenceScroll").Q("unity-content-container");
 

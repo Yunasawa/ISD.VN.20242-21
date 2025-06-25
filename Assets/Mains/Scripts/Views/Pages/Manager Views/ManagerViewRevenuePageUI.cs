@@ -1,6 +1,6 @@
 namespace YNL.JAMOS
 {
-    public class ManagerViewRevenuePageUI : ViewPageUI
+    public class ManagerViewRevenuePageUI : PageBehaviour
     {
 
     }

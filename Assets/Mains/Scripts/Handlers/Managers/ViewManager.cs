@@ -9,7 +9,7 @@ namespace YNL.JAMOS
 		public ViewType CurrentViewType;
         public bool IsAbleToMovePage = true;
 
-		public SerializableDictionary<ViewType, ViewPageUI> Pages = new();
+		public SerializableDictionary<ViewType, PageBehaviour> Pages = new();
 
         public void Awake()
         {

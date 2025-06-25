@@ -10,7 +10,7 @@ using YNL.Utilities.UIToolkits;
 
 namespace YNL.JAMOS
 {
-    public partial class ManagerViewUpdatePageUI : ViewPageUI
+    public partial class ManagerViewUpdatePageUI : PageBehaviour
     {
         private SerializableDictionary<UID, Product.Data> _products => Main.Database.Products;
 
@@ -47,7 +47,7 @@ namespace YNL.JAMOS
             Marker.OnProductUpdatingRequested -= OnProductUpdatingRequested;
         }
 
-        protected override void Collect()
+        protected override void Construct()
         {
             var scrollContainer = Root.Q("MainScroll").Q("unity-content-container");
 

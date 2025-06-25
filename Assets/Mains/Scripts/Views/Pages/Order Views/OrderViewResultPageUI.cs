@@ -3,7 +3,7 @@ using YNL.Utilities.UIToolkits;
 
 namespace YNL.JAMOS
 {
-    public class OrderViewResultPageUI : ViewPageUI
+    public class OrderViewResultPageUI : PageBehaviour
     {
         private Label _codeLabel;
 
@@ -17,7 +17,7 @@ namespace YNL.JAMOS
             Marker.OnOrderCodeCreated -= OnOrderCodeCreated;
         }
 
-        protected override void Collect()
+        protected override void Construct()
         {
             var informationField = Root.Q("InformationField");
 

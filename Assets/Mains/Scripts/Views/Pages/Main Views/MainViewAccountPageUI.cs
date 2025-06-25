@@ -3,7 +3,7 @@ using YNL.Utilities.UIToolkits;
 
 namespace YNL.JAMOS
 {
-    public class MainViewAccountPageUI : ViewPageUI
+    public class MainViewAccountPageUI : PageBehaviour
     {
         private VisualElement _profilePicture;
         private Label _nameText;
@@ -31,7 +31,7 @@ namespace YNL.JAMOS
             Marker.OnSignedInOrSignedUp -= OnSignedInOrSignedUp;
         }
 
-        protected override void Collect()
+        protected override void Construct()
         {
             var contentContainer = Root.Q("ContentScroll").Q("unity-content-container");
 

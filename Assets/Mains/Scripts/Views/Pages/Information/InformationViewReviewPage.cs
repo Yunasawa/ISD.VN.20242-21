@@ -5,7 +5,7 @@ using YNL.Utilities.UIToolkits;
 
 namespace YNL.JAMOS
 {
-    public partial class InformationViewReviewPage : ViewPageUI
+    public partial class InformationViewReviewPage : PageBehaviour
     {
         private VisualElement _backButton;
         private RatingView _ratingView;
@@ -15,7 +15,7 @@ namespace YNL.JAMOS
         private UID _uid;
         private List<UID> _feedbackIDs = new();
 
-        protected override void Collect()
+        protected override void Construct()
         {
             _backButton = Root.Q("TopBar").Q("LabelField");
             _backButton.RegisterCallback<PointerUpEvent>(OnClicked_BackButton);
