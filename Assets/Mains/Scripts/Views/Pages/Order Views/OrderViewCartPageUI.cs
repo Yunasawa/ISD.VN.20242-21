@@ -8,7 +8,7 @@ using YNL.Utilities.UIToolkits;
 
 namespace YNL.JAMOS
 {
-    public class OrderViewCartPageUI : ViewPageUI
+    public class OrderViewCartPageUI : PageBehaviour
     {
         private UID _accountID => Main.Runtime.Data.AccountID;
         private SerializableDictionary<UID, List<UID>> _cartedProducts => Main.Runtime.Data.CartedProducts;
@@ -21,7 +21,7 @@ namespace YNL.JAMOS
 
         private List<UID> _cartedProductList;
 
-        protected override void Collect()
+        protected override void Construct()
         {
             var labelField = Root.Q("LabelField");
             labelField.RegisterCallback<PointerUpEvent>(OnClicked_LabelField);

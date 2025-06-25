@@ -5,7 +5,7 @@ using YNL.Utilities.UIToolkits;
 
 namespace YNL.JAMOS
 {
-    public class MainViewMessagePageUI : ViewPageUI
+    public class MainViewMessagePageUI : PageBehaviour
     {
         private List<MessageItem> _messages
         {
@@ -24,7 +24,7 @@ namespace YNL.JAMOS
         private TextField _messageInput;
         private VisualElement _sendButton;
 
-        protected override void Collect()
+        protected override void Construct()
         {
             Root.Remove(Root.Q("ChatScroll"));
             _messageList = Root.Q<ListView>("ChatList");

@@ -6,7 +6,7 @@ using YNL.Utilities.UIToolkits;
 
 namespace YNL.JAMOS
 {
-    public class SigningViewSingingInPageUI : ViewPageUI
+    public class SigningViewSingingInPageUI : PageBehaviour
     {
         private TextField _accountInputField;
         private Label _accountMessage;
@@ -26,7 +26,7 @@ namespace YNL.JAMOS
         private bool _validAccountInput;
         private bool _validPasswordInput;
 
-        protected override void Collect()
+        protected override void Construct()
         {
             var signingInputField = Root.Q("SigningInputField");
 

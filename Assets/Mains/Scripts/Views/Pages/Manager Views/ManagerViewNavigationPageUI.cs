@@ -3,7 +3,7 @@ using YNL.Utilities.UIToolkits;
 
 namespace YNL.JAMOS
 {
-    public class ManagerViewNavigationPageUI : ViewPageUI
+    public class ManagerViewNavigationPageUI : PageBehaviour
     {
         private VisualElement _navigationBar;
 
@@ -17,7 +17,7 @@ namespace YNL.JAMOS
             Marker.OnSignedInOrSignedUp -= OnSignedInOrSignedUp;
         }
 
-        protected override void Collect()
+        protected override void Construct()
         {
             _navigationBar = Root.Q("NavigationBar");
         }

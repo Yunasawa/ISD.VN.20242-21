@@ -7,7 +7,7 @@ using YNL.Utilities.UIToolkits;
 
 namespace YNL.JAMOS
 {
-    public class ManagerViewChatPageUI : ViewPageUI
+    public class ManagerViewChatPageUI : PageBehaviour
     {
         private SerializableDictionary<UID, Account> _accounts => Main.Database.Accounts;
         private SerializableDictionary<UID, MessageList> _messageLists => Main.Runtime.Data.Messages;
@@ -32,7 +32,7 @@ namespace YNL.JAMOS
             Marker.OnChatBoxOpened -= OnChatBoxOpened;
         }
 
-        protected override void Collect()
+        protected override void Construct()
         {
             var labelField = Root.Q("LabelField");
             var backButton = labelField.Q("BackButton");

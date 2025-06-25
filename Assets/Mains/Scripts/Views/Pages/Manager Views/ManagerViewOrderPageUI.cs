@@ -1,6 +1,6 @@
 namespace YNL.JAMOS
 {
-    public class ManagerViewOrderPageUI : ViewPageUI
+    public class ManagerViewOrderPageUI : PageBehaviour
     {
 
     }

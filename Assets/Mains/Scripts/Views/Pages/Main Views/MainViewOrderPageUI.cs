@@ -2,9 +2,9 @@ using UnityEngine.UIElements;
 
 namespace YNL.JAMOS
 {
-    public class MainViewOrderPageUI : ViewPageUI
+    public class MainViewOrderPageUI : PageBehaviour
     {
-        protected override void Collect()
+        protected override void Construct()
         {
         }
 

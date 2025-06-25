@@ -7,7 +7,7 @@ using YNL.Utilities.UIToolkits;
 
 namespace YNL.JAMOS
 {
-    public class MainViewHomePageUI : ViewPageUI
+    public class MainViewHomePageUI : PageBehaviour
     {
         private VisualElement _searchField;
         private VisualElement _notificationButton;
@@ -17,7 +17,7 @@ namespace YNL.JAMOS
 
         private List<ProductPreviewListUI> _previewLists = new();
 
-        protected override void Collect()
+        protected override void Construct()
         {
             _searchField = Root.Q("TopBar").Q("SearchField");
             _searchField.RegisterCallback<PointerUpEvent>(OnClicked_SearchField);

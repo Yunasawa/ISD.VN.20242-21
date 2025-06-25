@@ -1,3 +1,4 @@
+using System.Diagnostics.Contracts;
 using UnityEngine;
 using UnityEngine.UIElements;
 using YNL.Utilities.Extensions;
@@ -5,7 +6,7 @@ using YNL.Utilities.UIToolkits;
 
 namespace YNL.JAMOS
 {
-    public abstract class ViewPageUI : MonoBehaviour
+    public abstract class PageBehaviour : MonoBehaviour
     {
         [SerializeField] private bool _hideOnAwake = true;
         [SerializeField] protected bool _isPopupPage = false;
@@ -21,7 +22,7 @@ namespace YNL.JAMOS
 
             VirtualAwake();
 
-            Collect();
+            Construct();
 
             if (!_isPopupPage)
             {
@@ -45,7 +46,7 @@ namespace YNL.JAMOS
 
         protected virtual void VirtualAwake() { }
 
-        protected virtual void Collect() { }
+        protected virtual void Construct() { }
         protected virtual void Initialize() { }
         protected virtual void Refresh() { }
 

@@ -8,7 +8,7 @@ using YNL.Utilities.UIToolkits;
 
 namespace YNL.JAMOS
 {
-    public class SigningViewSingingUpPageUI : ViewPageUI
+    public class SigningViewSingingUpPageUI : PageBehaviour
     {
         private TextField _accountInputField;
         private Label _accountMessage;
@@ -34,7 +34,7 @@ namespace YNL.JAMOS
         private bool _validPasswordInput;
         private bool _validConfirmInput;
 
-        protected override void Collect()
+        protected override void Construct()
         {
             var signingInputField = Root.Q("SigningInputField");
 
@@ -196,6 +196,35 @@ namespace YNL.JAMOS
         private void RecoveryAccount(PointerUpEvent evt)
         {
 
+        }
+    }
+
+    public static partial class Extension
+    {
+        public static class Validator
+        {
+            private static readonly string EmailPattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+            private static readonly string PhonePattern = @"^\+?[1-9]\d{1,14}$";
+
+            public static bool ValidateEmail(string email)
+            {
+                if (string.IsNullOrWhiteSpace(email))
+                {
+                    return false;
+                }
+
+                return Regex.IsMatch(email, EmailPattern, RegexOptions.Compiled | RegexOptions.IgnoreCase);
+            }
+
+            public static bool ValidatePhoneNumber(string phoneNumber)
+            {
+                if (string.IsNullOrWhiteSpace(phoneNumber))
+                {
+                    return false;
+                }
+
+                return Regex.IsMatch(phoneNumber, PhonePattern);
+            }
         }
     }
 }

@@ -5,7 +5,7 @@ using YNL.Utilities.UIToolkits;
 
 namespace YNL.JAMOS
 {
-    public class ManagerViewProductPageUI : ViewPageUI
+    public class ManagerViewProductPageUI : PageBehaviour
     {
         private SerializableDictionary<UID, Product.Data> _products => Main.Database.Products;
 
@@ -15,7 +15,7 @@ namespace YNL.JAMOS
 
         private UID[] _productIDs;
 
-        protected override void Collect()
+        protected override void Construct()
         {
             Root.Remove(Root.Q("ProductScroll"));
 

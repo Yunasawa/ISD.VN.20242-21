@@ -22,7 +22,7 @@ namespace YNL.JAMOS
         ShortestDuration
     }
 
-    public partial class SearchViewSortPageUI : ViewPageUI
+    public partial class SearchViewSortPageUI : PageBehaviour
     {
 
         private VisualElement _background;
@@ -44,7 +44,7 @@ namespace YNL.JAMOS
             SortItem.OnSelected -= OnSortItemSelected;
         }
 
-        protected override void Collect()
+        protected override void Construct()
         {
             _background = Root.Q("ScreenBackground");
             _background.RegisterCallback<PointerUpEvent>(OnClicked_CloseButton);

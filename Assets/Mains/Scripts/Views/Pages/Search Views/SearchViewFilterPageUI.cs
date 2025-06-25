@@ -10,7 +10,7 @@ namespace YNL.JAMOS
 {
     public enum RatingScoreType : byte { Any, GE35, GE40, GE45 }
 
-    public partial class SearchViewFilterPageUI : ViewPageUI
+    public partial class SearchViewFilterPageUI : PageBehaviour
     {
         public static (int Min, int Max) PriceRange = (0, 100);
 
@@ -45,7 +45,7 @@ namespace YNL.JAMOS
             RatingScoreItem.OnSelected -= OnRatingScoreItemSelected;
         }
 
-        protected override void Collect()
+        protected override void Construct()
         {
             _background = Root.Q("ScreenBackground");
             _background.RegisterCallback<PointerUpEvent>(OnClicked_CloseButton);
