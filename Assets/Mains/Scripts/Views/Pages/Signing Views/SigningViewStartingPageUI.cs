@@ -1,6 +1,7 @@
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UIElements;
+using YNL.Utilities.Extensions;
 using YNL.Utilities.UIToolkits;
 
 namespace YNL.JAMOS
@@ -20,17 +21,22 @@ namespace YNL.JAMOS
 
             _ground = _root.Q("Ground");
 
-            Marker.OnClosingStartingPageRequested += OnClosingStartingPageRequested().Forget;
+            Marker.OnClosingStartingPageRequested += OnClosingStartingPageRequested;
         }
 
         private void OnDestroy()
         {
-            Marker.OnClosingStartingPageRequested -= OnClosingStartingPageRequested().Forget;
+            Marker.OnClosingStartingPageRequested -= OnClosingStartingPageRequested;
         }
 
-        private async UniTaskVoid OnClosingStartingPageRequested()
+        private void OnClosingStartingPageRequested()
         {
-            await UniTask.WaitForSeconds(3);
+            ClosePage().Forget();
+        }
+
+        private async UniTaskVoid ClosePage()
+        {
+            await UniTask.WaitForSeconds(1);
 
             _background.SetBackgroundColor(Color.clear);
             _ground.SetOpacity(0);

@@ -189,8 +189,8 @@ namespace YNL.JAMOS
 
             var id = (int)_productType * 10000000 + _products.Count;
 
-            _createdProducts.Add(id, productData);
-            _products.Insert(0, id, productData);
+            _createdProducts.Add(id.ToString(), productData);
+            _products.Insert(0, id.ToString(), productData);
 
             Marker.OnRuntimeSavingRequested?.Invoke();
 

@@ -8,11 +8,11 @@
                 <engine:VisualElement name="ProfilePicture" style="width: 200px; height: 200px; border-top-left-radius: 100px; border-top-right-radius: 100px; border-bottom-right-radius: 100px; border-bottom-left-radius: 100px; background-color: rgb(57, 57, 57); border-top-width: 3px; border-right-width: 3px; border-bottom-width: 3px; border-left-width: 3px; border-left-color: rgb(96, 96, 96); border-right-color: rgb(96, 96, 96); border-top-color: rgb(96, 96, 96); border-bottom-color: rgb(96, 96, 96); background-image: resource(&apos;Icons/Account&apos;); -unity-background-scale-mode: scale-and-crop; background-size: 50% 50%;" />
                 <engine:VisualElement name="InfoField" style="flex-grow: 1; margin-left: 40px; justify-content: space-evenly;">
                     <engine:VisualElement name="NameField" style="height: 75px; flex-direction: row;">
-                        <engine:Label text="User10000101" name="NameField" class="label-field" style="-unity-font-style: bold; height: 75px; -unity-text-align: middle-left; margin-right: 25px;" />
+                        <engine:Label text="User10000101" name="NameText" class="label-field" style="-unity-font-style: bold; height: 75px; -unity-text-align: middle-left; margin-right: 25px;" />
                         <engine:VisualElement name="ChangeButton" style="height: 75px; width: 75px; background-image: resource(&apos;Icons/Change&apos;); background-size: 60% 60%; -unity-background-image-tint-color: rgb(222, 249, 93); display: none;" />
                     </engine:VisualElement>
                     <engine:Label text="+1 604-555-0165" name="PhoneField" class="label-field" style="font-size: 40px; -unity-text-align: middle-left; height: 50px;" />
-                    <engine:Label text="user10000101@com.au" name="PhoneField" class="label-field" style="font-size: 40px; -unity-text-align: middle-left; height: 50px;" />
+                    <engine:Label text="user10000101@com.au" name="EmailField" class="label-field" style="font-size: 40px; -unity-text-align: middle-left; height: 50px;" />
                 </engine:VisualElement>
             </engine:VisualElement>
         </engine:VisualElement>

@@ -1,4 +1,5 @@
 using UnityEngine.UIElements;
+using YNL.Utilities.UIToolkits;
 
 namespace YNL.JAMOS
 {
@@ -20,6 +21,16 @@ namespace YNL.JAMOS
         private VisualElement _contactField;
         private VisualElement _signOutField;
 
+        protected override void VirtualAwake()
+        {
+            Marker.OnSignedInOrSignedUp += OnSignedInOrSignedUp;
+        }
+
+        private void OnDestroy()
+        {
+            Marker.OnSignedInOrSignedUp -= OnSignedInOrSignedUp;
+        }
+
         protected override void Collect()
         {
             var contentContainer = Root.Q("ContentScroll").Q("unity-content-container");
@@ -30,7 +41,7 @@ namespace YNL.JAMOS
 
             var infoField = accountField.Q("InfoField");
 
-            _nameText = infoField.Q("NameText") as Label;
+            _nameText = infoField.Q("NameField").Q("NameText") as Label;
             _phoneField = infoField.Q("PhoneField") as Label;
             _emailField = infoField.Q("EmailField") as Label;
 
@@ -102,7 +113,18 @@ namespace YNL.JAMOS
 
         private void OnClicked_SignOutField(PointerUpEvent evt)
         {
+            Main.Runtime.Data.AccountID = string.Empty;
 
+            Marker.OnPageNavigated?.Invoke(ViewType.SigningViewSignInPage, true, true);
+        }
+
+        private void OnSignedInOrSignedUp()
+        {
+            var account = Main.Database.Accounts[Main.Runtime.Data.AccountID];
+
+            _nameText.SetText(account.Name);
+            _phoneField.SetText(account.PhoneNumber);
+            _emailField.SetText(account.Email);
         }
     }
 }

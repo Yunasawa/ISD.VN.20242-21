@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using YNL.Utilities.Addons;
 
@@ -51,8 +50,8 @@ namespace YNL.JAMOS
         public List<(SearchingSuggestionType Type, string Value)> SearchingHistory = new();
         public SerializableDictionary<UID, LikedFeedback> LikedFeedbacks = new();
         public List<string> FavoriteGenres = new();
-        public List<UID> CartedProducts = new();
-        public List<UID> ProductCollection = new();
+        public SerializableDictionary<UID, List<UID>> CartedProducts = new();
+        public SerializableDictionary<UID, List<UID>> ProductCollection = new();
         public SerializableDictionary<UID, MessageList> Messages = new();
         public SerializableDictionary<string, OrderItem> Orders = new();
         public SerializableDictionary<UID, Product.Data> CreatedProducts = new();

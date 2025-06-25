@@ -35,10 +35,7 @@ namespace YNL.JAMOS
         {
             var accountType = Main.Database.Accounts[Main.Runtime.Data.AccountID].Type;
 
-            if (accountType == AccountType.Manager)
-            {
-                Root.SetDisplay(DisplayStyle.None);
-            }
+            Root.SetDisplay(accountType == AccountType.Manager ? DisplayStyle.None : DisplayStyle.Flex);
         }
     }
 }

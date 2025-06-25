@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
+using YNL.Utilities.Addons;
 using YNL.Utilities.UIToolkits;
 
 namespace YNL.JAMOS
@@ -12,8 +13,9 @@ namespace YNL.JAMOS
     {
         public class PriceField
         {
-            private List<UID> _cartedProducts => Main.Runtime.Data.CartedProducts;
-            private List<UID> _productCollection => Main.Runtime.Data.ProductCollection;
+            private UID _accountID => Main.Runtime.Data.AccountID;
+            private SerializableDictionary<UID, List<UID>> _cartedProducts => Main.Runtime.Data.CartedProducts;
+            private SerializableDictionary<UID, List<UID>> _productCollection => Main.Runtime.Data.ProductCollection;
 
             public Action OnOpenTimeRangePage;
 
@@ -44,24 +46,46 @@ namespace YNL.JAMOS
                 _originalPrice.SetText($"From <color=#7f7f7f><s>${product.Price:0.00}</s></color>");
                 _lastPrice.SetText(product.IsFree ? "FREE" : $"${product.Price * (1 - discounrt / 100f):0.00}");
 
-                var isCarted = _cartedProducts.Contains(_uid);
+                var isCarted = false;
+
+                if (_cartedProducts.TryGetValue(_accountID, out var products))
+                {
+                    isCarted = products.Contains(_uid);
+                }
 
                 _uid.SetCartButtonStatus(_addToCartButton);
             }
 
             private void OnClicked_ChooseButton(PointerUpEvent evt)
             {
+                var existCart = _cartedProducts.TryGetValue(_accountID, out var cart);
+                var existCollection = _productCollection.TryGetValue(_accountID, out var collection);
+
                 var product = Main.Database.Products[_uid];
 
-                var isCollected = Main.Runtime.Data.ProductCollection.Contains(_uid);
+                var isCollected = existCollection ? collection.Contains(_uid) : false;
 
                 if (product.IsFree && isCollected == false)
                 {
-                    _productCollection.Add(_uid);
+                    if (existCollection)
+                    {
+                        collection.Add(_uid);
+                    }
+                    else
+                    {
+                        _productCollection.Add(_accountID, new() { _uid });
+                    }
                 }
-                else if (_cartedProducts.Remove(_uid) == false)
+                else if (existCart)
                 {
-                    _cartedProducts.Add(_uid);
+                    if (cart.Remove(_uid) == false)
+                    {
+                        cart.Add(_uid);
+                    }
+                }
+                else
+                {
+                    _cartedProducts.Add(_accountID, new() { _uid });
                 }
 
                 _uid.SetCartButtonStatus(_addToCartButton);

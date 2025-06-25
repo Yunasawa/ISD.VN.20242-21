@@ -38,7 +38,7 @@ namespace YNL.JAMOS
 
         public void Apply(UID id)
         {
-            if (Main.Runtime.Data.AccountID == -1) return;
+            if (string.IsNullOrEmpty(Main.Runtime.Data.AccountID)) return;
 
             _messageID = id;
 

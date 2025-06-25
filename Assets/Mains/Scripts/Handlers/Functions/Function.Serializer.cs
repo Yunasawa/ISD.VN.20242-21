@@ -72,11 +72,11 @@ namespace YNL.JAMOS
             
             var feedbacks = fields[9]
                 .Split(";", StringSplitOptions.RemoveEmptyEntries)
-                .Select(i => UID.Parse(i))
+                .Select(i => int.Parse(i))
                 .ToDictionary(n => n + 99000000, n => new FeedbackStatus());
             foreach (var pair in feedbacks)
             {
-                product.Review.Feedbacks.Add(pair.Key, pair.Value);
+                product.Review.Feedbacks.Add(pair.Key.ToString(), pair.Value);
             }
             
             for (int i = 10; i < fields.Length; i++)
