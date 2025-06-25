@@ -67,6 +67,8 @@ namespace YNL.JAMOS
 
         protected override void Refresh()
         {
+            _cartedProductList = _cartedProducts.TryGetValue(_accountID, out var list) ? list : new();
+
             _cartLabel.SetText($"Cart ({_cartedProductList.Count})");
             _cartList.RebuildListView(_cartedProductList);
         }

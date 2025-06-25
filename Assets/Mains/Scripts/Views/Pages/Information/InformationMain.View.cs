@@ -2,6 +2,7 @@ using Cysharp.Threading.Tasks;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using YNL.Utilities.Addons;
@@ -13,6 +14,7 @@ namespace YNL.JAMOS
     {
         private class View : PageView
         {
+
             public AudioSource AudioSource;
 
             private InformationMain _b;
@@ -29,6 +31,8 @@ namespace YNL.JAMOS
             private GenreField _genreField;
             private ReviewView _reviewView;
             private DescriptionField _descriptionField;
+
+            private UID _uid => Main.Runtime.SelectedProduct;
 
             public override void Initialize(PageBehaviour behaviour)
             {
@@ -59,6 +63,23 @@ namespace YNL.JAMOS
                 _reviewView = new(contentContainer);
 
                 _descriptionField = new(contentContainer);
+            }
+
+            public override void Refresh()
+            {
+                if (!Main.Database.Products.TryGetValue(_uid, out var product)) return;
+
+                _imageView.ApplyCloudImageAsync(_uid);
+                _nameView.Apply(product);
+                _amountField.Apply(product);
+                _genreField.Apply(product);
+                _descriptionField.Apply(_uid);
+                _reviewView.Apply(_uid);
+
+                _priceField.Apply(_uid);
+
+                _streamField.Field.SetDisplay(product.HasStreamer ? DisplayStyle.Flex : DisplayStyle.None);
+                if (product.HasStreamer) _streamField.Apply(_uid);
             }
 
             private void OnClicked_BackButton(PointerUpEvent evt)

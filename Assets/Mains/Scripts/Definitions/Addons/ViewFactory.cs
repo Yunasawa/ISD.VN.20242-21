@@ -6,6 +6,7 @@ namespace YNL.JAMOS
     {
         public abstract void Initialize(PageBehaviour behaviour);
         public abstract void Collect(VisualElement root);
+        public virtual void Refresh() { }
     }
 
     public abstract class PageController

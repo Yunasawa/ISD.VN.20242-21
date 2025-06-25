@@ -332,7 +332,7 @@ GameObject:
   m_Component:
   - component: {fileID: 121488323}
   - component: {fileID: 121488325}
-  - component: {fileID: 121488326}
+  - component: {fileID: 121488327}
   m_Layer: 0
   m_Name: Main Page
   m_TagString: Untagged
@@ -374,7 +374,7 @@ MonoBehaviour:
   m_WorldSpaceSizeMode: 1
   m_WorldSpaceWidth: 1920
   m_WorldSpaceHeight: 1080
---- !u!114 &121488326
+--- !u!114 &121488327
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -383,7 +383,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 121488322}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 717876df497b42140aaa23e844cb3cee, type: 3}
+  m_Script: {fileID: 11500000, guid: 74ee48355a79d384f81b87b03c5bbe23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _hideOnAwake: 1
@@ -1902,7 +1902,7 @@ MonoBehaviour:
     - {fileID: 1407744821}
     - {fileID: 342035978}
     - {fileID: 1652320341}
-    - {fileID: 121488326}
+    - {fileID: 121488327}
     - {fileID: 1367958482}
     - {fileID: 1977558692}
     - {fileID: 1309971818}
