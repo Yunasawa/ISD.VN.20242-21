@@ -1,23 +1,19 @@
-using UnityEngine.UIElements;
-
 namespace YNL.JAMOS
 {
     public partial class InformationMain
     {
-        private class Controller : PageController
+        private class View : PageView
         {
             private InformationMain _b;
 
             public override void Initialize(PageBehaviour behaviour)
             {
                 _b = behaviour as InformationMain;
-
-                _b.OnBackButtonClicked += OnBackButtonClicked;
             }
 
-            private void OnBackButtonClicked()
+            public override void Collect(VisualElement root)
             {
-                Marker.OnPageBacked?.Invoke(true, false);
+
             }
         }
     }
