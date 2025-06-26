@@ -6,22 +6,6 @@ using YNL.Utilities.UIToolkits;
 
 namespace YNL.JAMOS
 {
-    public enum SortType : byte
-    {
-        ByTitleAToZ,
-        ByTitleZToA,
-        NewestReleaseDate,
-        OldestReleaseDate,
-        MostPopular,
-        LeastPopular,
-        HighestRating,
-        LowestRating,
-        HighestPrice,
-        LowestPrice,
-        LongestDuration,
-        ShortestDuration
-    }
-
     public partial class SearchViewSortPageUI : PageBehaviour
     {
 

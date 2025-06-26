@@ -9,7 +9,7 @@ namespace YNL.JAMOS
         public Action<Product.Type, string> OnResultPageRefreshed;
         public Action<List<UID>> OnSearchResultDisplayed;
 
-        [SerializeField] private SearchViewSortPageUI _sortPage;
+        [SerializeField] private SearchSort _sortPage;
         [SerializeField] private SearchFilter _filterPage;
 
         private View _view;

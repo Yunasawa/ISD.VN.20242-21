@@ -1,8 +1,5 @@
 using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
 using UnityEngine.UIElements;
-using YNL.Utilities.Addons;
 using YNL.Utilities.Extensions;
 using YNL.Utilities.UIToolkits;
 
@@ -14,7 +11,7 @@ namespace YNL.JAMOS
         {
             private SearchResult _b;
 
-            private SearchViewSortPageUI _sortPage;
+            private SearchSort _sortPage;
             private SearchFilter _filterPage;
 
             private Label _searchText;
@@ -68,10 +65,10 @@ namespace YNL.JAMOS
                 _resultList.makeItem = () => new SearchingResultItemUI();
             }
 
-            public void SetPopupPage(SearchViewSortPageUI sort, PageBehaviour filter)
+            public void SetPopupPage(SearchSort sort, SearchFilter filter)
             {
                 _sortPage = sort;
-                _filterPage = filter as SearchFilter;
+                _filterPage = filter;
             }
 
             private void OnResultPageRefreshed(Product.Type type, string input)

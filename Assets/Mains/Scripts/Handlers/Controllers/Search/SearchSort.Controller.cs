@@ -1,4 +1,4 @@
-using UnityEngine.UIElements;
+using System.Collections.Generic;
 
 namespace YNL.JAMOS
 {
@@ -6,18 +6,26 @@ namespace YNL.JAMOS
     {
         private class Controller : PageController
         {
-            private InformationMain _b;
+            private SearchSort _b;
+
+            private SortType _selectedSortType = SortType.ByTitleAToZ;
 
             public override void Initialize(PageBehaviour behaviour)
             {
-                _b = behaviour as InformationMain;
+                _b = behaviour as SearchSort;
 
-                _b.OnBackButtonClicked += OnBackButtonClicked;
+                _b.OnApplyButtonClicked += OnApplyButtonClicked;
+                SortItem.OnSelected += OnSortItemSelected;
             }
 
-            private void OnBackButtonClicked()
+            private void OnApplyButtonClicked()
             {
-                Marker.OnPageBacked?.Invoke(true, false);
+                Marker.OnSearchResultSorted?.Invoke(_selectedSortType);
+            }
+
+            private void OnSortItemSelected(SortType type)
+            {
+                _selectedSortType = type;
             }
         }
     }
