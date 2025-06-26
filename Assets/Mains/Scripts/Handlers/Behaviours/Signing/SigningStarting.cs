@@ -1,12 +1,11 @@
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UIElements;
-using YNL.Utilities.Extensions;
 using YNL.Utilities.UIToolkits;
 
 namespace YNL.JAMOS
 {
-    public class SigningViewStartingPageUI : MonoBehaviour
+    public partial class SigningStarting : MonoBehaviour
     {
         private VisualElement _root;
         private VisualElement _ground;

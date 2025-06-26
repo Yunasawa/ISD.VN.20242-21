@@ -2,15 +2,15 @@ using UnityEngine.UIElements;
 
 namespace YNL.JAMOS
 {
-    public partial class OrderCart
+    public partial class OrderDelivery
     {
         private class View : PageView
         {
-            private InformationMain _b;
+            private OrderDelivery _b;
 
             public override void Initialize(PageBehaviour behaviour)
             {
-                _b = behaviour as InformationMain;
+                _b = behaviour as OrderDelivery;
             }
 
             public override void Collect(VisualElement root)

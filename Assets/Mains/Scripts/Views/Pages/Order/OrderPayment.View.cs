@@ -2,15 +2,15 @@ using UnityEngine.UIElements;
 
 namespace YNL.JAMOS
 {
-    public partial class SigningStarting
+    public partial class OrderPayment
     {
         private class View : PageView
         {
-            private InformationMain _b;
+            private OrderPayment _b;
 
             public override void Initialize(PageBehaviour behaviour)
             {
-                _b = behaviour as InformationMain;
+                _b = behaviour as OrderPayment;
             }
 
             public override void Collect(VisualElement root)

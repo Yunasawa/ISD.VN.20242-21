@@ -1,13 +1,12 @@
 using System;
-using UnityEngine;
+using System.Collections.Generic;
 
 namespace YNL.JAMOS
 {
-    public partial class SigningStarting : PageBehaviour
+    public partial class OrderCart : PageBehaviour
     {
-        public Action OnBackButtonClicked;
-
-        [SerializeField] private AudioSource _audioSource;
+        public Action<List<UID>> OnCartListDisplayed;
+        public Action<float> OnCartItemAmountAdjusted;
 
         private View _view;
         private Controller _controller;
@@ -16,11 +15,6 @@ namespace YNL.JAMOS
         {
             RegisterView(_view = ViewFactory.CreateView<View>(Root, this));
             RegisterController(_controller = ViewFactory.CreateController<Controller>(this));
-        }
-
-        protected override void Refresh()
-        {
-            _view.Refresh();
         }
     }
 }
