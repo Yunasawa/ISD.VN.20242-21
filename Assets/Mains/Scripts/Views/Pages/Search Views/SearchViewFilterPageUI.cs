@@ -91,7 +91,7 @@ namespace YNL.JAMOS
             _productGenreField = container.Q("ProductGenreField").Q("SelectionList");
         }
 
-        protected override void Initialize()
+        protected override void Begin()
         {
             _slider.value = new(0, 1);
             _productTypeItems[Product.Type.None].OnClicked_TypeItem();

@@ -75,7 +75,7 @@ namespace YNL.JAMOS
             addButton.clicked += OnClicked_AddButton;
         }
 
-        protected override void Initialize()
+        protected override void Begin()
         {
             ResetData();
 
@@ -161,7 +161,7 @@ namespace YNL.JAMOS
 
         private void OnClicked_CancelButton()
         {
-            Initialize();
+            Begin();
             Marker.OnPageNavigated?.Invoke(ViewType.ManagerViewProductPage, true, true);
         }
 
@@ -194,7 +194,7 @@ namespace YNL.JAMOS
 
             Marker.OnRuntimeSavingRequested?.Invoke();
 
-            Initialize();
+            Begin();
             Marker.OnPageNavigated?.Invoke(ViewType.ManagerViewProductPage, true, true);
         }
     }

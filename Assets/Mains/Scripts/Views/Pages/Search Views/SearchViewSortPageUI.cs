@@ -68,7 +68,7 @@ namespace YNL.JAMOS
             }
         }
 
-        protected override void Initialize()
+        protected override void Begin()
         {
             _sortingItems[SortType.ByTitleAToZ].OnSelected_SortItem();
         }

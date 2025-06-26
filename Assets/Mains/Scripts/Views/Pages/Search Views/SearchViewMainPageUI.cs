@@ -86,7 +86,7 @@ namespace YNL.JAMOS
             ProductTypeButtonUI.OnSelected += OnProductTypeSelected;
         }
 
-        protected override void Initialize()
+        protected override void Begin()
         {
             _searchEnter.SetDisplay(DisplayStyle.None);
             _suggestionList.SetDisplay(DisplayStyle.None);

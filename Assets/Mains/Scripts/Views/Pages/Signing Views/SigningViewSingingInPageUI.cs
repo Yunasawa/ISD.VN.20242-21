@@ -56,7 +56,7 @@ namespace YNL.JAMOS
             _switchLabel.RegisterCallback<PointerUpEvent>(OnClicked_SwitchLabel);
         }
 
-        protected override void Initialize()
+        protected override void Begin()
         {
             if (string.IsNullOrEmpty(Main.Runtime.Data.AccountID) == false)
             {

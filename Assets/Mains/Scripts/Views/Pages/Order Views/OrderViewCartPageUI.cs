@@ -43,7 +43,7 @@ namespace YNL.JAMOS
             purchaseButton.clicked += OnClicked_PurchaseButton;
         }
 
-        protected override void Initialize()
+        protected override void Begin()
         {
             _cartedProductList = _cartedProducts.TryGetValue(_accountID, out var list) ? list : new();
 

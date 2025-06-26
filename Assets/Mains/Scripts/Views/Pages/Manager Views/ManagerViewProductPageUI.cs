@@ -26,7 +26,7 @@ namespace YNL.JAMOS
             _addButton = Root.Q("ManagerField").Q<Button>("AddProduct");
         }
 
-        protected override void Initialize()
+        protected override void Begin()
         {
             _productList.Q("unity-content-container").SetFlexGrow(1);
             _productList.Q<ScrollView>().verticalScrollerVisibility = ScrollerVisibility.Hidden;

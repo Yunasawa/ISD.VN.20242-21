@@ -21,7 +21,7 @@ namespace YNL.JAMOS
             _messageList = Root.Q<ListView>("MessageList");
         }
 
-        protected override void Initialize()
+        protected override void Begin()
         {
             _messageList.Q("unity-content-container").SetFlexGrow(1);
             _messageList.Q<ScrollView>().verticalScrollerVisibility = ScrollerVisibility.Hidden;

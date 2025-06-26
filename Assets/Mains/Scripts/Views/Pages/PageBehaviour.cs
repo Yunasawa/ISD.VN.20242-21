@@ -1,7 +1,6 @@
 using System.Diagnostics.Contracts;
 using UnityEngine;
 using UnityEngine.UIElements;
-using YNL.Utilities.Extensions;
 using YNL.Utilities.UIToolkits;
 
 namespace YNL.JAMOS
@@ -11,6 +10,9 @@ namespace YNL.JAMOS
         [SerializeField] private bool _hideOnAwake = true;
         [SerializeField] protected bool _isPopupPage = false;
         public VisualElement Root;
+
+        private PageView _view;
+        private PageController _controller;
 
         private bool _isDisplayThisTime = false;
 
@@ -47,8 +49,19 @@ namespace YNL.JAMOS
         protected virtual void VirtualAwake() { }
 
         protected virtual void Construct() { }
-        protected virtual void Initialize() { }
-        protected virtual void Refresh() { }
+        protected virtual void Begin()
+        {
+            _view?.Begin();
+            _controller?.Begin();
+        }
+        protected virtual void Refresh()
+        {
+            _view?.Refresh();
+            _controller?.Refresh();
+        }
+
+        public void RegisterView(PageView view) => _view = view;
+        public void RegisterController(PageController controller) => _controller = controller;
 
         public void DisplayView(bool display, bool needRefresh = true)
         {
@@ -77,7 +90,7 @@ namespace YNL.JAMOS
 
         private void OnDatabaseSerializationDone()
         {
-            Initialize();
+            Begin();
             Refresh();
         }
 

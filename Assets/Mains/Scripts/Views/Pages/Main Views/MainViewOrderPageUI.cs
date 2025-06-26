@@ -8,7 +8,7 @@ namespace YNL.JAMOS
         {
         }
 
-        protected override void Initialize()
+        protected override void Begin()
         {
         }
     }

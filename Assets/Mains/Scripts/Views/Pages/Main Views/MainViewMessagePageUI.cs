@@ -37,7 +37,7 @@ namespace YNL.JAMOS
             _sendButton = chatField.Q("ToolField").Q("SendButton");
         }
 
-        protected override void Initialize()
+        protected override void Begin()
         {
             _messageList.Q("unity-content-container").SetFlexGrow(1);
             _messageList.Q<ScrollView>().verticalScrollerVisibility = ScrollerVisibility.Hidden;

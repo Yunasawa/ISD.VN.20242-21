@@ -1,4 +1,5 @@
-using UnityEngine.UIElements;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace YNL.JAMOS
 {
@@ -8,16 +9,25 @@ namespace YNL.JAMOS
         {
             private InformationReview _b;
 
+            private UID _uid;
+            private List<UID> _feedbackIDs = new();
+
             public override void Initialize(PageBehaviour behaviour)
             {
                 _b = behaviour as InformationReview;
-
-                _b.OnBackButtonClicked += OnBackButtonClicked;
             }
 
-            private void OnBackButtonClicked()
+            public override void Refresh()
             {
-                Marker.OnPageBacked?.Invoke(true, false);
+                _uid = Main.Runtime.SelectedProduct;
+                if (!Main.Database.Products.TryGetValue(_uid, out var product))
+                {
+                    return;
+                }
+
+                _feedbackIDs = product.Review.Feedbacks.Keys.ToList();
+
+                _b.OnDataRefreshed?.Invoke(_uid, product, _feedbackIDs);
             }
         }
     }

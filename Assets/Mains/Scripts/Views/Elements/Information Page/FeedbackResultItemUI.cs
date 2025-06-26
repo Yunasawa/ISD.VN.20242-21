@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine.UIElements;
 using YNL.Utilities.Addons;
+using YNL.Utilities.Extensions;
 using YNL.Utilities.UIToolkits;
 
 namespace YNL.JAMOS
@@ -91,6 +92,8 @@ namespace YNL.JAMOS
 
         public void Apply(UID productID, UID feedbackID)
         {
+            if (string.IsNullOrEmpty(productID)) return;
+
             _productID = productID;
             _feedbackID = feedbackID;
             var feedback = Main.Database.Feedbacks[feedbackID];

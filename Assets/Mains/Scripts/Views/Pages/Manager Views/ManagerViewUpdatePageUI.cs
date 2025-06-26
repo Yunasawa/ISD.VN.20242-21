@@ -84,7 +84,7 @@ namespace YNL.JAMOS
             updateButton.clicked += OnClicked_UpdateButton;
         }
 
-        protected override void Initialize()
+        protected override void Begin()
         {
             _productID = string.Empty;
             Refresh();
@@ -172,7 +172,7 @@ namespace YNL.JAMOS
 
         private void OnClicked_CancelButton()
         {
-            Initialize();
+            Begin();
             Marker.OnPageNavigated?.Invoke(ViewType.ManagerViewProductPage, true, true);
         }
 

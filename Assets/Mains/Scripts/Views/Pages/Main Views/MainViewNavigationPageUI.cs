@@ -22,7 +22,7 @@ namespace YNL.JAMOS
             _navigationBar = Root.Q("NavigationBar");
         }
 
-        protected override void Initialize()
+        protected override void Begin()
         {
             _navigationBar.Clear();
             _navigationBar.Add(new HomeNavigationButton(Main.Resources.Icons["Home"], "Home", true, ViewType.MainViewHomePage));

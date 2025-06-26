@@ -41,7 +41,7 @@ namespace YNL.JAMOS
             _pageScroll.Remove(sampleList);
         }
 
-        protected override void Initialize()
+        protected override void Begin()
         {
             _previewLists.Add(new ProductPreviewListUI(PreviewListFilterType.NewProducts));
             _previewLists.Add(new ProductPreviewListUI(PreviewListFilterType.BestSellers));

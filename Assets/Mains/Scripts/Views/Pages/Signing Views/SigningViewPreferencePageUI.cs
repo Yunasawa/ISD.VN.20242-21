@@ -23,7 +23,7 @@ namespace YNL.JAMOS
             _nextButton.RegisterCallback<PointerUpEvent>(OnClicked_NextButton);
         }
 
-        protected override void Initialize()
+        protected override void Begin()
         {
             _bookGenreContainer.Clear();
 

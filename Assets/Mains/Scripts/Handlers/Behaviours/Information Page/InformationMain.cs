@@ -14,15 +14,10 @@ namespace YNL.JAMOS
 
         protected override void Construct()
         {
-            _view = ViewFactory.CreateView<View>(Root, this);
-            _controller = ViewFactory.CreateController<Controller>(this);
+            RegisterView(_view = ViewFactory.CreateView<View>(Root, this));
+            RegisterController(_controller = ViewFactory.CreateController<Controller>(this));
 
             _view.AudioSource = _audioSource;
-        }
-
-        protected override void Refresh()
-        {
-            _view.Refresh();
         }
     }
 }

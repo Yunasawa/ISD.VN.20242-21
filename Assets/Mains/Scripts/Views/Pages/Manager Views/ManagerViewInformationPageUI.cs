@@ -1,7 +1,4 @@
-using static YNL.JAMOS.InformationViewMainPage;
 using UnityEngine.UIElements;
-using UnityEngine;
-using YNL.Utilities.UIToolkits;
 
 namespace YNL.JAMOS
 {

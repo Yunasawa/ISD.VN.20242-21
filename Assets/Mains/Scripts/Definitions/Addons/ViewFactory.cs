@@ -2,16 +2,20 @@ using UnityEngine.UIElements;
 
 namespace YNL.JAMOS
 {
-    public abstract class PageView
+    public abstract class PageElement
     {
         public abstract void Initialize(PageBehaviour behaviour);
-        public abstract void Collect(VisualElement root);
         public virtual void Refresh() { }
+        public virtual void Begin() { }
     }
 
-    public abstract class PageController
+    public abstract class PageView : PageElement
     {
-        public abstract void Initialize(PageBehaviour behaviour);
+        public abstract void Collect(VisualElement root);
+    }
+
+    public abstract class PageController : PageElement
+    {
     }
 
     public static class ViewFactory

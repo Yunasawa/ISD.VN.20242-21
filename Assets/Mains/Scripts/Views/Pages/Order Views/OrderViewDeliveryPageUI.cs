@@ -29,7 +29,7 @@ namespace YNL.JAMOS
             _contentContainer = Root.Q("DeliveryContainer");
         }
 
-        protected override void Initialize()
+        protected override void Begin()
         {
             foreach (DeliveryType type in Enum.GetValues(typeof(DeliveryType)))
             {
