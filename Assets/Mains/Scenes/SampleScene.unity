@@ -1897,8 +1897,8 @@ MonoBehaviour:
     - {fileID: 1401361675}
     - {fileID: 307309654}
     - {fileID: 1447683400}
-    - {fileID: 2020904538}
-    - {fileID: 1752260118}
+    - {fileID: 2020904540}
+    - {fileID: 1752260120}
     - {fileID: 1407744821}
     - {fileID: 342035978}
     - {fileID: 1652320341}
@@ -2199,7 +2199,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1407744818}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef0484b1882cb6b4cb79b2b2ea5fb14b, type: 3}
+  m_Script: {fileID: 11500000, guid: a044b52923a15194684116f141958eb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _hideOnAwake: 1
@@ -2428,7 +2428,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1752260117}
   - component: {fileID: 1752260119}
-  - component: {fileID: 1752260118}
+  - component: {fileID: 1752260120}
   m_Layer: 0
   m_Name: Message Page
   m_TagString: Untagged
@@ -2451,20 +2451,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 120343007}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1752260118
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1752260116}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f640ae73b12746479f3b764b93fe064, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _hideOnAwake: 1
-  _isPopupPage: 0
 --- !u!114 &1752260119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2484,6 +2470,20 @@ MonoBehaviour:
   m_WorldSpaceSizeMode: 1
   m_WorldSpaceWidth: 1920
   m_WorldSpaceHeight: 1080
+--- !u!114 &1752260120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752260116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b165c4f702c14741a7fc501b6ffc795, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hideOnAwake: 1
+  _isPopupPage: 0
 --- !u!1 &1752374917
 GameObject:
   m_ObjectHideFlags: 0
@@ -2701,7 +2701,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2020904537}
   - component: {fileID: 2020904539}
-  - component: {fileID: 2020904538}
+  - component: {fileID: 2020904540}
   m_Layer: 0
   m_Name: Home Page
   m_TagString: Untagged
@@ -2724,20 +2724,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 120343007}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2020904538
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2020904536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad486bb48dbe70c4da6caadda1e33671, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _hideOnAwake: 1
-  _isPopupPage: 0
 --- !u!114 &2020904539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2757,6 +2743,20 @@ MonoBehaviour:
   m_WorldSpaceSizeMode: 1
   m_WorldSpaceWidth: 1920
   m_WorldSpaceHeight: 1080
+--- !u!114 &2020904540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2020904536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0e0ab5d23b612e49814c94b000d8816, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hideOnAwake: 1
+  _isPopupPage: 0
 --- !u!1 &2063518235
 GameObject:
   m_ObjectHideFlags: 0

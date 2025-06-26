@@ -1,5 +1,3 @@
-using UnityEngine.UIElements;
-
 namespace YNL.JAMOS
 {
     public partial class MainAccount
@@ -11,13 +9,6 @@ namespace YNL.JAMOS
             public override void Initialize(PageBehaviour behaviour)
             {
                 _b = behaviour as MainAccount;
-
-                _b.OnBackButtonClicked += OnBackButtonClicked;
-            }
-
-            private void OnBackButtonClicked()
-            {
-                Marker.OnPageBacked?.Invoke(true, false);
             }
         }
     }
