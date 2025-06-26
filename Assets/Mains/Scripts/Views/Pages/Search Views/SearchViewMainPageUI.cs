@@ -8,8 +8,6 @@ using YNL.Utilities.UIToolkits;
 
 namespace YNL.JAMOS
 {
-    public enum SearchingSuggestionType : byte { Creator, Book, CD, DVD, LP }
-
     public partial class SearchViewMainPageUI : PageBehaviour
     {
         private SerializableDictionary<UID, Product.Data> _products => Main.Database.Products;

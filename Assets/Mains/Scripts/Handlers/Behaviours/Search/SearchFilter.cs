@@ -4,6 +4,8 @@ using UnityEngine;
 
 namespace YNL.JAMOS
 {
+    public enum RatingScoreType : byte { Any, GE35, GE40, GE45 }
+
     public partial class SearchFilter : PageBehaviour
     {
         public Action<bool> OnViewOpenRequested;
