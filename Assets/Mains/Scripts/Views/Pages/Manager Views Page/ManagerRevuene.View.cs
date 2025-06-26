@@ -6,11 +6,11 @@ namespace YNL.JAMOS
     {
         private class View : PageView
         {
-            private InformationMain _b;
+            private ManagerRevuene _b;
 
             public override void Initialize(PageBehaviour behaviour)
             {
-                _b = behaviour as InformationMain;
+                _b = behaviour as ManagerRevuene;
             }
 
             public override void Collect(VisualElement root)
