@@ -16,8 +16,6 @@ namespace YNL.JAMOS
         {
             _view = ViewFactory.CreateView<View>(Root, this);
             _controller = ViewFactory.CreateController<Controller>(this);
-
-            _view.AudioSource = _audioSource;
         }
 
         protected override void Refresh()

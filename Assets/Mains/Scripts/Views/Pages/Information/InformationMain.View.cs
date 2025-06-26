@@ -14,7 +14,6 @@ namespace YNL.JAMOS
     {
         private class View : PageView
         {
-
             public AudioSource AudioSource;
 
             private InformationMain _b;

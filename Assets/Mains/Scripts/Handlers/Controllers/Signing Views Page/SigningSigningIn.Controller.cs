@@ -2,15 +2,15 @@ using UnityEngine.UIElements;
 
 namespace YNL.JAMOS
 {
-    public partial class SigningSigningIns
+    public partial class SigningSigningIn
     {
         private class Controller : PageController
         {
-            private InformationMain _b;
+            private SigningSigningIn _b;
 
             public override void Initialize(PageBehaviour behaviour)
             {
-                _b = behaviour as InformationMain;
+                _b = behaviour as SigningSigningIn;
 
                 _b.OnBackButtonClicked += OnBackButtonClicked;
             }

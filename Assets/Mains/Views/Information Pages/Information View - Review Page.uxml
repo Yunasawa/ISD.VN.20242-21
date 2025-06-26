@@ -129,5 +129,5 @@
             </engine:VisualElement>
         </engine:VisualElement>
     </engine:ScrollView>
-    <engine:ListView name="ContentList" class="list-view" />
+    <engine:ListView name="ContentList" class="list-view" style="padding-right: 50px; padding-left: 50px;" />
 </engine:UXML>

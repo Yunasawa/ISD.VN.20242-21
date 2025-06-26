@@ -1,12 +1,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using YNL.Utilities.Addons;
 using YNL.Utilities.UIToolkits;
 
 namespace YNL.JAMOS
 {
     public class MainViewMessagePageUI : PageBehaviour
     {
+        private SerializableDictionary<UID, MessageList> _messageLists => Main.Runtime.Data.Messages;
+
         private List<MessageItem> _messages
         {
             get
@@ -85,7 +88,16 @@ namespace YNL.JAMOS
                 Message = _messageInput.value
             };
 
-            Main.Runtime.Data.Messages[Main.Runtime.Data.AccountID].Messages.Add(item);
+            if (_messageLists.TryGetValue(Main.Runtime.Data.AccountID, out var messages))
+            {
+                messages.Messages.Add(item);
+            }
+            else
+            {
+                var newMessages = new MessageList();
+                newMessages.Messages.Add(item);
+                _messageLists.Add(Main.Runtime.Data.AccountID, newMessages);
+            }
             _messageList.RebuildListView(_messages);
             _messageInput.SetValueWithoutNotify(string.Empty);
         }

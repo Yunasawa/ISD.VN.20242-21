@@ -97,7 +97,7 @@ namespace YNL.JAMOS
                 return;
             }
 
-            var account = Main.Database.Accounts.Values.First(i => i.Email == _accountInput || i.PhoneNumber == _accountInput);
+            var account = Main.Database.Accounts.Values.FirstOrDefault(i => i.Email == _accountInput || i.PhoneNumber == _accountInput);
 
             if (account != null)
             {

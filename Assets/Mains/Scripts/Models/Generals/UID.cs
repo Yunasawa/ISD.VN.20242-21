@@ -19,23 +19,6 @@ namespace YNL.JAMOS
 
         public static UID Parse(string id) => new UID(id);
 
-        public static bool TryParse(string id, out UID result)
-        {
-            result = new UID(id);
-            return !string.IsNullOrEmpty(id);
-        }
-
         public override string ToString() => _id;
-
-        public override bool Equals(object obj)
-        {
-            if (obj is UID other)
-            {
-                return _id == other._id;
-            }
-            return false;
-        }
-
-        public override int GetHashCode() => _id.GetHashCode();
     }
 }

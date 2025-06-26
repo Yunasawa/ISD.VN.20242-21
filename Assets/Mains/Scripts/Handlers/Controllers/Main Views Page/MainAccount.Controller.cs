@@ -6,11 +6,11 @@ namespace YNL.JAMOS
     {
         private class Controller : PageController
         {
-            private InformationMain _b;
+            private MainAccount _b;
 
             public override void Initialize(PageBehaviour behaviour)
             {
-                _b = behaviour as InformationMain;
+                _b = behaviour as MainAccount;
 
                 _b.OnBackButtonClicked += OnBackButtonClicked;
             }

@@ -92,7 +92,8 @@ namespace YNL.JAMOS
 
         public static void ApplyCloudImageAsync(this VisualElement element, UID id)
         {
-            element.SetBackgroundImage(Main.Database.Images[id]);
+            var image = Main.Database.Images.TryGetValue(id, out var i) ? i : null;
+            element.SetBackgroundImage(image);
         }
     
         public static void RebuildListView(this ListView list, IList source)
