@@ -55,7 +55,7 @@ namespace YNL.JAMOS
             {
                 await InitializeConfigDatabase();
                 await InitializeProductDatabase();
-                await InitializeImageDatabase();
+                //await InitializeImageDatabase();
                 await InitializeFeedbackDatabase();
             }
 

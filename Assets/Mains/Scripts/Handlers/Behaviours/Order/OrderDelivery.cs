@@ -1,6 +1,8 @@
 namespace YNL.JAMOS
 {
-    public partial class OrderResult : PageBehaviour
+    public enum DeliveryType : byte { Normal, Fast, Rush }
+
+    public partial class OrderDelivery : PageBehaviour
     {
         private View _view;
         private Controller _controller;

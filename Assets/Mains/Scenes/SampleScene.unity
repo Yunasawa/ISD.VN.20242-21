@@ -736,7 +736,7 @@ GameObject:
   m_Component:
   - component: {fileID: 454302761}
   - component: {fileID: 454302763}
-  - component: {fileID: 454302762}
+  - component: {fileID: 454302764}
   m_Layer: 0
   m_Name: Delivery Page
   m_TagString: Untagged
@@ -759,20 +759,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 121088114}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &454302762
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 454302760}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51799b97b71f69d4ab3f075954e45922, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _hideOnAwake: 1
-  _isPopupPage: 0
 --- !u!114 &454302763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -792,6 +778,20 @@ MonoBehaviour:
   m_WorldSpaceSizeMode: 1
   m_WorldSpaceWidth: 1920
   m_WorldSpaceHeight: 1080
+--- !u!114 &454302764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454302760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb62e620f696d6845b84bc7eff9cfe83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hideOnAwake: 1
+  _isPopupPage: 0
 --- !u!1 &512424990
 GameObject:
   m_ObjectHideFlags: 0
@@ -1599,7 +1599,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1091560638}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 643c41ff2903d3e42876c8568dc4dec5, type: 3}
+  m_Script: {fileID: 11500000, guid: 19549e4edd5bcdf48a5b9cb0ed7813fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _hideOnAwake: 1
@@ -1905,10 +1905,10 @@ MonoBehaviour:
     - {fileID: 121488327}
     - {fileID: 1367958482}
     - {fileID: 1977558694}
-    - {fileID: 1309971818}
+    - {fileID: 1309971820}
     - {fileID: 650752399}
-    - {fileID: 454302762}
-    - {fileID: 1091560640}
+    - {fileID: 454302764}
+    - {fileID: 0}
     - {fileID: 572225195}
     - {fileID: 1176032100}
     - {fileID: 725629494}
@@ -1950,7 +1950,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1309971817}
   - component: {fileID: 1309971819}
-  - component: {fileID: 1309971818}
+  - component: {fileID: 1309971820}
   m_Layer: 0
   m_Name: Payment Page
   m_TagString: Untagged
@@ -1973,20 +1973,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 121088114}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1309971818
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1309971816}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8560090fc73efb64b9494c09fa67ead3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _hideOnAwake: 1
-  _isPopupPage: 0
 --- !u!114 &1309971819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2006,6 +1992,20 @@ MonoBehaviour:
   m_WorldSpaceSizeMode: 1
   m_WorldSpaceWidth: 1920
   m_WorldSpaceHeight: 1080
+--- !u!114 &1309971820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1309971816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e78967e96e0a44459e845890f4ff226, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hideOnAwake: 1
+  _isPopupPage: 0
 --- !u!1 &1367958479
 GameObject:
   m_ObjectHideFlags: 0

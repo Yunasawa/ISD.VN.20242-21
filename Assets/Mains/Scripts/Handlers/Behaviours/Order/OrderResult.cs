@@ -3,7 +3,7 @@ using YNL.Utilities.UIToolkits;
 
 namespace YNL.JAMOS
 {
-    public class OrderViewResultPageUI : PageBehaviour
+    public partial class OrderResult : PageBehaviour
     {
         private Label _codeLabel;
 
