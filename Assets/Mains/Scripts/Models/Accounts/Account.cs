@@ -1,4 +1,6 @@
-﻿namespace YNL.JAMOS
+﻿using UnityEngine;
+
+namespace YNL.JAMOS
 {
     public enum AccountType : byte
     { 
@@ -23,8 +25,9 @@
         public AccountType Type = AccountType.Customer;
         public AccountAddress Address = new();
 
-        public Account()
+        public void SetData()
         {
+            ID = Random.Range(200, 9999999).ToString();
             Name = $"User{ID}";
         }
     }

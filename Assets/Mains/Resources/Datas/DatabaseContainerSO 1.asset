@@ -1116,42 +1116,834 @@ MonoBehaviour:
         Address: 22 Tran Hung Dao
         City: Nam Dinh
   Feedbacks:
-    _keys: []
-    _values: []
+    _keys:
+    - _id: 99000000
+    - _id: 99000001
+    - _id: 99000002
+    - _id: 99000003
+    - _id: 99000004
+    - _id: 99000005
+    - _id: 99000006
+    - _id: 99000007
+    - _id: 99000008
+    - _id: 99000009
+    - _id: 99000010
+    - _id: 99000011
+    - _id: 99000012
+    - _id: 99000013
+    - _id: 99000014
+    - _id: 99000015
+    - _id: 99000016
+    - _id: 99000017
+    - _id: 99000018
+    - _id: 99000019
+    - _id: 99000020
+    - _id: 99000021
+    - _id: 99000022
+    - _id: 99000023
+    - _id: 99000024
+    - _id: 99000025
+    - _id: 99000026
+    - _id: 99000027
+    - _id: 99000028
+    - _id: 99000029
+    - _id: 99000030
+    - _id: 99000031
+    - _id: 99000032
+    - _id: 99000033
+    - _id: 99000034
+    - _id: 99000035
+    - _id: 99000036
+    - _id: 99000037
+    - _id: 99000038
+    - _id: 99000039
+    - _id: 99000040
+    - _id: 99000041
+    - _id: 99000042
+    - _id: 99000043
+    - _id: 99000044
+    - _id: 99000045
+    - _id: 99000046
+    - _id: 99000047
+    - _id: 99000048
+    - _id: 99000049
+    - _id: 99000050
+    - _id: 99000051
+    _values:
+    - CustomerID:
+        _id: 1
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 5
+        - _rating: 5
+        - _rating: 5
+      Comment: Amazing from start to finish! The story is gripping, the characters
+        unforgettable, and the writing superb. I couldn't put it down. Highly recommend!
+    - CustomerID:
+        _id: 2
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 4.5
+        - _rating: 5
+        - _rating: 4
+      Comment: Very capable tool with great potential. Setup was easy and stress-free.
+    - CustomerID:
+        _id: 3
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 4
+        - _rating: 3.5
+        - _rating: 4.5
+      Comment: Overall a good experience. The interface is intuitive, though some
+        features can be refined for better performance.
+    - CustomerID:
+        _id: 4
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 5
+        - _rating: 4.5
+        - _rating: 5
+      Comment: Excellent quality and usability. Everything worked smoothly and exceeded
+        my expectations.
+    - CustomerID:
+        _id: 5
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 3
+        - _rating: 3.5
+        - _rating: 4
+      Comment: The usability is decent but quality needs improvement. Felt limited
+        in some areas.
+    - CustomerID:
+        _id: 6
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 3.5
+        - _rating: 3
+        - _rating: 3.5
+      Comment: Some features are confusing and could use better documentation. Performance
+        is fair.
+    - CustomerID:
+        _id: 7
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 4.5
+        - _rating: 4
+        - _rating: 4.5
+      Comment: Great overall performance. Fast, responsive, and relatively easy to
+        learn for new users.
+    - CustomerID:
+        _id: 8
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 4
+        - _rating: 4
+        - _rating: 4
+      Comment: A well-balanced product with decent features. Nothing groundbreaking
+        but quite reliable.
+    - CustomerID:
+        _id: 9
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 3.5
+        - _rating: 3.5
+        - _rating: 3.5
+      Comment: The platform is functional but lacks polish. Some bugs noticed during
+        regular use.
+    - CustomerID:
+        _id: 10
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 5
+        - _rating: 5
+        - _rating: 4.5
+      Comment: "One of the best tools I\u2019ve used. Great value and highly efficient."
+    - CustomerID:
+        _id: 11
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 3
+        - _rating: 3
+        - _rating: 3
+      Comment: Needs significant improvement in both design and functionality to
+        compete.
+    - CustomerID:
+        _id: 12
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 4
+        - _rating: 4.5
+        - _rating: 4
+      Comment: The system runs smoothly and delivers a satisfying experience with
+        only minor issues.
+    - CustomerID:
+        _id: 13
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 4.5
+        - _rating: 4
+        - _rating: 5
+      Comment: Very effective solution. Usability is top-notch, though quality can
+        be enhanced slightly.
+    - CustomerID:
+        _id: 14
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 3.5
+        - _rating: 3.5
+        - _rating: 4
+      Comment: Fair performance. Not too difficult to use, but lacks some advanced
+        options.
+    - CustomerID:
+        _id: 15
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 4.5
+        - _rating: 5
+        - _rating: 4.5
+      Comment: Outstanding quality. Everything feels polished and professional.
+    - CustomerID:
+        _id: 16
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 3
+        - _rating: 3.5
+        - _rating: 3
+      Comment: Basic functions work but the UI feels outdated. More features would
+        be helpful.
+    - CustomerID:
+        _id: 17
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 4
+        - _rating: 4.5
+        - _rating: 4.5
+      Comment: Quite impressive. Smooth interface and fast performance in most scenarios.
+    - CustomerID:
+        _id: 18
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 3.5
+        - _rating: 4
+        - _rating: 3.5
+      Comment: A few small issues with navigation, but nothing major. Fairly usable.
+    - CustomerID:
+        _id: 19
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 5
+        - _rating: 5
+        - _rating: 5
+      Comment: "Perfect in every aspect. I couldn\u2019t find a single flaw during
+        use."
+    - CustomerID:
+        _id: 20
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 4
+        - _rating: 4
+        - _rating: 3.5
+      Comment: The experience was mostly positive, though new users might face a
+        learning curve.
+    - CustomerID:
+        _id: 21
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 3.5
+        - _rating: 3.5
+        - _rating: 3
+      Comment: Interface is outdated and hard to navigate. Needs UI overhaul.
+    - CustomerID:
+        _id: 22
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 4.5
+        - _rating: 4
+        - _rating: 4
+      Comment: "Good value for the price. Performs consistently and doesn\u2019t
+        crash."
+    - CustomerID:
+        _id: 23
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 4
+        - _rating: 4.5
+        - _rating: 4
+      Comment: Easy to get started with and runs well under different workloads.
+    - CustomerID:
+        _id: 24
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 3.5
+        - _rating: 3
+        - _rating: 3.5
+      Comment: Instructions could be clearer. Took some time to understand the workflow.
+    - CustomerID:
+        _id: 25
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 5
+        - _rating: 4.5
+        - _rating: 5
+      Comment: A robust system with minimal flaws. The design is modern and practical.
+    - CustomerID:
+        _id: 26
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 3
+        - _rating: 3.5
+        - _rating: 3
+      Comment: Limited feature set. Would benefit from more customization options.
+    - CustomerID:
+        _id: 27
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 4
+        - _rating: 4
+        - _rating: 4.5
+      Comment: Good performance overall. The system is quite intuitive and stable.
+    - CustomerID:
+        _id: 28
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 3.5
+        - _rating: 3.5
+        - _rating: 4
+      Comment: Decent usability, but performance lags occasionally under pressure.
+    - CustomerID:
+        _id: 29
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 4.5
+        - _rating: 4.5
+        - _rating: 4
+      Comment: Very capable tool with great potential. Setup was easy and stress-free.
+    - CustomerID:
+        _id: 30
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 3
+        - _rating: 3
+        - _rating: 3.5
+      Comment: Not ideal for advanced use cases. More features are required.
+    - CustomerID:
+        _id: 31
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 4
+        - _rating: 3.5
+        - _rating: 4.5
+      Comment: Runs well but some design decisions hinder productivity at times.
+    - CustomerID:
+        _id: 32
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 5
+        - _rating: 5
+        - _rating: 5
+      Comment: An exceptional experience. Everything works flawlessly.
+    - CustomerID:
+        _id: 33
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 4.5
+        - _rating: 4.5
+        - _rating: 4.5
+      Comment: A very polished product. Offers great value and high usability.
+    - CustomerID:
+        _id: 34
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 3.5
+        - _rating: 4
+        - _rating: 3.5
+      Comment: Functional but the learning curve is steeper than expected.
+    - CustomerID:
+        _id: 35
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 4
+        - _rating: 4.5
+        - _rating: 4
+      Comment: Very user-friendly. Efficient for daily tasks and quite responsive.
+    - CustomerID:
+        _id: 36
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 3
+        - _rating: 3.5
+        - _rating: 3.5
+      Comment: Usability is acceptable but the design feels cluttered and outdated.
+    - CustomerID:
+        _id: 37
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 4.5
+        - _rating: 4
+        - _rating: 5
+      Comment: Strong performance, particularly in terms of ease of use.
+    - CustomerID:
+        _id: 38
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 3.5
+        - _rating: 3.5
+        - _rating: 3.5
+      Comment: "It works, but there\u2019s nothing particularly impressive about
+        it."
+    - CustomerID:
+        _id: 39
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 5
+        - _rating: 4.5
+        - _rating: 5
+      Comment: High-quality and easy to use. Definitely worth the investment.
+    - CustomerID:
+        _id: 40
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 4
+        - _rating: 4
+        - _rating: 4.5
+      Comment: Straightforward and performs well in most cases. Recommended.
+    - CustomerID:
+        _id: 41
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 3
+        - _rating: 3
+        - _rating: 3
+      Comment: Struggles to deliver a smooth experience. Needs significant upgrades.
+    - CustomerID:
+        _id: 42
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 4
+        - _rating: 4.5
+        - _rating: 4.5
+      Comment: Solid performance with minor lags during extended use.
+    - CustomerID:
+        _id: 43
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 4.5
+        - _rating: 4.5
+        - _rating: 4
+      Comment: Highly capable and user-friendly. Some advanced settings are hard
+        to find.
+    - CustomerID:
+        _id: 44
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 3
+        - _rating: 3.5
+        - _rating: 3
+      Comment: Takes too long to complete basic tasks. Needs better optimization.
+    - CustomerID:
+        _id: 45
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 4.5
+        - _rating: 5
+        - _rating: 4.5
+      Comment: Impressively fast and efficient. Interface is modern and sleek.
+    - CustomerID:
+        _id: 46
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 3.5
+        - _rating: 3.5
+        - _rating: 4
+      Comment: Reasonable for basic users, but advanced users may find it limiting.
+    - CustomerID:
+        _id: 47
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 4
+        - _rating: 4
+        - _rating: 4
+      Comment: Consistent experience. Gets the job done without issues.
+    - CustomerID:
+        _id: 48
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 5
+        - _rating: 4.5
+        - _rating: 5
+      Comment: Well-crafted and polished. High level of user satisfaction.
+    - CustomerID:
+        _id: 49
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 4
+        - _rating: 4.5
+        - _rating: 4
+      Comment: Easy to pick up. Features are well-organized and intuitive.
+    - CustomerID:
+        _id: 50
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 3.5
+        - _rating: 3
+        - _rating: 3.5
+      Comment: Navigating the menus can be frustrating. Needs UI refinement.
+    - CustomerID:
+        _id: 51
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 4.5
+        - _rating: 4
+        - _rating: 4.5
+      Comment: Good overall, particularly in functionality and performance.
+    - CustomerID:
+        _id: 52
+      Ratings:
+        _keys: 000102
+        _values:
+        - _rating: 3
+        - _rating: 3.5
+        - _rating: 3
+      Comment: Not intuitive and lacks essential tools for efficiency.
   Products:
     _keys:
-    - _id: 10000003
-    - _id: 10000000
-    - _id: 20000000
+    - _id: 30000028
+    - _id: 10000012
+    - _id: 30000026
+    - _id: 10000001
+    - _id: 10000013
+    - _id: 20000010
+    - _id: 20000002
+    - _id: 10000009
+    - _id: 30000023
+    - _id: 40000001
+    - _id: 10000011
+    - _id: 20000007
+    - _id: 20000003
+    - _id: 10000010
+    - _id: 20000001
+    - _id: 30000025
+    - _id: 30000027
+    - _id: 10000015
+    - _id: 30000022
+    - _id: 40000009
+    - _id: 30000021
     - _id: 20000006
+    - _id: 30000001
+    - _id: 20000005
+    - _id: 10000002
+    - _id: 20000009
+    - _id: 10000005
+    - _id: 40000003
+    - _id: 10000003
+    - _id: 40000002
+    - _id: 30000029
+    - _id: 10000000
+    - _id: 10000014
+    - _id: 40000007
+    - _id: 30000002
+    - _id: 40000006
+    - _id: 20000008
+    - _id: 40000005
+    - _id: 10000008
+    - _id: 30000024
+    - _id: 30000020
+    - _id: 40000000
+    - _id: 10000004
+    - _id: 40000004
+    - _id: 20000000
+    - _id: 40000008
+    - _id: 10000006
+    - _id: 30000003
+    - _id: 10000007
+    - _id: 20000004
+    - _id: 30000000
     _values:
-    - Type: 1
-      Title: Test Prudct
+    - Type: 3
+      Title: Moana 2
       Creators:
-      - A
-      - B
-      - C
+      - David Derrick Jr.
       PublicationDate:
-        _dateTimeString: 05/11/2004
-      Price: 99.99
-      Quantity: 123
-      Description: This is a test product
+        _dateTimeString: 11/03/2025
+      Price: 19.95
+      Quantity: 100
+      Description: Moana and Maui return for a new adventure across uncharted oceans.
       Genres:
-      - Fiction
-      - Thriller
-      - Romance
-      Format: 
+      - Adventure
+      SoldAmount: 164
       HasStreamer: 0
-      SoldAmount: 0
       Review:
         Feedbacks:
-          _keys: []
-          _values: []
+          _keys:
+          - _id: 99000002
+          - _id: 99000006
+          - _id: 99000008
+          - _id: 99000009
+          - _id: 99000011
+          - _id: 99000012
+          - _id: 99000015
+          - _id: 99000020
+          - _id: 99000027
+          - _id: 99000030
+          - _id: 99000034
+          - _id: 99000042
+          - _id: 99000045
+          - _id: 99000046
+          - _id: 99000048
+          - _id: 99000051
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0403
+        _values:
+        - Walt Disney Animation Studios
+        - 1h 40m
+    - Type: 1
+      Title: The Art of Taking Second Chances
+      Creators:
+      - Varsha Chitnis
+      PublicationDate:
+        _dateTimeString: 25/07/2023
+      Price: 12.99
+      Quantity: 14
+      Description: A second-chance romance between Tara and Sameer unfolds across
+        modern-day Dallas and flashbacks to India.
+      Genres:
+      - Fiction
+      - Romance
+      SoldAmount: 369
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000002
+          - _id: 99000003
+          - _id: 99000007
+          - _id: 99000009
+          - _id: 99000011
+          - _id: 99000017
+          - _id: 99000019
+          - _id: 99000020
+          - _id: 99000032
+          - _id: 99000044
+          - _id: 99000047
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
       Properties:
         _keys: 0001
         _values:
         - English
-        - 123
+        - 374
+    - Type: 3
+      Title: Sonic the Hedgehog 3
+      Creators:
+      - Jeff Fowler
+      PublicationDate:
+        _dateTimeString: 08/04/2025
+      Price: 17.5
+      Quantity: 100
+      Description: 'Sonic and his crew face a new threat: Shadow the Hedgehog. Keanu
+        Reeves joins the cast.'
+      Genres:
+      - Crime
+      - Family
+      SoldAmount: 356
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000005
+          - _id: 99000008
+          - _id: 99000009
+          - _id: 99000012
+          - _id: 99000014
+          - _id: 99000015
+          - _id: 99000019
+          - _id: 99000020
+          - _id: 99000022
+          - _id: 99000025
+          - _id: 99000034
+          - _id: 99000036
+          - _id: 99000040
+          - _id: 99000048
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0403
+        _values:
+        - Paramount Pictures
+        - 1h 49m
     - Type: 1
       Title: Be Like The Moon
       Creators:
@@ -1159,82 +1951,1373 @@ MonoBehaviour:
       PublicationDate:
         _dateTimeString: 15/06/2022
       Price: 24.99
-      Quantity: 200
-      Description: "A masterpiece!... I recommend this memoir to anyone looking for
-        inspiration to make a difference in the world.\u201D - Liliane Pari Umuhoza,
-        Founder of the Women Genocide Survivors Retreat##A proud American blends
-        memoir with a joyful cultural peek into his often misunderstood religious
-        community.##Rabbi Levi Welton never forgot the day he was cleaning his guinea-pig
-        hutch, only to turn and face a small contingent of stern Hasidic elders.
-        While certain he\u2019d broken some sacred rule, what happened next is just
-        one of many lessons that taught the rabbi that heroism comes in all shapes
-        and sizes, and wisdom often confronts us when we least expect it.##In this
-        heartwarming coming-of-age story, Levi Welton offers a compelling insider's
-        view, and a sense of humanity to what it was like growing up as a shy Hasidic
-        boy in the radical shtetl of Bezerkely and being surrounded by a community
-        of eccentric, colorful, and endearing role models and mentors.##On his journey
-        from self-discovery to self-acceptance, Levi collects invaluable lessons
-        about faith, family, success, death, and seeing the good in everyone through
-        an assortment of funny yet inspiring stories\u2014from adopting stray animals
-        while in the Boy Scouts, to learning life secrets from a hippie in the Wyoming
-        wilds. Along the way, you\u2019ll watch as young Levi struggles to unite
-        the often-fraught nature of secular society with his Hasidic culture, one
-        of the most vibrant religious communities in America.##Be Like the Moon strengthens
-        your faith in humanity by sharing wisdom that will speak to anyone, of any
-        (or no) faith, who\u2019s ever struggled with life\u2019s weighty challenges.
-        No subject is off-limits \u2013 addiction, depression, racism, and even a
-        walk on the (atheistic) wild side! Yet running through all these is a powerful
-        lesson\u2014one about heroism:##You don't need superpowers to be a hero.
-        You can change the world through the quiet impact you have on others through
-        how you live your life.##It\u2019s a transformative book, with insights on
-        every page and an inspiring message of optimism, hope, and yes, heroism\u2014minus
-        the superpowers!##------------------------------------------------------##\u201CAuthenticity
-        and love of one\u2019s fellow man emanate from Levi Welton\u2019s life and
-        words. He calls for and exemplifies an integration of \u2018distinct cultures
-        fused together.\u2019 This is a rabbi's call to personal greatness and one
-        man\u2019s honest and sincere reflection on the path of fully being both
-        a Jew and a committed member of the human family.\u201D##Rabbi Zalman Kastel,
-        Founder of the non-profit Together For Humanity"
+      Quantity: 20
+      Description: A Hasidic rabbi shares lessons on life, faith, and identity through
+        coming-of-age memoir.
       Genres:
-      - NonFiction
-      - Thriller
-      Format: Paperback
+      - Memoir
+      - Religion
+      - Spirituality
+      SoldAmount: 234
       HasStreamer: 0
-      SoldAmount: 345
       Review:
         Feedbacks:
-          _keys: []
-          _values: []
+          _keys:
+          - _id: 99000002
+          - _id: 99000003
+          - _id: 99000010
+          - _id: 99000017
+          - _id: 99000020
+          - _id: 99000023
+          - _id: 99000025
+          - _id: 99000026
+          - _id: 99000036
+          - _id: 99000037
+          - _id: 99000038
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
       Properties:
         _keys: 0001
         _values:
         - English
         - 296
-    - Type: 2
-      Title: Beggin'
+    - Type: 1
+      Title: The Case Of The Missing Cheese
       Creators:
-      - "M\xE5neskin"
+      - Lisa C. Mitchell
       PublicationDate:
-        _dateTimeString: 15/10/2021
-      Price: 14.99
-      Quantity: 300
-      Description: "Energetic rock cover that brought M\xE5neskin global fame with
-        powerful vocals and gritty guitars."
+        _dateTimeString: 18/09/2023
+      Price: 11.99
+      Quantity: 86
+      Description: "Three bilingual kids playing detective stumble upon a real mystery\u2014while
+        Skyler faces her growing anxiety."
       Genres:
-      - Rock
-      - Rap
-      Format: DeluxeEdition
+      - Children
+      - Mystery
+      SoldAmount: 385
       HasStreamer: 0
-      SoldAmount: 234
       Review:
         Feedbacks:
-          _keys: []
-          _values: []
+          _keys:
+          - _id: 99000003
+          - _id: 99000011
+          - _id: 99000012
+          - _id: 99000016
+          - _id: 99000018
+          - _id: 99000028
+          - _id: 99000029
+          - _id: 99000031
+          - _id: 99000039
+          - _id: 99000040
+          - _id: 99000041
+          - _id: 99000043
+          - _id: 99000047
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0001
+        _values:
+        - English
+        - 191
+    - Type: 2
+      Title: 679
+      Creators:
+      - Fetty Wap
+      - Remy Boyz
+      PublicationDate:
+        _dateTimeString: 04/08/2015
+      Price: 0
+      Quantity: 40
+      Description: Hip-hop single known for its melodic hooks and catchy rhythms.
+      Genres:
+      - HipHop
+      - Blues
+      SoldAmount: 339
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000009
+          - _id: 99000001
+          - _id: 99000023
+          - _id: 99000037
+          - _id: 99000014
+          - _id: 99000040
+          - _id: 99000006
+          - _id: 99000012
+          - _id: 99000026
+          - _id: 99000019
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
       Properties:
         _keys: 0203
         _values:
-        - Chosen
-        - 3:31
+        - Fetty Wap
+        - 3:41
+    - Type: 2
+      Title: Headlock
+      Creators:
+      - Imogen Heap
+      PublicationDate:
+        _dateTimeString: 01/01/2009
+      Price: 13.5
+      Quantity: 30
+      Description: Atmospheric electronic song with layered vocals and haunting melodies.
+      Genres:
+      - Rock
+      - Electronic
+      SoldAmount: 178
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000002
+          - _id: 99000014
+          - _id: 99000019
+          - _id: 99000036
+          - _id: 99000010
+          - _id: 99000026
+          - _id: 99000003
+          - _id: 99000008
+          - _id: 99000047
+          - _id: 99000050
+          - _id: 99000012
+          - _id: 99000033
+          - _id: 99000005
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0203
+        _values:
+        - Ellipse
+        - 4:00
+    - Type: 1
+      Title: Search For Complete
+      Creators:
+      - Stephen G Hardy
+      PublicationDate:
+        _dateTimeString: 04/06/2023
+      Price: 14.99
+      Quantity: 24
+      Description: A story woven with themes of love, gender, and identity, inspired
+        by the Greek myth of the Origin of Love.
+      Genres:
+      - Fiction
+      - Psychology
+      SoldAmount: 323
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000003
+          - _id: 99000005
+          - _id: 99000007
+          - _id: 99000011
+          - _id: 99000012
+          - _id: 99000013
+          - _id: 99000014
+          - _id: 99000016
+          - _id: 99000023
+          - _id: 99000026
+          - _id: 99000028
+          - _id: 99000029
+          - _id: 99000037
+          - _id: 99000041
+          - _id: 99000047
+          - _id: 99000051
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0001
+        _values:
+        - English
+        - 335
+    - Type: 3
+      Title: Better Man
+      Creators:
+      - Michael Gracey
+      PublicationDate:
+        _dateTimeString: 13/05/2025
+      Price: 19.95
+      Quantity: 100
+      Description: A musical biopic about Robbie Williams' rise, fall, and redemption,
+        told with flair and honesty.
+      Genres:
+      - Fantasy
+      - ScienceFiction
+      SoldAmount: 123
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000003
+          - _id: 99000004
+          - _id: 99000006
+          - _id: 99000013
+          - _id: 99000018
+          - _id: 99000020
+          - _id: 99000022
+          - _id: 99000024
+          - _id: 99000026
+          - _id: 99000031
+          - _id: 99000039
+          - _id: 99000046
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0403
+        _values:
+        - 20th Century Studios
+        - 2h 15m
+    - Type: 4
+      Title: Neon Reverie
+      Creators:
+      - The 1975
+      PublicationDate:
+        _dateTimeString: 28/11/2022
+      Price: 22.5
+      Quantity: 40
+      Description: Futuristic electro-pop journey through neon-lit cityscapes and
+        dream logic.
+      Genres:
+      - Electro-pop
+      - Chillwave
+      SoldAmount: 296
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000002
+          - _id: 99000010
+          - _id: 99000011
+          - _id: 99000014
+          - _id: 99000017
+          - _id: 99000021
+          - _id: 99000024
+          - _id: 99000026
+          - _id: 99000030
+          - _id: 99000032
+          - _id: 99000033
+          - _id: 99000042
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0203
+        _values:
+        - Neon Reverie
+        - 38 min
+    - Type: 1
+      Title: The 38 Impossible Loves Of Naoko Nishizawa
+      Creators:
+      - Monna McDiarmid
+      PublicationDate:
+        _dateTimeString: 17/05/2023
+      Price: 20.92
+      Quantity: 64
+      Description: "Two high school girls in Tokyo search for the owner of a lost
+        journal\u2014and, in the process, rediscover themselves."
+      Genres:
+      - "\tYoungAdult"
+      - Fiction
+      - Psychology
+      SoldAmount: 354
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000003
+          - _id: 99000005
+          - _id: 99000009
+          - _id: 99000011
+          - _id: 99000013
+          - _id: 99000014
+          - _id: 99000018
+          - _id: 99000020
+          - _id: 99000021
+          - _id: 99000023
+          - _id: 99000024
+          - _id: 99000026
+          - _id: 99000027
+          - _id: 99000028
+          - _id: 99000033
+          - _id: 99000050
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0001
+        _values:
+        - English
+        - 300
+    - Type: 2
+      Title: Suzume
+      Creators:
+      - RADWIMPS
+      - Toaka
+      PublicationDate:
+        _dateTimeString: 11/11/2022
+      Price: 17
+      Quantity: 50
+      Description: Emotional rock ballad from the anime movie Suzume no Tojimari,
+        featuring intricate instrumentation.
+      Genres:
+      - Soundtrack
+      - Instrumental
+      SoldAmount: 292
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000005
+          - _id: 99000017
+          - _id: 99000008
+          - _id: 99000035
+          - _id: 99000041
+          - _id: 99000003
+          - _id: 99000009
+          - _id: 99000024
+          - _id: 99000029
+          - _id: 99000018
+          - _id: 99000044
+          - _id: 99000013
+          - _id: 99000001
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0203
+        _values:
+        - Suzume no Tojimari OST
+        - 4:20
+    - Type: 2
+      Title: Jar Of Love
+      Creators:
+      - Wanting
+      PublicationDate:
+        _dateTimeString: 10/07/2012
+      Price: 14.5
+      Quantity: 45
+      Description: Soft pop ballad with Asian influences, expressing emotional depth
+        and longing.
+      Genres:
+      - Soul
+      - HipHop
+      SoldAmount: 356
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000007
+          - _id: 99000020
+          - _id: 99000013
+          - _id: 99000031
+          - _id: 99000039
+          - _id: 99000004
+          - _id: 99000046
+          - _id: 99000022
+          - _id: 99000026
+          - _id: 99000016
+          - _id: 99000002
+          - _id: 99000030
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0203
+        _values:
+        - Say The Words
+        - 3:45
+    - Type: 1
+      Title: Southland Academy for Supernatural Youth
+      Creators:
+      - Sandra Tentler
+      PublicationDate:
+        _dateTimeString: 13/03/2021
+      Price: 20.92
+      Quantity: 15
+      Description: "A group of supernatural teens at an academy investigates a mysterious
+        thief\u2014while learning to control their powers and solve the case."
+      Genres:
+      - Children
+      - Comedy
+      - Mystery
+      SoldAmount: 339
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000005
+          - _id: 99000007
+          - _id: 99000010
+          - _id: 99000013
+          - _id: 99000016
+          - _id: 99000017
+          - _id: 99000019
+          - _id: 99000024
+          - _id: 99000029
+          - _id: 99000032
+          - _id: 99000041
+          - _id: 99000043
+          - _id: 99000046
+          - _id: 99000050
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0001
+        _values:
+        - English
+        - 166
+    - Type: 2
+      Title: Est-ce que tu m'aimes
+      Creators:
+      - GIMS
+      PublicationDate:
+        _dateTimeString: 20/04/2015
+      Price: 12.99
+      Quantity: 40
+      Description: Romantic French rap/pop hit blending urban beats with heartfelt
+        lyrics.
+      Genres:
+      - Jazz
+      - Pop
+      SoldAmount: 234
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000012
+          - _id: 99000025
+          - _id: 99000006
+          - _id: 99000041
+          - _id: 99000030
+          - _id: 99000001
+          - _id: 99000044
+          - _id: 99000028
+          - _id: 99000018
+          - _id: 99000032
+          - _id: 99000023
+          - _id: 99000049
+          - _id: 99000040
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0203
+        _values:
+        - "Mon c\u0153ur avait raison"
+        - 3:56
+    - Type: 3
+      Title: Panda Bear in Africa
+      Creators:
+      - Richard Claus
+      - Karsten Kiilerich
+      PublicationDate:
+        _dateTimeString: 13/05/2025
+      Price: 12.95
+      Quantity: 100
+      Description: A panda journeys across Africa to save his kidnapped dragon friend.
+      Genres:
+      - Fantasy
+      - Adventure
+      - Family
+      SoldAmount: 178
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000002
+          - _id: 99000006
+          - _id: 99000009
+          - _id: 99000011
+          - _id: 99000012
+          - _id: 99000016
+          - _id: 99000019
+          - _id: 99000024
+          - _id: 99000027
+          - _id: 99000029
+          - _id: 99000036
+          - _id: 99000038
+          - _id: 99000044
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0403
+        _values:
+        - SC Films International
+        - 1h 29m
+    - Type: 3
+      Title: 'Mufasa: The Lion King'
+      Creators:
+      - Barry Jenkins
+      PublicationDate:
+        _dateTimeString: 25/03/2025
+      Price: 18.99
+      Quantity: 100
+      Description: Mufasa's origin story and rise to kinghood in the Pride Lands.
+      Genres:
+      - Musical
+      - ScienceFiction
+      - War
+      SoldAmount: 286
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000001
+          - _id: 99000003
+          - _id: 99000008
+          - _id: 99000013
+          - _id: 99000014
+          - _id: 99000017
+          - _id: 99000021
+          - _id: 99000026
+          - _id: 99000030
+          - _id: 99000038
+          - _id: 99000039
+          - _id: 99000044
+          - _id: 99000047
+          - _id: 99000048
+          - _id: 99000051
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0403
+        _values:
+        - Walt Disney Pictures
+        - 2h 0m
+    - Type: 1
+      Title: The Little Blue Door
+      Creators:
+      - Francesca Catlow
+      PublicationDate:
+        _dateTimeString: 28/06/2021
+      Price: 10.16
+      Quantity: 52
+      Description: Melodie returns to Corfu, Greece, where a long-buried secret from
+        the past may change her life forever.
+      Genres:
+      - Fiction
+      - Romance
+      - Travel
+      SoldAmount: 416
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000011
+          - _id: 99000014
+          - _id: 99000016
+          - _id: 99000025
+          - _id: 99000032
+          - _id: 99000034
+          - _id: 99000035
+          - _id: 99000040
+          - _id: 99000042
+          - _id: 99000044
+          - _id: 99000045
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0001
+        _values:
+        - English
+        - 231
+    - Type: 3
+      Title: Last Breath
+      Creators:
+      - Alex Parkinson
+      PublicationDate:
+        _dateTimeString: 13/05/2025
+      Price: 17.95
+      Quantity: 100
+      Description: True story of deep-sea divers racing to save a colleague trapped
+        on the ocean floor.
+      Genres:
+      - Horror
+      - Romance
+      - ScienceFiction
+      SoldAmount: 277
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000003
+          - _id: 99000006
+          - _id: 99000008
+          - _id: 99000014
+          - _id: 99000015
+          - _id: 99000016
+          - _id: 99000020
+          - _id: 99000021
+          - _id: 99000025
+          - _id: 99000030
+          - _id: 99000038
+          - _id: 99000039
+          - _id: 99000048
+          - _id: 99000049
+          - _id: 99000050
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0403
+        _values:
+        - BBC Studios
+        - 1h 33m
+    - Type: 4
+      Title: Timeless Symphony
+      Creators:
+      - Adele
+      PublicationDate:
+        _dateTimeString: 03/12/2021
+      Price: 25
+      Quantity: 60
+      Description: An orchestral electronic fusion that blends timeless strings with
+        modern synth arrangements.
+      Genres:
+      - Orchestral Electronica
+      SoldAmount: 335
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000011
+          - _id: 99000014
+          - _id: 99000016
+          - _id: 99000025
+          - _id: 99000032
+          - _id: 99000034
+          - _id: 99000035
+          - _id: 99000040
+          - _id: 99000042
+          - _id: 99000044
+          - _id: 99000045
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0203
+        _values:
+        - Timeless Symphony
+        - 46 min
+    - Type: 3
+      Title: Mickey 17
+      Creators:
+      - Bong Joon Ho
+      PublicationDate:
+        _dateTimeString: 13/05/2025
+      Price: 19.95
+      Quantity: 100
+      Description: "Mickey Barnes, a disposable employee in a dystopian future, must
+        sacrifice himself repeatedly \u2014 until he rebels."
+      Genres:
+      - Action
+      - Documentary
+      - Adventure
+      SoldAmount: 164
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000001
+          - _id: 99000005
+          - _id: 99000009
+          - _id: 99000012
+          - _id: 99000014
+          - _id: 99000018
+          - _id: 99000020
+          - _id: 99000025
+          - _id: 99000030
+          - _id: 99000032
+          - _id: 99000036
+          - _id: 99000041
+          - _id: 99000044
+          - _id: 99000048
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0403
+        _values:
+        - Warner Bros.
+        - 2h 17m
     - Type: 2
       Title: Sunflower
       Creators:
@@ -1243,21 +3326,2522 @@ MonoBehaviour:
       PublicationDate:
         _dateTimeString: 18/10/2018
       Price: 0
-      Quantity: 345
+      Quantity: 100
       Description: 'Catchy hip-hop/pop hit from Spider-Man: Into the Spider-Verse
         soundtrack.'
       Genres:
-      - HipHop
-      - Pop
-      Format: DeluxeEdition
-      HasStreamer: 1
-      SoldAmount: 23
+      - Rap
+      - Reggae
+      SoldAmount: 277
+      HasStreamer: 0
       Review:
         Feedbacks:
-          _keys: []
-          _values: []
+          _keys:
+          - _id: 99000019
+          - _id: 99000003
+          - _id: 99000032
+          - _id: 99000015
+          - _id: 99000007
+          - _id: 99000047
+          - _id: 99000026
+          - _id: 99000001
+          - _id: 99000028
+          - _id: 99000039
+          - _id: 99000004
+          - _id: 99000022
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
       Properties:
         _keys: 0203
         _values:
         - Hollywood's Bleeding
-        - 2:38
+        - 2:41
+    - Type: 3
+      Title: Better Dreaming
+      Creators:
+      - Lina Zhou
+      PublicationDate:
+        _dateTimeString: 02/11/2022
+      Price: 13.5
+      Quantity: 30
+      Description: "A surreal tale of lucid dreams and alternate timelines, where
+        the protagonist must decide what\u2019s real."
+      Genres:
+      - Action
+      SoldAmount: 234
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000002
+          - _id: 99000003
+          - _id: 99000010
+          - _id: 99000017
+          - _id: 99000020
+          - _id: 99000023
+          - _id: 99000025
+          - _id: 99000026
+          - _id: 99000036
+          - _id: 99000037
+          - _id: 99000038
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0403
+        _values:
+        - Cloud Nine Pictures
+        - 1h 39m
+    - Type: 2
+      Title: Luther
+      Creators:
+      - Kendrick Lamar
+      - SZA
+      PublicationDate:
+        _dateTimeString: 03/03/2017
+      Price: 16
+      Quantity: 20
+      Description: Smooth R&B collaboration with soulful vocals and insightful lyrics.
+      Genres:
+      - RnB
+      - Classical
+      SoldAmount: 164
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000018
+          - _id: 99000001
+          - _id: 99000049
+          - _id: 99000009
+          - _id: 99000023
+          - _id: 99000038
+          - _id: 99000036
+          - _id: 99000014
+          - _id: 99000012
+          - _id: 99000030
+          - _id: 99000050
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0203
+        _values:
+        - DAMN
+        - 2:20
+    - Type: 1
+      Title: Beyond The Moon
+      Creators:
+      - Catherine Taylor
+      PublicationDate:
+        _dateTimeString: 26/06/2019
+      Price: 15.5
+      Quantity: 50
+      Description: A time travel novel between World War I and the present, connecting
+        two people through a psychiatric hospital. It explores themes of war, psychology,
+        and art.
+      Genres:
+      - Fiction
+      - Historical
+      - Romance
+      - Psychology
+      SoldAmount: 178
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000003
+          - _id: 99000011
+          - _id: 99000016
+          - _id: 99000021
+          - _id: 99000022
+          - _id: 99000026
+          - _id: 99000030
+          - _id: 99000042
+          - _id: 99000043
+          - _id: 99000048
+          - _id: 99000049
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0001
+        _values:
+        - English
+        - 494
+    - Type: 2
+      Title: Stay the Night
+      Creators:
+      - Just Kiddin
+      - Camden Cox
+      PublicationDate:
+        _dateTimeString: 15/08/2014
+      Price: 12
+      Quantity: 80
+      Description: Uplifting dance/electronic track with smooth production and memorable
+        melodies.
+      Genres:
+      - Pop
+      - Latin
+      SoldAmount: 323
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000006
+          - _id: 99000039
+          - _id: 99000026
+          - _id: 99000010
+          - _id: 99000018
+          - _id: 99000007
+          - _id: 99000035
+          - _id: 99000003
+          - _id: 99000041
+          - _id: 99000024
+          - _id: 99000013
+          - _id: 99000030
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0203
+        _values:
+        - Stay The Night EP
+        - 3:30
+    - Type: 1
+      Title: Call of the Maze
+      Creators:
+      - Karl Smink
+      PublicationDate:
+        _dateTimeString: 27/01/2025
+      Price: 19.99
+      Quantity: 14
+      Description: The epic conclusion of the Epoch of Djundar trilogy, where the
+        protagonist battles a forgotten god and a conspiracy to destroy the world.
+      Genres:
+      - Fantasy
+      - Thriller
+      SoldAmount: 164
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000007
+          - _id: 99000008
+          - _id: 99000010
+          - _id: 99000013
+          - _id: 99000016
+          - _id: 99000017
+          - _id: 99000020
+          - _id: 99000027
+          - _id: 99000028
+          - _id: 99000033
+          - _id: 99000036
+          - _id: 99000042
+          - _id: 99000046
+          - _id: 99000050
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0001
+        _values:
+        - English
+        - 263
+    - Type: 4
+      Title: Celestial Waves
+      Creators:
+      - Tame Impala
+      PublicationDate:
+        _dateTimeString: 22/06/2023
+      Price: 25.75
+      Quantity: 30
+      Description: Atmospheric electronic melodies capturing the mystique of the
+        cosmos.
+      Genres:
+      - Ambient
+      - Space Electronica
+      SoldAmount: 522
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000001
+          - _id: 99000003
+          - _id: 99000004
+          - _id: 99000006
+          - _id: 99000010
+          - _id: 99000011
+          - _id: 99000012
+          - _id: 99000013
+          - _id: 99000016
+          - _id: 99000022
+          - _id: 99000023
+          - _id: 99000034
+          - _id: 99000044
+          - _id: 99000049
+          - _id: 99000050
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0203
+        _values:
+        - Celestial Waves
+        - 47 min
+    - Type: 1
+      Title: Beyond The Ocean Door
+      Creators:
+      - Amisha Sathi
+      PublicationDate:
+        _dateTimeString: 21/12/2024
+      Price: 5.02
+      Quantity: 8
+      Description: "A girl with telepathic abilities is trapped in a military organization
+        and discovers a mysterious door to the subconscious\u2014where secrets about
+        herself begin to unravel."
+      Genres:
+      - Fantasy
+      - ScienceFiction
+      - Adventure
+      SoldAmount: 356
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000012
+          - _id: 99000020
+          - _id: 99000023
+          - _id: 99000025
+          - _id: 99000026
+          - _id: 99000033
+          - _id: 99000036
+          - _id: 99000043
+          - _id: 99000045
+          - _id: 99000046
+          - _id: 99000051
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0001
+        _values:
+        - English
+        - 522
+    - Type: 4
+      Title: Midnight Mirage
+      Creators:
+      - Lana Del Rey
+      PublicationDate:
+        _dateTimeString: 10/03/2024
+      Price: 26
+      Quantity: 35
+      Description: Smooth downtempo beats and jazzy textures perfect for nighttime
+        reflection.
+      Genres:
+      - Downtempo
+      - Nu Jazz
+      SoldAmount: 494
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000004
+          - _id: 99000006
+          - _id: 99000007
+          - _id: 99000014
+          - _id: 99000016
+          - _id: 99000019
+          - _id: 99000020
+          - _id: 99000021
+          - _id: 99000023
+          - _id: 99000024
+          - _id: 99000027
+          - _id: 99000029
+          - _id: 99000030
+          - _id: 99000031
+          - _id: 99000033
+          - _id: 99000035
+          - _id: 99000039
+          - _id: 99000042
+          - _id: 99000043
+          - _id: 99000048
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0203
+        _values:
+        - Midnight Mirage
+        - 45 min
+    - Type: 3
+      Title: Gladiator II
+      Creators:
+      - Ridley Scott
+      PublicationDate:
+        _dateTimeString: 25/02/2025
+      Price: 14.96
+      Quantity: 100
+      Description: Lucius, son of Maximus, is forced to fight in the Colosseum and
+        rise as a new hero.
+      Genres:
+      - Mystery
+      SoldAmount: 277
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000004
+          - _id: 99000006
+          - _id: 99000007
+          - _id: 99000012
+          - _id: 99000016
+          - _id: 99000019
+          - _id: 99000022
+          - _id: 99000025
+          - _id: 99000029
+          - _id: 99000031
+          - _id: 99000032
+          - _id: 99000039
+          - _id: 99000043
+          - _id: 99000044
+          - _id: 99000047
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0403
+        _values:
+        - Universal Pictures
+        - 2h 27m
+    - Type: 1
+      Title: 'Annabel Pickering and the Sky Pirates: The Fantastical Contraption'
+      Creators:
+      - Bretigne Shaffer
+      PublicationDate:
+        _dateTimeString: 27/11/2019
+      Price: 14.99
+      Quantity: 18
+      Description: Thirteen-year-old Annabel joins sky pirates to rescue her parents
+        in a steampunk England adventure.
+      Genres:
+      - Fiction
+      - Adventure
+      - Children
+      SoldAmount: 123
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000006
+          - _id: 99000007
+          - _id: 99000013
+          - _id: 99000025
+          - _id: 99000026
+          - _id: 99000027
+          - _id: 99000029
+          - _id: 99000031
+          - _id: 99000033
+          - _id: 99000043
+          - _id: 99000045
+          - _id: 99000046
+          - _id: 99000049
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0001
+        _values:
+        - English
+        - 472
+    - Type: 1
+      Title: The Curse of Mene
+      Creators:
+      - Madeline Hickey
+      PublicationDate:
+        _dateTimeString: 29/05/2024
+      Price: 16.99
+      Quantity: 12
+      Description: Young Celeana enters a world cursed to turn men into wolves under
+        moonlight, uncovering clues to her mother's disappearance.
+      Genres:
+      - Fantasy
+      - Romance
+      - YoungAdult
+      SoldAmount: 400
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000002
+          - _id: 99000004
+          - _id: 99000005
+          - _id: 99000014
+          - _id: 99000015
+          - _id: 99000016
+          - _id: 99000017
+          - _id: 99000018
+          - _id: 99000020
+          - _id: 99000024
+          - _id: 99000028
+          - _id: 99000031
+          - _id: 99000034
+          - _id: 99000036
+          - _id: 99000042
+          - _id: 99000046
+          - _id: 99000049
+          - _id: 99000050
+          - _id: 99000051
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0001
+        _values:
+        - English
+        - 419
+    - Type: 4
+      Title: Velvet Horizon
+      Creators:
+      - The Weeknd
+      PublicationDate:
+        _dateTimeString: 14/02/2022
+      Price: 22
+      Quantity: 50
+      Description: Silky smooth jazz-fusion LP with velvety textures and warm analog
+        warmth.
+      Genres:
+      - Jazz Fusion
+      - Instrumental
+      SoldAmount: 325
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000003
+          - _id: 99000011
+          - _id: 99000012
+          - _id: 99000016
+          - _id: 99000018
+          - _id: 99000028
+          - _id: 99000029
+          - _id: 99000031
+          - _id: 99000039
+          - _id: 99000040
+          - _id: 99000041
+          - _id: 99000043
+          - _id: 99000047
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0203
+        _values:
+        - Velvet Horizon
+        - 44 min
+    - Type: 3
+      Title: Goodbye Small Head
+      Creators:
+      - Craig Mendoza
+      PublicationDate:
+        _dateTimeString: 18/03/2024
+      Price: 12.99
+      Quantity: 40
+      Description: "Dark comedy following a bizarre office where all workers wear
+        animal masks \u2014 until one rebels."
+      Genres:
+      - Family
+      - Thriller
+      - Drama
+      SoldAmount: 178
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000003
+          - _id: 99000011
+          - _id: 99000016
+          - _id: 99000021
+          - _id: 99000022
+          - _id: 99000026
+          - _id: 99000030
+          - _id: 99000042
+          - _id: 99000043
+          - _id: 99000048
+          - _id: 99000049
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0403
+        _values:
+        - Rebel Frame Films
+        - 1h 30m
+    - Type: 4
+      Title: Lost Frequencies
+      Creators:
+      - Arctic Monkeys
+      PublicationDate:
+        _dateTimeString: 30/10/2023
+      Price: 24.5
+      Quantity: 45
+      Description: "Melancholic melodies layered with deep bass and minimal beats
+        \u2014 a soundscape of lost memories."
+      Genres:
+      - Minimal
+      - Deep House
+      SoldAmount: 340
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000002
+          - _id: 99000003
+          - _id: 99000007
+          - _id: 99000009
+          - _id: 99000011
+          - _id: 99000017
+          - _id: 99000019
+          - _id: 99000020
+          - _id: 99000032
+          - _id: 99000044
+          - _id: 99000047
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0203
+        _values:
+        - Lost Frequencies
+        - 39 min
+    - Type: 2
+      Title: PS5
+      Creators:
+      - Salem Ilese
+      PublicationDate:
+        _dateTimeString: 01/03/2023
+      Price: 19.99
+      Quantity: 25
+      Description: Energetic pop song with catchy hooks, often associated with gaming
+        and youth culture.
+      Genres:
+      - Electronic
+      - Jazz
+      SoldAmount: 308
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000030
+          - _id: 99000014
+          - _id: 99000004
+          - _id: 99000007
+          - _id: 99000016
+          - _id: 99000002
+          - _id: 99000021
+          - _id: 99000050
+          - _id: 99000011
+          - _id: 99000008
+          - _id: 99000047
+          - _id: 99000031
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0203
+        _values:
+        - Fearless
+        - 3:00
+    - Type: 4
+      Title: Electric Dreams
+      Creators:
+      - Daft Punk
+      PublicationDate:
+        _dateTimeString: 05/07/2022
+      Price: 23.8
+      Quantity: 60
+      Description: A retro-futuristic synth album with vibrant pulses and digital
+        textures.
+      Genres:
+      - Synthwave
+      - Retrowave
+      SoldAmount: 263
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000001
+          - _id: 99000002
+          - _id: 99000005
+          - _id: 99000007
+          - _id: 99000009
+          - _id: 99000010
+          - _id: 99000018
+          - _id: 99000020
+          - _id: 99000023
+          - _id: 99000024
+          - _id: 99000025
+          - _id: 99000027
+          - _id: 99000033
+          - _id: 99000038
+          - _id: 99000039
+          - _id: 99000041
+          - _id: 99000042
+          - _id: 99000048
+          - _id: 99000050
+          - _id: 99000051
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0203
+        _values:
+        - Electric Dreams
+        - 43 min
+    - Type: 1
+      Title: Rieden And The Reece Final Flower
+      Creators:
+      - Matt Guzman
+      PublicationDate:
+        _dateTimeString: 15/07/2023
+      Price: 14.99
+      Quantity: 34
+      Description: "Young Ri uncovers alien beings and a plot to destroy the Earth\u2014but
+        can a snarky 13-year-old stop the apocalypse?"
+      Genres:
+      - ScienceFiction
+      - Adventure
+      - Children
+      SoldAmount: 308
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000006
+          - _id: 99000007
+          - _id: 99000012
+          - _id: 99000015
+          - _id: 99000017
+          - _id: 99000020
+          - _id: 99000023
+          - _id: 99000026
+          - _id: 99000028
+          - _id: 99000029
+          - _id: 99000035
+          - _id: 99000038
+          - _id: 99000041
+          - _id: 99000044
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0001
+        _values:
+        - English
+        - 269
+    - Type: 3
+      Title: My Dead Friend Zoe
+      Creators:
+      - Kyle Hausmann-Stokes
+      PublicationDate:
+        _dateTimeString: 13/05/2025
+      Price: 14.95
+      Quantity: 100
+      Description: A veteran haunted by her dead friend navigates grief, family conflict,
+        and healing.
+      Genres:
+      - Documentary
+      - Thriller
+      - Mystery
+      SoldAmount: 234
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000004
+          - _id: 99000007
+          - _id: 99000009
+          - _id: 99000010
+          - _id: 99000012
+          - _id: 99000019
+          - _id: 99000024
+          - _id: 99000028
+          - _id: 99000029
+          - _id: 99000031
+          - _id: 99000033
+          - _id: 99000035
+          - _id: 99000038
+          - _id: 99000047
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0403
+        _values:
+        - Thunder Road Films
+        - 1h 43m
+    - Type: 3
+      Title: 'Captain America: Brave New World'
+      Creators:
+      - Julius Onah
+      PublicationDate:
+        _dateTimeString: 13/05/2025
+      Price: 19.96
+      Quantity: 100
+      Description: As Sam Wilson becomes the new Captain America, he faces a global
+        conspiracy that could plunge the world into chaos.
+      Genres:
+      - Fantasy
+      SoldAmount: 286
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000002
+          - _id: 99000004
+          - _id: 99000006
+          - _id: 99000010
+          - _id: 99000013
+          - _id: 99000018
+          - _id: 99000023
+          - _id: 99000025
+          - _id: 99000030
+          - _id: 99000031
+          - _id: 99000033
+          - _id: 99000036
+          - _id: 99000038
+          - _id: 99000042
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0403
+        _values:
+        - Marvel Studios
+        - 1h 58m
+    - Type: 4
+      Title: Echoes of Tomorrow
+      Creators:
+      - Florence
+      - The Machine
+      PublicationDate:
+        _dateTimeString: 12/04/2023
+      Price: 24.99
+      Quantity: 50
+      Description: A hauntingly beautiful blend of ambient and synthwave evoking
+        hope in post-apocalyptic soundscapes.
+      Genres:
+      - Ambient
+      - Synthwave
+      SoldAmount: 472
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000010
+          - _id: 99000012
+          - _id: 99000013
+          - _id: 99000014
+          - _id: 99000016
+          - _id: 99000018
+          - _id: 99000019
+          - _id: 99000022
+          - _id: 99000024
+          - _id: 99000028
+          - _id: 99000032
+          - _id: 99000033
+          - _id: 99000036
+          - _id: 99000043
+          - _id: 99000044
+          - _id: 99000045
+          - _id: 99000047
+          - _id: 99000051
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0203
+        _values:
+        - Echoes of Tomorrow
+        - 42 min
+    - Type: 1
+      Title: Bibi Blundermuss
+      Creators:
+      - Andrew Durkin
+      PublicationDate:
+        _dateTimeString: 11/03/2022
+      Price: 12.99
+      Quantity: 30
+      Description: Bibi fears trees, but to rescue her parents, she must climb a
+        magical tree and enter a world haunted by spirits, white lions, and zombie
+        trees.
+      Genres:
+      - Fantasy
+      - Adventure
+      - Children
+      SoldAmount: 286
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000002
+          - _id: 99000007
+          - _id: 99000008
+          - _id: 99000010
+          - _id: 99000018
+          - _id: 99000027
+          - _id: 99000029
+          - _id: 99000031
+          - _id: 99000032
+          - _id: 99000037
+          - _id: 99000038
+          - _id: 99000041
+          - _id: 99000045
+          - _id: 99000048
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0001
+        _values:
+        - English
+        - 238
+    - Type: 4
+      Title: Golden Hour Redux
+      Creators:
+      - Kacey Musgraves
+      PublicationDate:
+        _dateTimeString: 17/09/2021
+      Price: 21.99
+      Quantity: 55
+      Description: A remastered blend of lo-fi hip-hop and summer soul, wrapped in
+        golden nostalgia.
+      Genres:
+      - Lo-fi
+      - Soul
+      - Chillhop
+      SoldAmount: 238
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000001
+          - _id: 99000004
+          - _id: 99000005
+          - _id: 99000008
+          - _id: 99000010
+          - _id: 99000012
+          - _id: 99000013
+          - _id: 99000014
+          - _id: 99000020
+          - _id: 99000021
+          - _id: 99000030
+          - _id: 99000031
+          - _id: 99000032
+          - _id: 99000033
+          - _id: 99000034
+          - _id: 99000035
+          - _id: 99000037
+          - _id: 99000043
+          - _id: 99000044
+          - _id: 99000048
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0203
+        _values:
+        - Golden Hour Redux
+        - 41 min
+    - Type: 2
+      Title: Beggin'
+      Creators:
+      - "M\xE5neskin"
+      PublicationDate:
+        _dateTimeString: 15/10/2021
+      Price: 14.99
+      Quantity: 50
+      Description: "Energetic rock cover that brought M\xE5neskin global fame with
+        powerful vocals and gritty guitars."
+      Genres:
+      - Blues
+      - Reggae
+      SoldAmount: 123
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000015
+          - _id: 99000022
+          - _id: 99000038
+          - _id: 99000003
+          - _id: 99000007
+          - _id: 99000010
+          - _id: 99000046
+          - _id: 99000050
+          - _id: 99000027
+          - _id: 99000034
+          - _id: 99000017
+          - _id: 99000009
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0203
+        _values:
+        - Chosen
+        - 3:31
+    - Type: 4
+      Title: Parallel Universe
+      Creators:
+      - Billie Eilish
+      PublicationDate:
+        _dateTimeString: 25/01/2024
+      Price: 26.5
+      Quantity: 30
+      Description: Experimental concept album bridging worlds with layered sound
+        design and cosmic rhythm.
+      Genres:
+      - Experimental
+      - Electronic
+      SoldAmount: 269
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000002
+          - _id: 99000004
+          - _id: 99000005
+          - _id: 99000014
+          - _id: 99000015
+          - _id: 99000016
+          - _id: 99000017
+          - _id: 99000018
+          - _id: 99000020
+          - _id: 99000024
+          - _id: 99000028
+          - _id: 99000031
+          - _id: 99000034
+          - _id: 99000036
+          - _id: 99000042
+          - _id: 99000046
+          - _id: 99000049
+          - _id: 99000050
+          - _id: 99000051
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0203
+        _values:
+        - Parallel Universe
+        - 48 min
+    - Type: 1
+      Title: Hidden in Frosted Flames
+      Creators:
+      - Jaymie Voogt
+      PublicationDate:
+        _dateTimeString: 06/06/2024
+      Price: 17.99
+      Quantity: 60
+      Description: "A hidden Ice Princess is on the run in the Fire Kingdom, pursued
+        by assassins and darkness\u2014one mistake could bring down the entire realm."
+      Genres:
+      - Fantasy
+      - Romance
+      - Political
+      SoldAmount: 277
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000001
+          - _id: 99000002
+          - _id: 99000004
+          - _id: 99000010
+          - _id: 99000013
+          - _id: 99000017
+          - _id: 99000020
+          - _id: 99000023
+          - _id: 99000028
+          - _id: 99000031
+          - _id: 99000032
+          - _id: 99000035
+          - _id: 99000036
+          - _id: 99000049
+          - _id: 99000051
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0001
+        _values:
+        - English
+        - 340
+    - Type: 3
+      Title: Metalhorse
+      Creators:
+      - Akira Yamada
+      PublicationDate:
+        _dateTimeString: 05/09/2021
+      Price: 15.99
+      Quantity: 50
+      Description: A cyberpunk action movie featuring an AI-enhanced horse in a post-apocalyptic
+        Tokyo.
+      Genres:
+      - Fantasy
+      SoldAmount: 356
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000012
+          - _id: 99000020
+          - _id: 99000023
+          - _id: 99000025
+          - _id: 99000026
+          - _id: 99000033
+          - _id: 99000036
+          - _id: 99000043
+          - _id: 99000045
+          - _id: 99000046
+          - _id: 99000051
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0403
+        _values:
+        - NeoEdge Productions
+        - 1h 52m
+    - Type: 1
+      Title: Junior Year Bites
+      Creators:
+      - Annie Lisenby
+      PublicationDate:
+        _dateTimeString: 08/10/2024
+      Price: 15.99
+      Quantity: 25
+      Description: A teenage girl is turned into a vampire on the first day of school,
+        amidst a pandemic, love triangles, and social media chaos.
+      Genres:
+      - YoungAdult
+      - Horror
+      - Comedy
+      SoldAmount: 292
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000006
+          - _id: 99000007
+          - _id: 99000009
+          - _id: 99000014
+          - _id: 99000022
+          - _id: 99000027
+          - _id: 99000029
+          - _id: 99000036
+          - _id: 99000038
+          - _id: 99000040
+          - _id: 99000041
+          - _id: 99000046
+          - _id: 99000047
+          - _id: 99000049
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0001
+        _values:
+        - English
+        - 325
+    - Type: 2
+      Title: Love Story
+      Creators:
+      - Indila
+      PublicationDate:
+        _dateTimeString: 27/05/2014
+      Price: 15
+      Quantity: 60
+      Description: Melodic French pop song with rich orchestration and poetic lyrics.
+      Genres:
+      - Country
+      - Folk
+      SoldAmount: 286
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000021
+          - _id: 99000044
+          - _id: 99000017
+          - _id: 99000008
+          - _id: 99000005
+          - _id: 99000011
+          - _id: 99000029
+          - _id: 99000037
+          - _id: 99000025
+          - _id: 99000013
+          - _id: 99000045
+          - _id: 99000020
+          - _id: 99000003
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0203
+        _values:
+        - Mini World
+        - 3:55
+    - Type: 3
+      Title: Felt Better Alive
+      Creators:
+      - Jamie W. Fields
+      PublicationDate:
+        _dateTimeString: 15/06/2023
+      Price: 14.99
+      Quantity: 45
+      Description: A meditative drama about recovering from grief through unexpected
+        friendships and wilderness therapy.
+      Genres:
+      - Crime
+      - Mystery
+      - Comedy
+      SoldAmount: 123
+      HasStreamer: 0
+      Review:
+        Feedbacks:
+          _keys:
+          - _id: 99000006
+          - _id: 99000007
+          - _id: 99000013
+          - _id: 99000025
+          - _id: 99000026
+          - _id: 99000027
+          - _id: 99000029
+          - _id: 99000031
+          - _id: 99000033
+          - _id: 99000043
+          - _id: 99000045
+          - _id: 99000046
+          - _id: 99000049
+          _values:
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+          - FeedbackID:
+              _id: 
+            Like: 0
+      Properties:
+        _keys: 0403
+        _values:
+        - StonePath Studios
+        - 1h 48m
+  Images:
+    _keys:
+    - _id: 30000028
+    - _id: 30000003
+    - _id: 20000003
+    - _id: 10000007
+    - _id: 30000000
+    - _id: 10000013
+    - _id: 10000003
+    - _id: 10000006
+    - _id: 10000000
+    - _id: 30000021
+    - _id: 30000022
+    - _id: 40000000
+    - _id: 20000010
+    - _id: 20000001
+    - _id: 20000004
+    - _id: 40000009
+    - _id: 10000012
+    - _id: 40000006
+    - _id: 10000005
+    - _id: 10000004
+    - _id: 20000005
+    - _id: 20000002
+    - _id: 30000026
+    - _id: 40000002
+    - _id: 30000027
+    - _id: 30000024
+    - _id: 40000003
+    - _id: 40000004
+    - _id: 20000009
+    - _id: 20000000
+    - _id: 10000014
+    - _id: 40000001
+    - _id: 30000025
+    - _id: 10000002
+    - _id: 10000008
+    - _id: 10000010
+    - _id: 30000002
+    - _id: 10000011
+    - _id: 10000009
+    - _id: 30000020
+    - _id: 30000001
+    - _id: 10000015
+    - _id: 40000007
+    - _id: 20000008
+    - _id: 20000007
+    - _id: 40000005
+    - _id: 10000001
+    - _id: 30000029
+    - _id: 30000023
+    - _id: 20000006
+    - _id: 40000008
+    _values:
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
+    - {fileID: 0}
