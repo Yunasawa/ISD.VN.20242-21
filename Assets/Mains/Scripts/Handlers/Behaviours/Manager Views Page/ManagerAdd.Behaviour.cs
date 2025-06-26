@@ -5,10 +5,6 @@ namespace YNL.JAMOS
 {
     public partial class ManagerAdd : PageBehaviour
     {
-        public Action OnBackButtonClicked;
-
-        [SerializeField] private AudioSource _audioSource;
-
         private View _view;
         private Controller _controller;
 
@@ -16,11 +12,6 @@ namespace YNL.JAMOS
         {
             RegisterView(_view = ViewFactory.CreateView<View>(Root, this));
             RegisterController(_controller = ViewFactory.CreateController<Controller>(this));
-        }
-
-        protected override void Refresh()
-        {
-            _view.Refresh();
         }
     }
 }

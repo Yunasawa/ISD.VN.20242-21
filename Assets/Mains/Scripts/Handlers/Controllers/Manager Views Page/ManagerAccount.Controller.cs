@@ -11,13 +11,6 @@ namespace YNL.JAMOS
             public override void Initialize(PageBehaviour behaviour)
             {
                 _b = behaviour as InformationMain;
-
-                _b.OnBackButtonClicked += OnBackButtonClicked;
-            }
-
-            private void OnBackButtonClicked()
-            {
-                Marker.OnPageBacked?.Invoke(true, false);
             }
         }
     }
