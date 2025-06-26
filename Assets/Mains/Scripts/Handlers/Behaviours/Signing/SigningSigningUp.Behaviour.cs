@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace YNL.JAMOS
 {
-    public partial class SigningPreference : PageBehaviour
+    public partial class SigningSigningUp : PageBehaviour
     {
         public Action OnBackButtonClicked;
 
@@ -14,8 +14,8 @@ namespace YNL.JAMOS
 
         protected override void Construct()
         {
-            _view = ViewFactory.CreateView<View>(Root, this);
-            _controller = ViewFactory.CreateController<Controller>(this);
+            RegisterView(_view = ViewFactory.CreateView<View>(Root, this));
+            RegisterController(_controller = ViewFactory.CreateController<Controller>(this));
         }
 
         protected override void Refresh()
