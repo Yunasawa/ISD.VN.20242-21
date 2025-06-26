@@ -589,7 +589,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 307309651}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8889c9efde13c1349abd4cf088e230f4, type: 3}
+  m_Script: {fileID: 11500000, guid: 025b96e772678ba48a4d9b4728062323, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _hideOnAwake: 0
@@ -1896,7 +1896,7 @@ MonoBehaviour:
     _values:
     - {fileID: 1401361675}
     - {fileID: 307309654}
-    - {fileID: 1447683400}
+    - {fileID: 1447683402}
     - {fileID: 2020904540}
     - {fileID: 1752260120}
     - {fileID: 1407744821}
@@ -2214,7 +2214,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1447683399}
   - component: {fileID: 1447683401}
-  - component: {fileID: 1447683400}
+  - component: {fileID: 1447683402}
   m_Layer: 0
   m_Name: Preference Page
   m_TagString: Untagged
@@ -2237,20 +2237,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 731950900}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1447683400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1447683398}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8b656282b6d43a4c8eaddc4d72dc6bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _hideOnAwake: 1
-  _isPopupPage: 0
 --- !u!114 &1447683401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2270,6 +2256,20 @@ MonoBehaviour:
   m_WorldSpaceSizeMode: 1
   m_WorldSpaceWidth: 1920
   m_WorldSpaceHeight: 1080
+--- !u!114 &1447683402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1447683398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36457e4a046acf64994a6cadf5a52f9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hideOnAwake: 1
+  _isPopupPage: 0
 --- !u!1 &1601766982
 GameObject:
   m_ObjectHideFlags: 0

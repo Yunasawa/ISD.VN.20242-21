@@ -1,13 +1,14 @@
 using System;
-using UnityEngine;
 
 namespace YNL.JAMOS
 {
     public partial class SigningSigningIn : PageBehaviour
     {
-        public Action OnBackButtonClicked;
-
-        [SerializeField] private AudioSource _audioSource;
+        public Action<string> OnAccountFieldFilled;
+        public Action<string> OnPasswordFieldFilled;
+        public Action OnSignInRequested;
+        public Action OnAccountMessageNotified;
+        public Action OnPasswordMessageNotified;
 
         private View _view;
         private Controller _controller;
@@ -16,11 +17,6 @@ namespace YNL.JAMOS
         {
             RegisterView(_view = ViewFactory.CreateView<View>(Root, this));
             RegisterController(_controller = ViewFactory.CreateController<Controller>(this));
-        }
-
-        protected override void Refresh()
-        {
-            _view.Refresh();
         }
     }
 }
