@@ -11,7 +11,7 @@ namespace YNL.JAMOS
     public class SearchViewResultPageUI : PageBehaviour
     {
         [SerializeField] private SearchViewSortPageUI _sortPage;
-        [SerializeField] private SearchViewFilterPageUI _filterPage;
+        [SerializeField] private SearchFilter _filterPage;
 
         private SerializableDictionary<UID, Product.Data> _products => Main.Database.Products;
 
