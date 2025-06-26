@@ -18,7 +18,6 @@ namespace YNL.JAMOS
         private Label _searchText;
         private VisualElement _typeIcon;
         private ListView _resultList;
-        private Label _emptyText;
 
         private string _searchingInput;
         private Product.Type _searchingProductType;
@@ -62,8 +61,6 @@ namespace YNL.JAMOS
 
             var resultScroll = resultPage.Q("ResultScroll");
             resultPage.Remove(resultScroll);
-
-            _emptyText = resultPage.Q("EmptyText") as Label;
 
             _resultList = resultPage.Q("ResultList") as ListView;
             _resultList.Q("unity-content-container").SetFlexGrow(1);
