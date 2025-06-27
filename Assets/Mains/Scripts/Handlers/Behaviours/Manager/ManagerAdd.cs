@@ -1,10 +1,14 @@
 using System;
-using UnityEngine;
 
 namespace YNL.JAMOS
 {
-    public partial class ManagerRevuene : PageBehaviour
+    public partial class ManagerAdd : PageBehaviour
     {
+        public Action<string, string> OnPropertyValueChanged;
+        public Action<bool, ushort> OnGenreValueChanged;
+        public Action OnAddButtonClicked;
+        public Action<ProductWrapper> OnDataFieldReseted;
+
         private View _view;
         private Controller _controller;
 

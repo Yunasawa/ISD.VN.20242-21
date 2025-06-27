@@ -1,9 +1,6 @@
-using System;
-using UnityEngine;
-
 namespace YNL.JAMOS
 {
-    public partial class ManagerAdd : PageBehaviour
+    public partial class ManagerRevuene : PageBehaviour
     {
         private View _view;
         private Controller _controller;

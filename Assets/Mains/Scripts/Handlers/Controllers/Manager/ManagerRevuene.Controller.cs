@@ -2,15 +2,15 @@ using UnityEngine.UIElements;
 
 namespace YNL.JAMOS
 {
-    public partial class ManagerRevenue
+    public partial class ManagerRevuene
     {
         private class Controller : PageController
         {
-            private ManagerRevenue _b;
+            private ManagerRevuene _b;
 
             public override void Initialize(PageBehaviour behaviour)
             {
-                _b = behaviour as ManagerRevenue;
+                _b = behaviour as ManagerRevuene;
             }
         }
     }
