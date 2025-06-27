@@ -5,6 +5,8 @@ namespace YNL.JAMOS
 {
     public partial class ManagerMessage : PageBehaviour
     {
+        public Action<UID[]> OnChatListDisplayed;
+
         private View _view;
         private Controller _controller;
 
