@@ -1,5 +1,3 @@
-using UnityEngine.UIElements;
-
 namespace YNL.JAMOS
 {
     public partial class ManagerInformation

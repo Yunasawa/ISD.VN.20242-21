@@ -1,6 +1,3 @@
-using System;
-using UnityEngine;
-
 namespace YNL.JAMOS
 {
     public partial class ManagerInformation : PageBehaviour
