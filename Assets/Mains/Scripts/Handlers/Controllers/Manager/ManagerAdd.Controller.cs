@@ -6,34 +6,34 @@ using YNL.Utilities.Addons;
 
 namespace YNL.JAMOS
 {
+    public class ProductWrapper
+    {
+        public string ProductName;
+        public string ProductCreators;
+        public Product.Type ProductType;
+        public ushort ProductGenres;
+        public string ProductDescription;
+        public float ProductPrice;
+        public int ProductStock;
+        public string PublicationDate;
+        public Dictionary<Product.Property, string> PropertyInputs = new();
+
+        public void Reset()
+        {
+            ProductName = string.Empty;
+            ProductCreators = string.Empty;
+            ProductType = default;
+            ProductGenres = 0;
+            ProductDescription = string.Empty;
+            ProductPrice = 0f;
+            ProductStock = 0;
+            PublicationDate = string.Empty;
+            PropertyInputs.Clear();
+        }
+    }
+
     public partial class ManagerAdd
     {
-        public class ProductWrapper
-        {
-            public string ProductName;
-            public string ProductCreators;
-            public Product.Type ProductType;
-            public ushort ProductGenres;
-            public string ProductDescription;
-            public float ProductPrice;
-            public int ProductStock;
-            public string PublicationDate;
-            public Dictionary<Product.Property, string> PropertyInputs = new();
-
-            public void Reset()
-            {
-                ProductName = string.Empty;
-                ProductCreators = string.Empty;
-                ProductType = default;
-                ProductGenres = 0;
-                ProductDescription = string.Empty;
-                ProductPrice = 0f;
-                ProductStock = 0;
-                PublicationDate = string.Empty;
-                PropertyInputs.Clear();
-            }
-        }
-
         private class Controller : PageController
         {
             private SerializableDictionary<UID, Product.Data> _products => Main.Database.Products;

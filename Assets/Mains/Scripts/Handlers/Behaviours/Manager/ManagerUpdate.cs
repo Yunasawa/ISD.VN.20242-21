@@ -3,8 +3,13 @@ using UnityEngine;
 
 namespace YNL.JAMOS
 {
-    public partial class ManagerProduct : PageBehaviour
+    public partial class ManagerUpdate : PageBehaviour
     {
+        public Action<string, string> OnPropertyValueChanged;
+        public Action<bool, ushort> OnGenreValueChanged;
+        public Action<ProductWrapper> OnDataFieldReseted;
+        public Action OnProductUpdateApplied;
+
         private View _view;
         private Controller _controller;
 

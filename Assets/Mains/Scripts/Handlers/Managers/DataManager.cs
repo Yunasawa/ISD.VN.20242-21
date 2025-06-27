@@ -15,7 +15,7 @@ namespace YNL.JAMOS
         public static string ProductImageURL = string.Empty;
         public static string ProductStreamURL = string.Empty;
 
-        public bool EnableInitializeDatabase = true;
+        public bool EnableLoadingImageDatabase = false;
 
         private DatabaseContainerSO _database => Main.Database;
 
@@ -51,13 +51,10 @@ namespace YNL.JAMOS
 
         private async UniTaskVoid InitializeDatabases()
         {
-            if (EnableInitializeDatabase)
-            {
-                await InitializeConfigDatabase();
-                await InitializeProductDatabase();
-                //await InitializeImageDatabase();
-                await InitializeFeedbackDatabase();
-            }
+            await InitializeConfigDatabase();
+            await InitializeProductDatabase();
+            if (EnableLoadingImageDatabase) await InitializeImageDatabase();
+            await InitializeFeedbackDatabase();
 
             Marker.OnDatabaseSerializationDone?.Invoke();
             Main.IsSystemStarted = true;

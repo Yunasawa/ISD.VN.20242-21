@@ -1,10 +1,11 @@
 using System;
-using UnityEngine;
 
 namespace YNL.JAMOS
 {
-    public partial class ManagerUpdate : PageBehaviour
+    public partial class ManagerProduct : PageBehaviour
     {
+        public Action<UID[]> OnProductListDisplayed;
+
         private View _view;
         private Controller _controller;
 

@@ -158,14 +158,39 @@ namespace YNL.JAMOS
                 _ => null
             };
         }
-    
+
+        public static ushort ToGenreBitmask(this Product.Type type, string[] genres)
+        {
+            var enumType = type.GetGenreType();
+            if (enumType == null || !enumType.IsEnum)
+                throw new ArgumentException("Invalid genre type.");
+
+            ushort result = 0;
+
+            foreach (var name in genres)
+            {
+                var trimmed = name.Trim();
+                if (Enum.TryParse(enumType, trimmed, ignoreCase: true, out object value))
+                {
+                    result |= (ushort)(Convert.ToUInt16(value));
+                }
+                else
+                {
+                    throw new ArgumentException($"'{trimmed}' is not a valid {enumType.Name} value.");
+                }
+            }
+
+            return result;
+        }
+
         public static PP[] GetProductProperties(this Product.Type type)
         {
             return type switch
             {
                 Product.Type.Book => new PP[] { PP.Language, PP.NumberOfPage },
                 Product.Type.CD => new PP[] { PP.Album, PP.Duration },
-                Product.Type.DVD => new PP[] { PP.Studio },
+                Product.Type.DVD => new PP[] { PP.Studio, PP.Duration },
+                Product.Type.LP => new PP[] { PP.Album, PP.Duration },
                 _ => new PP[0]
             };
         }
