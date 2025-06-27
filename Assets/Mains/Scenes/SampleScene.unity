@@ -1322,8 +1322,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd5fa08fbff117d4a81fa78cb2c6d51d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hideOnAwake: 1
-  _isPopupPage: 0
 --- !u!1 &731950899
 GameObject:
   m_ObjectHideFlags: 0
@@ -1687,8 +1685,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55fd5e1749dc74b45b6d3cd8fb169e33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hideOnAwake: 1
-  _isPopupPage: 0
 --- !u!1 &1223387420
 GameObject:
   m_ObjectHideFlags: 0
@@ -1908,10 +1904,10 @@ MonoBehaviour:
     - {fileID: 1309971820}
     - {fileID: 650752399}
     - {fileID: 454302764}
-    - {fileID: 0}
+    - {fileID: 1091560640}
     - {fileID: 572225195}
-    - {fileID: 1176032100}
-    - {fileID: 725629494}
+    - {fileID: 0}
+    - {fileID: 0}
     - {fileID: 1077316494}
     - {fileID: 387444850}
     - {fileID: 115758820}

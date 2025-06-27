@@ -82,9 +82,9 @@ namespace YNL.JAMOS
                 float totalDelivery = rawDelivery * (1 - deliveryDiscount / 100f);
                 float savedDelivery = rawDelivery - totalDelivery;
 
-                var totalPayment = totalPrice + totalDelivery;
+                _totalPrice = totalPrice + totalDelivery;
 
-                _b.OnPaymentPageRefreshed?.Invoke(_selectedDeliveryType, charge, totalPrice, rawDelivery, savedDelivery, totalPayment);
+                _b.OnPaymentPageRefreshed?.Invoke(_selectedDeliveryType, charge, totalPrice, rawDelivery, savedDelivery, _totalPrice);
             }
 
             private void OnOrderPaymentRequested()
