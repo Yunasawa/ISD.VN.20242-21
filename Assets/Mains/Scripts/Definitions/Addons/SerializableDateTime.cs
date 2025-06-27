@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using System;
 using System.Globalization;
 using UnityEngine;
@@ -7,22 +8,23 @@ namespace YNL.JAMOS
     [Serializable]
     public class SerializableDateTime : IComparable<SerializableDateTime>
     {
-        public string Value => _dateTimeString;
-        public DateTime DateTime
+        public string Value;
+
+        [JsonIgnore] public DateTime DateTime
         {
-            get => DateTime.ParseExact(_dateTimeString, "dd/MM/yyyy", CultureInfo.InvariantCulture);
-            set => _dateTimeString = value.ToString("dd/MM/yyyy");
+            get => DateTime.ParseExact(Value, "dd/MM/yyyy", CultureInfo.InvariantCulture);
+            set => Value = value.ToString("dd/MM/yyyy");
         }
 
-        [SerializeField] private string _dateTimeString;
-
+        public SerializableDateTime() { }
         public SerializableDateTime(DateTime dateTime)
         {
             DateTime = dateTime;
         }
+        [JsonConstructor]
         public SerializableDateTime(string dateTime)
         {
-            _dateTimeString = dateTime;
+            Value = dateTime;
         }
 
         public override string ToString() => DateTime.ToString();

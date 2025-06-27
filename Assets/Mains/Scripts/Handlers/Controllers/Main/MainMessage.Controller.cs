@@ -49,6 +49,8 @@ namespace YNL.JAMOS
 
                 UpdateMessageList();
 
+                Marker.OnRuntimeSavingRequested?.Invoke();
+
                 _b.OnMessageListRefreshed?.Invoke(_messages);
             }
 
