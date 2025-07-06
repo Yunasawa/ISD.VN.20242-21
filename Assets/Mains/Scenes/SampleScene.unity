@@ -1926,7 +1926,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96521ec00377a7b45895757b66268b3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnableLoadingImageDatabase: 0
+  EnableLoadingImageDatabase: 1
   _productDatabaseURLs:
     _keys: 01020304
     _values:
