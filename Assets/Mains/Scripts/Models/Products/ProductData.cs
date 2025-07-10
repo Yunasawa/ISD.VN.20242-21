@@ -31,6 +31,7 @@ namespace YNL.JAMOS
             public ushort SoldAmount = 0;
             public bool HasStreamer = false;
             public ProductReview Review = new();
+
             public SerializableDictionary<Property, string> Properties = new();
 
             public bool IsFree => Price == 0;

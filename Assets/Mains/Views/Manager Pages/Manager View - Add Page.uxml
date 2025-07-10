@@ -129,7 +129,7 @@
         </engine:VisualElement>
         <engine:VisualElement name="PropertyField" style="padding-left: 50px; padding-right: 50px; background-color: rgb(44, 44, 44); padding-top: 50px; padding-bottom: 50px; margin-bottom: 25px;">
             <engine:VisualElement name="PriceField">
-                <engine:Label text="Price &lt;color=#FF5A5A&gt;*&lt;/color&gt;" name="Label" class="label-field" style="font-size: 45px; -unity-text-align: lower-left; margin-bottom: 10px; height: 50px; -unity-font-style: bold;" />
+                <engine:Label text="Language &lt;color=#FF5A5A&gt;*&lt;/color&gt;" name="Label" class="label-field" style="font-size: 45px; -unity-text-align: lower-left; margin-bottom: 10px; height: 50px; -unity-font-style: bold;" />
                 <engine:TextField placeholder-text="..." name="Input" class="chat-field" style="margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; border-left-color: rgb(96, 96, 96); border-right-color: rgb(96, 96, 96); border-top-color: rgb(96, 96, 96); border-bottom-color: rgb(96, 96, 96); border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; border-top-left-radius: 15px; border-top-right-radius: 15px; border-bottom-right-radius: 15px; border-bottom-left-radius: 15px; background-color: rgb(48, 48, 48);" />
             </engine:VisualElement>
             <engine:VisualElement name="StockField" style="margin-top: 75px;">

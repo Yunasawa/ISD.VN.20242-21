@@ -98,6 +98,7 @@ namespace YNL.JAMOS
                 Marker.OnRuntimeSavingRequested?.Invoke();
 
                 var vndPrice = _totalPrice.ToVND();
+
                 if (_selectedMethod == PaymentMethod.VNPay)
                 {
                     Marker.OnVNPayPaymentRequested?.Invoke(code, vndPrice);
